@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cieg7xrtp23ne"
-path="res://.godot/imported/empty side n back idl.png-4d26346605d5548bde18ebb484974e70.ctex"
+uid="uid://cy1je068l6gii"
+path="res://.godot/imported/land!.png-dc3491c0b4ace3356161a3e9a2a49bf8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/empty side n back idl.png"
-dest_files=["res://.godot/imported/empty side n back idl.png-4d26346605d5548bde18ebb484974e70.ctex"]
+source_file="res://assets/land!.png"
+dest_files=["res://.godot/imported/land!.png-dc3491c0b4ace3356161a3e9a2a49bf8.ctex"]
 
 [params]
 

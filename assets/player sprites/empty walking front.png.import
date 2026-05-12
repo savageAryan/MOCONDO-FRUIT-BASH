@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xj5g4nmj0exu"
-path="res://.godot/imported/empty idl.png-350a52d285f54a7969ffabbb80d1c654.ctex"
+uid="uid://bgeduts41kf5y"
+path="res://.godot/imported/empty walking front.png-0e96d4f9cddc6b3f8a8edb68e145697d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/empty idl.png"
-dest_files=["res://.godot/imported/empty idl.png-350a52d285f54a7969ffabbb80d1c654.ctex"]
+source_file="res://assets/player sprites/empty walking front.png"
+dest_files=["res://.godot/imported/empty walking front.png-0e96d4f9cddc6b3f8a8edb68e145697d.ctex"]
 
 [params]
 

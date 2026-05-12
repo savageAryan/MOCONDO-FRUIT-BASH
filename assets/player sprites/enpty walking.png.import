@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1ye02im0fcbr"
-path="res://.godot/imported/idel.png-f8573c3795cc81287e905085043e949a.ctex"
+uid="uid://b633a5ldv56yl"
+path="res://.godot/imported/enpty walking.png-a52c9e75be3f96aa50e6473a661d7218.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/idel.png"
-dest_files=["res://.godot/imported/idel.png-f8573c3795cc81287e905085043e949a.ctex"]
+source_file="res://assets/player sprites/enpty walking.png"
+dest_files=["res://.godot/imported/enpty walking.png-a52c9e75be3f96aa50e6473a661d7218.ctex"]
 
 [params]
 
