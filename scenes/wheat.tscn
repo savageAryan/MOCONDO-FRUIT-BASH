@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://d13jxal853d8w"]
+
+[ext_resource type="Texture2D" uid="uid://6qc0mm2o75cl" path="res://assets/mangoo.png" id="1_n1xnp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40b45"]
+atlas = ExtResource("1_n1xnp")
+region = Rect2(64, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pk37k"]
+atlas = ExtResource("1_n1xnp")
+region = Rect2(208, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68t0m"]
+atlas = ExtResource("1_n1xnp")
+region = Rect2(352, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3n0ht"]
+atlas = ExtResource("1_n1xnp")
+region = Rect2(496, 64, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r503x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40b45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pk37k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68t0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3n0ht")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="wheat" type="Node2D" unique_id=1137000497]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1041893599]
+sprite_frames = SubResource("SpriteFrames_r503x")
+autoplay = "default"
+frame_progress = 0.35788593

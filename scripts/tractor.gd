@@ -2,6 +2,7 @@ extends CharacterBody2D
 var current_dir = "none"
 
 var speed = 200
+const WHEAT = preload("uid://d13jxal853d8w")
 
 @onready var wheatlandtile: TileMapLayer = $"../wheatlandtile"
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -61,7 +62,7 @@ func cut_wheat():
 	var local_pos = tilemap.to_local($wheatcutter.global_position)
 	var cell = tilemap.local_to_map(local_pos)
 	var atlas = tilemap.get_cell_atlas_coords(cell)
-	
+	var wheat_copy = WHEAT.instantiate()
 	
 	if atlas == Vector2i(-1, -1):
 		
@@ -69,6 +70,9 @@ func cut_wheat():
 		
 	if atlas == Vector2i(1, 0):
 		tilemap.set_cell(cell,0,Vector2i(0,0))
+		wheat_copy.global_position = tilemap.to_global(tilemap.map_to_local(cell))
+		get_tree().current_scene.add_child(wheat_copy)
+		remove_wheat_copy(wheat_copy)
 		
 		regrow(tilemap, cell)
 
@@ -77,4 +81,8 @@ func regrow(tilemap, cell):
 	
 	await get_tree().create_timer(15.0).timeout
 	tilemap.set_cell(cell,0,Vector2i(1, 0))
+	
+func remove_wheat_copy(wheat_copy):
+	await get_tree().create_timer(7).timeout
+	wheat_copy.queue_free()
 		
