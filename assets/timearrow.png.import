@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7gth6no777me"
-path="res://.godot/imported/Ext_10a_DEMO.png-ec67267f6b2f4a68b62169e398bf709e.ctex"
+uid="uid://dqk0g2diw3ep3"
+path="res://.godot/imported/timearrow.png-9558c73c83396e5f489ef8ff1a33da2e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Ext_10a_DEMO.png"
-dest_files=["res://.godot/imported/Ext_10a_DEMO.png-ec67267f6b2f4a68b62169e398bf709e.ctex"]
+source_file="res://assets/timearrow.png"
+dest_files=["res://.godot/imported/timearrow.png-9558c73c83396e5f489ef8ff1a33da2e.ctex"]
 
 [params]
 

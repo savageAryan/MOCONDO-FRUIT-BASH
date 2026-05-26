@@ -5,6 +5,7 @@ const speed = 50
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
+	
 	if fruits <= 0 :
 		animated_sprite_2d.play("empty idel")
 	elif fruits > 0 :
@@ -12,6 +13,7 @@ func _ready() -> void:
 		
 func _physics_process(delta: float) -> void:
 	player_movement(delta)
+	
 	
 func player_movement(delta):
 	if Input.is_action_pressed("right"):

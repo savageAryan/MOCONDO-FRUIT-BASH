@@ -6,9 +6,11 @@ const WHEAT = preload("uid://d13jxal853d8w")
 
 @onready var wheatlandtile: TileMapLayer = $"../wheatlandtile"
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var label: Label = $Panel/Label
 
 
 func _physics_process(delta: float) -> void:
+	label.text = str(GameManager.wheat)
 	player_movement(delta)
 	cut_wheat()
 	
@@ -70,19 +72,26 @@ func cut_wheat():
 		
 	if atlas == Vector2i(1, 0):
 		tilemap.set_cell(cell,0,Vector2i(0,0))
+		
+		
 		wheat_copy.global_position = tilemap.to_global(tilemap.map_to_local(cell))
 		get_tree().current_scene.add_child(wheat_copy)
-		remove_wheat_copy(wheat_copy)
+		
+		
 		
 		regrow(tilemap, cell)
 
 	
 func regrow(tilemap, cell):
 	
-	await get_tree().create_timer(15.0).timeout
+	await get_tree().create_timer(400.0).timeout
 	tilemap.set_cell(cell,0,Vector2i(1, 0))
 	
-func remove_wheat_copy(wheat_copy):
-	await get_tree().create_timer(7).timeout
-	wheat_copy.queue_free()
+
 		
+@onready var button: Button = $Button
+
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/world.tscn")

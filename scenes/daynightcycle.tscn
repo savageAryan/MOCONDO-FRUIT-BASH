@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bpf0o2wx87as8"]
+
+[ext_resource type="Script" uid="uid://cugns5v8ayndd" path="res://scripts/daynightcycle.gd" id="1_pg3kg"]
+
+[node name="daynightcycle" type="Node2D" unique_id=1976885107]
+script = ExtResource("1_pg3kg")

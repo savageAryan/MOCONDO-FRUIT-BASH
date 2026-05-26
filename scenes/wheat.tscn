@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d13jxal853d8w"]
 
 [ext_resource type="Texture2D" uid="uid://6qc0mm2o75cl" path="res://assets/mangoo.png" id="1_n1xnp"]
+[ext_resource type="Script" uid="uid://cdta13x512hfp" path="res://scripts/wheat.gd" id="1_w6dv5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_40b45"]
 atlas = ExtResource("1_n1xnp")
@@ -38,9 +39,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="wheat" type="Node2D" unique_id=1137000497]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ofiw5"]
+radius = 15.264338
+
+[node name="wheat" type="Area2D" unique_id=1407513286]
+script = ExtResource("1_w6dv5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1041893599]
 sprite_frames = SubResource("SpriteFrames_r503x")
 autoplay = "default"
 frame_progress = 0.35788593
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=254059301]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_ofiw5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

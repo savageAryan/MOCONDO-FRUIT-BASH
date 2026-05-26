@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cpqe6l2eju13f"]
+
+[ext_resource type="Texture2D" uid="uid://6qc0mm2o75cl" path="res://assets/mangoo.png" id="1_2crdt"]
+[ext_resource type="Script" uid="uid://c06irxls7haw" path="res://scripts/mango.gd" id="1_nfkr3"]
+[ext_resource type="Animation" uid="uid://cd7n0k31onumw" path="res://fall.res" id="2_wxwvw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxwvw"]
+atlas = ExtResource("1_2crdt")
+region = Rect2(0, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfkr3"]
+atlas = ExtResource("1_2crdt")
+region = Rect2(144, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhv1w"]
+atlas = ExtResource("1_2crdt")
+region = Rect2(288, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsfbj"]
+atlas = ExtResource("1_2crdt")
+region = Rect2(432, 64, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ygr7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxwvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfkr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhv1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsfbj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iahl5"]
+radius = 13.509255
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nfkr3"]
+_data = {
+&"fall": ExtResource("2_wxwvw")
+}
+
+[node name="Mango" type="Area2D" unique_id=1627180523]
+z_index = 3
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_nfkr3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1277719176]
+position = Vector2(0, -170.085)
+scale = Vector2(2.2187502, 1.9375)
+sprite_frames = SubResource("SpriteFrames_2ygr7")
+autoplay = "default"
+frame_progress = 0.09298601
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1700254455]
+position = Vector2(-1, 2)
+shape = SubResource("CircleShape2D_iahl5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=722135043]
+libraries/anim = SubResource("AnimationLibrary_nfkr3")
+autoplay = &"anim/fall"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -180,18 +180,14 @@ _data = {
 }
 
 [sub_resource type="Gradient" id="Gradient_jhx03"]
-offsets = PackedFloat32Array(0, 0.29128444, 0.42889908, 0.5022936, 0.5940367, 0.6766055)
-colors = PackedColorArray(0.21131712, 0.20614076, 0.27689287, 1, 0.3571176, 0.27887937, 0.4033709, 1, 0.6763604, 0.5364067, 0.67621213, 1, 0.7190132, 0.57573986, 0.60851395, 1, 0.71402705, 0.5768272, 0.6179082, 1, 0.96529156, 0.9465124, 0.9396549, 1)
+offsets = PackedFloat32Array(0, 0.21106558, 0.32581967, 0.5102459, 0.69057375, 0.83811474)
+colors = PackedColorArray(0.09674206, 0.09504848, 0.2550409, 1, 0.29900876, 0.2040303, 0.3586139, 1, 0.6580966, 0.055195294, 0.7265778, 1, 0.83, 0.43159997, 0.43159997, 1, 0.85721904, 0.49223357, 0.5846704, 1, 0.96529156, 0.9465124, 0.9396549, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_o8fc1"]
 gradient = SubResource("Gradient_jhx03")
 
 [node name="World" type="Node2D" unique_id=340862798]
 script = ExtResource("1_e3hyu")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=93717343]
-
-[node name="ui" parent="CanvasLayer" unique_id=1662368370 instance=ExtResource("7_o8fc1")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1263943274]
 position = Vector2(1, 0)
@@ -200,6 +196,8 @@ tile_set = SubResource("TileSet_k0juu")
 
 [node name="player" parent="." unique_id=756428043 groups=["player"] instance=ExtResource("1_nnsk1")]
 z_index = 1
+
+[node name="ui" parent="player" unique_id=1662368370 instance=ExtResource("7_o8fc1")]
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1861008336]
 zoom = Vector2(6, 6)
@@ -378,7 +376,6 @@ autostart = true
 color = Color(0.19103259, 0.33427146, 0.47772908, 1)
 script = ExtResource("13_jhx03")
 gradient = SubResource("GradientTexture1D_o8fc1")
-time_speed = 0.004
 
 [connection signal="body_entered" from="tractorarea" to="tractorarea" method="_on_body_entered"]
 [connection signal="body_exited" from="tractorarea" to="tractorarea" method="_on_body_exited"]

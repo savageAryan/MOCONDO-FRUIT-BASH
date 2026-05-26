@@ -1,15 +1,24 @@
 [gd_scene format=3 uid="uid://bl1kx3v3hndae"]
 
 [ext_resource type="Texture2D" uid="uid://b58jfoc7yxchq" path="res://assets/tree.png" id="1_brfkd"]
+[ext_resource type="Script" uid="uid://boavpc86iek8f" path="res://scripts/tree.gd" id="1_vplca"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnvrw"]
-size = Vector2(19, 28)
+size = Vector2(11, 30)
 
-[node name="tree" type="StaticBody2D" unique_id=2128540687]
+[node name="tree" type="StaticBody2D" unique_id=670320657]
+z_index = 2
+script = ExtResource("1_vplca")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1123329326]
 texture = ExtResource("1_brfkd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1649313647]
-position = Vector2(12.5, 34)
+position = Vector2(12, 33)
 shape = SubResource("RectangleShape2D_nnvrw")
+
+[node name="Timer" type="Timer" parent="." unique_id=909569425]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

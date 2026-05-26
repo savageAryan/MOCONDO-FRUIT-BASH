@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://dvpaxity0iytw"]
+
+[ext_resource type="Script" uid="uid://bolq5t8qn5uld" path="res://scripts/strawberry.gd" id="1_2p0nd"]
+[ext_resource type="Texture2D" uid="uid://6qc0mm2o75cl" path="res://assets/mangoo.png" id="1_13m7n"]
+[ext_resource type="Animation" uid="uid://cd7n0k31onumw" path="res://fall.res" id="2_qrwac"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qrwac"]
+radius = 11.510863
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2p0nd"]
+atlas = ExtResource("1_13m7n")
+region = Rect2(32, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_722sw"]
+atlas = ExtResource("1_13m7n")
+region = Rect2(176, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8us4"]
+atlas = ExtResource("1_13m7n")
+region = Rect2(320, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvm71"]
+atlas = ExtResource("1_13m7n")
+region = Rect2(464, 64, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_th2og"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2p0nd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_722sw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8us4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvm71")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2p0nd"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_722sw"]
+_data = {
+&"fall": ExtResource("2_qrwac")
+}
+
+[node name="strawberry" type="Area2D" unique_id=1531931406]
+z_index = 3
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_2p0nd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=595218659]
+position = Vector2(1, -2)
+shape = SubResource("CircleShape2D_qrwac")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2032903329]
+position = Vector2(0, -170.085)
+scale = Vector2(1.4999999, 1.4117646)
+sprite_frames = SubResource("SpriteFrames_th2og")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=588667999]
+libraries/ = SubResource("AnimationLibrary_2p0nd")
+libraries/ani = SubResource("AnimationLibrary_722sw")
+autoplay = &"ani/fall"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
