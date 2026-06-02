@@ -4,6 +4,7 @@ var apple = 0
 var banana = 0
 var strawberry = 0
 var mango = 0
+var log = 0
 
 
 

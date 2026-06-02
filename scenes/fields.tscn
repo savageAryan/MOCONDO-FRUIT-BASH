@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://2u3u048deob0" path="res://scripts/wheatlandtile.gd" id="2_v6klw"]
 [ext_resource type="Script" uid="uid://kndc1de1k3rc" path="res://scripts/tractor.gd" id="3_2cj1f"]
 [ext_resource type="Texture2D" uid="uid://6qc0mm2o75cl" path="res://assets/mangoo.png" id="3_nins7"]
+[ext_resource type="Texture2D" uid="uid://dgg5fss4dd0bt" path="res://assets/tractorfinal.png" id="7_5t55l"]
 [ext_resource type="FontFile" uid="uid://bbbwahii6uqin" path="res://assets/vladimir.ttf" id="7_rc5ib"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_33aj3"]
@@ -104,32 +105,32 @@ size = Vector2(62, 16.5)
 atlas = ExtResource("1_l70t5")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_01n4e"]
-atlas = ExtResource("1_l70t5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlfn3"]
+atlas = ExtResource("7_5t55l")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pc082"]
-atlas = ExtResource("1_l70t5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_12asd"]
+atlas = ExtResource("7_5t55l")
 region = Rect2(64, 64, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ralw0"]
-atlas = ExtResource("1_l70t5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr1o8"]
+atlas = ExtResource("7_5t55l")
 region = Rect2(64, 128, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v6klw"]
-atlas = ExtResource("1_l70t5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y551"]
+atlas = ExtResource("7_5t55l")
 region = Rect2(64, 192, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2cj1f"]
-atlas = ExtResource("1_l70t5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jycgm"]
+atlas = ExtResource("7_5t55l")
 region = Rect2(64, 256, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q77a0"]
-atlas = ExtResource("1_l70t5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q0es"]
+atlas = ExtResource("7_5t55l")
 region = Rect2(64, 320, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sxl6v"]
-atlas = ExtResource("1_l70t5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hbte"]
+atlas = ExtResource("7_5t55l")
 region = Rect2(64, 384, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7djnb"]
@@ -144,29 +145,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_01n4e")
+"texture": SubResource("AtlasTexture_jlfn3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pc082")
+"texture": SubResource("AtlasTexture_12asd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ralw0")
+"texture": SubResource("AtlasTexture_cr1o8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v6klw")
+"texture": SubResource("AtlasTexture_2y551")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2cj1f")
+"texture": SubResource("AtlasTexture_jycgm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q77a0")
+"texture": SubResource("AtlasTexture_6q0es")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sxl6v")
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_8hbte")
 }],
 "loop": true,
 "name": &"walking",
-"speed": 7.0
+"speed": 9.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0uw6l"]
@@ -233,7 +234,7 @@ shape = SubResource("RectangleShape2D_33aj3")
 sprite_frames = SubResource("SpriteFrames_7djnb")
 animation = &"walking"
 autoplay = "walking"
-frame_progress = 0.33691534
+frame_progress = 0.388909
 
 [node name="Camera2D" type="Camera2D" parent="tractor" unique_id=368363225]
 zoom = Vector2(3, 3)

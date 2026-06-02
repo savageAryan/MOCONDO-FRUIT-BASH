@@ -3,22 +3,33 @@
 [ext_resource type="Texture2D" uid="uid://b58jfoc7yxchq" path="res://assets/tree.png" id="1_brfkd"]
 [ext_resource type="Script" uid="uid://boavpc86iek8f" path="res://scripts/tree.gd" id="1_vplca"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vplca"]
+size = Vector2(26, 43)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnvrw"]
-size = Vector2(11, 30)
+size = Vector2(16, 30)
 
 [node name="tree" type="StaticBody2D" unique_id=670320657]
 z_index = 2
 script = ExtResource("1_vplca")
 
+[node name="Area2D" type="Area2D" parent="." unique_id=1043626137]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1073793060]
+position = Vector2(12, 27.5)
+shape = SubResource("RectangleShape2D_vplca")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1123329326]
 texture = ExtResource("1_brfkd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1649313647]
-position = Vector2(12, 33)
+position = Vector2(13, 33)
 shape = SubResource("RectangleShape2D_nnvrw")
 
 [node name="Timer" type="Timer" parent="." unique_id=909569425]
-wait_time = 5.0
+wait_time = 60.0
 autostart = true
 
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

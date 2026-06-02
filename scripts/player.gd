@@ -2,6 +2,7 @@ extends CharacterBody2D
 var fruits = 10
 var current_dir = "none"
 const speed = 50
+#@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
@@ -12,10 +13,18 @@ func _ready() -> void:
 		animated_sprite_2d.play("idel front")
 		
 func _physics_process(delta: float) -> void:
+	if chopping:
+		return
+		
+	if Input.is_action_pressed("BREAK"):
+		chop()
+		return
 	player_movement(delta)
 	
 	
+	
 func player_movement(delta):
+	
 	if Input.is_action_pressed("right"):
 		current_dir = "right"
 		play_anim(1)
@@ -48,7 +57,10 @@ func play_anim(movement):
 	var dir = current_dir
 	var anim = $AnimatedSprite2D
 	
+		
+	
 	if fruits <= 0:
+		
 		if dir == 'right':
 			anim.flip_h = false
 			if movement == 1:
@@ -101,4 +113,13 @@ func play_anim(movement):
 			anim.play("walking back")
 		elif movement == 0:
 			anim.play("back idel")
-	
+			
+var chopping = false
+func chop():
+	chopping = true
+	if fruits <= 0:
+		animated_sprite_2d.play("axeside")
+	else:
+		animated_sprite_2d.play("axeside")
+	await animated_sprite_2d.animation_finished
+	chopping = false

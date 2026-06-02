@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ctkav8msxb7p2"]
+
+[ext_resource type="Texture2D" uid="uid://bqd468s3adjg8" path="res://assets/mainmenu.png" id="1_3otxd"]
+
+[node name="pausemenu" type="Control" unique_id=934388732]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=316100624]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 685.0
+color = Color(0.5035776, 0.37448412, 0.3049723, 0.50980395)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=736975431]
+layout_mode = 0
+offset_top = 7.0
+offset_right = 1150.2
+offset_bottom = 646.0
+texture = ExtResource("1_3otxd")

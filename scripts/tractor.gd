@@ -19,6 +19,7 @@ func player_movement(delta):
 		current_dir = "right"
 		
 		
+		
 		velocity.x = speed
 		velocity.y = 0
 	elif Input.is_action_pressed("left"):
