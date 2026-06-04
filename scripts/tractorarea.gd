@@ -1,6 +1,8 @@
 extends Area2D
 
 @onready var button: Button = $Button
+@onready var button_3: Sprite2D = $Button3
+
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -17,3 +19,5 @@ func _on_button_pressed() -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		button.visible = false
+		
+		

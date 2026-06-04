@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cjxsrfrcy4nbo"]
+
+[ext_resource type="Texture2D" uid="uid://cl1ud7hc1n4hc" path="res://assets/workshopmenu.png" id="1_d7fqo"]
+[ext_resource type="Texture2D" uid="uid://ds1wb3jocn38d" path="res://assets/workshopbutton.png" id="2_wwo6w"]
+
+[node name="workshop" type="Control" unique_id=1920764852]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=825694601]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 288.0
+offset_top = -19.0
+offset_right = -237.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_d7fqo")
+
+[node name="Button" type="Button" parent="." unique_id=826079514]
+layout_mode = 0
+offset_left = 594.0
+offset_top = 198.0
+offset_right = 714.7742
+offset_bottom = 250.0
+theme_override_colors/font_color = Color(0.63017726, 0.5062343, 0.33258298, 1)
+text = "sss"
+icon = ExtResource("2_wwo6w")
+flat = true
+icon_alignment = 1
+expand_icon = true

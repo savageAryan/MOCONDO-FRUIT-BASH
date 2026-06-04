@@ -51,3 +51,7 @@ func _on_boatrest_body_exited(body: Node2D) -> void:
 
 func _on_button_2_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/boat.tscn")
+
+
+func _on_workshop_area_body_entered(body: Node2D) -> void:
+	pass
