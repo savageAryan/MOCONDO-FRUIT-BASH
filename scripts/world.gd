@@ -53,5 +53,29 @@ func _on_button_2_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/boat.tscn")
 
 
+
+
+
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
+
+@onready var workshop: Control = $CanvasLayer/workshop
+
+
 func _on_workshop_area_body_entered(body: Node2D) -> void:
-	pass
+	if body.is_in_group("player"):
+		
+		button_3.visible = true
+	
+func _on_workshop_area_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		ui.visible = true
+		button_3.visible = false
+		workshop.workshop_close()
+
+@onready var button_3: Button = $StaticBody2D3/Button3
+
+
+func _on_button_3_pressed() -> void:
+	workshop.workshop_open()
+	ui.visible = false
+	button_3.visible = false

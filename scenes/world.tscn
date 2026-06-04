@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ebyubo627ul7" path="res://scripts/world.gd" id="1_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://bkxxnoykda6k" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="Texture2D" uid="uid://d01o40rgtjc71" path="res://assets/land.png" id="1_rwgxs"]
-[ext_resource type="Texture2D" uid="uid://cl1ud7hc1n4hc" path="res://assets/workshopmenu.png" id="3_7t5mc"]
+[ext_resource type="PackedScene" uid="uid://cjxsrfrcy4nbo" path="res://scenes/workshop.tscn" id="2_7t5mc"]
 [ext_resource type="Texture2D" uid="uid://t1esl6680muq" path="res://assets/lan1d.png" id="3_71j4m"]
 [ext_resource type="Texture2D" uid="uid://dqc0yki0jt0n6" path="res://assets/lan10d.png" id="4_4mrxx"]
 [ext_resource type="Texture2D" uid="uid://cpuiqt7e7qypk" path="res://assets/house.png" id="4_7r4gi"]
@@ -182,28 +182,25 @@ colors = PackedColorArray(0.21131712, 0.20614076, 0.27689287, 1, 0.3571176, 0.27
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_o8fc1"]
 gradient = SubResource("Gradient_jhx03")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xo05s"]
-radius = 50.358715
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7t5mc"]
+size = Vector2(78, 69)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dss4m"]
-size = Vector2(115.297714, 80.12216)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7t5mc"]
-size = Vector2(93.80152, 19.541979)
+size = Vector2(117.25191, 65.46565)
 
 [node name="World" type="Node2D" unique_id=340862798]
 script = ExtResource("1_e3hyu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=93717343]
 
+[node name="workshop" parent="CanvasLayer" unique_id=1920764852 instance=ExtResource("2_7t5mc")]
+
 [node name="ui" parent="CanvasLayer" unique_id=1662368370 instance=ExtResource("7_o8fc1")]
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
-
-[node name="Workshopmenu" type="Sprite2D" parent="CanvasLayer" unique_id=1574313684]
-position = Vector2(162, -118)
-texture = ExtResource("3_7t5mc")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1263943274]
 position = Vector2(1, 0)
@@ -211,7 +208,7 @@ tile_map_data = PackedByteArray("AAD//wEAAwAIAAAAAFAAAAEAAwAIAAAAAFABAAEAAwAIAAA
 tile_set = SubResource("TileSet_k0juu")
 
 [node name="player" parent="." unique_id=756428043 groups=["player"] instance=ExtResource("1_nnsk1")]
-z_index = 1
+z_index = 2
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1861008336]
 zoom = Vector2(6, 6)
@@ -220,14 +217,14 @@ zoom = Vector2(6, 6)
 z_index = 1
 script = ExtResource("5_qfnet")
 
-[node name="Button" type="Button" parent="tractorarea" unique_id=2054622023]
+[node name="Button" type="Button" parent="tractorarea" unique_id=1490485760]
 visible = false
 modulate = Color(1, 1, 1, 0.93333334)
 z_index = 1
-offset_left = -113.99999
-offset_top = -60.999996
-offset_right = 101.413
-offset_bottom = 139.619
+offset_left = -103.99999
+offset_top = -37.0
+offset_right = 50.000008
+offset_bottom = 22.0
 scale = Vector2(0.36, 0.36)
 theme_override_colors/font_color = Color(0.43529412, 0.88235295, 0.3254902, 1)
 theme_override_colors/font_focus_color = Color(0.763983, 0.23954165, 0.6501871, 1)
@@ -237,10 +234,15 @@ theme_override_fonts/font = ExtResource("6_i7141")
 theme_override_font_sizes/font_size = 38
 theme_override_styles/pressed = SubResource("StyleBoxFlat_i7141")
 text = " HARVEST!"
-icon = ExtResource("16_dss4m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Button4" type="Sprite2D" parent="tractorarea/Button" unique_id=1137416177]
+z_index = -1
+position = Vector2(74.999985, 25.000008)
+scale = Vector2(2.777778, 2.777778)
+texture = ExtResource("16_dss4m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tractorarea" unique_id=1931154268]
 position = Vector2(-94, 23)
@@ -345,7 +347,6 @@ scale = Vector2(0.6, 0.6)
 shape = SubResource("CircleShape2D_q5onr")
 
 [node name="Button2" type="Button" parent="." unique_id=1026780470]
-visible = false
 offset_left = 845.0
 offset_top = 767.0
 offset_right = 1033.0
@@ -373,19 +374,24 @@ shape = SubResource("RectangleShape2D_xo05s")
 visible = false
 modulate = Color(1, 1, 1, 0.91764706)
 z_index = 11
-offset_left = -11.0
-offset_top = -106.0
-offset_right = 88.999985
-offset_bottom = -16.000015
+offset_left = -3.0
+offset_top = -98.0
+offset_right = 68.0
+offset_bottom = -64.0
 scale = Vector2(0.4, 0.4)
 theme_override_colors/font_color = Color(0.40687674, 0.74, 0.19979998, 0.9098039)
 theme_override_fonts/font = ExtResource("6_i7141")
 theme_override_font_sizes/font_size = 23
-theme_override_icons/icon = ExtResource("16_dss4m")
 text = "INSIDE"
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Button4" type="Sprite2D" parent="Button" unique_id=810346559]
+z_index = -1
+position = Vector2(35, 17.500002)
+scale = Vector2(1.5234373, 1.5234373)
+texture = ExtResource("16_dss4m")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1011691931]
 libraries/ = SubResource("AnimationLibrary_jhx03")
@@ -395,6 +401,7 @@ wait_time = 600.0
 autostart = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1743471746]
+visible = false
 color = Color(0.19103259, 0.33427146, 0.47772908, 1)
 script = ExtResource("13_jhx03")
 gradient = SubResource("GradientTexture1D_o8fc1")
@@ -403,26 +410,40 @@ time_speed = 0.004
 [node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1536527727]
 z_index = 2
 
+[node name="Button3" type="Button" parent="StaticBody2D3" unique_id=1310295072]
+offset_left = 183.0
+offset_top = -109.0
+offset_right = 265.0
+offset_bottom = -78.0
+scale = Vector2(0.345, 0.345)
+theme_override_fonts/font = ExtResource("6_i7141")
+theme_override_font_sizes/font_size = 20
+text = "WORKSHOP"
+flat = true
+
+[node name="Button4" type="Sprite2D" parent="StaticBody2D3/Button3" unique_id=191210711]
+z_index = -1
+position = Vector2(37.681175, 13.493631)
+scale = Vector2(1.5801352, 1.5801352)
+texture = ExtResource("16_dss4m")
+
 [node name="workshop area" type="Area2D" parent="StaticBody2D3" unique_id=1743183971]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3/workshop area" unique_id=477964056]
-position = Vector2(205, -111)
-shape = SubResource("CircleShape2D_xo05s")
+visible = false
+position = Vector2(198, -116.5)
+shape = SubResource("RectangleShape2D_7t5mc")
 
 [node name="Workshop" type="Sprite2D" parent="StaticBody2D3" unique_id=1928573389]
-position = Vector2(205, -120)
+z_index = -2
+position = Vector2(198, -118)
 scale = Vector2(0.51171875, 0.5117188)
 texture = ExtResource("15_xo05s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=88068933]
-position = Vector2(204.5, -114.50001)
+position = Vector2(198, -117.75001)
 scale = Vector2(0.51171875, 0.5117188)
 shape = SubResource("RectangleShape2D_dss4m")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1746249420]
-position = Vector2(204, -141.00003)
-scale = Vector2(0.51171875, 0.5117188)
-shape = SubResource("RectangleShape2D_7t5mc")
 
 [connection signal="body_entered" from="tractorarea" to="tractorarea" method="_on_body_entered"]
 [connection signal="body_exited" from="tractorarea" to="tractorarea" method="_on_body_exited"]
@@ -433,4 +454,6 @@ shape = SubResource("RectangleShape2D_7t5mc")
 [connection signal="body_exited" from="boatrest" to="." method="_on_boatrest_body_exited"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="StaticBody2D3/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="body_entered" from="StaticBody2D3/workshop area" to="." method="_on_workshop_area_body_entered"]
+[connection signal="body_exited" from="StaticBody2D3/workshop area" to="." method="_on_workshop_area_body_exited"]
