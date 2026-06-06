@@ -8,44 +8,154 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_6t636"]
 resource_name = "new_animation"
+length = 0.295
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.93333334),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.03333334, 0.23333332),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(26.925, 71.625), Vector2(26.66, 16.07), Vector2(0, 0)]
+"values": [Vector2(1, 1), Vector2(1.03, 1.03)]
+}
+
+[sub_resource type="Animation" id="Animation_qtwlx"]
+resource_name = "mouseout"
+length = 0.34
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.03, 1.03), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ha77g"]
+resource_name = "presses"
+length = 0.145
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_ekqnp"]
+resource_name = "pressout"
+length = 0.175
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qtwlx"]
 _data = {
 &"RESET": SubResource("Animation_k6mts"),
-&"new_animation": SubResource("Animation_6t636")
+&"mousein": SubResource("Animation_6t636"),
+&"mouseout": SubResource("Animation_qtwlx"),
+&"pressin": SubResource("Animation_ha77g"),
+&"pressout": SubResource("Animation_ekqnp")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k6mts"]
+bg_color = Color(0.8409117, 0.598369, 0.34345192, 1)
+border_width_left = 13
+border_width_top = 13
+border_width_right = 13
+border_width_bottom = 13
+border_color = Color(0.69, 0.4163, 0.207, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtwlx"]
+bg_color = Color(0.3915396, 0.2121818, 0.07915629, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.17, 0.08233667, 0.015299995, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6t636"]
+bg_color = Color(0.53, 0.375505, 0.2491, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.22843042, 0.12749046, 0.041236885, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="TextureRect" type="TextureRect" unique_id=2081675995]
 z_index = 2
-offset_right = 96.0
-offset_bottom = 108.0
+offset_left = 26.925
+offset_top = 71.625
+offset_right = 122.925
+offset_bottom = 179.625
 texture = ExtResource("1_mec0v")
 script = ExtResource("2_k6mts")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=973223340]
 libraries/ = SubResource("AnimationLibrary_qtwlx")
-autoplay = &"new_animation"
+
+[node name="Button" type="Button" parent="." unique_id=1585619942]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_k6mts")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qtwlx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6t636")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
