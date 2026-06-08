@@ -7,24 +7,32 @@ var selected = false
 func _ready() -> void:
 	pass # Replace with function body.
 
+@onready var color_rect: ColorRect = $ColorRect
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 func _physics_process(delta: float) -> void:
-	pass
+	if selected == true:
+		color_rect.visible = true
+		animation_player.play("selected")
+	else:
+		color_rect.visible = false
+		
 
 
 func _on_button_mouse_entered() -> void:
 	animation_player.play("mousein")
 	position.y -= 10
 	position.x -= 5
+	selected = true
 
 
 func _on_button_mouse_exited() -> void:
 	animation_player.play("mouseout")
 	position.y += 10
 	position.x += 5
+	selected = false
 
 
 func _on_button_pressed() -> void:

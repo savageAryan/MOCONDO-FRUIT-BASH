@@ -1,9 +1,32 @@
 [gd_scene format=3 uid="uid://cjxsrfrcy4nbo"]
 
 [ext_resource type="Script" uid="uid://4me5e102xbdo" path="res://scripts/workshop.gd" id="1_g1tdj"]
-[ext_resource type="Texture2D" uid="uid://bqd468s3adjg8" path="res://assets/mainmenu.png" id="2_g1tdj"]
+[ext_resource type="Texture2D" uid="uid://buyp0koh2jame" path="res://assets/workshopmenubigframe.png" id="2_acb0r"]
 [ext_resource type="Texture2D" uid="uid://ds1wb3jocn38d" path="res://assets/workshopbutton.png" id="3_4103c"]
 [ext_resource type="PackedScene" uid="uid://bue2cwb7miki3" path="res://scenes/workshopoptions.tscn" id="3_g1tdj"]
+[ext_resource type="FontFile" uid="uid://sb6vba43t4m0" path="res://assets/CircusOrnate.ttf" id="5_0t7iv"]
+[ext_resource type="Texture2D" uid="uid://b0r50nhihup2s" path="res://assets/workhop ui frame.png" id="6_acb0r"]
+[ext_resource type="Texture2D" uid="uid://cs0l3wdwdiuuw" path="res://assets/workshopselectedui.png" id="7_35y6k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_acb0r"]
+bg_color = Color(0.87, 0.7482, 0.522, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35y6k"]
+bg_color = Color(0.94, 0.82438, 0.5546, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.93, 0.86304, 0.7068, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4103c"]
 texture = ExtResource("3_4103c")
@@ -80,7 +103,93 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_g1tdj")
+texture = ExtResource("2_acb0r")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect2" unique_id=1864390339]
+z_index = 5
+layout_mode = 0
+offset_left = 315.0
+offset_top = 79.0
+offset_right = 1085.0
+offset_bottom = 585.0
+texture = ExtResource("6_acb0r")
+
+[node name="Label" type="Label" parent="TextureRect2" unique_id=1116908054]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 111.0
+offset_right = 764.0
+offset_bottom = 435.0
+scale = Vector2(0.375, 0.375)
+theme_override_colors/font_color = Color(0.61, 0.445605, 0.3111, 1)
+theme_override_colors/font_shadow_color = Color(0.098915555, 0.01299102, 0, 0)
+theme_override_colors/font_outline_color = Color(0.3, 0.16700003, 0.015000004, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("5_0t7iv")
+theme_override_font_sizes/font_size = 100
+text = "work
+SHOP
+-"
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="TextureRect2" unique_id=2038970586]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 241.0
+offset_right = 304.0
+offset_bottom = 571.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_acb0r")
+follow_focus = true
+draw_focus_border = true
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect2/ScrollContainer2" unique_id=2140243365]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 9
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect2/ScrollContainer2/MarginContainer" unique_id=2094356810]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="Button2" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=403827785]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
+
+[node name="Button3" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=471163935]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
+
+[node name="Button4" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=714494320]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
+
+[node name="Button5" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=614611398]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
+
+[node name="Button6" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=1474663876]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
+
+[node name="Button7" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=832884456]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TextureRect2" unique_id=1326786636]
 layout_mode = 1
@@ -89,9 +198,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -479.0
+offset_left = -245.0
 offset_top = -231.0
-offset_right = 421.0
+offset_right = 493.0
 offset_bottom = 251.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -147,3 +256,9 @@ stretch_mode = 5
 layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
+
+[node name="Workshopselectedui" type="Sprite2D" parent="." unique_id=682462748]
+modulate = Color(1, 0.68066853, 0.6867191, 1)
+position = Vector2(159, 300)
+scale = Vector2(3.4525557, 4.072917)
+texture = ExtResource("7_35y6k")

@@ -183,7 +183,7 @@ colors = PackedColorArray(0.21131712, 0.20614076, 0.27689287, 1, 0.3571176, 0.27
 gradient = SubResource("Gradient_jhx03")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7t5mc"]
-size = Vector2(78, 69)
+size = Vector2(74, 69)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dss4m"]
 size = Vector2(117.25191, 65.46565)
@@ -430,8 +430,7 @@ texture = ExtResource("16_dss4m")
 [node name="workshop area" type="Area2D" parent="StaticBody2D3" unique_id=1743183971]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3/workshop area" unique_id=477964056]
-visible = false
-position = Vector2(198, -116.5)
+position = Vector2(197, -121)
 shape = SubResource("RectangleShape2D_7t5mc")
 
 [node name="Workshop" type="Sprite2D" parent="StaticBody2D3" unique_id=1928573389]
