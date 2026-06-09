@@ -8,12 +8,18 @@ const WHEAT = preload("uid://d13jxal853d8w")
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var label: Label = $Panel/Label
 
-
+var movement = 0
 func _physics_process(delta: float) -> void:
 	label.text = str(GameManager.wheat)
 	player_movement(delta)
 	cut_wheat()
-	
+	animation()
+		
+func animation():
+	if velocity.x == 0 and velocity.y == 0:
+		animated_sprite_2d.play("idel field")
+	else:
+		return
 func player_movement(delta):
 	if Input.is_action_pressed("right"):
 		current_dir = "right"
@@ -24,7 +30,6 @@ func player_movement(delta):
 		velocity.y = 0
 	elif Input.is_action_pressed("left"):
 		current_dir = "left"
-		
 		
 		velocity.x = -speed
 		velocity.y =0

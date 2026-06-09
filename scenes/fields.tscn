@@ -107,31 +107,59 @@ region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jlfn3"]
 atlas = ExtResource("7_5t55l")
-region = Rect2(64, 0, 64, 64)
+region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_12asd"]
 atlas = ExtResource("7_5t55l")
-region = Rect2(64, 64, 64, 64)
+region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cr1o8"]
 atlas = ExtResource("7_5t55l")
-region = Rect2(64, 128, 64, 64)
+region = Rect2(512, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2y551"]
 atlas = ExtResource("7_5t55l")
-region = Rect2(64, 192, 64, 64)
+region = Rect2(704, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jycgm"]
 atlas = ExtResource("7_5t55l")
-region = Rect2(64, 256, 64, 64)
+region = Rect2(896, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6q0es"]
 atlas = ExtResource("7_5t55l")
-region = Rect2(64, 320, 64, 64)
+region = Rect2(1088, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8hbte"]
 atlas = ExtResource("7_5t55l")
-region = Rect2(64, 384, 64, 64)
+region = Rect2(1280, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6yts"]
+atlas = ExtResource("7_5t55l")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6spnn"]
+atlas = ExtResource("7_5t55l")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydi82"]
+atlas = ExtResource("7_5t55l")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84oxm"]
+atlas = ExtResource("7_5t55l")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqeeh"]
+atlas = ExtResource("7_5t55l")
+region = Rect2(832, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6onw8"]
+atlas = ExtResource("7_5t55l")
+region = Rect2(1024, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vr0bi"]
+atlas = ExtResource("7_5t55l")
+region = Rect2(1216, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7djnb"]
 animations = [{
@@ -162,8 +190,34 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6q0es")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_8hbte")
+}],
+"loop": true,
+"name": &"idel field",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6yts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6spnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydi82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84oxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqeeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6onw8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vr0bi")
 }],
 "loop": true,
 "name": &"walking",
@@ -234,7 +288,7 @@ shape = SubResource("RectangleShape2D_33aj3")
 sprite_frames = SubResource("SpriteFrames_7djnb")
 animation = &"walking"
 autoplay = "walking"
-frame_progress = 0.388909
+frame_progress = 0.71895266
 
 [node name="Camera2D" type="Camera2D" parent="tractor" unique_id=368363225]
 zoom = Vector2(3, 3)

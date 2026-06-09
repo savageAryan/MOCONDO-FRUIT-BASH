@@ -140,6 +140,7 @@ offset_bottom = 571.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_acb0r")
 follow_focus = true
 draw_focus_border = true
+scroll_vertical_custom_step = 4096.0
 
 [node name="MarginContainer" type="MarginContainer" parent="TextureRect2/ScrollContainer2" unique_id=2140243365]
 layout_mode = 2
@@ -159,33 +160,56 @@ theme_override_constants/separation = 8
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
 
 [node name="Button3" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=471163935]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 6
 theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
 
 [node name="Button4" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=714494320]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
 
 [node name="Button5" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=614611398]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 6
 theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
 
 [node name="Button6" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=1474663876]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 6
 theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
 
 [node name="Button7" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=832884456]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
+
+[node name="Button8" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=1271923787]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
+
+[node name="Button9" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=1402303534]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
+
+[node name="Button10" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=1075673547]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -257,8 +281,27 @@ layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Workshopselectedui" type="Sprite2D" parent="." unique_id=682462748]
+[node name="Control" type="Control" parent="." unique_id=248489879]
+clip_contents = true
+anchors_preset = 0
+offset_left = -17.0
+offset_top = 234.0
+offset_right = 303.0
+offset_bottom = 578.0
+mouse_filter = 2
+
+[node name="Workshopselectedui" type="TextureRect" parent="Control" unique_id=1365162138]
 modulate = Color(1, 0.68066853, 0.6867191, 1)
-position = Vector2(159, 300)
+layout_mode = 0
+offset_left = 11.0
+offset_top = -31.0
+offset_right = 107.0
+offset_bottom = 17.0
 scale = Vector2(3.4525557, 4.072917)
+mouse_filter = 2
 texture = ExtResource("7_35y6k")
+
+[connection signal="pressed" from="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button5" to="." method="_on_button_5_pressed"]
