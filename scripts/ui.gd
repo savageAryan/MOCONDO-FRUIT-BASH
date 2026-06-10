@@ -5,6 +5,8 @@ extends Control
 @onready var strawberrylabel: Label = $inventory/AnimatedSprite2D3/strawberrylabel
 @onready var bananalabel: Label = $inventory/AnimatedSprite2D4/bananalabel
 
+
+
 @onready var daylabel: Label = $TimeUiDisplay/daylabel
 @onready var timelabel: Label = $TimeUiDisplay/timelabel
 @onready var weekdaylabel_2: Label = $TimeUiDisplay/weekdaylabel2
@@ -25,26 +27,23 @@ const days = ["MONDAY",
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	inventory.visible = false
-
+	
 @onready var arrow: AnimatedSprite2D = $TimeUiDisplay/arrow
 @onready var pausebutton: TextureButton = $pausebutton
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	ampmlabel.text = suffix
-	if paused ==  paused:
-		if Input.is_action_just_pressed("pause"):
-			paused = not paused
-			pausemenu.visible = paused
-			pausebutton.button_pressed
-			time_ui_display.visible = not paused
-			get_tree().paused = paused
-	if paused ==  not paused:
-		if Input.is_action_just_pressed("pause"):
-			paused =  paused
-			pausemenu.visible = paused
-			time_ui_display.visible = not paused
-			get_tree().paused = paused
+	if Input.is_action_just_pressed("pause"):
+		paused = not paused
+		
+		pausemenu.pausemenu_show()
+		pausebutton.button_pressed = paused
+		pausemenu.visible = paused
+		time_ui_display.visible = not paused
+
+		get_tree().paused = paused
 	mangolabel.text = str(GameManager.mango)
 	applelabel.text = str(GameManager.apple)
 	strawberrylabel.text = str(GameManager.strawberry)
@@ -103,7 +102,10 @@ var paused = false
 func _on_pausebutton_pressed() -> void:
 	paused = not paused
 	pausemenu.visible = paused
+	pausemenu.pausemenu_show()
 	time_ui_display.visible = not paused
 	get_tree().paused = paused
 	
+	
+
 	

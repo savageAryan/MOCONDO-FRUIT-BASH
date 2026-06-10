@@ -226,6 +226,7 @@ animations = [{
 }]
 
 [node name="ui" type="Control" unique_id=1662368370]
+process_mode = 3
 z_index = 6
 layout_mode = 3
 anchors_preset = 15

@@ -1,8 +1,102 @@
 [gd_scene format=3 uid="uid://ctkav8msxb7p2"]
 
 [ext_resource type="Texture2D" uid="uid://bqd468s3adjg8" path="res://assets/mainmenu.png" id="1_3otxd"]
+[ext_resource type="Script" uid="uid://bi23hpn4ywvc1" path="res://scripts/pausemenu.gd" id="1_r33we"]
+
+[sub_resource type="Animation" id="Animation_3otxd"]
+length = 0.586
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.0192723]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_r33we"]
+resource_name = "new_animation"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.3764706), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.47, 0.47), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.0227629416686774, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ljkb"]
+_data = {
+&"RESET": SubResource("Animation_3otxd"),
+&"pausemenuappear": SubResource("Animation_r33we")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r33we"]
+bg_color = Color(0.38, 0.15580001, 0.23426998, 0.21960784)
+corner_radius_top_left = 25
+corner_radius_top_right = 75
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [node name="pausemenu" type="Control" unique_id=934388732]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +105,7 @@ offset_right = -1152.0
 offset_bottom = -648.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_r33we")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=316100624]
 layout_mode = 0
@@ -23,4 +118,23 @@ layout_mode = 0
 offset_top = 7.0
 offset_right = 1150.2
 offset_bottom = 646.0
+rotation = -1.0192723
 texture = ExtResource("1_3otxd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=510354536]
+libraries/ = SubResource("AnimationLibrary_8ljkb")
+
+[node name="Panel" type="Panel" parent="." unique_id=1299271996]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 100.0
+offset_right = 1046.0
+offset_bottom = 561.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_r33we")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1733000865]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 111.0
+offset_right = 747.0
+offset_bottom = 556.0
