@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bue2cwb7miki3" path="res://scenes/workshopoptions.tscn" id="3_g1tdj"]
 [ext_resource type="FontFile" uid="uid://sb6vba43t4m0" path="res://assets/CircusOrnate.ttf" id="5_0t7iv"]
 [ext_resource type="Texture2D" uid="uid://b0r50nhihup2s" path="res://assets/workhop ui frame.png" id="6_acb0r"]
+[ext_resource type="Texture2D" uid="uid://cm23cofg8pi5n" path="res://assets/icons8-back-96.png" id="7_4xjol"]
 [ext_resource type="Texture2D" uid="uid://cs0l3wdwdiuuw" path="res://assets/workshopselectedui.png" id="7_35y6k"]
+[ext_resource type="FontFile" uid="uid://1wp8whuqfa5o" path="res://assets/LowresPixel-Regular.otf" id="8_gdjy1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_acb0r"]
 bg_color = Color(0.87, 0.7482, 0.522, 1)
@@ -87,6 +89,27 @@ texture = ExtResource("3_4103c")
 [sub_resource type="Theme" id="Theme_acb0r"]
 HScrollBar/styles/grabber = SubResource("StyleBoxTexture_0t7iv")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15wdr"]
+bg_color = Color(0.82, 0.72406, 0.50020003, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1oc0"]
+bg_color = Color(0.5134413, 0.38937402, 0.20647931, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5p7st"]
+bg_color = Color(0.55028385, 0.469361, 0.28194377, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="workshop" type="Control" unique_id=1920764852]
 layout_mode = 3
 anchors_preset = 15
@@ -117,9 +140,9 @@ texture = ExtResource("6_acb0r")
 [node name="Label" type="Label" parent="TextureRect2" unique_id=1116908054]
 layout_mode = 0
 offset_left = 68.0
-offset_top = 111.0
+offset_top = 163.0
 offset_right = 764.0
-offset_bottom = 435.0
+offset_bottom = 487.0
 scale = Vector2(0.375, 0.375)
 theme_override_colors/font_color = Color(0.61, 0.445605, 0.3111, 1)
 theme_override_colors/font_shadow_color = Color(0.098915555, 0.01299102, 0, 0)
@@ -134,9 +157,9 @@ SHOP
 [node name="ScrollContainer2" type="ScrollContainer" parent="TextureRect2" unique_id=2038970586]
 layout_mode = 0
 offset_left = 81.0
-offset_top = 241.0
+offset_top = 292.0
 offset_right = 304.0
-offset_bottom = 571.0
+offset_bottom = 576.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_acb0r")
 follow_focus = true
 draw_focus_border = true
@@ -281,13 +304,46 @@ layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
 
+[node name="Button" type="Button" parent="TextureRect2" unique_id=1119587121]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 89.0
+offset_right = 306.0
+offset_bottom = 155.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_15wdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f1oc0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5p7st")
+
+[node name="Icons8Back96" type="Sprite2D" parent="TextureRect2/Button" unique_id=36597083]
+texture_filter = 2
+position = Vector2(50, 34)
+texture = ExtResource("7_4xjol")
+
+[node name="Label" type="Label" parent="TextureRect2/Button" unique_id=998695177]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -25.0
+offset_right = 99.5
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.5411765, 0.29803923, 0.043137256, 1)
+theme_override_fonts/font = ExtResource("8_gdjy1")
+theme_override_font_sizes/font_size = 52
+text = "BACK"
+
 [node name="Control" type="Control" parent="." unique_id=248489879]
 clip_contents = true
 anchors_preset = 0
 offset_left = -17.0
-offset_top = 234.0
+offset_top = 285.0
 offset_right = 303.0
-offset_bottom = 578.0
+offset_bottom = 577.0
 mouse_filter = 2
 
 [node name="Workshopselectedui" type="TextureRect" parent="Control" unique_id=1365162138]

@@ -400,7 +400,7 @@ libraries/ = SubResource("AnimationLibrary_jhx03")
 wait_time = 600.0
 autostart = true
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1743471746]
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1743471746 groups=["global day and night"]]
 visible = false
 color = Color(0.19103259, 0.33427146, 0.47772908, 1)
 script = ExtResource("13_jhx03")

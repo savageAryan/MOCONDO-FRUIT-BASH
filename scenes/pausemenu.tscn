@@ -41,10 +41,34 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ScrollContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_r33we"]
 resource_name = "new_animation"
-length = 0.35
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -52,7 +76,7 @@ tracks/0/path = NodePath("TextureRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.13333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0.3764706), Color(1, 1, 1, 1)]
@@ -64,7 +88,7 @@ tracks/1/path = NodePath("TextureRect:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.13333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0.47, 0.47), Vector2(1, 1)]
@@ -76,10 +100,34 @@ tracks/2/path = NodePath("TextureRect:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.13333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [-1.0227629416686774, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ScrollContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.13333334, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8ljkb"]
@@ -89,7 +137,14 @@ _data = {
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r33we"]
-bg_color = Color(0.38, 0.15580001, 0.23426998, 0.21960784)
+bg_color = Color(0.86, 0.7697, 0.559, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 75
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ljkb"]
+bg_color = Color(0.8, 0.7088, 0.49600002, 1)
 corner_radius_top_left = 25
 corner_radius_top_right = 75
 corner_radius_bottom_right = 25
@@ -124,17 +179,11 @@ texture = ExtResource("1_3otxd")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=510354536]
 libraries/ = SubResource("AnimationLibrary_8ljkb")
 
-[node name="Panel" type="Panel" parent="." unique_id=1299271996]
-layout_mode = 0
-offset_left = 89.0
-offset_top = 100.0
-offset_right = 1046.0
-offset_bottom = 561.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_r33we")
-
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1733000865]
 layout_mode = 0
-offset_left = 101.0
-offset_top = 111.0
-offset_right = 747.0
+offset_left = 86.0
+offset_top = 103.0
+offset_right = 1059.0
 offset_bottom = 556.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_r33we")
+theme_override_styles/focus = SubResource("StyleBoxFlat_8ljkb")
