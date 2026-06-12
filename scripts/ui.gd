@@ -30,12 +30,13 @@ func _ready() -> void:
 	
 @onready var arrow: AnimatedSprite2D = $TimeUiDisplay/arrow
 @onready var pausebutton: TextureButton = $pausebutton
+@onready var workshop: Control = $"../workshop"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	ampmlabel.text = suffix
-	if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("pause") :
 		paused = not paused
 		
 		pausemenu.pausemenu_show()
@@ -107,5 +108,6 @@ func _on_pausebutton_pressed() -> void:
 	get_tree().paused = paused
 	
 	
-
-	
+func workshop_close():
+	time_ui_display.visible = true
+	pausebutton.visible = true

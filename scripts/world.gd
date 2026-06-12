@@ -70,19 +70,21 @@ func _on_workshop_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		ui.visible = true
 		button_3.visible = false
-		workshop.workshop_close()
+		
 
 @onready var button_3: Button = $StaticBody2D3/Button3
 var workshop_opened = false
 
 func _on_button_3_pressed() -> void:
 	workshop_opened = true
-	workshop.workshop_open()
+	workshop.visible = true
 	ui.visible = false
 	button_3.visible = false
 func _physics_process(delta: float) -> void:
 	if workshop_opened == true:
 		if Input.is_action_just_pressed("pause"):
-			workshop.workshop_close()
+			workshop_opened = false
+			workshop.visible = false
 			ui.visible = true
-			
+			button_3.visible = true
+		

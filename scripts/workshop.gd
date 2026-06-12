@@ -3,16 +3,12 @@ extends Control
 @onready var workshopselectedui: TextureRect = $Control/Workshopselectedui
 
 var selected = null
-func workshop_open():
-	visible = true
-	
-func workshop_close():
-	visible = false
+
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	visible = false
-
+	selected = $TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button2
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -34,3 +30,18 @@ func _on_button_4_pressed() -> void:
 
 func _on_button_5_pressed() -> void:
 	selected = $TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button5
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+@onready var ui: Control = $"../ui"
+@onready var button_3: Button = $"../../StaticBody2D3/Button3"
+
+
+func _on_button_pressed() -> void:
+	animation_player.play("backbutton")
+	await animation_player.animation_finished
+	ui.visible = true
+	visible = false
+	button_3.visible = true
+	
+	

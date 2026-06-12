@@ -89,6 +89,55 @@ texture = ExtResource("3_4103c")
 [sub_resource type="Theme" id="Theme_acb0r"]
 HScrollBar/styles/grabber = SubResource("StyleBoxTexture_0t7iv")
 
+[sub_resource type="Animation" id="Animation_4xjol"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_gdjy1"]
+resource_name = "backbutton"
+length = 0.24
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.033333335, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.91, 0.91)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.033333335, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(73, 89), Vector2(82.675, 90.73)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Button/Icons8Back96:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.03333334, 0.20000002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.68, 0.46421334, 0.2992, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_15wdr"]
+_data = {
+&"RESET": SubResource("Animation_4xjol"),
+&"backbutton": SubResource("Animation_gdjy1")
+}
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15wdr"]
 bg_color = Color(0.82, 0.72406, 0.50020003, 1)
 corner_radius_top_left = 8
@@ -304,39 +353,6 @@ layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Button" type="Button" parent="TextureRect2" unique_id=1119587121]
-layout_mode = 0
-offset_left = 73.0
-offset_top = 89.0
-offset_right = 306.0
-offset_bottom = 155.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_15wdr")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_f1oc0")
-theme_override_styles/hover = SubResource("StyleBoxFlat_5p7st")
-
-[node name="Icons8Back96" type="Sprite2D" parent="TextureRect2/Button" unique_id=36597083]
-texture_filter = 2
-position = Vector2(50, 34)
-texture = ExtResource("7_4xjol")
-
-[node name="Label" type="Label" parent="TextureRect2/Button" unique_id=998695177]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.5
-offset_top = -25.0
-offset_right = 99.5
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.5411765, 0.29803923, 0.043137256, 1)
-theme_override_fonts/font = ExtResource("8_gdjy1")
-theme_override_font_sizes/font_size = 52
-text = "BACK"
-
 [node name="Control" type="Control" parent="." unique_id=248489879]
 clip_contents = true
 anchors_preset = 0
@@ -357,7 +373,46 @@ scale = Vector2(3.4525557, 4.072917)
 mouse_filter = 2
 texture = ExtResource("7_35y6k")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1078170537]
+libraries/ = SubResource("AnimationLibrary_15wdr")
+
+[node name="Button" type="Button" parent="." unique_id=1119587121]
+layout_mode = 0
+offset_left = 82.675
+offset_top = 90.73
+offset_right = 315.67548
+offset_bottom = 156.72943
+scale = Vector2(0.91, 0.91)
+theme_override_styles/normal = SubResource("StyleBoxFlat_15wdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f1oc0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5p7st")
+
+[node name="Icons8Back96" type="Sprite2D" parent="Button" unique_id=36597083]
+modulate = Color(0.68, 0.46421334, 0.2992, 1)
+texture_filter = 2
+position = Vector2(50, 34)
+texture = ExtResource("7_4xjol")
+
+[node name="Label" type="Label" parent="Button" unique_id=998695177]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -25.0
+offset_right = 99.5
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.5411765, 0.29803923, 0.043137256, 1)
+theme_override_fonts/font = ExtResource("8_gdjy1")
+theme_override_font_sizes/font_size = 52
+text = "BACK"
+
 [connection signal="pressed" from="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

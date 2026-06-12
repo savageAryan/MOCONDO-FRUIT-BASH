@@ -400,12 +400,10 @@ libraries/ = SubResource("AnimationLibrary_jhx03")
 wait_time = 600.0
 autostart = true
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1743471746 groups=["global day and night"]]
-visible = false
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1743471746]
 color = Color(0.19103259, 0.33427146, 0.47772908, 1)
 script = ExtResource("13_jhx03")
 gradient = SubResource("GradientTexture1D_o8fc1")
-time_speed = 0.004
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1536527727]
 z_index = 2

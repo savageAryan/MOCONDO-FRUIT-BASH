@@ -14,12 +14,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	time += delta * time_speed
-	var value = (sin(time - PI / 2)+1.0)/2.0
+	
+	var value = (sin(Timemanager.time - PI / 2)+1.0)/2.0
 	self.color = gradient.gradient.sample(value)
 	recalculate_time()
 func recalculate_time() -> void:
-	var total_minutes = int(time/ ingame_to_real_minute_duration)
+	var total_minutes = int(Timemanager.time/ ingame_to_real_minute_duration)
 	var day = int(total_minutes/ minutes_per_dat)
 	var currentday_min = total_minutes % minutes_per_dat
 	var hour = int(currentday_min/ minutes_per_hour)
