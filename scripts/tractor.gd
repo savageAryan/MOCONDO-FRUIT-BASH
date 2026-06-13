@@ -3,6 +3,7 @@ var current_dir = "none"
 
 var speed = 200
 const WHEAT = preload("uid://d13jxal853d8w")
+@onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 
 @onready var wheatlandtile: TileMapLayer = $"../wheatlandtile"
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -24,7 +25,7 @@ func player_movement(delta):
 	if Input.is_action_pressed("right"):
 		current_dir = "right"
 		animated_sprite_2d.play("walking")
-		
+		animation_player.play("new_animation")
 		
 		
 		velocity.x = speed
@@ -32,14 +33,17 @@ func player_movement(delta):
 	elif Input.is_action_pressed("left"):
 		current_dir = "left"
 		animated_sprite_2d.play("walking")
+		animation_player.play("new_animation")
 		velocity.x = -speed
 		velocity.y =0
 	elif Input.is_action_pressed("forward"):
 		current_dir = "down"
+		animation_player.play("new_animation")
 		animated_sprite_2d.play("walking")
 		velocity.x = 0
 		velocity.y = speed
 	elif Input.is_action_pressed("backward"):
+		animation_player.play("new_animation")
 		current_dir = "up"
 		animated_sprite_2d.play("walking")
 		velocity.x = 0

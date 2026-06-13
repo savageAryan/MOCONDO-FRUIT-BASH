@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bqd468s3adjg8" path="res://assets/mainmenu.png" id="1_3otxd"]
 [ext_resource type="Script" uid="uid://bi23hpn4ywvc1" path="res://scripts/pausemenu.gd" id="1_r33we"]
+[ext_resource type="FontFile" uid="uid://bbbwahii6uqin" path="res://assets/vladimir.ttf" id="3_8ljkb"]
+[ext_resource type="FontFile" uid="uid://1wp8whuqfa5o" path="res://assets/LowresPixel-Regular.otf" id="4_vpyy4"]
 
 [sub_resource type="Animation" id="Animation_3otxd"]
 length = 0.586
@@ -56,7 +58,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ScrollContainer:modulate")
+tracks/4/path = NodePath("Panel:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -120,7 +122,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ScrollContainer:modulate")
+tracks/4/path = NodePath("Panel:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -143,12 +145,32 @@ corner_radius_top_right = 75
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ljkb"]
-bg_color = Color(0.8, 0.7088, 0.49600002, 1)
-corner_radius_top_left = 25
-corner_radius_top_right = 75
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 25
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpyy4"]
+bg_color = Color(0.85882354, 0.76862746, 0.5568628, 1)
+border_width_bottom = 6
+border_color = Color(0.5574703, 0.34252068, 0.07524308, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eptsf"]
+bg_color = Color(0.86, 0.75938004, 0.5246, 1)
+border_width_bottom = 3
+border_color = Color(0.7753336, 0.65817064, 0.43916214, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alvrn"]
+bg_color = Color(0.73, 0.5465267, 0.35040003, 1)
+border_width_bottom = 5
+border_color = Color(0.48068428, 0.29182455, 0.058264993, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gyci"]
+bg_color = Color(0.82, 0.70684, 0.44279996, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_vpyy4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0wba"]
+bg_color = Color(0.85882354, 0.76862746, 0.5568628, 1)
 
 [node name="pausemenu" type="Control" unique_id=934388732]
 process_mode = 3
@@ -179,11 +201,129 @@ texture = ExtResource("1_3otxd")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=510354536]
 libraries/ = SubResource("AnimationLibrary_8ljkb")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1733000865]
+[node name="Panel" type="Panel" parent="." unique_id=694166628]
 layout_mode = 0
 offset_left = 86.0
 offset_top = 103.0
 offset_right = 1059.0
 offset_bottom = 556.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_r33we")
-theme_override_styles/focus = SubResource("StyleBoxFlat_8ljkb")
+
+[node name="Label" type="Label" parent="Panel" unique_id=757121041]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -391.39
+offset_right = 386.61
+offset_bottom = 89.0
+grow_horizontal = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0.65, 0.47320002, 0.20799999, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_8ljkb")
+theme_override_font_sizes/font_size = 74
+theme_override_styles/normal = SubResource("StyleBoxFlat_vpyy4")
+text = "-------GAME PAUSED-------"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=2142471017]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -432.5
+offset_top = -100.5
+offset_right = 433.5
+offset_bottom = -39.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ScrollContainer" unique_id=2127626543]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Panel/ScrollContainer/HBoxContainer" unique_id=281823825]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_vpyy4")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxFlat_eptsf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_alvrn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3gyci")
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_vpyy4")
+text = "eee"
+
+[node name="Button2" type="Button" parent="Panel/ScrollContainer/HBoxContainer" unique_id=52857040]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_vpyy4")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxFlat_eptsf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_alvrn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3gyci")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_vpyy4")
+text = "eee"
+
+[node name="Button3" type="Button" parent="Panel/ScrollContainer/HBoxContainer" unique_id=1071774487]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_vpyy4")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxFlat_eptsf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_alvrn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3gyci")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_vpyy4")
+text = "eee"
+
+[node name="Button4" type="Button" parent="Panel/ScrollContainer/HBoxContainer" unique_id=670235308]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_vpyy4")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxFlat_eptsf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_alvrn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3gyci")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_vpyy4")
+text = "eee"
+
+[node name="Button5" type="Button" parent="Panel/ScrollContainer/HBoxContainer" unique_id=1257127568]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_vpyy4")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxFlat_eptsf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_alvrn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3gyci")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_vpyy4")
+text = "eee"
+
+[node name="Button6" type="Button" parent="Panel/ScrollContainer/HBoxContainer" unique_id=466948379]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_vpyy4")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxFlat_eptsf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_alvrn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3gyci")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_vpyy4")
+text = "eee"
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="Panel" unique_id=497888505]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 187.0
+offset_right = 920.0
+offset_bottom = 449.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e0wba")

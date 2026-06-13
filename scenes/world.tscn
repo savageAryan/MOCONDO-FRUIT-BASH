@@ -409,6 +409,7 @@ gradient = SubResource("GradientTexture1D_o8fc1")
 z_index = 2
 
 [node name="Button3" type="Button" parent="StaticBody2D3" unique_id=1310295072]
+visible = false
 offset_left = 183.0
 offset_top = -109.0
 offset_right = 265.0
