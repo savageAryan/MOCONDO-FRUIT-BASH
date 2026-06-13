@@ -225,6 +225,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_cgfq5"]
+resource_name = "time hover"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7dvkv"]
+_data = {
+&"time hover": SubResource("Animation_cgfq5")
+}
+
 [node name="ui" type="Control" unique_id=1662368370]
 process_mode = 3
 z_index = 6
@@ -416,5 +424,8 @@ offset_top = 3.8910503
 offset_right = 293.64462
 offset_bottom = 34.76005
 mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1628164519]
+libraries/ = SubResource("AnimationLibrary_7dvkv")
 
 [connection signal="pressed" from="pausebutton" to="." method="_on_pausebutton_pressed"]
