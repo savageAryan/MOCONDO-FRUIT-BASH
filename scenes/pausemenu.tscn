@@ -81,6 +81,33 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Panel/ScrollContainer2/VBoxContainer/Control/Button:theme_override_font_sizes/font_size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(33, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_3gyci"]
+resource_name = "buttonanimation"
+length = 0.955
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/ScrollContainer2/VBoxContainer/Control/Button:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(34.585, 0, 0, 0, 0, 23.975, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.93333334)
+}
 
 [sub_resource type="Animation" id="Animation_alvrn"]
 resource_name = "buttonclicked"
@@ -165,6 +192,7 @@ tracks/4/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8ljkb"]
 _data = {
 &"RESET": SubResource("Animation_3otxd"),
+&"buttonanimation": SubResource("Animation_3gyci"),
 &"buttonclicked": SubResource("Animation_alvrn"),
 &"pausemenuappear": SubResource("Animation_r33we")
 }
@@ -203,6 +231,9 @@ corner_radius_top_right = 70
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0wba"]
 bg_color = Color(0.85882354, 0.76862746, 0.5568628, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_klbn3"]
+bg_color = Color(0.8, 0.7016, 0.47200003, 0.85882354)
+
 [node name="pausemenu" type="Control" unique_id=934388732]
 process_mode = 3
 layout_mode = 3
@@ -231,6 +262,7 @@ texture = ExtResource("1_3otxd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=510354536]
 libraries/ = SubResource("AnimationLibrary_8ljkb")
+autoplay = &"buttonanimation"
 
 [node name="Panel" type="Panel" parent="." unique_id=694166628]
 layout_mode = 0
@@ -342,10 +374,29 @@ offset_right = 920.0
 offset_bottom = 449.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_e0wba")
 
-[node name="Control" type="Control" parent="Panel/ScrollContainer2" unique_id=961999204]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer2" unique_id=1362941404]
 layout_mode = 2
-size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="Panel/ScrollContainer2/VBoxContainer" unique_id=961999204]
+custom_minimum_size = Vector2(865, 262.74)
+layout_mode = 2
 size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Panel/ScrollContainer2/VBoxContainer/Control" unique_id=2143178008]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -350.5
+offset_top = 6.999996
+offset_right = 358.5
+offset_bottom = 70.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.56, 0.3136, 0.067200005, 1)
+theme_override_fonts/font = ExtResource("4_alvrn")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_klbn3")
+text = "BACK TO GAME"
 
 [connection signal="button_down" from="Panel/ScrollContainer/HBoxContainer/Button" to="Panel/ScrollContainer/HBoxContainer/Button" method="_on_button_down"]
 [connection signal="button_up" from="Panel/ScrollContainer/HBoxContainer/Button" to="Panel/ScrollContainer/HBoxContainer/Button" method="_on_button_up"]
@@ -367,3 +418,4 @@ size_flags_vertical = 3
 [connection signal="mouse_entered" from="Panel/ScrollContainer/HBoxContainer/Button4" to="Panel/ScrollContainer/HBoxContainer/Button4" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Panel/ScrollContainer/HBoxContainer/Button4" to="Panel/ScrollContainer/HBoxContainer/Button4" method="_on_mouse_exited"]
 [connection signal="pressed" from="Panel/ScrollContainer/HBoxContainer/Button4" to="Panel/ScrollContainer/HBoxContainer/Button4" method="_on_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer2/VBoxContainer/Control/Button" to="." method="_on_button_pressed"]
