@@ -4,18 +4,29 @@ var current_dir = "none"
 var speed = 200
 const WHEAT = preload("uid://d13jxal853d8w")
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
+@onready var camera_2d: Camera2D = $Camera2D
 
 @onready var wheatlandtile: TileMapLayer = $"../wheatlandtile"
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var label: Label = $Panel/Label
-
+var vibro = 2.0
 var movement = 0
+func _process(delta: float) -> void:
+		vibro += delta
+		if animated_sprite_2d.animation == "walking":
+			camera_2d.offset.y = sin(vibro * 70) * 0.5
+			
+		elif animated_sprite_2d.animation == "idel field":
+			camera_2d.offset.x = sin(vibro * 50.0) * 0.3
+			camera_2d.offset.y = sin(vibro * 50.0) * 0.2
+		else:
+			camera_2d.offset = Vector2.ZERO
 func _physics_process(delta: float) -> void:
 	label.text = str(GameManager.wheat)
 	player_movement(delta)
 	cut_wheat()
 	animation()
-		
+
 func animation():
 	if velocity.x == 0 and velocity.y == 0:
 		animated_sprite_2d.play("idel field")
@@ -25,25 +36,26 @@ func player_movement(delta):
 	if Input.is_action_pressed("right"):
 		current_dir = "right"
 		animated_sprite_2d.play("walking")
-		animation_player.play("new_animation")
-		
-		
 		velocity.x = speed
 		velocity.y = 0
+		
+		
+		
+		
 	elif Input.is_action_pressed("left"):
 		current_dir = "left"
 		animated_sprite_2d.play("walking")
-		animation_player.play("new_animation")
+		
 		velocity.x = -speed
 		velocity.y =0
 	elif Input.is_action_pressed("forward"):
 		current_dir = "down"
-		animation_player.play("new_animation")
+		
 		animated_sprite_2d.play("walking")
 		velocity.x = 0
 		velocity.y = speed
 	elif Input.is_action_pressed("backward"):
-		animation_player.play("new_animation")
+		
 		current_dir = "up"
 		animated_sprite_2d.play("walking")
 		velocity.x = 0
