@@ -1,16 +1,18 @@
 extends Control
 @onready var ampmlabel: Label = $TimeUiDisplay/ampmlabel
-@onready var mangolabel: Label = $inventory/AnimatedSprite2D/mangolabel
-@onready var applelabel: Label = $inventory/AnimatedSprite2D2/applelabel
-@onready var strawberrylabel: Label = $inventory/AnimatedSprite2D3/strawberrylabel
-@onready var bananalabel: Label = $inventory/AnimatedSprite2D4/bananalabel
+@onready var hotbar: Sprite2D = $hotbar
 
+@onready var mangolabel: Label = $hotbar/AnimatedSprite2D/mangolabel
+@onready var applelabel: Label = $hotbar/AnimatedSprite2D2/applelabel
+@onready var strawberrylabel: Label = $hotbar/AnimatedSprite2D3/strawberrylabel
+@onready var bananalabel: Label = $hotbar/AnimatedSprite2D4/bananalabel
 
 
 @onready var daylabel: Label = $TimeUiDisplay/daylabel
 @onready var timelabel: Label = $TimeUiDisplay/timelabel
 @onready var weekdaylabel_2: Label = $TimeUiDisplay/weekdaylabel2
-@onready var inventory: Sprite2D = $inventory
+
+
 var Inventory = "closed"
 
 var suffix = "none"
@@ -26,7 +28,7 @@ const days = ["MONDAY",
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	inventory.visible = false
+	pass
 	
 @onready var arrow: AnimatedSprite2D = $TimeUiDisplay/arrow
 @onready var pausebutton: TextureButton = $pausebutton
@@ -45,17 +47,7 @@ func _physics_process(delta: float) -> void:
 		time_ui_display.visible = not paused
 
 		get_tree().paused = paused
-	mangolabel.text = str(GameManager.mango)
-	applelabel.text = str(GameManager.apple)
-	strawberrylabel.text = str(GameManager.strawberry)
-	bananalabel.text = str(GameManager.banana)
-	if Input.is_action_just_pressed("Inventory") and Inventory == "closed":
-		inventory.visible = true
-		Inventory = "open"
-	else:
-		if Input.is_action_just_pressed("Inventory") and Inventory == "open":
-			inventory.visible = false
-			Inventory = "closed"
+	
 	
 		
 		

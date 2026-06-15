@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bkxxnoykda6k"]
 
 [ext_resource type="Script" uid="uid://bamhwjydcdehq" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Resource" uid="uid://byvrcjyrtta2p" path="res://inventory/player_inventory.tres" id="2_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://d1ye02im0fcbr" path="res://assets/player sprites/idel.png" id="2_g2els"]
 [ext_resource type="Texture2D" uid="uid://xj5g4nmj0exu" path="res://assets/player sprites/empty idl.png" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://ceebbxoi3l1u1" path="res://assets/player sprites/idel side n back.png" id="2_smehm"]
@@ -382,6 +383,7 @@ animations = [{
 
 [node name="player" type="CharacterBody2D" unique_id=756428043]
 script = ExtResource("1_g2els")
+inventory = ExtResource("2_d2wvv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1852352655]
 shape = SubResource("CircleShape2D_dqkch")

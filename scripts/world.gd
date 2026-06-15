@@ -71,6 +71,7 @@ func _on_workshop_area_body_exited(body: Node2D) -> void:
 		ui.visible = true
 		button_3.visible = false
 		workshop.visible = false
+@onready var invenrory: Control = $CanvasLayer/invenrory
 
 @onready var button_3: Button = $StaticBody2D3/Button3
 var workshop_opened = false
