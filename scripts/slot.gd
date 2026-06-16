@@ -5,10 +5,10 @@ extends Panel
 
 func update(item: InventoryItem):
 	if not item:
-		backgroundsprite.frame = 0
+		backgroundsprite.visible = false
 		itemssprite.visible = false
 	else:
-		backgroundsprite.frame = 1
+		backgroundsprite.visible = true
 		itemssprite.visible = true
 		itemssprite.texture = item.texture
 

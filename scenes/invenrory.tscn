@@ -62,15 +62,71 @@ columns = 5
 [node name="slot" parent="TextureRect/GridContainer" unique_id=1833126777 instance=ExtResource("3_ovfi1")]
 layout_mode = 2
 
+[node name="slot2" parent="TextureRect/GridContainer" unique_id=1614489367 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
+[node name="slot3" parent="TextureRect/GridContainer" unique_id=2118173394 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
+[node name="slot4" parent="TextureRect/GridContainer" unique_id=791115668 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
+[node name="slot5" parent="TextureRect/GridContainer" unique_id=1062110229 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
+[node name="slot6" parent="TextureRect/GridContainer" unique_id=1716843943 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
+[node name="slot7" parent="TextureRect/GridContainer" unique_id=568282367 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
+[node name="slot8" parent="TextureRect/GridContainer" unique_id=1635279261 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
+[node name="slot9" parent="TextureRect/GridContainer" unique_id=1486429088 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
+[node name="slot10" parent="TextureRect/GridContainer" unique_id=1288276218 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
+[node name="slot11" parent="TextureRect/GridContainer" unique_id=2142658340 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
+[node name="slot12" parent="TextureRect/GridContainer" unique_id=1757663632 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
+[node name="slot13" parent="TextureRect/GridContainer" unique_id=1467638145 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
+[node name="slot14" parent="TextureRect/GridContainer" unique_id=117189102 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
+[node name="slot15" parent="TextureRect/GridContainer" unique_id=1752844282 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
+[node name="slot16" parent="TextureRect/GridContainer" unique_id=831320334 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
+[node name="slot17" parent="TextureRect/GridContainer" unique_id=1583882067 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
+[node name="slot18" parent="TextureRect/GridContainer" unique_id=1576498550 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
+[node name="slot19" parent="TextureRect/GridContainer" unique_id=1057878567 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
+[node name="slot20" parent="TextureRect/GridContainer" unique_id=1543599858 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1867007860]
 libraries/ = SubResource("AnimationLibrary_27hiw")
 
 [node name="hotbar" type="TextureRect" parent="." unique_id=1259292278]
 layout_mode = 0
-offset_left = 331.0
-offset_top = 496.0
-offset_right = 372.0
-offset_bottom = 576.0
-rotation = 1.5707964
-scale = Vector2(4, 4)
+offset_left = 174.0
+offset_top = 479.0
+offset_right = 273.0
+offset_bottom = 520.0
+scale = Vector2(4.14, 4.14)
 texture = ExtResource("3_27hiw")
