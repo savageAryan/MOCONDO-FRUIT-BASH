@@ -1,21 +1,13 @@
-extends Panel
+extends Button
 @onready var backgroundsprite: Sprite2D = $background
-@onready var itemssprite: Sprite2D = $CenterContainer/Panel/items
-@onready var amount_label: Label = $CenterContainer/Panel/amountLabel
+@onready var container: CenterContainer = $CenterContainer
+var itemStackGui: ItemStackGui
 
-
-func update(slot: InventorySlot):
-	if not slot.item:
-		backgroundsprite.visible = false
-		itemssprite.visible = false
-		amount_label.visible = false
-	else:
-		backgroundsprite.visible = true
-		itemssprite.visible = true
-		itemssprite.texture = slot.item.texture
-		amount_label.visible = true
-		amount_label.text = str(slot.amount)
-
+func insert(isg: ItemStackGui):
+	itemStackGui = isg
+	backgroundsprite.visible = true
+	container.add_child(itemStackGui)
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

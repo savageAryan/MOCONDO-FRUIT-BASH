@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://clw064gulvx8"]
+
+[ext_resource type="Script" uid="uid://b6yrqjyypqfaa" path="res://scenes/itemstack.gd" id="1_iju4x"]
+[ext_resource type="FontFile" uid="uid://cgox7ipu4flb" path="res://assets/chawp.otf" id="1_svc8v"]
+
+[node name="Panel" type="Panel" unique_id=1487991473]
+script = ExtResource("1_iju4x")
+
+[node name="items" type="Sprite2D" parent="." unique_id=300330777]
+scale = Vector2(3, 3)
+
+[node name="amountLabel" type="Label" parent="." unique_id=956760626]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 2.0
+offset_right = 75.0
+offset_bottom = 78.0
+rotation = -0.00049848267
+scale = Vector2(0.59, 0.59)
+theme_override_colors/font_color = Color(0.5975306, 0.3985662, 0.26403713, 1)
+theme_override_colors/font_shadow_color = Color(0.46300536, 0.2137568, 0.012083273, 0)
+theme_override_colors/font_outline_color = Color(0.53, 0.31976667, 0.16959998, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 54
+theme_override_fonts/font = ExtResource("1_svc8v")
+theme_override_font_sizes/font_size = 76
+text = "00"
+horizontal_alignment = 2
+vertical_alignment = 2
