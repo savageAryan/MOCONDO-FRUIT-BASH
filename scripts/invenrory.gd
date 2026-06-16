@@ -9,8 +9,8 @@ signal closed
 @onready var slots: Array = $TextureRect/GridContainer.get_children()
 
 func update():
-	for i in range(min(inventory.items.size(), slots.size())):
-		slots[i].update(inventory.items[i])
+	for i in range(min(inventory.slots.size(), slots.size())):
+		slots[i].update(inventory.slots[i])
 		print("invo updated")
 func open():
 	texture_rect.visible = true
