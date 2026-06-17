@@ -63,8 +63,6 @@ func connectSlots():
 		callable = callable.bind(slot)
 		slot.pressed.connect(callable)
 func onSlotClicked(slot):
-	print(slot.itemStackGui)
-	
 	if slot.isEmpty():
 		if not itemInHand:
 			return
@@ -81,7 +79,6 @@ func onSlotClicked(slot):
 func updateItemInHand():
 	if not itemInHand: return
 	itemInHand.global_position = get_global_mouse_position() - itemInHand.size/2
-	print(itemInHand.global_position)
 func _input(event: InputEvent) -> void:
 	updateItemInHand()
 func swapItems(slot):
@@ -97,6 +94,7 @@ func stackItems(slot):
 	if slotItem.inventorySlot.amount == maxAmount:
 		swapItems(slot)
 		return
+		
 	if totalAmount <= maxAmount:
 		slotItem.inventorySlot.amount = totalAmount
 		remove_child(itemInHand)
