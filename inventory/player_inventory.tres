@@ -1,18 +1,25 @@
 [gd_resource type="Resource" script_class="Inventory" format=3 uid="uid://byvrcjyrtta2p"]
 
 [ext_resource type="Script" uid="uid://cpebs7yjytf8d" path="res://inventory/inventorySlot.gd" id="2_fhgtu"]
+[ext_resource type="Resource" uid="uid://biotghfn678ff" path="res://inventory/item/apple.tres" id="3_ptr4k"]
 [ext_resource type="Script" uid="uid://der0u4ayurjwc" path="res://inventory/inventory.gd" id="4_ec8hw"]
 
 [sub_resource type="Resource" id="Resource_fhgtu"]
 script = ExtResource("2_fhgtu")
+item = ExtResource("3_ptr4k")
+amount = 2
 metadata/_custom_type_script = "uid://cpebs7yjytf8d"
 
 [sub_resource type="Resource" id="Resource_ptr4k"]
 script = ExtResource("2_fhgtu")
+item = ExtResource("3_ptr4k")
+amount = 4
 metadata/_custom_type_script = "uid://cpebs7yjytf8d"
 
 [sub_resource type="Resource" id="Resource_fi1x0"]
 script = ExtResource("2_fhgtu")
+item = ExtResource("3_ptr4k")
+amount = 8
 metadata/_custom_type_script = "uid://cpebs7yjytf8d"
 
 [sub_resource type="Resource" id="Resource_65xq6"]

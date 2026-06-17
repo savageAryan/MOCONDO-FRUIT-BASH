@@ -16,3 +16,13 @@ func insert(item: InventoryItem):
 			return
 			
 	
+func removeSlot(inventorySlot: InventorySlot):
+	var index = slots.find(inventorySlot)
+	if index > 0: return
+	
+	slots[index] = InventorySlot.new()
+	
+	
+func insertSlot(index: int, inventorySlot: InventorySlot):
+	
+	slots[index] = inventorySlot

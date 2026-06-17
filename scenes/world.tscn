@@ -19,6 +19,8 @@
 [ext_resource type="Script" uid="uid://dd5bb0mkhi6uy" path="res://scripts/daynight.gd" id="13_jhx03"]
 [ext_resource type="Texture2D" uid="uid://bo1etur37s2u4" path="res://assets/workshop.png" id="15_xo05s"]
 [ext_resource type="Texture2D" uid="uid://834k53yj2kfk" path="res://assets/button.png" id="16_dss4m"]
+[ext_resource type="PackedScene" uid="uid://b7g6mhlg0bhji" path="res://scenes/apple.tscn" id="20_7iits"]
+[ext_resource type="PackedScene" uid="uid://davx2rau8b7xv" path="res://scenes/banana.tscn" id="21_oo54l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4wyf3"]
 texture = ExtResource("1_rwgxs")
@@ -449,6 +451,18 @@ texture = ExtResource("15_xo05s")
 position = Vector2(198, -117.75001)
 scale = Vector2(0.51171875, 0.5117188)
 shape = SubResource("RectangleShape2D_dss4m")
+
+[node name="apple" parent="." unique_id=1699977174 instance=ExtResource("20_7iits")]
+position = Vector2(-38, 2)
+
+[node name="banana" parent="." unique_id=636589882 instance=ExtResource("21_oo54l")]
+position = Vector2(-40, 31)
+
+[node name="apple2" parent="." unique_id=1148776965 instance=ExtResource("20_7iits")]
+position = Vector2(50, -22)
+
+[node name="banana2" parent="." unique_id=350004261 instance=ExtResource("21_oo54l")]
+position = Vector2(-5, 25)
 
 [connection signal="closed" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_closed"]
 [connection signal="opened" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_opened"]

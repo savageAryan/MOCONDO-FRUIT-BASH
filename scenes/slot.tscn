@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://kewx733ckc68" path="res://assets/background.png" id="2_ic0fu"]
 
 [node name="slot" type="Button" unique_id=1614412372]
+process_mode = 3
 self_modulate = Color(0, 0, 0, 0)
 custom_minimum_size = Vector2(77, 76)
 offset_right = 77.25

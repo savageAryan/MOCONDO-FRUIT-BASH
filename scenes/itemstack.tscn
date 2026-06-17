@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://cgox7ipu4flb" path="res://assets/chawp.otf" id="1_svc8v"]
 
 [node name="Panel" type="Panel" unique_id=1487991473]
+process_mode = 3
 script = ExtResource("1_iju4x")
 
 [node name="items" type="Sprite2D" parent="." unique_id=300330777]
