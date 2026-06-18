@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bf4ijqtgbii4k"]
+
+[ext_resource type="Script" uid="uid://bn7l7yvqn5yv5" path="res://scripts/hotbar_slot.gd" id="1_vjssj"]
+[ext_resource type="Texture2D" uid="uid://kewx733ckc68" path="res://assets/background.png" id="2_vjssj"]
+[ext_resource type="Script" uid="uid://b6yrqjyypqfaa" path="res://scenes/itemstack.gd" id="3_xfbr6"]
+[ext_resource type="FontFile" uid="uid://cgox7ipu4flb" path="res://assets/chawp.otf" id="4_j61rw"]
+
+[node name="HotbarSlot" type="Button" unique_id=1614412372]
+process_mode = 3
+self_modulate = Color(0, 0, 0, 0)
+custom_minimum_size = Vector2(20, 20)
+offset_right = 20.0
+offset_bottom = 20.0
+scale = Vector2(0.585, 0.585)
+script = ExtResource("1_vjssj")
+
+[node name="background" type="Sprite2D" parent="." unique_id=260248733]
+scale = Vector2(0.976801, 0.976801)
+texture = ExtResource("2_vjssj")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1260458337]
+custom_minimum_size = Vector2(18.75, 18.85)
+layout_mode = 0
+offset_right = 20.512821
+offset_bottom = 20.512821
+
+[node name="Panel" type="Panel" parent="CenterContainer" unique_id=1487991473]
+process_mode = 3
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("3_xfbr6")
+
+[node name="items" type="Sprite2D" parent="CenterContainer/Panel" unique_id=300330777]
+scale = Vector2(0.901, 0.901)
+
+[node name="amountLabel" type="Label" parent="CenterContainer/Panel" unique_id=956760626]
+layout_mode = 0
+offset_left = -3.162393
+offset_top = -1.4529915
+offset_right = 67.83761
+offset_bottom = 66.54701
+rotation = -0.00049848267
+scale = Vector2(0.195, 0.195)
+theme_override_colors/font_color = Color(0.5975306, 0.3985662, 0.26403713, 1)
+theme_override_colors/font_shadow_color = Color(0.46300536, 0.2137568, 0.012083273, 0)
+theme_override_colors/font_outline_color = Color(0.53, 0.31976667, 0.16959998, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 54
+theme_override_fonts/font = ExtResource("4_j61rw")
+theme_override_font_sizes/font_size = 53
+text = "00"
+horizontal_alignment = 2
+vertical_alignment = 2
