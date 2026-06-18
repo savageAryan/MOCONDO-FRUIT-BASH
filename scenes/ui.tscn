@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://gpkpbg755wjp" path="res://assets/pause button1.png" id="8_cgfq5"]
 [ext_resource type="PackedScene" uid="uid://ctkav8msxb7p2" path="res://scenes/pausemenu.tscn" id="9_cgfq5"]
 [ext_resource type="Texture2D" uid="uid://bskppeou8fsm0" path="res://assets/pause button3.png" id="9_vdcm2"]
+[ext_resource type="Texture2D" uid="uid://c0ld0d4cga244" path="res://assets/inventoryicon3.png" id="9_vsj0x"]
+[ext_resource type="Texture2D" uid="uid://b2dybayxmm31y" path="res://assets/inventoryicon2.png" id="10_qsv74"]
 [ext_resource type="Texture2D" uid="uid://6rftbj4lnd44" path="res://assets/inventoryicon.png" id="10_vsj0x"]
 [ext_resource type="Texture2D" uid="uid://dsvaur8vktfu2" path="res://assets/audioicon1.png" id="11_qsv74"]
 [ext_resource type="Texture2D" uid="uid://buoxojah1bm5i" path="res://assets/audioicon3.png" id="12_h1mc3"]
@@ -196,20 +198,25 @@ mouse_filter = 2
 libraries/ = SubResource("AnimationLibrary_7dvkv")
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1195730937]
+visible = false
 layout_mode = 1
 offset_left = 151.49156
 offset_right = 171.49156
 offset_bottom = 20.0
+toggle_mode = true
 texture_normal = ExtResource("10_vsj0x")
+texture_pressed = ExtResource("9_vsj0x")
+texture_hover = ExtResource("10_qsv74")
 
 [node name="TextureButton2" type="TextureButton" parent="." unique_id=612549394]
+visible = false
 layout_mode = 1
 offset_left = 177.1725
 offset_right = 197.1725
 offset_bottom = 20.0
+toggle_mode = true
 texture_normal = ExtResource("11_qsv74")
 texture_pressed = ExtResource("12_h1mc3")
 texture_hover = ExtResource("13_cof4p")
 
 [connection signal="pressed" from="pausebutton" to="." method="_on_pausebutton_pressed"]
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

@@ -2,6 +2,7 @@ extends Control
 var isopen: bool = false
 signal opened
 signal closed
+
 @onready var texture_rect: TextureRect = $TextureRect
 @onready var hotbar: TextureRect = $hotbar
 @onready var inventory: Inventory = preload("res://inventory/player_inventory.tres")
@@ -71,6 +72,7 @@ func onSlotClicked(slot):
 		
 	if  !itemInHand:
 		takeItemFromSlot(slot)
+		
 		return
 	if slot.itemStackGui.inventorySlot.item.name == itemInHand.inventorySlot.item.name:
 		stackItems(slot)
@@ -104,3 +106,17 @@ func stackItems(slot):
 		itemInHand.inventorySlot.amount = totalAmount - maxAmount
 	slotItem.update()
 	if itemInHand: itemInHand.update()
+
+
+
+
+@onready var texture_button: TextureButton = $TextureButton
+signal button
+
+
+func _on_texture_button_toggled(toggled_on: bool) -> void:
+	
+	if toggled_on:
+		open()
+	else:
+		close()

@@ -4,6 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://dtg4oj80aaggd" path="res://assets/inventory.png" id="1_px0oa"]
 [ext_resource type="Texture2D" uid="uid://c12brtokrm2bg" path="res://assets/fruitholder ui.png" id="3_27hiw"]
 [ext_resource type="PackedScene" uid="uid://dh8dvwsrbygtf" path="res://scenes/slot.tscn" id="3_ovfi1"]
+[ext_resource type="Texture2D" uid="uid://biveh5j4s23iu" path="res://assets/weaponslot.png" id="5_27hiw"]
+[ext_resource type="Texture2D" uid="uid://6rftbj4lnd44" path="res://assets/inventoryicon.png" id="6_icpxe"]
+[ext_resource type="Texture2D" uid="uid://c0ld0d4cga244" path="res://assets/inventoryicon3.png" id="7_1c2ov"]
+[ext_resource type="Texture2D" uid="uid://b2dybayxmm31y" path="res://assets/inventoryicon2.png" id="8_8v348"]
+[ext_resource type="Texture2D" uid="uid://dsvaur8vktfu2" path="res://assets/audioicon1.png" id="9_a5boj"]
+[ext_resource type="Texture2D" uid="uid://buoxojah1bm5i" path="res://assets/audioicon3.png" id="10_f33l1"]
+[ext_resource type="Texture2D" uid="uid://bvyvnnkkmeb4f" path="res://assets/audioicon2.png" id="11_muxr0"]
 
 [sub_resource type="Animation" id="Animation_oyyiu"]
 length = 0.001
@@ -41,9 +48,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -482.0
+offset_left = -379.0
 offset_top = -253.0
-offset_right = 345.6786
+offset_right = 448.6786
 offset_bottom = 197.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -124,9 +131,46 @@ libraries/ = SubResource("AnimationLibrary_27hiw")
 
 [node name="hotbar" type="TextureRect" parent="." unique_id=1259292278]
 layout_mode = 0
-offset_left = 174.0
-offset_top = 479.0
-offset_right = 273.0
-offset_bottom = 520.0
+offset_left = 317.0
+offset_top = 505.0
+offset_right = 416.0
+offset_bottom = 546.0
 scale = Vector2(4.14, 4.14)
 texture = ExtResource("3_27hiw")
+
+[node name="Weaponslot" type="TextureRect" parent="." unique_id=2008697431]
+layout_mode = 0
+offset_left = 722.0
+offset_top = 519.0
+offset_right = 754.0
+offset_bottom = 551.0
+scale = Vector2(4.3, 4.3)
+texture = ExtResource("5_27hiw")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1268008828]
+process_mode = 3
+layout_mode = 0
+offset_left = 483.0
+offset_top = 5.0
+offset_right = 563.0
+offset_bottom = 85.0
+toggle_mode = true
+texture_normal = ExtResource("6_icpxe")
+texture_pressed = ExtResource("7_1c2ov")
+texture_hover = ExtResource("8_8v348")
+stretch_mode = 0
+
+[node name="TextureButton2" type="TextureButton" parent="." unique_id=1270480371]
+process_mode = 3
+layout_mode = 0
+offset_left = 598.0
+offset_top = 5.0
+offset_right = 678.0
+offset_bottom = 85.0
+toggle_mode = true
+texture_normal = ExtResource("9_a5boj")
+texture_pressed = ExtResource("10_f33l1")
+texture_hover = ExtResource("11_muxr0")
+stretch_mode = 0
+
+[connection signal="toggled" from="TextureButton" to="." method="_on_texture_button_toggled"]

@@ -5,6 +5,7 @@
 
 [node name="Panel" type="Panel" unique_id=1487991473]
 process_mode = 3
+mouse_filter = 2
 script = ExtResource("1_iju4x")
 
 [node name="items" type="Sprite2D" parent="." unique_id=300330777]

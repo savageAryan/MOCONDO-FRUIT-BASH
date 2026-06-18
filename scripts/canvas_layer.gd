@@ -4,6 +4,7 @@ extends CanvasLayer
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Inventory"):
+		texture_button.button_pressed = !texture_button.button_pressed
 		if invenrory.isopen:
 			ui.visible = true
 			invenrory.close()
@@ -12,18 +13,12 @@ func _input(event: InputEvent) -> void:
 			ui.visible = false
 
 
+
+@onready var texture_button = $invenrory/TextureButton
+
 func _on_invenrory_closed() -> void:
 	get_tree().paused = false
 
 
 func _on_invenrory_opened() -> void:
 	get_tree().paused = true
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
