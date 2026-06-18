@@ -2,7 +2,8 @@ extends Control
 var isopen: bool = false
 signal opened
 signal closed
-
+var locked:bool = false
+var oldIndex: int = -1
 @onready var texture_rect: TextureRect = $TextureRect
 @onready var hotbar: TextureRect = $hotbar
 @onready var inventory: Inventory = preload("res://inventory/player_inventory.tres")
@@ -50,12 +51,14 @@ func takeItemFromSlot(slot):
 	add_child(itemInHand)
 
 	updateItemInHand()
+	oldIndex = slot.index
 func insertItemInSlot(slot):
 	var item = itemInHand
 	
 	remove_child(itemInHand)
 	itemInHand = null
 	slot.insert(item)
+	oldIndex = -1
 func connectSlots():
 	for i in range(slots.size()):
 		var slot = slots[i]
@@ -64,6 +67,7 @@ func connectSlots():
 		callable = callable.bind(slot)
 		slot.pressed.connect(callable)
 func onSlotClicked(slot):
+	if locked: return
 	if slot.isEmpty():
 		if not itemInHand:
 			return
@@ -81,8 +85,7 @@ func onSlotClicked(slot):
 func updateItemInHand():
 	if not itemInHand: return
 	itemInHand.global_position = get_global_mouse_position() - itemInHand.size/2
-func _input(event: InputEvent) -> void:
-	updateItemInHand()
+
 func swapItems(slot):
 	var tempItem = slot.takeItem()
 	insertItemInSlot(slot)
@@ -101,22 +104,27 @@ func stackItems(slot):
 		slotItem.inventorySlot.amount = totalAmount
 		remove_child(itemInHand)
 		itemInHand = null
+		oldIndex = -1
 	else:
 		slotItem.inventorySlot.amount =maxAmount
 		itemInHand.inventorySlot.amount = totalAmount - maxAmount
 	slotItem.update()
 	if itemInHand: itemInHand.update()
-
-
-
-
-@onready var texture_button: TextureButton = $TextureButton
-signal button
-
-
-func _on_texture_button_toggled(toggled_on: bool) -> void:
+func putItemBack():
+	locked = true
+	if oldIndex < 0:
+		var emptySlots = slots.filter(func (s): return s.isEmpty())
+		if emptySlots.is_empty(): return
+		oldIndex = emptySlots[0].index
+	var targetSlot = slots[oldIndex]
 	
-	if toggled_on:
-		open()
-	else:
-		close()
+	var tween = create_tween()
+	var targetPosition = targetSlot.global_position + targetSlot.size / 2
+	tween.tween_property(itemInHand, "global_position", targetPosition, 0.2)
+	await tween.finished
+	insertItemInSlot(targetSlot)
+	locked = false
+func _input(event: InputEvent) -> void:
+	if itemInHand && not locked && Input.is_action_just_pressed("rightclick"):
+		putItemBack()
+	updateItemInHand()
