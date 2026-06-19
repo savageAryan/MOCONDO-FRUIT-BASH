@@ -5,16 +5,21 @@ signal closed
 var locked:bool = false
 var oldIndex: int = -1
 @onready var texture_rect: TextureRect = $TextureRect
+
+
 @onready var hotbar: TextureRect = $hotbar
 @onready var inventory: Inventory = preload("res://inventory/player_inventory.tres")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var slots: Array = $TextureRect/GridContainer.get_children()
+@onready var hotbar_slots: Array = $TextureRect/HBoxContainer.get_children()
+@onready var slots: Array = hotbar_slots +  $TextureRect/GridContainer.get_children()
 @onready var ItemStackGuiClass = preload("res://scenes/itemstack.tscn")
 var itemInHand: ItemStackGui
 func update():
 	for i in range(min(inventory.slots.size(), slots.size())):
 		var inventorySlot: InventorySlot = inventory.slots[i]
-		if not inventorySlot.item: continue
+		if not inventorySlot.item:
+			slots[i].clear()
+			continue
 		
 		var itemStackGui: ItemStackGui = slots[i].itemStackGui
 		if not itemStackGui:

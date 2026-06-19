@@ -31,7 +31,6 @@ _data = {
 }
 
 [node name="invenrory" type="Control" unique_id=1545268138]
-process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -49,37 +48,45 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -379.0
-offset_top = -253.0
+offset_top = -240.0
 offset_right = 448.6786
-offset_bottom = 197.0
+offset_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_px0oa")
 
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect" unique_id=873057911]
+layout_mode = 0
+offset_left = 73.395
+offset_top = 33.0
+offset_right = 506.395
+offset_bottom = 116.000084
+theme_override_constants/separation = 12
+
+[node name="slot" parent="TextureRect/HBoxContainer" unique_id=1833126777 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
+[node name="slot3" parent="TextureRect/HBoxContainer" unique_id=2118173394 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
+[node name="slot2" parent="TextureRect/HBoxContainer" unique_id=1614489367 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
+[node name="slot4" parent="TextureRect/HBoxContainer" unique_id=791115668 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
+[node name="slot5" parent="TextureRect/HBoxContainer" unique_id=1062110229 instance=ExtResource("3_ovfi1")]
+layout_mode = 2
+
 [node name="GridContainer" type="GridContainer" parent="TextureRect" unique_id=1277699510]
 layout_mode = 0
-offset_left = 72.0
-offset_top = 56.0
-offset_right = 505.0
-offset_bottom = 403.0
+offset_left = 73.377
+offset_top = 144.685
+offset_right = 506.377
+offset_bottom = 396.6851
 theme_override_constants/h_separation = 11
 theme_override_constants/v_separation = 12
 columns = 5
-
-[node name="slot" parent="TextureRect/GridContainer" unique_id=1833126777 instance=ExtResource("3_ovfi1")]
-layout_mode = 2
-
-[node name="slot2" parent="TextureRect/GridContainer" unique_id=1614489367 instance=ExtResource("3_ovfi1")]
-layout_mode = 2
-
-[node name="slot3" parent="TextureRect/GridContainer" unique_id=2118173394 instance=ExtResource("3_ovfi1")]
-layout_mode = 2
-
-[node name="slot4" parent="TextureRect/GridContainer" unique_id=791115668 instance=ExtResource("3_ovfi1")]
-layout_mode = 2
-
-[node name="slot5" parent="TextureRect/GridContainer" unique_id=1062110229 instance=ExtResource("3_ovfi1")]
-layout_mode = 2
 
 [node name="slot6" parent="TextureRect/GridContainer" unique_id=1716843943 instance=ExtResource("3_ovfi1")]
 layout_mode = 2

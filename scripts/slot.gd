@@ -16,13 +16,17 @@ func insert(isg: ItemStackGui):
 func takeItem():
 	var item = itemStackGui
 	inventory.removeSlot(itemStackGui.inventorySlot)
-	container.remove_child(itemStackGui)
-	itemStackGui = null
-	backgroundsprite.visible = false
+
 	return item
 	
 func isEmpty():
 	return !itemStackGui
+
+func clear() -> void:
+	if itemStackGui:
+		container.remove_child(itemStackGui)
+		itemStackGui = null
+	backgroundsprite.visible = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

@@ -3,13 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://c12brtokrm2bg" path="res://assets/fruitholder ui.png" id="1_yj1xu"]
 [ext_resource type="PackedScene" uid="uid://bf4ijqtgbii4k" path="res://scenes/hotbar_slot.tscn" id="2_4qkdb"]
 [ext_resource type="Script" uid="uid://05t0qg2a2533" path="res://scripts/hotbar.gd" id="2_xrqkv"]
+[ext_resource type="Texture2D" uid="uid://wmu3lmbj7dbj" path="res://assets/hotbarselectionui.png" id="4_2n1yv"]
 
 [node name="TextureRect" type="TextureRect" unique_id=217293428]
 offset_right = 99.0
 offset_bottom = 41.0
 texture = ExtResource("1_yj1xu")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=647339178]
+[node name="Container" type="HBoxContainer" parent="." unique_id=647339178]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 10.507
@@ -19,17 +20,23 @@ scale = Vector2(0.929, 0.929)
 theme_override_constants/separation = 0
 script = ExtResource("2_xrqkv")
 
-[node name="HotbarSlot" parent="HBoxContainer" unique_id=1614412372 instance=ExtResource("2_4qkdb")]
+[node name="HotbarSlot" parent="Container" unique_id=1614412372 instance=ExtResource("2_4qkdb")]
 layout_mode = 2
 
-[node name="HotbarSlot2" parent="HBoxContainer" unique_id=28799577 instance=ExtResource("2_4qkdb")]
+[node name="HotbarSlot2" parent="Container" unique_id=28799577 instance=ExtResource("2_4qkdb")]
 layout_mode = 2
 
-[node name="HotbarSlot3" parent="HBoxContainer" unique_id=1498506203 instance=ExtResource("2_4qkdb")]
+[node name="HotbarSlot3" parent="Container" unique_id=1498506203 instance=ExtResource("2_4qkdb")]
 layout_mode = 2
 
-[node name="HotbarSlot4" parent="HBoxContainer" unique_id=116785674 instance=ExtResource("2_4qkdb")]
+[node name="HotbarSlot4" parent="Container" unique_id=116785674 instance=ExtResource("2_4qkdb")]
 layout_mode = 2
 
-[node name="HotbarSlot5" parent="HBoxContainer" unique_id=2076562975 instance=ExtResource("2_4qkdb")]
+[node name="HotbarSlot5" parent="Container" unique_id=2076562975 instance=ExtResource("2_4qkdb")]
 layout_mode = 2
+
+[node name="selector" type="Sprite2D" parent="." unique_id=1519438490]
+position = Vector2(2, 10)
+scale = Vector2(0.9545455, 1.05)
+texture = ExtResource("4_2n1yv")
+centered = false
