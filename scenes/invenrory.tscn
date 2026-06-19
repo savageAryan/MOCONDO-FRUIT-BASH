@@ -152,6 +152,7 @@ offset_top = 5.0
 offset_right = 563.0
 offset_bottom = 85.0
 toggle_mode = true
+button_pressed = true
 texture_normal = ExtResource("6_icpxe")
 texture_pressed = ExtResource("7_1c2ov")
 texture_hover = ExtResource("8_8v348")
@@ -178,4 +179,5 @@ offset_right = 378.0
 offset_bottom = 534.0
 scale = Vector2(4.52, 4.52)
 
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="toggled" from="TextureButton" to="." method="_on_texture_button_toggled"]

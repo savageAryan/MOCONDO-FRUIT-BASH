@@ -4,7 +4,7 @@ extends CanvasLayer
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Inventory"):
-		
+		invenrory.texture_button.button_pressed = !invenrory.texture_button.button_pressed
 		if invenrory.isopen:
 			ui.visible = true
 			invenrory.close()

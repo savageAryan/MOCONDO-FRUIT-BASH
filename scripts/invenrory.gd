@@ -35,10 +35,11 @@ func open():
 func close():
 	texture_rect.visible = false
 	closed.emit()
-	
-	
-	
 	isopen = false
+	
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	connectSlots()
@@ -133,3 +134,18 @@ func _input(event: InputEvent) -> void:
 	if itemInHand && not locked && Input.is_action_just_pressed("rightclick"):
 		putItemBack()
 	updateItemInHand()
+
+@onready var texture_button: TextureButton = $TextureButton
+
+
+	
+
+
+func _on_texture_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		open()
+		
+	else: 
+		close()
+		
+		
