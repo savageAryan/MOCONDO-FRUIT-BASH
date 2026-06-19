@@ -7,4 +7,5 @@
 script = ExtResource("1_c4dfu")
 name = "Apple"
 texture = ExtResource("2_c4dfu")
+maxAmountPrStack = 3
 metadata/_custom_type_script = "uid://bm0nfyj7wmstx"

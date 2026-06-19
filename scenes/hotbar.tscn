@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://wmu3lmbj7dbj" path="res://assets/hotbarselectionui.png" id="4_2n1yv"]
 
 [node name="TextureRect" type="TextureRect" unique_id=217293428]
+process_mode = 3
 offset_right = 99.0
 offset_bottom = 41.0
 texture = ExtResource("1_yj1xu")
@@ -36,7 +37,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="selector" type="Sprite2D" parent="." unique_id=1519438490]
-position = Vector2(2, 10)
-scale = Vector2(0.9545455, 1.05)
+position = Vector2(3, 11)
+scale = Vector2(0.8636363, 0.9499999)
 texture = ExtResource("4_2n1yv")
 centered = false

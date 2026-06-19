@@ -7,4 +7,5 @@
 script = ExtResource("1_rco8t")
 name = "banana"
 texture = ExtResource("2_rco8t")
+maxAmountPrStack = 3
 metadata/_custom_type_script = "uid://bm0nfyj7wmstx"

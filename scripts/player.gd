@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 var fruits = 10
 var current_dir = "none"
 const speed = 50

@@ -210,6 +210,7 @@ grow_vertical = 1
 
 [node name="invenrory" parent="CanvasLayer" unique_id=1545268138 instance=ExtResource("4_lakw3")]
 process_mode = 2
+mouse_filter = 2
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1263943274]
 position = Vector2(1, 0)
