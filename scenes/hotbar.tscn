@@ -9,6 +9,7 @@
 offset_right = 99.0
 offset_bottom = 41.0
 texture = ExtResource("1_yj1xu")
+script = ExtResource("2_xrqkv")
 
 [node name="Container" type="HBoxContainer" parent="." unique_id=647339178]
 layout_mode = 0
@@ -18,7 +19,6 @@ offset_right = 103.0
 offset_bottom = 30.507
 scale = Vector2(0.929, 0.929)
 theme_override_constants/separation = 0
-script = ExtResource("2_xrqkv")
 
 [node name="HotbarSlot" parent="Container" unique_id=1614412372 instance=ExtResource("2_4qkdb")]
 layout_mode = 2

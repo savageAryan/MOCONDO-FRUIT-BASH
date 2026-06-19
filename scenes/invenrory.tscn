@@ -59,8 +59,8 @@ texture = ExtResource("1_px0oa")
 layout_mode = 0
 offset_left = 73.395
 offset_top = 33.0
-offset_right = 506.395
-offset_bottom = 116.000084
+offset_right = 506.39502
+offset_bottom = 116.00009
 theme_override_constants/separation = 12
 
 [node name="slot" parent="TextureRect/HBoxContainer" unique_id=1833126777 instance=ExtResource("3_ovfi1")]

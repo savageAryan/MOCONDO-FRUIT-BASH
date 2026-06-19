@@ -26,4 +26,10 @@ func insertSlot(index: int, inventorySlot: InventorySlot):
 	
 func use_Item_at_Index(index: int) -> void:
 	if index < 0 or index >= slots.size() or not slots[index].item: return
+	var slot = slots[index]
+	if slot.amount > 1:
+		slot.amount -= 1
+		updated.emit()
+		return
+	
 	remove_at_Index(index)
