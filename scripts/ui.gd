@@ -45,6 +45,7 @@ func _physics_process(delta: float) -> void:
 		pausebutton.button_pressed = paused
 		pausemenu.visible = paused
 		time_ui_display.visible = not paused
+		invenrory.visible = not paused
 
 		get_tree().paused = paused
 	
@@ -97,6 +98,7 @@ func _on_pausebutton_pressed() -> void:
 	pausemenu.visible = paused
 	pausemenu.pausemenu_show()
 	time_ui_display.visible = not paused
+	invenrory.visible = not paused
 	get_tree().paused = paused
 	
 @onready var invenrory: Control = $"../invenrory"
@@ -104,6 +106,7 @@ func _on_pausebutton_pressed() -> void:
 func workshop_close():
 	time_ui_display.visible = true
 	pausebutton.visible = true
+	
 func inventory_open():
 	if invenrory.opened.emit():
 		visible = false

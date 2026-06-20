@@ -3,6 +3,7 @@ extends Node2D
 
 
 
+
 @onready var house: AnimatedSprite2D = $StaticBody2D/house
 @onready var button_2: Button = $Button2
 
@@ -81,6 +82,7 @@ func _on_button_3_pressed() -> void:
 	workshop.visible = true
 	ui.visible = false
 	button_3.visible = false
+	invenrory.visible = false
 func _physics_process(delta: float) -> void:
 	if workshop_opened == true:
 		if Input.is_action_just_pressed("pause"):
@@ -88,4 +90,5 @@ func _physics_process(delta: float) -> void:
 			workshop.visible = false
 			ui.visible = true
 			button_3.visible = true
+			invenrory.visible = true
 		

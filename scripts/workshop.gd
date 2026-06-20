@@ -35,6 +35,7 @@ func _on_button_5_pressed() -> void:
 
 @onready var ui: Control = $"../ui"
 @onready var button_3: Button = $"../../StaticBody2D3/Button3"
+@onready var invenrory: Control = $"../invenrory"
 
 
 func _on_button_pressed() -> void:
@@ -43,5 +44,6 @@ func _on_button_pressed() -> void:
 	ui.visible = true
 	visible = false
 	button_3.visible = true
+	invenrory.visible = true
 	
 	

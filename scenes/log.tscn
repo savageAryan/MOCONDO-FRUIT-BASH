@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://sqpep66txg4w" path="res://scripts/log.gd" id="1_pt1ea"]
 [ext_resource type="Texture2D" uid="uid://bttcq0d5dswsf" path="res://assets/log.png" id="1_spugk"]
+[ext_resource type="Resource" uid="uid://b3syqto1y8hsr" path="res://inventory/item/tree_log.tres" id="2_k0uux"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pt1ea"]
 atlas = ExtResource("1_spugk")
@@ -109,6 +110,7 @@ _data = {
 z_index = 3
 scale = Vector2(0.45, 0.45)
 script = ExtResource("1_pt1ea")
+itemRes = ExtResource("2_k0uux")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=866853934]
 sprite_frames = SubResource("SpriteFrames_63ybo")

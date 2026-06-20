@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://b3syqto1y8hsr"]
+
+[ext_resource type="Script" uid="uid://bm0nfyj7wmstx" path="res://inventory/inventory_item.gd" id="1_kg7b7"]
+[ext_resource type="Texture2D" uid="uid://ckq7ex6m5vval" path="res://assets/log png.png" id="2_i50t3"]
+
+[resource]
+script = ExtResource("1_kg7b7")
+name = "Tree Log"
+texture = ExtResource("2_i50t3")
+maxAmountPrStack = 6
+metadata/_custom_type_script = "uid://bm0nfyj7wmstx"

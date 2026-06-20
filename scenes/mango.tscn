@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://6qc0mm2o75cl" path="res://assets/mangoo.png" id="1_2crdt"]
 [ext_resource type="Script" uid="uid://c06irxls7haw" path="res://scripts/mango.gd" id="1_nfkr3"]
 [ext_resource type="Animation" uid="uid://cd7n0k31onumw" path="res://fall.res" id="2_wxwvw"]
+[ext_resource type="Resource" uid="uid://cfbbv28xuf3m1" path="res://inventory/item/mango.tres" id="2_yhv1w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wxwvw"]
 atlas = ExtResource("1_2crdt")
@@ -52,6 +53,7 @@ _data = {
 z_index = 3
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_nfkr3")
+itemRes = ExtResource("2_yhv1w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1277719176]
 position = Vector2(0, -170.085)

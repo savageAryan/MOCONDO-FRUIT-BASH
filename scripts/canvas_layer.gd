@@ -1,6 +1,7 @@
 extends CanvasLayer
 @onready var invenrory: Control = $invenrory
 @onready var ui: Control = $ui
+@onready var player: Player = $"../player"
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Inventory"):
@@ -17,8 +18,8 @@ func _input(event: InputEvent) -> void:
 @onready var texture_button = $invenrory/TextureButton
 
 func _on_invenrory_closed() -> void:
-	get_tree().paused = false
+	player.can_move = false
 
 
 func _on_invenrory_opened() -> void:
-	get_tree().paused = true
+	player.can_move = true

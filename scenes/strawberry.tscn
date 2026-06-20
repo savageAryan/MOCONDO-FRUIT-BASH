@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bolq5t8qn5uld" path="res://scripts/strawberry.gd" id="1_2p0nd"]
 [ext_resource type="Texture2D" uid="uid://6qc0mm2o75cl" path="res://assets/mangoo.png" id="1_13m7n"]
+[ext_resource type="Resource" uid="uid://camcywpjujg3s" path="res://inventory/item/strawberry.tres" id="2_722sw"]
 [ext_resource type="Animation" uid="uid://cd7n0k31onumw" path="res://fall.res" id="2_qrwac"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qrwac"]
@@ -54,6 +55,7 @@ _data = {
 z_index = 3
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_2p0nd")
+itemRes = ExtResource("2_722sw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=595218659]
 position = Vector2(1, -2)

@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://cglyx62jrtui8" path="res://assets/househome.png" id="10_w7kh3"]
 [ext_resource type="Texture2D" uid="uid://cadys8bediek6" path="res://assets/boat real empty  mocondo.png" id="12_q5onr"]
 [ext_resource type="Script" uid="uid://dd5bb0mkhi6uy" path="res://scripts/daynight.gd" id="13_jhx03"]
+[ext_resource type="PackedScene" uid="uid://cpqe6l2eju13f" path="res://scenes/mango.tscn" id="14_kpybi"]
+[ext_resource type="PackedScene" uid="uid://dvpaxity0iytw" path="res://scenes/strawberry.tscn" id="15_ctatt"]
 [ext_resource type="Texture2D" uid="uid://bo1etur37s2u4" path="res://assets/workshop.png" id="15_xo05s"]
 [ext_resource type="Texture2D" uid="uid://834k53yj2kfk" path="res://assets/button.png" id="16_dss4m"]
 [ext_resource type="PackedScene" uid="uid://b7g6mhlg0bhji" path="res://scenes/apple.tscn" id="20_7iits"]
@@ -254,6 +256,18 @@ position = Vector2(74.999985, 25.000008)
 scale = Vector2(2.777778, 2.777778)
 texture = ExtResource("16_dss4m")
 
+[node name="Mango" parent="tractorarea/Button" unique_id=1627180523 instance=ExtResource("14_kpybi")]
+position = Vector2(194.44443, 22.222229)
+
+[node name="Mango2" parent="tractorarea/Button" unique_id=1728459780 instance=ExtResource("14_kpybi")]
+position = Vector2(527.7778, 5.5555573)
+
+[node name="Mango3" parent="tractorarea/Button" unique_id=1580717813 instance=ExtResource("14_kpybi")]
+position = Vector2(175, 50.000008)
+
+[node name="strawberry" parent="tractorarea/Button" unique_id=1531931406 instance=ExtResource("15_ctatt")]
+position = Vector2(1825.0001, -805.5556)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tractorarea" unique_id=1931154268]
 position = Vector2(-94, 23)
 shape = SubResource("RectangleShape2D_71j4m")
@@ -464,6 +478,24 @@ position = Vector2(50, -22)
 
 [node name="banana2" parent="." unique_id=350004261 instance=ExtResource("21_oo54l")]
 position = Vector2(-5, 25)
+
+[node name="strawberry" parent="." unique_id=837517189 instance=ExtResource("15_ctatt")]
+position = Vector2(-39, -47)
+
+[node name="strawberry2" parent="." unique_id=1339977825 instance=ExtResource("15_ctatt")]
+position = Vector2(-24, -40)
+
+[node name="strawberry3" parent="." unique_id=392531900 instance=ExtResource("15_ctatt")]
+position = Vector2(51, -43)
+
+[node name="Mango" parent="." unique_id=1153767464 instance=ExtResource("14_kpybi")]
+position = Vector2(-60, -47)
+
+[node name="Mango2" parent="." unique_id=1171333782 instance=ExtResource("14_kpybi")]
+position = Vector2(58, -40)
+
+[node name="Mango3" parent="." unique_id=1558134191 instance=ExtResource("14_kpybi")]
+position = Vector2(-30, -48)
 
 [connection signal="closed" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_closed"]
 [connection signal="opened" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_opened"]
