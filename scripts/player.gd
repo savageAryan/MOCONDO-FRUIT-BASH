@@ -3,7 +3,7 @@ class_name Player
 var fruits = 10
 var current_dir = "none"
 var speed = 50
-var can_move = true
+
 #@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var inventory: Inventory
@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	
 func player_movement(delta):
 
-	if !can_move:
+	
 		if Input.is_action_pressed("right"):
 			current_dir = "right"
 			play_anim(1)
