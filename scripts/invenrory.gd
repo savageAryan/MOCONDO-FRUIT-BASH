@@ -6,6 +6,7 @@ var locked:bool = false
 var oldIndex: int = -1
 @onready var texture_rect: TextureRect = $TextureRect
 
+@onready var panel: Panel = $Panel
 
 @onready var hotbar: TextureRect = $hotbar
 @onready var inventory: Inventory = preload("res://inventory/player_inventory.tres")
@@ -27,21 +28,30 @@ func update():
 			slots[i].insert(itemStackGui)
 		itemStackGui.inventorySlot = inventorySlot
 		itemStackGui.update()
+
+@onready var ui: Control = $"."
+
 func open():
 	texture_rect.visible = true
+	animation_player.play("inventory appear")
 	opened.emit()
+	
+	
 	isopen = true
 	
 func close():
 	texture_rect.visible = false
+	animation_player.play("inventory disappear")
 	closed.emit()
 	isopen = false
+	panel.visible = false
 	
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	panel.visible = false
 	connectSlots()
 	texture_rect.visible = false
 	update()
@@ -144,8 +154,9 @@ func _input(event: InputEvent) -> void:
 func _on_texture_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		open()
+		opened.emit()
 		
 	else: 
 		close()
-		
+		closed.emit()
 		

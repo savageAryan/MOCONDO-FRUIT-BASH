@@ -99,7 +99,14 @@ func _on_pausebutton_pressed() -> void:
 	time_ui_display.visible = not paused
 	get_tree().paused = paused
 	
-	
+@onready var invenrory: Control = $"../invenrory"
+
 func workshop_close():
 	time_ui_display.visible = true
 	pausebutton.visible = true
+func inventory_open():
+	if invenrory.opened.emit():
+		visible = false
+func inventory_close():
+	if invenrory.closed.emit():
+		visible = true

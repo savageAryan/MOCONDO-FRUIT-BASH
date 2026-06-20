@@ -12,8 +12,173 @@
 [ext_resource type="Texture2D" uid="uid://buoxojah1bm5i" path="res://assets/audioicon3.png" id="10_f33l1"]
 [ext_resource type="Texture2D" uid="uid://bvyvnnkkmeb4f" path="res://assets/audioicon2.png" id="11_muxr0"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icpxe"]
+bg_color = Color(0.28, 0.25872, 0.2128, 0.27450982)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.12, 0.12, 0.12, 0.31764707)
+border_blend = true
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+
 [sub_resource type="Animation" id="Animation_oyyiu"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(197, 84)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_icpxe"]
+resource_name = "inventory appear"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.13333334),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.13333334, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.23, 0.16652, 0.0713, 0.3764706)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.033333335, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.99, 0.99), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.033333335, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(201.185, 89.205), Vector2(197, 84)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextureRect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.22745098), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Panel:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_1c2ov"]
+resource_name = "inventory disappear"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.22760734, 0.16607785, 0.068723015, 0.29411766), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_ovfi1"]
 resource_name = "new_animation"
@@ -26,6 +191,8 @@ length = 0.45
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_27hiw"]
 _data = {
 &"RESET": SubResource("Animation_oyyiu"),
+&"inventory appear": SubResource("Animation_icpxe"),
+&"inventory disappear": SubResource("Animation_1c2ov"),
 &"new_animation": SubResource("Animation_ovfi1"),
 &"new_animation_2": SubResource("Animation_27hiw")
 }
@@ -39,6 +206,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gjr0y")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=402692642]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.41, 0.41, 0.41, 0.43529412)
+
+[node name="Panel" type="Panel" parent="." unique_id=1205728646]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 80.0
+offset_right = 1005.0
+offset_bottom = 518.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_icpxe")
+
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1692891955]
 layout_mode = 1
 anchors_preset = 8
@@ -48,8 +234,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -379.0
 offset_top = -240.0
-offset_right = 448.6786
-offset_bottom = 210.0
+offset_right = 448.67114
+offset_bottom = 210.00049
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_px0oa")
@@ -152,7 +338,6 @@ offset_top = 5.0
 offset_right = 563.0
 offset_bottom = 85.0
 toggle_mode = true
-button_pressed = true
 texture_normal = ExtResource("6_icpxe")
 texture_pressed = ExtResource("7_1c2ov")
 texture_hover = ExtResource("8_8v348")

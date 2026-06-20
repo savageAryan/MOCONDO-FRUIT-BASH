@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 var fruits = 10
 var current_dir = "none"
-const speed = 50
+var speed = 50
 #@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var inventory: Inventory
