@@ -190,13 +190,6 @@ expand_icon = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1449232042]
 libraries/ = SubResource("AnimationLibrary_wf3n4")
 
-[node name="Mainmenubutton" type="Sprite2D" parent="." unique_id=730041319]
-modulate = Color(0.7279856, 0.7279857, 0.7279856, 1)
-position = Vector2(209.00009, 272.00006)
-scale = Vector2(8.486718, 4.364478)
-texture = ExtResource("10_uui5l")
-offset = Vector2(44.91, 32.75)
-
 [node name="Button" type="Button" parent="." unique_id=1330324586]
 layout_mode = 1
 anchors_preset = 8
@@ -211,12 +204,15 @@ offset_bottom = 121.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.12471425, 0.43128595, 0.50195867, 0.75686276)
+theme_override_colors/font_pressed_color = Color(0.9578288, 0.96714705, 0.68408954, 1)
+theme_override_colors/font_hover_color = Color(0.9999997, 0.97463626, 0.4343709, 1)
 theme_override_colors/font_outline_color = Color(0.076599516, 0.12062713, 0.14995638, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("9_wf3n4")
 theme_override_font_sizes/font_size = 44
 theme_override_styles/normal = SubResource("StyleBoxFlat_h73c4")
 text = "BEGIN THE JOURNEY!"
+flat = true
 
 [node name="Button2" type="Button" parent="." unique_id=971417262]
 layout_mode = 1
@@ -244,7 +240,23 @@ flat = true
 position = Vector2(596.5, 414)
 scale = Vector2(8.937499, 5.5625005)
 color = Color(1, 0.9613334, 0.42000002, 1)
-energy = 0.0
+energy = 1.5
+shadow_enabled = true
+shadow_color = Color(1, 1, 1, 0)
+texture = ExtResource("10_uui5l")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=2013519531]
+position = Vector2(596.5, 527)
+scale = Vector2(8.937499, 5.5625005)
+color = Color(1, 0.9613334, 0.42000002, 1)
+energy = 1.5
+shadow_enabled = true
+shadow_color = Color(1, 1, 1, 0)
 texture = ExtResource("10_uui5l")
 
 [connection signal="pressed" from="mocondorect" to="." method="_on_mocondorect_pressed"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
