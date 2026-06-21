@@ -7,7 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://d3ughq3dgu2jv" path="res://assets/mainmenunightsky.png" id="2_85riq"]
 [ext_resource type="Script" uid="uid://dffe8ehjyv0va" path="res://scripts/fruitdrop.gd" id="2_dfy5j"]
 [ext_resource type="Texture2D" uid="uid://da1oj6kfvs3lg" path="res://assets/bananapng.png" id="3_dfy5j"]
+[ext_resource type="Texture2D" uid="uid://dv3mr4jv4enpm" path="res://assets/mocondonightground.png" id="3_h73c4"]
 [ext_resource type="Texture2D" uid="uid://oiu02hgvrhpm" path="res://assets/strawberrypng.png" id="4_85riq"]
+[ext_resource type="FontFile" uid="uid://dkopncmaw641n" path="res://assets/Regular.otf" id="9_wf3n4"]
+[ext_resource type="Texture2D" uid="uid://c7jl4r5fgs2nd" path="res://assets/mainmenubutton.png" id="10_uui5l"]
 
 [sub_resource type="Animation" id="Animation_dfy5j"]
 length = 0.001
@@ -70,6 +73,15 @@ _data = {
 &"moconcorectpressed": SubResource("Animation_85riq")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h73c4"]
+bg_color = Color(0.0756, 0.11591999, 0.21, 0.09803922)
+border_color = Color(0.101960786, 0.13725491, 0.23921569, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [node name="mainmenu" type="Control" unique_id=1263905288]
 layout_mode = 3
 anchors_preset = 15
@@ -88,7 +100,20 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_85riq")
 
+[node name="ColorRect2" type="TextureRect" parent="." unique_id=1724868433]
+modulate = Color(0.59860003, 0.76465, 0.82, 0.827451)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 113.0
+offset_bottom = 113.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_h73c4")
+
 [node name="mangorect" type="TextureRect" parent="." unique_id=113927643]
+modulate = Color(0.7863779, 0.711623, 0.6706437, 1)
 layout_mode = 0
 offset_left = 166.0
 offset_top = 371.0
@@ -99,6 +124,7 @@ texture = ExtResource("1_s5g8n")
 script = ExtResource("2_dfy5j")
 
 [node name="applerect" type="TextureRect" parent="." unique_id=72805687]
+modulate = Color(0.7863779, 0.711623, 0.6706437, 1)
 layout_mode = 0
 offset_left = 965.4638
 offset_top = 416.0586
@@ -109,6 +135,7 @@ texture = ExtResource("2_7yvfd")
 flip_v = true
 
 [node name="bananarect" type="TextureRect" parent="." unique_id=1255383823]
+modulate = Color(0.7863779, 0.711623, 0.6706437, 1)
 layout_mode = 0
 offset_left = 436.99997
 offset_top = 87.99997
@@ -119,6 +146,7 @@ texture = ExtResource("3_dfy5j")
 flip_v = true
 
 [node name="bananarect2" type="TextureRect" parent="." unique_id=2105825092]
+modulate = Color(0.7863779, 0.711623, 0.6706437, 1)
 layout_mode = 0
 offset_left = -37.000004
 offset_top = 36.0
@@ -129,6 +157,7 @@ texture = ExtResource("4_85riq")
 flip_v = true
 
 [node name="mangorect2" type="TextureRect" parent="." unique_id=1278167851]
+modulate = Color(0.7863779, 0.711623, 0.6706437, 1)
 layout_mode = 0
 offset_left = 790.0
 offset_top = 416.00003
@@ -160,5 +189,62 @@ expand_icon = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1449232042]
 libraries/ = SubResource("AnimationLibrary_wf3n4")
+
+[node name="Mainmenubutton" type="Sprite2D" parent="." unique_id=730041319]
+modulate = Color(0.7279856, 0.7279857, 0.7279856, 1)
+position = Vector2(209.00009, 272.00006)
+scale = Vector2(8.486718, 4.364478)
+texture = ExtResource("10_uui5l")
+offset = Vector2(44.91, 32.75)
+
+[node name="Button" type="Button" parent="." unique_id=1330324586]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -322.0
+offset_top = 34.0
+offset_right = 325.0
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.12471425, 0.43128595, 0.50195867, 0.75686276)
+theme_override_colors/font_outline_color = Color(0.076599516, 0.12062713, 0.14995638, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("9_wf3n4")
+theme_override_font_sizes/font_size = 44
+theme_override_styles/normal = SubResource("StyleBoxFlat_h73c4")
+text = "BEGIN THE JOURNEY!"
+
+[node name="Button2" type="Button" parent="." unique_id=971417262]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = 148.0
+offset_right = 169.39539
+offset_bottom = 236.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.72, 0.45540002, 0.36720002, 0.87058824)
+theme_override_colors/font_outline_color = Color(0.076599516, 0.12062713, 0.14995638, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("9_wf3n4")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_h73c4")
+text = "QUIT!"
+flat = true
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=385705676]
+position = Vector2(596.5, 414)
+scale = Vector2(8.937499, 5.5625005)
+color = Color(1, 0.9613334, 0.42000002, 1)
+energy = 0.0
+texture = ExtResource("10_uui5l")
 
 [connection signal="pressed" from="mocondorect" to="." method="_on_mocondorect_pressed"]
