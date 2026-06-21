@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bn7l7yvqn5yv5" path="res://scripts/hotbar_slot.gd" id="1_vjssj"]
 [ext_resource type="Texture2D" uid="uid://kewx733ckc68" path="res://assets/background.png" id="2_vjssj"]
-[ext_resource type="Script" uid="uid://b6yrqjyypqfaa" path="res://scenes/itemstack.gd" id="3_xfbr6"]
+[ext_resource type="Script" uid="uid://b6yrqjyypqfaa" path="res://scripts/itemstack.gd" id="3_xfbr6"]
 [ext_resource type="FontFile" uid="uid://cgox7ipu4flb" path="res://assets/chawp.otf" id="4_j61rw"]
 
 [node name="HotbarSlot" type="Button" unique_id=1614412372]

@@ -17,7 +17,4 @@ func _input(event: InputEvent) -> void:
 			invenrory.open()
 			ui.visible = false
 			
-
-
-
 @onready var texture_button = $invenrory/TextureButton
