@@ -10,7 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://dv3mr4jv4enpm" path="res://assets/mocondonightground.png" id="3_h73c4"]
 [ext_resource type="Texture2D" uid="uid://oiu02hgvrhpm" path="res://assets/strawberrypng.png" id="4_85riq"]
 [ext_resource type="FontFile" uid="uid://dkopncmaw641n" path="res://assets/Regular.otf" id="9_wf3n4"]
-[ext_resource type="Texture2D" uid="uid://c7jl4r5fgs2nd" path="res://assets/mainmenubutton.png" id="10_uui5l"]
+[ext_resource type="Texture2D" uid="uid://bci1e3sl7htb4" path="res://assets/light gradient butterfly.png" id="10_kait0"]
+[ext_resource type="Texture2D" uid="uid://di1qd1h8mybjx" path="res://assets/mocondo butterfly.png" id="12_4hago"]
+[ext_resource type="Texture2D" uid="uid://cv8sr3sr4owf0" path="res://assets/texturelightbutton.png" id="12_kait0"]
+[ext_resource type="Script" uid="uid://b7qnmp6bbotwh" path="res://scripts/mocondo_butterfly.gd" id="13_gjjcl"]
 
 [sub_resource type="Animation" id="Animation_dfy5j"]
 length = 0.001
@@ -187,6 +190,16 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="PointLight2D3" type="PointLight2D" parent="mocondorect" unique_id=2075111900]
+position = Vector2(909.0909, 495.86774)
+rotation = 0.53983164
+scale = Vector2(1.7045454, 1.7045454)
+color = Color(1, 0.9646667, 0.47000003, 1)
+energy = 9.55
+blend_mode = 2
+texture = ExtResource("10_kait0")
+texture_scale = 1.17
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1449232042]
 libraries/ = SubResource("AnimationLibrary_wf3n4")
 
@@ -228,6 +241,8 @@ offset_bottom = 236.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.72, 0.45540002, 0.36720002, 0.87058824)
+theme_override_colors/font_pressed_color = Color(0.9692375, 0.97244173, 0.8951604, 1)
+theme_override_colors/font_hover_color = Color(0.9497195, 1, 0.39121804, 1)
 theme_override_colors/font_outline_color = Color(0.076599516, 0.12062713, 0.14995638, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("9_wf3n4")
@@ -237,22 +252,43 @@ text = "QUIT!"
 flat = true
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=385705676]
+visible = false
 position = Vector2(596.5, 414)
 scale = Vector2(8.937499, 5.5625005)
 color = Color(1, 0.9613334, 0.42000002, 1)
 energy = 1.5
 shadow_enabled = true
 shadow_color = Color(1, 1, 1, 0)
-texture = ExtResource("10_uui5l")
+texture = ExtResource("12_kait0")
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=2013519531]
+visible = false
 position = Vector2(596.5, 527)
 scale = Vector2(8.937499, 5.5625005)
 color = Color(1, 0.9613334, 0.42000002, 1)
 energy = 1.5
 shadow_enabled = true
 shadow_color = Color(1, 1, 1, 0)
-texture = ExtResource("10_uui5l")
+texture = ExtResource("12_kait0")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=561134367]
+color = Color(0.856032, 0.5232644, 0.55918944, 1)
+energy = 0.5
+
+[node name="MocondoButterfly" type="Sprite2D" parent="." unique_id=229104905]
+texture_filter = 2
+position = Vector2(87, 358)
+scale = Vector2(1.046875, 1.046875)
+texture = ExtResource("12_4hago")
+script = ExtResource("13_gjjcl")
+
+[node name="PointLight2D" type="PointLight2D" parent="MocondoButterfly" unique_id=1937237054]
+position = Vector2(0, 3.3432636)
+scale = Vector2(1, 1.122388)
+color = Color(0.9404537, 0.995747, 0, 1)
+energy = 8.44
+texture = ExtResource("10_kait0")
+texture_scale = 1.2
 
 [connection signal="pressed" from="mocondorect" to="." method="_on_mocondorect_pressed"]
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
@@ -260,3 +296,8 @@ texture = ExtResource("10_uui5l")
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]
+[connection signal="button_up" from="Button2" to="." method="_on_button_2_button_up"]
+[connection signal="mouse_entered" from="Button2" to="." method="_on_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="Button2" to="." method="_on_button_2_mouse_exited"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
