@@ -99,3 +99,23 @@ func _on_button_3_pressed() -> void:
 
 func _on_yesbutton_pressed() -> void:
 	get_tree().quit()
+
+@onready var yesbutton: Button = $Panel/Panel/yesbutton
+@onready var animation_player_2: AnimationPlayer = $AnimationPlayer2
+
+func _on_yesbutton_mouse_exited() -> void:
+
+	animation_player_2.play("uesbuttonout")
+
+
+func _on_yesbutton_mouse_entered() -> void:
+	
+	animation_player_2.play("yesbuttonin")
+
+
+func _on_button_3_mouse_entered() -> void:
+	animation_player_2.play("nobuttonin")
+
+
+func _on_button_3_mouse_exited() -> void:
+	animation_player_2.play("nobuttonout")

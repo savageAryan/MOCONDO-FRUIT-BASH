@@ -90,6 +90,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Panel/Panel/yesbutton:theme_override_font_sizes/font_size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [38]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Panel/Panel/Button3:theme_override_font_sizes/font_size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [64]
+}
 
 [sub_resource type="Animation" id="Animation_85riq"]
 resource_name = "new_animation"
@@ -117,6 +141,38 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-4, 0), Vector2(-23.6, -3.935)]
+}
+
+[sub_resource type="Animation" id="Animation_prb5i"]
+resource_name = "nobuttonin"
+length = 0.035
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/Panel/Button3:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [64, 80]
+}
+
+[sub_resource type="Animation" id="Animation_xwyuh"]
+resource_name = "nobuttonout"
+length = 0.036
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/Panel/Button3:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [80, 64]
 }
 
 [sub_resource type="Animation" id="Animation_6pj40"]
@@ -171,11 +227,47 @@ tracks/3/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_fsdjo"]
+resource_name = "uesbuttonout"
+length = 0.0365
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/Panel/yesbutton:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [32, 42]
+}
+
+[sub_resource type="Animation" id="Animation_nkpmc"]
+resource_name = "yesbuttonin"
+length = 0.034
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/Panel/yesbutton:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [42, 32]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wf3n4"]
 _data = {
 &"RESET": SubResource("Animation_dfy5j"),
 &"moconcorectpressed": SubResource("Animation_85riq"),
-&"quit pop up": SubResource("Animation_6pj40")
+&"nobuttonin": SubResource("Animation_prb5i"),
+&"nobuttonout": SubResource("Animation_xwyuh"),
+&"quit pop up": SubResource("Animation_6pj40"),
+&"uesbuttonout": SubResource("Animation_fsdjo"),
+&"yesbuttonin": SubResource("Animation_nkpmc")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h73c4"]
@@ -309,7 +401,7 @@ position = Vector2(909.0909, 495.86774)
 rotation = 0.53983164
 scale = Vector2(1.7045454, 1.7045454)
 color = Color(1, 0.9646667, 0.47000003, 1)
-energy = 9.55
+energy = 18.1
 blend_mode = 2
 range_z_min = 0
 range_z_max = 1
@@ -317,6 +409,9 @@ texture = ExtResource("10_kait0")
 texture_scale = 1.17
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1449232042]
+libraries/ = SubResource("AnimationLibrary_wf3n4")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=86131652]
 libraries/ = SubResource("AnimationLibrary_wf3n4")
 
 [node name="Button" type="Button" parent="." unique_id=1330324586]
@@ -399,12 +494,13 @@ texture = ExtResource("12_4hago")
 script = ExtResource("13_gjjcl")
 
 [node name="PointLight2D" type="PointLight2D" parent="MocondoButterfly" unique_id=1937237054]
-position = Vector2(0, 3.3432636)
-scale = Vector2(1, 1.122388)
+position = Vector2(1.1444092e-05, 1.9104302)
+scale = Vector2(1.0000002, 1.0189053)
 color = Color(0.9404537, 0.995747, 0, 1)
 energy = 8.44
 texture = ExtResource("10_kait0")
-texture_scale = 1.2
+offset = Vector2(2.43, 3.54)
+texture_scale = 1.12
 
 [node name="Panel" type="Panel" parent="." unique_id=1872482893]
 layout_mode = 1
@@ -444,6 +540,7 @@ offset_right = 215.35632
 offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 
 [node name="Label" type="Label" parent="Panel/Panel" unique_id=82590124]
 z_index = 2
@@ -472,13 +569,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -162.0
-offset_top = 9.0
-offset_right = -13.0
-offset_bottom = 69.0
+offset_left = 27.999939
+offset_top = 10.0
+offset_right = 176.99994
+offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.83787054, 0.8734877, 1, 1)
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.98355097, 0.4188321, 0.39756218, 1)
 theme_override_fonts/font = ExtResource("15_6pj40")
 theme_override_font_sizes/font_size = 38
 text = "YESS"
@@ -492,15 +590,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 27.0
-offset_top = 9.0
-offset_right = 176.0
-offset_bottom = 69.0
+offset_left = -160.00006
+offset_top = 5.0
+offset_right = -11.000061
+offset_bottom = 72.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.7276706, 0.4691056, 0.49310964, 1)
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.9279783, 0.914709, 0.90971935, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.92982024, 0.9858387, 0, 1)
 theme_override_fonts/font = ExtResource("15_6pj40")
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 64
 text = "NOO"
 flat = true
 
@@ -515,5 +616,9 @@ flat = true
 [connection signal="mouse_entered" from="Button2" to="." method="_on_button_2_mouse_entered"]
 [connection signal="mouse_exited" from="Button2" to="." method="_on_button_2_mouse_exited"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="mouse_entered" from="Panel/Panel/yesbutton" to="." method="_on_yesbutton_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/Panel/yesbutton" to="." method="_on_yesbutton_mouse_exited"]
 [connection signal="pressed" from="Panel/Panel/yesbutton" to="." method="_on_yesbutton_pressed"]
+[connection signal="mouse_entered" from="Panel/Panel/Button3" to="." method="_on_button_3_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/Panel/Button3" to="." method="_on_button_3_mouse_exited"]
 [connection signal="pressed" from="Panel/Panel/Button3" to="." method="_on_button_3_pressed"]
