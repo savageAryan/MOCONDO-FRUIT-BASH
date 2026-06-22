@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://di1qd1h8mybjx" path="res://assets/mocondo butterfly.png" id="12_4hago"]
 [ext_resource type="Texture2D" uid="uid://cv8sr3sr4owf0" path="res://assets/texturelightbutton.png" id="12_kait0"]
 [ext_resource type="Script" uid="uid://b7qnmp6bbotwh" path="res://scripts/mocondo_butterfly.gd" id="13_gjjcl"]
+[ext_resource type="FontFile" uid="uid://cgox7ipu4flb" path="res://assets/chawp.otf" id="15_6pj40"]
 
 [sub_resource type="Animation" id="Animation_dfy5j"]
 length = 0.001
@@ -40,6 +41,54 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-4, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/Panel:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/Panel:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(346.75, 193.5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel/Panel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Panel:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_85riq"]
@@ -70,10 +119,63 @@ tracks/1/keys = {
 "values": [Vector2(-4, 0), Vector2(-23.6, -3.935)]
 }
 
+[sub_resource type="Animation" id="Animation_6pj40"]
+resource_name = "quit pop up"
+length = 0.486
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/Panel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.33333334, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.96, 0.96), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/Panel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.33333334, 0.33343333, 0.33353335, 0.36666667, 0.40000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(341.205, 192.59), Vector2(344.55878, 193.1404), Vector2(344.55878, 193.1404), Vector2(328.964, 184.65), Vector2(329.535, 191.635)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/Panel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.33333334, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.2509804), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.36666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wf3n4"]
 _data = {
 &"RESET": SubResource("Animation_dfy5j"),
-&"moconcorectpressed": SubResource("Animation_85riq")
+&"moconcorectpressed": SubResource("Animation_85riq"),
+&"quit pop up": SubResource("Animation_6pj40")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h73c4"]
@@ -84,6 +186,18 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kait0"]
+bg_color = Color(0.12185105, 0.16110913, 0.29009965, 0.7372549)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25560004, 0.27126002, 0.36, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [node name="mainmenu" type="Control" unique_id=1263905288]
 layout_mode = 3
@@ -197,6 +311,8 @@ scale = Vector2(1.7045454, 1.7045454)
 color = Color(1, 0.9646667, 0.47000003, 1)
 energy = 9.55
 blend_mode = 2
+range_z_min = 0
+range_z_max = 1
 texture = ExtResource("10_kait0")
 texture_scale = 1.17
 
@@ -290,6 +406,104 @@ energy = 8.44
 texture = ExtResource("10_kait0")
 texture_scale = 1.2
 
+[node name="Panel" type="Panel" parent="." unique_id=1872482893]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Panel" unique_id=1737735582]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.25
+offset_top = -130.5
+offset_right = 229.25012
+offset_bottom = 130.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kait0")
+
+[node name="Button" type="Button" parent="Panel/Panel" unique_id=870335299]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 169.0
+offset_top = -117.0
+offset_right = 215.35632
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/Panel" unique_id=82590124]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -62.0
+offset_right = 205.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.70452255, 0.9169667, 0.9983451, 1)
+theme_override_fonts/font = ExtResource("9_wf3n4")
+theme_override_font_sizes/font_size = 25
+text = "DO YOU REALLY WANT TO QUIT?"
+
+[node name="yesbutton" type="Button" parent="Panel/Panel" unique_id=1982324029]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.0
+offset_top = 9.0
+offset_right = -13.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.83787054, 0.8734877, 1, 1)
+theme_override_fonts/font = ExtResource("15_6pj40")
+theme_override_font_sizes/font_size = 38
+text = "YESS"
+flat = true
+
+[node name="Button3" type="Button" parent="Panel/Panel" unique_id=816136367]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 27.0
+offset_top = 9.0
+offset_right = 176.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.7276706, 0.4691056, 0.49310964, 1)
+theme_override_fonts/font = ExtResource("15_6pj40")
+theme_override_font_sizes/font_size = 29
+text = "NOO"
+flat = true
+
 [connection signal="pressed" from="mocondorect" to="." method="_on_mocondorect_pressed"]
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
@@ -301,3 +515,5 @@ texture_scale = 1.2
 [connection signal="mouse_entered" from="Button2" to="." method="_on_button_2_mouse_entered"]
 [connection signal="mouse_exited" from="Button2" to="." method="_on_button_2_mouse_exited"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Panel/Panel/yesbutton" to="." method="_on_yesbutton_pressed"]
+[connection signal="pressed" from="Panel/Panel/Button3" to="." method="_on_button_3_pressed"]

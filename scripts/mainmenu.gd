@@ -32,8 +32,8 @@ func _on_button_mouse_entered() -> void:
 
 
 func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/world.tscn")
 	
-	pass
 	
 
 
@@ -69,10 +69,16 @@ func _on_button_2_button_up() -> void:
 	point_light_2d_2.texture_scale = 1
 	point_light_2d_2.energy = 0
 
+@onready var panel: Panel = $Panel
+@onready var button: Button = $Button
+@onready var button_2: Button = $Button2
 
 func _on_button_2_pressed() -> void:
-	pass
-
+	panel.visible = true
+	animation_player.play("quit pop up")
+	mocondo_butterfly.visible = false
+	button.visible = false
+	button_2.visible = false
 
 func _on_button_2_mouse_entered() -> void:
 	point_light_2d_2.visible = true
@@ -82,3 +88,14 @@ func _on_button_2_mouse_entered() -> void:
 func _on_button_2_mouse_exited() -> void:
 	point_light_2d_2.energy = 0.5
 	point_light_2d_2.visible = false
+
+
+func _on_button_3_pressed() -> void:
+	panel.visible = false
+	mocondo_butterfly.visible = true
+	button.visible = true
+	button_2.visible = true
+
+
+func _on_yesbutton_pressed() -> void:
+	get_tree().quit()
