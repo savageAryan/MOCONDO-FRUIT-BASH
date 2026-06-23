@@ -37,6 +37,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	goldcount()
 	ampmlabel.text = suffix
 	if Input.is_action_just_pressed("pause") :
 		paused = not paused
@@ -113,3 +114,6 @@ func inventory_open():
 func inventory_close():
 	if invenrory.closed.emit():
 		visible = true
+@onready var label: Label = $Panel2/Label
+func goldcount():
+	label.text = str(GameManager.gold)

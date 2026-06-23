@@ -5,6 +5,7 @@ var banana = 0
 var strawberry = 0
 var mango = 0
 var log = 0
+var gold = 0
 
 
 
