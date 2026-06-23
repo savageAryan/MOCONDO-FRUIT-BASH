@@ -19,7 +19,23 @@
 [ext_resource type="Texture2D" uid="uid://cib7dxaoip1b7" path="res://assets/Apple.png" id="14_adiy1"]
 [ext_resource type="Texture2D" uid="uid://dkwf7t50ywyo3" path="res://assets/mango.png" id="15_eq4dh"]
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_adiy1"]
+color = Color(0.4255997, 0.29107243, 0.050288737, 1)
+grow_begin = -20.0
+grow_end = -101.0
+thickness = 7
+vertical = true
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_wmany"]
+color = Color(0.85490197, 0.5176471, 0.16470589, 1)
+grow_begin = -10.0
+grow_end = 206.0
+thickness = 6
+vertical = true
+
 [sub_resource type="Theme" id="Theme_4nfl1"]
+VScrollBar/styles/grabber = SubResource("StyleBoxLine_adiy1")
+VScrollBar/styles/scroll = SubResource("StyleBoxLine_wmany")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_acb0r"]
 bg_color = Color(0.87, 0.7482, 0.522, 1)
@@ -758,6 +774,7 @@ expand_mode = 3
 stretch_mode = 5
 
 [node name="Control" type="Control" parent="." unique_id=248489879]
+visible = false
 clip_contents = true
 anchors_preset = 0
 offset_left = -17.0
