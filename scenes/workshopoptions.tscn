@@ -2,50 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://cl1ud7hc1n4hc" path="res://assets/workshopmenu.png" id="1_mec0v"]
 [ext_resource type="Script" uid="uid://bodiuo2asbxr5" path="res://scripts/workshopoptions.gd" id="2_k6mts"]
-[ext_resource type="Texture2D" uid="uid://bj0i251pyl20q" path="res://assets/axe.png" id="3_6t636"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qtwlx"]
-atlas = ExtResource("3_6t636")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ha77g"]
-atlas = ExtResource("3_6t636")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ekqnp"]
-atlas = ExtResource("3_6t636")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p05k1"]
-atlas = ExtResource("3_6t636")
-region = Rect2(0, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4afg3"]
-atlas = ExtResource("3_6t636")
-region = Rect2(0, 128, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6t636"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qtwlx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ha77g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ekqnp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p05k1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4afg3")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
+animations = []
 
 [sub_resource type="Animation" id="Animation_k6mts"]
 length = 0.001
@@ -262,13 +221,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="Panel" type="Panel" parent="Control" unique_id=924997489]
-layout_mode = 0
-offset_left = 13.075001
-offset_top = 11.375
-offset_right = 83.149994
-offset_bottom = 100.75
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

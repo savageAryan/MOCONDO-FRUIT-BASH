@@ -24,12 +24,6 @@ func _on_button_2_pressed() -> void:
 func _on_button_3_pressed() -> void:
 	selected = $TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button3
 
-func _on_button_4_pressed() -> void:
-	selected = $TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button4
-
-
-func _on_button_5_pressed() -> void:
-	selected = $TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button5
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -47,3 +41,11 @@ func _on_button_pressed() -> void:
 	invenrory.visible = true
 	
 	
+
+
+func _on_button_4_pressed() -> void:
+	selected = $TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button4
+
+
+func _on_button_5_pressed() -> void:
+	selected = $TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button5

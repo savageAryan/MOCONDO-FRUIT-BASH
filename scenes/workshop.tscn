@@ -5,10 +5,21 @@
 [ext_resource type="Texture2D" uid="uid://ds1wb3jocn38d" path="res://assets/workshopbutton.png" id="3_4103c"]
 [ext_resource type="PackedScene" uid="uid://bue2cwb7miki3" path="res://scenes/workshopoptions.tscn" id="3_g1tdj"]
 [ext_resource type="FontFile" uid="uid://sb6vba43t4m0" path="res://assets/CircusOrnate.ttf" id="5_0t7iv"]
+[ext_resource type="FontFile" uid="uid://b4le348it6egb" path="res://assets/Pingwin.ttf" id="5_f1oc0"]
+[ext_resource type="Texture2D" uid="uid://djl5424vdy207" path="res://assets/mangopng.png" id="6_5p7st"]
 [ext_resource type="Texture2D" uid="uid://b0r50nhihup2s" path="res://assets/workhop ui frame.png" id="6_acb0r"]
 [ext_resource type="Texture2D" uid="uid://cm23cofg8pi5n" path="res://assets/icons8-back-96.png" id="7_4xjol"]
+[ext_resource type="Texture2D" uid="uid://7gtph05akmy8" path="res://assets/axepng.png" id="7_5p7st"]
 [ext_resource type="Texture2D" uid="uid://cs0l3wdwdiuuw" path="res://assets/workshopselectedui.png" id="7_35y6k"]
+[ext_resource type="Texture2D" uid="uid://bj0i251pyl20q" path="res://assets/axe.png" id="7_gdjy1"]
 [ext_resource type="FontFile" uid="uid://1wp8whuqfa5o" path="res://assets/LowresPixel-Regular.otf" id="8_gdjy1"]
+[ext_resource type="Texture2D" uid="uid://di1qd1h8mybjx" path="res://assets/mocondo butterfly.png" id="8_im6k6"]
+[ext_resource type="Texture2D" uid="uid://dq8rmbas1k85q" path="res://assets/strawberry.png" id="12_45mnr"]
+[ext_resource type="Texture2D" uid="uid://la6ra60g8xgh" path="res://assets/banana.png" id="13_wmany"]
+[ext_resource type="Texture2D" uid="uid://cib7dxaoip1b7" path="res://assets/Apple.png" id="14_adiy1"]
+[ext_resource type="Texture2D" uid="uid://dkwf7t50ywyo3" path="res://assets/mango.png" id="15_eq4dh"]
+
+[sub_resource type="Theme" id="Theme_4nfl1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_acb0r"]
 bg_color = Color(0.87, 0.7482, 0.522, 1)
@@ -23,7 +34,33 @@ border_width_left = 10
 border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
-border_color = Color(0.93, 0.86304, 0.7068, 1)
+border_color = Color(0.92941177, 0.8627451, 0.7058824, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w36ov"]
+bg_color = Color(0.55, 0.31166667, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.42, 0.22722, 0.079799995, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_im6k6"]
+bg_color = Color(0.5803922, 0.34901962, 0.17254902, 0.75686276)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.39, 0.20877999, 0.0702, 1)
 border_blend = true
 corner_radius_top_left = 7
 corner_radius_top_right = 7
@@ -88,6 +125,193 @@ texture = ExtResource("3_4103c")
 
 [sub_resource type="Theme" id="Theme_acb0r"]
 HScrollBar/styles/grabber = SubResource("StyleBoxTexture_0t7iv")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15wdr"]
+atlas = ExtResource("7_gdjy1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1oc0"]
+atlas = ExtResource("7_gdjy1")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p7st"]
+atlas = ExtResource("7_gdjy1")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_im6k6"]
+atlas = ExtResource("7_gdjy1")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w36ov"]
+atlas = ExtResource("7_gdjy1")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k6mts"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15wdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1oc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5p7st")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im6k6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w36ov")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2wj3"]
+atlas = ExtResource("12_45mnr")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sff0x"]
+atlas = ExtResource("12_45mnr")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8p1n"]
+atlas = ExtResource("12_45mnr")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8sxn"]
+atlas = ExtResource("12_45mnr")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_im6k6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2wj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sff0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8p1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8sxn")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13nwv"]
+atlas = ExtResource("13_wmany")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01xdk"]
+atlas = ExtResource("13_wmany")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5agg"]
+atlas = ExtResource("13_wmany")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff7tp"]
+atlas = ExtResource("13_wmany")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w36ov"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13nwv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01xdk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5agg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff7tp")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eltdk"]
+atlas = ExtResource("14_adiy1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yp0ks"]
+atlas = ExtResource("14_adiy1")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eriun"]
+atlas = ExtResource("14_adiy1")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pj70"]
+atlas = ExtResource("14_adiy1")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vyga0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eltdk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yp0ks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eriun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pj70")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exleu"]
+atlas = ExtResource("15_eq4dh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jviq3"]
+atlas = ExtResource("15_eq4dh")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whqwi"]
+atlas = ExtResource("15_eq4dh")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpvwf"]
+atlas = ExtResource("15_eq4dh")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w31ll"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exleu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jviq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whqwi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpvwf")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_4xjol"]
 length = 0.001
@@ -209,10 +433,10 @@ offset_left = 81.0
 offset_top = 292.0
 offset_right = 304.0
 offset_bottom = 576.0
+theme = SubResource("Theme_4nfl1")
 theme_override_styles/panel = SubResource("StyleBoxFlat_acb0r")
 follow_focus = true
 draw_focus_border = true
-scroll_vertical_custom_step = 4096.0
 
 [node name="MarginContainer" type="MarginContainer" parent="TextureRect2/ScrollContainer2" unique_id=2140243365]
 layout_mode = 2
@@ -234,58 +458,233 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w36ov")
+theme_override_styles/hover = SubResource("StyleBoxFlat_im6k6")
 
-[node name="Button3" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=471163935]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 6
-theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
+[node name="Label" type="Label" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button2" unique_id=957933256]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.5
+offset_top = -25.0
+offset_right = 68.5
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.826, 0.826)
+theme_override_colors/font_color = Color(0.85490197, 0.5176471, 0.16470589, 1)
+theme_override_colors/font_outline_color = Color(0.56078434, 0.1764706, 0.15686275, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("5_f1oc0")
+theme_override_font_sizes/font_size = 64
+text = "   Ui"
 
-[node name="Button4" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=714494320]
+[node name="Mangopng" type="Sprite2D" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button2" unique_id=958508808]
+position = Vector2(148, 51)
+scale = Vector2(5.21875, 5.21875)
+texture = ExtResource("6_5p7st")
+
+[node name="Label2" type="Label" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button2" unique_id=512518065]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.5
+offset_top = -25.0
+offset_right = 68.5
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.826, 0.826)
+theme_override_colors/font_color = Color(0.85490197, 0.5176471, 0.16470589, 1)
+theme_override_colors/font_outline_color = Color(0.56078434, 0.1764706, 0.15686275, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("5_f1oc0")
+theme_override_font_sizes/font_size = 70
+text = "FR  TS"
+
+[node name="Button3" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=864877301]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w36ov")
+theme_override_styles/hover = SubResource("StyleBoxFlat_im6k6")
 
-[node name="Button5" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=614611398]
+[node name="Label" type="Label" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button3" unique_id=1252230783]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.5
+offset_top = -33.0
+offset_right = 21.5
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.826, 0.826)
+theme_override_colors/font_color = Color(0.85490197, 0.5176471, 0.16470589, 1)
+theme_override_colors/font_outline_color = Color(0.56078434, 0.1764706, 0.15686275, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("5_f1oc0")
+theme_override_font_sizes/font_size = 82
+text = "   OO"
+
+[node name="Mangopng" type="Sprite2D" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button3" unique_id=659524925]
+position = Vector2(140, 52.000004)
+scale = Vector2(3.0625, 3.0625)
+texture = ExtResource("7_5p7st")
+
+[node name="Label2" type="Label" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button3" unique_id=8309225]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -18.0
+offset_right = 75.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.826, 0.826)
+theme_override_colors/font_color = Color(0.85490197, 0.5176471, 0.16470589, 1)
+theme_override_colors/font_outline_color = Color(0.56078434, 0.1764706, 0.15686275, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("5_f1oc0")
+theme_override_font_sizes/font_size = 70
+text = "T    LS"
+
+[node name="Button4" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=1337273716]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 6
+size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w36ov")
+theme_override_styles/hover = SubResource("StyleBoxFlat_im6k6")
 
-[node name="Button6" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=1474663876]
+[node name="Label" type="Label" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button4" unique_id=1097393398]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.5
+offset_top = -65.0
+offset_right = 24.5
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.826, 0.826)
+theme_override_colors/font_color = Color(0.85490197, 0.5176471, 0.16470589, 1)
+theme_override_colors/font_outline_color = Color(0.56078434, 0.1764706, 0.15686275, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("5_f1oc0")
+theme_override_font_sizes/font_size = 146
+text = "   a"
+
+[node name="Mangopng" type="Sprite2D" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button4" unique_id=735095981]
+position = Vector2(152.99998, 63)
+rotation = -0.3629821
+scale = Vector2(1.1328124, 1.1328124)
+texture = ExtResource("8_im6k6")
+
+[node name="Label2" type="Label" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button4" unique_id=1133180940]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.5
+offset_top = -30.0
+offset_right = 103.5
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.826, 0.826)
+theme_override_colors/font_color = Color(0.85490197, 0.5176471, 0.16470589, 1)
+theme_override_colors/font_outline_color = Color(0.56078434, 0.1764706, 0.15686275, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("5_f1oc0")
+theme_override_font_sizes/font_size = 70
+text = "G    ME"
+
+[node name="Button5" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=1793744193]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 6
+size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w36ov")
+theme_override_styles/hover = SubResource("StyleBoxFlat_im6k6")
 
-[node name="Button7" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=832884456]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
+[node name="Label" type="Label" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button5" unique_id=91426561]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.5
+offset_top = -65.0
+offset_right = 24.5
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.826, 0.826)
+theme_override_colors/font_color = Color(0.85490197, 0.5176471, 0.16470589, 1)
+theme_override_colors/font_outline_color = Color(0.56078434, 0.1764706, 0.15686275, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("5_f1oc0")
+theme_override_font_sizes/font_size = 146
+text = "   a"
 
-[node name="Button8" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=1271923787]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
+[node name="Mangopng" type="Sprite2D" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button5" unique_id=106894629]
+position = Vector2(152.99998, 63)
+rotation = -0.3629821
+scale = Vector2(1.1328124, 1.1328124)
+texture = ExtResource("8_im6k6")
 
-[node name="Button9" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=1402303534]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
-
-[node name="Button10" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=1075673547]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
+[node name="Label2" type="Label" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button5" unique_id=861173160]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.5
+offset_top = -30.0
+offset_right = 103.5
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.826, 0.826)
+theme_override_colors/font_color = Color(0.85490197, 0.5176471, 0.16470589, 1)
+theme_override_colors/font_outline_color = Color(0.56078434, 0.1764706, 0.15686275, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("5_f1oc0")
+theme_override_font_sizes/font_size = 70
+text = "G    ME"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TextureRect2" unique_id=1326786636]
 layout_mode = 1
@@ -322,26 +721,31 @@ theme_override_constants/separation = 10
 layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
+item = SubResource("SpriteFrames_k6mts")
 
 [node name="TextureRect3" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer" unique_id=2081675995 instance=ExtResource("3_g1tdj")]
 layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
+item = SubResource("SpriteFrames_im6k6")
 
 [node name="TextureRect4" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer" unique_id=551028334 instance=ExtResource("3_g1tdj")]
 layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
+item = SubResource("SpriteFrames_w36ov")
 
 [node name="TextureRect5" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer" unique_id=1512812438 instance=ExtResource("3_g1tdj")]
 layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
+item = SubResource("SpriteFrames_vyga0")
 
 [node name="TextureRect6" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer" unique_id=1533839924 instance=ExtResource("3_g1tdj")]
 layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
+item = SubResource("SpriteFrames_w31ll")
 
 [node name="TextureRect7" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer" unique_id=1096024190 instance=ExtResource("3_g1tdj")]
 layout_mode = 2

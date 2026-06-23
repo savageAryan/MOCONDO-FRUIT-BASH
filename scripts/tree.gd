@@ -46,7 +46,7 @@ func _on_timer_timeout() -> void:
 	fruit.global_position = global_position + Vector2(randi_range(-30,50),54)
 
 	get_tree().current_scene.call_deferred("add_child", fruit)
-	print ("fruit spawned")
+	
 
 var player_neartree = false
 var break_time = 0.0
