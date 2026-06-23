@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dsvaur8vktfu2" path="res://assets/audioicon1.png" id="11_qsv74"]
 [ext_resource type="Texture2D" uid="uid://buoxojah1bm5i" path="res://assets/audioicon3.png" id="12_h1mc3"]
 [ext_resource type="Texture2D" uid="uid://bvyvnnkkmeb4f" path="res://assets/audioicon2.png" id="13_cof4p"]
+[ext_resource type="Texture2D" uid="uid://4y85pg2qs6ib" path="res://assets/goldpage.png" id="14_cof4p"]
 [ext_resource type="Texture2D" uid="uid://wy8wrmn5nlih" path="res://assets/gold .png" id="14_qsv74"]
 [ext_resource type="FontFile" uid="uid://cgox7ipu4flb" path="res://assets/chawp.otf" id="15_h1mc3"]
 
@@ -264,26 +265,30 @@ texture_normal = ExtResource("11_qsv74")
 texture_pressed = ExtResource("12_h1mc3")
 texture_hover = ExtResource("13_cof4p")
 
-[node name="Panel2" type="Panel" parent="." unique_id=1437347179]
+[node name="Panel2" type="TextureRect" parent="." unique_id=1608610359]
 layout_mode = 0
-offset_left = 207.8844
-offset_top = 7.0038915
-offset_right = 255.7717
-offset_bottom = 33.463036
+offset_left = 208.56029
+offset_top = -6.2256813
+offset_right = 272.5603
+offset_bottom = 57.77432
+scale = Vector2(0.885, 0.885)
+texture = ExtResource("14_cof4p")
+flip_h = true
+flip_v = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel2" unique_id=965754787]
-position = Vector2(11.830254, 13.229574)
-scale = Vector2(0.46403834, 0.46403834)
+position = Vector2(21.983349, 30.48356)
+scale = Vector2(0.388742, 0.388742)
 sprite_frames = SubResource("SpriteFrames_2tg6s")
 autoplay = "default"
-frame_progress = 0.07992398
+frame_progress = 0.78988874
 
 [node name="Label" type="Label" parent="Panel2" unique_id=426172164]
 layout_mode = 0
-offset_left = 23.762815
-offset_top = 6.744488
-offset_right = 42.762817
-offset_bottom = 22.744488
+offset_left = 33.41469
+offset_top = 22.86267
+offset_right = 93.41469
+offset_bottom = 81.86267
 scale = Vector2(0.327, 0.327)
 theme_override_colors/font_color = Color(0.7, 0.3766, 0.23799998, 1)
 theme_override_fonts/font = ExtResource("15_h1mc3")

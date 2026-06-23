@@ -1,18 +1,26 @@
 extends TextureRect
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@export var item: SpriteFrames
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var selected = false
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	animated_sprite_2d.position.x = size.x / 2
+	animated_sprite_2d.position.y = size.y / 2
+	animated_sprite_2d.scale * 2
+	animated_sprite_2d.sprite_frames = item
+	animated_sprite_2d.play("default")
 @onready var color_rect: ColorRect = $ColorRect
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 func _physics_process(delta: float) -> void:
+	
 	if selected == true:
 		color_rect.visible = true
 		animation_player.play("selected")

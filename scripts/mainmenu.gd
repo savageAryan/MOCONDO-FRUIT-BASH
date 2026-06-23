@@ -119,3 +119,10 @@ func _on_button_3_mouse_entered() -> void:
 
 func _on_button_3_mouse_exited() -> void:
 	animation_player_2.play("nobuttonout")
+
+
+func _on_cross_button_pressed() -> void:
+	panel.visible = false
+	mocondo_butterfly.visible = true
+	button.visible = true
+	button_2.visible = true

@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cv8sr3sr4owf0" path="res://assets/texturelightbutton.png" id="12_kait0"]
 [ext_resource type="Script" uid="uid://b7qnmp6bbotwh" path="res://scripts/mocondo_butterfly.gd" id="13_gjjcl"]
 [ext_resource type="FontFile" uid="uid://cgox7ipu4flb" path="res://assets/chawp.otf" id="15_6pj40"]
+[ext_resource type="Texture2D" uid="uid://da67ds3rixcyw" path="res://assets/crossbutton.png" id="15_nkpmc"]
 
 [sub_resource type="Animation" id="Animation_dfy5j"]
 length = 0.001
@@ -503,7 +504,6 @@ offset = Vector2(2.43, 3.54)
 texture_scale = 1.12
 
 [node name="Panel" type="Panel" parent="." unique_id=1872482893]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -527,7 +527,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_kait0")
 
-[node name="Button" type="Button" parent="Panel/Panel" unique_id=870335299]
+[node name="crossButton" type="Button" parent="Panel/Panel" unique_id=870335299]
+modulate = Color(0.1332, 0.23148002, 0.36, 1)
 z_index = 2
 layout_mode = 1
 anchors_preset = 8
@@ -535,13 +536,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 169.0
-offset_top = -117.0
-offset_right = 215.35632
-offset_bottom = -80.0
+offset_left = 177.99994
+offset_top = -108.0
+offset_right = 201.99994
+offset_bottom = -84.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.295, 1.295)
 mouse_default_cursor_shape = 2
+icon = ExtResource("15_nkpmc")
+flat = true
+icon_alignment = 1
 
 [node name="Label" type="Label" parent="Panel/Panel" unique_id=82590124]
 z_index = 2
@@ -617,6 +622,7 @@ flat = true
 [connection signal="mouse_entered" from="Button2" to="." method="_on_button_2_mouse_entered"]
 [connection signal="mouse_exited" from="Button2" to="." method="_on_button_2_mouse_exited"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Panel/Panel/crossButton" to="." method="_on_cross_button_pressed"]
 [connection signal="mouse_entered" from="Panel/Panel/yesbutton" to="." method="_on_yesbutton_mouse_entered"]
 [connection signal="mouse_exited" from="Panel/Panel/yesbutton" to="." method="_on_yesbutton_mouse_exited"]
 [connection signal="pressed" from="Panel/Panel/yesbutton" to="." method="_on_yesbutton_pressed"]
