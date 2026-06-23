@@ -249,9 +249,26 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_qtwlx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_6t636")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1012708000]
-position = Vector2(47.075, 43.375)
-scale = Vector2(1.795, 1.795)
+position = Vector2(49.075, 41.375)
+scale = Vector2(6.46, 6.46)
 sprite_frames = SubResource("SpriteFrames_qtwlx")
+offset = Vector2(18.255, 14.48)
+
+[node name="Control" type="Control" parent="." unique_id=1600967469]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="Control" unique_id=924997489]
+layout_mode = 0
+offset_left = 13.075001
+offset_top = 11.375
+offset_right = 83.149994
+offset_bottom = 100.75
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
