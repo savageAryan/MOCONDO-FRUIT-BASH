@@ -19,6 +19,8 @@ func _ready() -> void:
 	texture_rect_6.visible = false
 	texture_rect_7.visible = false
 	texture_rect_8.visible = false
+	texture_rect_8.texture_scale / -2
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if selected != null:
@@ -61,7 +63,7 @@ func _on_button_2_pressed() -> void:
 	texture_rect_4.visible = true
 	texture_rect_5.visible = true
 	texture_rect_6.visible = true
-	texture_rect_7.visible = false
+	texture_rect_7.visible = true
 	texture_rect_8.visible = false
 @onready var workshopselectedui_2: Sprite2D = $Workshopselectedui2
 
@@ -83,7 +85,7 @@ func _on_button_4_pressed() -> void:
 	texture_rect_5.visible = false
 	texture_rect_6.visible = false
 	texture_rect_7.visible = false
-	texture_rect_8.visible = false
+	texture_rect_8.visible = true
 
 func _on_button_5_pressed() -> void:
 	selected = $TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button5

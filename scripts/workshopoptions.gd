@@ -3,15 +3,14 @@ extends TextureRect
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @export var item: SpriteFrames
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-
+@export var texture_scale  = scale
 var selected = false
+
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	animated_sprite_2d.position.x = size.x / 2
-	animated_sprite_2d.position.y = size.y / 2
-	animated_sprite_2d.scale * 2
+
 	animated_sprite_2d.sprite_frames = item
 	animated_sprite_2d.play("default")
 @onready var color_rect: ColorRect = $ColorRect

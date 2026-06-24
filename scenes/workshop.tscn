@@ -15,12 +15,14 @@
 [ext_resource type="Texture2D" uid="uid://bj0i251pyl20q" path="res://assets/axe.png" id="7_gdjy1"]
 [ext_resource type="FontFile" uid="uid://1wp8whuqfa5o" path="res://assets/LowresPixel-Regular.otf" id="8_gdjy1"]
 [ext_resource type="Texture2D" uid="uid://di1qd1h8mybjx" path="res://assets/mocondo butterfly.png" id="8_im6k6"]
+[ext_resource type="Texture2D" uid="uid://cadys8bediek6" path="res://assets/boat real empty  mocondo.png" id="9_b8sxn"]
 [ext_resource type="Texture2D" uid="uid://dq8rmbas1k85q" path="res://assets/strawberry.png" id="12_45mnr"]
 [ext_resource type="FontFile" uid="uid://dkopncmaw641n" path="res://assets/Regular.otf" id="13_sff0x"]
 [ext_resource type="Texture2D" uid="uid://la6ra60g8xgh" path="res://assets/banana.png" id="13_wmany"]
 [ext_resource type="Texture2D" uid="uid://cib7dxaoip1b7" path="res://assets/Apple.png" id="14_adiy1"]
 [ext_resource type="Texture2D" uid="uid://wy8wrmn5nlih" path="res://assets/gold .png" id="14_w8p1n"]
 [ext_resource type="Texture2D" uid="uid://dkwf7t50ywyo3" path="res://assets/mango.png" id="15_eq4dh"]
+[ext_resource type="Texture2D" uid="uid://bttcq0d5dswsf" path="res://assets/log.png" id="18_sff0x"]
 [ext_resource type="FontFile" uid="uid://cgox7ipu4flb" path="res://assets/chawp.otf" id="20_eq4dh"]
 [ext_resource type="Texture2D" uid="uid://bci1e3sl7htb4" path="res://assets/light gradient butterfly.png" id="21_u2wj3"]
 
@@ -94,16 +96,13 @@ expand_margin_top = 45.0
 expand_margin_bottom = 10.0
 modulate_color = Color(1, 0.65, 0.65, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_acb0r"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b8sxn"]
 texture = ExtResource("3_4103c")
-expand_margin_top = 48.0
-expand_margin_bottom = 13.0
+expand_margin_top = 45.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_35y6k"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_13nwv"]
 texture = ExtResource("3_4103c")
-expand_margin_top = 30.0
-expand_margin_bottom = 7.0
-modulate_color = Color(0.9508577, 0, 0.1821706, 1)
+expand_margin_top = 45.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4103c"]
 bg_color = Color(0.49, 0.38448668, 0.30380002, 1)
@@ -117,11 +116,26 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 expand_margin_top = 18.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8sxn"]
+bg_color = Color(0.49, 0.31752, 0.2744, 1)
+border_width_left = 18
+border_width_right = 18
+border_color = Color(0.46, 0.22739333, 0.1196, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 52.0
+expand_margin_top = 16.0
+expand_margin_bottom = 39.0
+
 [sub_resource type="Theme" id="Theme_0t7iv"]
 HScrollBar/styles/grabber = SubResource("StyleBoxTexture_4103c")
-HScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_acb0r")
-HScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_35y6k")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_b8sxn")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_13nwv")
 HScrollBar/styles/scroll = SubResource("StyleBoxFlat_4103c")
+HScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_b8sxn")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1tdj"]
 bg_color = Color(0.82, 0.71914, 0.48380002, 1)
@@ -314,22 +328,30 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_exleu"]
-atlas = ExtResource("15_eq4dh")
-region = Rect2(0, 0, 16, 16)
+atlas = ExtResource("18_sff0x")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jviq3"]
-atlas = ExtResource("15_eq4dh")
-region = Rect2(16, 0, 16, 16)
+atlas = ExtResource("18_sff0x")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_whqwi"]
-atlas = ExtResource("15_eq4dh")
-region = Rect2(32, 0, 16, 16)
+atlas = ExtResource("18_sff0x")
+region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rpvwf"]
-atlas = ExtResource("15_eq4dh")
-region = Rect2(48, 0, 16, 16)
+atlas = ExtResource("18_sff0x")
+region = Rect2(0, 96, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_w31ll"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_febx8"]
+atlas = ExtResource("18_sff0x")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvrho"]
+atlas = ExtResource("18_sff0x")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sff0x"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -343,11 +365,55 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rpvwf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_febx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvrho")
 }],
 "loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0f35e"]
+atlas = ExtResource("15_eq4dh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbb1h"]
+atlas = ExtResource("15_eq4dh")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxrtr"]
+atlas = ExtResource("15_eq4dh")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqm7t"]
+atlas = ExtResource("15_eq4dh")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0f35e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0f35e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbb1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxrtr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqm7t")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b8sxn"]
 
 [sub_resource type="Animation" id="Animation_4xjol"]
 length = 0.001
@@ -506,10 +572,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -88.5
-offset_top = -25.0
-offset_right = 68.5
-offset_bottom = 43.0
+offset_left = -87.5
+offset_top = -41.0
+offset_right = 69.5
+offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.826, 0.826)
@@ -533,10 +599,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -88.5
-offset_top = -25.0
-offset_right = 68.5
-offset_bottom = 43.0
+offset_left = -87.5
+offset_top = -41.0
+offset_right = 69.5
+offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.826, 0.826)
@@ -547,6 +613,48 @@ theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("5_f1oc0")
 theme_override_font_sizes/font_size = 70
 text = "FR  TS"
+
+[node name="Label3" type="Label" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button2" unique_id=369988363]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.5
+offset_right = 72.5
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.826, 0.826)
+theme_override_colors/font_color = Color(0.85490197, 0.5176471, 0.16470589, 1)
+theme_override_colors/font_outline_color = Color(0.56078434, 0.1764706, 0.15686275, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("5_f1oc0")
+theme_override_font_sizes/font_size = 64
+text = "     es"
+
+[node name="Label4" type="Label" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button2" unique_id=1616401875]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.5
+offset_right = 72.5
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.826, 0.826)
+theme_override_colors/font_color = Color(0.85490197, 0.5176471, 0.16470589, 1)
+theme_override_colors/font_outline_color = Color(0.56078434, 0.1764706, 0.15686275, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("5_f1oc0")
+theme_override_font_sizes/font_size = 70
+text = "tre"
 
 [node name="Button3" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=864877301]
 custom_minimum_size = Vector2(0, 100)
@@ -627,10 +735,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -151.5
-offset_top = -65.0
-offset_right = 24.5
-offset_bottom = 76.0
+offset_left = -110.5
+offset_top = -9.0
+offset_right = 27.5
+offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.826, 0.826)
@@ -639,14 +747,14 @@ theme_override_colors/font_outline_color = Color(0.56078434, 0.1764706, 0.156862
 theme_override_constants/outline_size = 6
 theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("5_f1oc0")
-theme_override_font_sizes/font_size = 146
-text = "   a"
+theme_override_font_sizes/font_size = 54
+text = "   PORT"
 
 [node name="Mangopng" type="Sprite2D" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button4" unique_id=735095981]
 position = Vector2(152.99998, 63)
 rotation = -0.3629821
 scale = Vector2(1.1328124, 1.1328124)
-texture = ExtResource("8_im6k6")
+texture = ExtResource("9_b8sxn")
 
 [node name="Label2" type="Label" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button4" unique_id=1133180940]
 layout_mode = 1
@@ -655,10 +763,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -83.5
-offset_top = -30.0
-offset_right = 103.5
-offset_bottom = 38.0
+offset_left = -82.5
+offset_top = -49.0
+offset_right = 104.5
+offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.826, 0.826)
@@ -668,7 +776,7 @@ theme_override_constants/outline_size = 6
 theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("5_f1oc0")
 theme_override_font_sizes/font_size = 70
-text = "G    ME"
+text = "TRANS-"
 
 [node name="Button5" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=1793744193]
 custom_minimum_size = Vector2(0, 100)
@@ -874,7 +982,7 @@ sprite_frames = SubResource("SpriteFrames_2tg6s")
 layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
-item = SubResource("SpriteFrames_w31ll")
+item = SubResource("SpriteFrames_sff0x")
 
 [node name="Label5" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect6" unique_id=923422680]
 layout_mode = 1
@@ -901,6 +1009,7 @@ sprite_frames = SubResource("SpriteFrames_2tg6s")
 layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
+item = SubResource("SpriteFrames_0f35e")
 
 [node name="Label6" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect7" unique_id=843378412]
 layout_mode = 1
@@ -927,8 +1036,37 @@ sprite_frames = SubResource("SpriteFrames_2tg6s")
 layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
+item = SubResource("SpriteFrames_b8sxn")
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect8" unique_id=1761027564]
+position = Vector2(166.00006, 196.00002)
+rotation = -0.3327916
+scale = Vector2(1.8792124, 1.8792124)
+texture = ExtResource("9_b8sxn")
+
+[node name="Label7" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect8" unique_id=848445852]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.5
+offset_top = -114.0
+offset_right = 29.5
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("13_sff0x")
+theme_override_font_sizes/font_size = 65
+text = "10"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect8/Label7" unique_id=248975560]
+position = Vector2(-28, 26)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
 
 [node name="Control" type="Control" parent="." unique_id=248489879]
+visible = false
 clip_contents = true
 anchors_preset = 0
 offset_left = -17.0
@@ -987,7 +1125,6 @@ theme_override_font_sizes/font_size = 52
 text = "BACK"
 
 [node name="Label" type="Label" parent="." unique_id=490760234]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -3,8 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cl1ud7hc1n4hc" path="res://assets/workshopmenu.png" id="1_mec0v"]
 [ext_resource type="Script" uid="uid://bodiuo2asbxr5" path="res://scripts/workshopoptions.gd" id="2_k6mts"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_6t636"]
-animations = []
+[sub_resource type="SpriteFrames" id="SpriteFrames_kqb82"]
 
 [sub_resource type="Animation" id="Animation_k6mts"]
 length = 0.001
@@ -173,7 +172,7 @@ offset_right = 122.925
 offset_bottom = 179.625
 texture = ExtResource("1_mec0v")
 script = ExtResource("2_k6mts")
-item = SubResource("SpriteFrames_6t636")
+item = SubResource("SpriteFrames_kqb82")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=940331062]
 z_index = -1
