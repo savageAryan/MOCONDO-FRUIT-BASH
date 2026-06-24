@@ -16,8 +16,10 @@
 [ext_resource type="FontFile" uid="uid://1wp8whuqfa5o" path="res://assets/LowresPixel-Regular.otf" id="8_gdjy1"]
 [ext_resource type="Texture2D" uid="uid://di1qd1h8mybjx" path="res://assets/mocondo butterfly.png" id="8_im6k6"]
 [ext_resource type="Texture2D" uid="uid://dq8rmbas1k85q" path="res://assets/strawberry.png" id="12_45mnr"]
+[ext_resource type="FontFile" uid="uid://dkopncmaw641n" path="res://assets/Regular.otf" id="13_sff0x"]
 [ext_resource type="Texture2D" uid="uid://la6ra60g8xgh" path="res://assets/banana.png" id="13_wmany"]
 [ext_resource type="Texture2D" uid="uid://cib7dxaoip1b7" path="res://assets/Apple.png" id="14_adiy1"]
+[ext_resource type="Texture2D" uid="uid://wy8wrmn5nlih" path="res://assets/gold .png" id="14_w8p1n"]
 [ext_resource type="Texture2D" uid="uid://dkwf7t50ywyo3" path="res://assets/mango.png" id="15_eq4dh"]
 [ext_resource type="FontFile" uid="uid://cgox7ipu4flb" path="res://assets/chawp.otf" id="20_eq4dh"]
 [ext_resource type="Texture2D" uid="uid://bci1e3sl7htb4" path="res://assets/light gradient butterfly.png" id="21_u2wj3"]
@@ -182,6 +184,21 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w36ov")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nfl1"]
+atlas = ExtResource("14_w8p1n")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tg6s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nfl1")
 }],
 "loop": 1,
 "name": &"default",
@@ -751,11 +768,53 @@ expand_mode = 3
 stretch_mode = 5
 item = SubResource("SpriteFrames_k6mts")
 
+[node name="Label" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect2" unique_id=703571534]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -114.0
+offset_right = 53.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("13_sff0x")
+theme_override_font_sizes/font_size = 65
+text = "10"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect2/Label" unique_id=329961090]
+position = Vector2(-28, 26)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+
 [node name="TextureRect3" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer" unique_id=2081675995 instance=ExtResource("3_g1tdj")]
 layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
 item = SubResource("SpriteFrames_im6k6")
+
+[node name="Label2" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect3" unique_id=1423475930]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -46.0
+offset_top = -114.0
+offset_right = 13.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("13_sff0x")
+theme_override_font_sizes/font_size = 65
+text = "10"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect3/Label2" unique_id=1066787773]
+position = Vector2(-28, 26)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
 
 [node name="TextureRect4" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer" unique_id=551028334 instance=ExtResource("3_g1tdj")]
 layout_mode = 2
@@ -763,11 +822,53 @@ expand_mode = 3
 stretch_mode = 5
 item = SubResource("SpriteFrames_w36ov")
 
+[node name="Label3" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect4" unique_id=1203088520]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.5
+offset_top = -114.0
+offset_right = 29.5
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("13_sff0x")
+theme_override_font_sizes/font_size = 65
+text = "10"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect4/Label3" unique_id=1881753174]
+position = Vector2(-28, 26)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+
 [node name="TextureRect5" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer" unique_id=1512812438 instance=ExtResource("3_g1tdj")]
 layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
 item = SubResource("SpriteFrames_vyga0")
+
+[node name="Label4" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect5" unique_id=1781097050]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.5
+offset_top = -114.0
+offset_right = 29.5
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("13_sff0x")
+theme_override_font_sizes/font_size = 65
+text = "10"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect5/Label4" unique_id=1214764454]
+position = Vector2(-28, 26)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
 
 [node name="TextureRect6" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer" unique_id=1533839924 instance=ExtResource("3_g1tdj")]
 layout_mode = 2
@@ -775,10 +876,52 @@ expand_mode = 3
 stretch_mode = 5
 item = SubResource("SpriteFrames_w31ll")
 
+[node name="Label5" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect6" unique_id=923422680]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.5
+offset_top = -114.0
+offset_right = 29.5
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("13_sff0x")
+theme_override_font_sizes/font_size = 65
+text = "10"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect6/Label5" unique_id=1288613590]
+position = Vector2(-28, 26)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+
 [node name="TextureRect7" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer" unique_id=1096024190 instance=ExtResource("3_g1tdj")]
 layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
+
+[node name="Label6" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect7" unique_id=843378412]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.5
+offset_top = -114.0
+offset_right = 29.5
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("13_sff0x")
+theme_override_font_sizes/font_size = 65
+text = "10"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect7/Label6" unique_id=1478553173]
+position = Vector2(-28, 26)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
 
 [node name="TextureRect8" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer" unique_id=546873937 instance=ExtResource("3_g1tdj")]
 layout_mode = 2
@@ -844,6 +987,7 @@ theme_override_font_sizes/font_size = 52
 text = "BACK"
 
 [node name="Label" type="Label" parent="." unique_id=490760234]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

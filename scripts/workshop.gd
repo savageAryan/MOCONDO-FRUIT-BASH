@@ -23,10 +23,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if selected != null:
 		workshopselectedui.global_position.y = selected.global_position.y - 50
-	elif selected:
-		mocondo_butterfly.visible = false
-		label.visible = false
-
+		
+func _physics_process(delta: float) -> void:
+	pass
+	
 
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
