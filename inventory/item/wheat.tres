@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://2l156y0e6jlj"]
+
+[ext_resource type="Script" uid="uid://bm0nfyj7wmstx" path="res://inventory/inventory_item.gd" id="1_5ho1q"]
+
+[resource]
+script = ExtResource("1_5ho1q")
+name = "Wheat"
+maxAmountPrStack = 100
+buy_price = 5
+metadata/_custom_type_script = "uid://bm0nfyj7wmstx"

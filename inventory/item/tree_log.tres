@@ -8,4 +8,6 @@ script = ExtResource("1_kg7b7")
 name = "Tree Log"
 texture = ExtResource("2_i50t3")
 maxAmountPrStack = 6
+buy_price = 20
+sell_price = 10
 metadata/_custom_type_script = "uid://bm0nfyj7wmstx"
