@@ -1,6 +1,7 @@
 extends Resource
 class_name  Inventory
 @export var slots: Array [InventorySlot]
+
 signal updated
 func insert(item: InventoryItem):
 	var itemSlots = slots.filter(func(slot):return slot.item == item && slot.amount < slot.item.maxAmountPrStack)
@@ -31,5 +32,15 @@ func use_Item_at_Index(index: int) -> void:
 		slot.amount -= 1
 		updated.emit()
 		return
-	
+
 	remove_at_Index(index)
+func remove_item(item: InventoryItem, amount_remove: int = 1):
+	for slot in slots:
+		if slot.item == item:
+			if slot.amount >= amount_remove:
+				slot.amount -= amount_remove
+				if slot.amount <= 0:
+					slot.item = null
+				updated.emit()
+				return true
+			return false

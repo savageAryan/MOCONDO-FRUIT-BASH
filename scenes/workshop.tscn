@@ -19,10 +19,13 @@
 [ext_resource type="Texture2D" uid="uid://dq8rmbas1k85q" path="res://assets/strawberry.png" id="12_45mnr"]
 [ext_resource type="FontFile" uid="uid://dkopncmaw641n" path="res://assets/Regular.otf" id="13_sff0x"]
 [ext_resource type="Texture2D" uid="uid://la6ra60g8xgh" path="res://assets/banana.png" id="13_wmany"]
+[ext_resource type="Resource" uid="uid://das538p2ukvg4" path="res://inventory/item/axe.tres" id="14_01xdk"]
 [ext_resource type="Texture2D" uid="uid://cib7dxaoip1b7" path="res://assets/Apple.png" id="14_adiy1"]
 [ext_resource type="Texture2D" uid="uid://wy8wrmn5nlih" path="res://assets/gold .png" id="14_w8p1n"]
 [ext_resource type="Texture2D" uid="uid://dkwf7t50ywyo3" path="res://assets/mango.png" id="15_eq4dh"]
+[ext_resource type="Resource" uid="uid://byvrcjyrtta2p" path="res://inventory/player_inventory.tres" id="15_h5agg"]
 [ext_resource type="Texture2D" uid="uid://bttcq0d5dswsf" path="res://assets/log.png" id="18_sff0x"]
+[ext_resource type="Resource" uid="uid://camcywpjujg3s" path="res://inventory/item/strawberry.tres" id="19_h5agg"]
 [ext_resource type="FontFile" uid="uid://cgox7ipu4flb" path="res://assets/chawp.otf" id="20_eq4dh"]
 [ext_resource type="Texture2D" uid="uid://bci1e3sl7htb4" path="res://assets/light gradient butterfly.png" id="21_u2wj3"]
 
@@ -90,52 +93,31 @@ corner_radius_top_right = 7
 corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4103c"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ff7tp"]
 texture = ExtResource("3_4103c")
-expand_margin_top = 45.0
-expand_margin_bottom = 10.0
-modulate_color = Color(1, 0.65, 0.65, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b8sxn"]
-texture = ExtResource("3_4103c")
-expand_margin_top = 45.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_13nwv"]
-texture = ExtResource("3_4103c")
-expand_margin_top = 45.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4103c"]
-bg_color = Color(0.49, 0.38448668, 0.30380002, 1)
-border_width_left = 18
-border_width_right = 18
-border_color = Color(0.37790832, 0.25765255, 0.16879821, 1)
-border_blend = true
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-expand_margin_top = 18.0
+expand_margin_top = 60.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8sxn"]
-bg_color = Color(0.49, 0.31752, 0.2744, 1)
-border_width_left = 18
-border_width_right = 18
-border_color = Color(0.46, 0.22739333, 0.1196, 1)
+bg_color = Color(0.53267044, 0.36475325, 0.17786074, 1)
+border_width_left = 10
+border_width_right = 10
+border_color = Color(0.44738603, 0.26266488, 0.12842268, 1)
 border_blend = true
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-expand_margin_left = 52.0
-expand_margin_top = 16.0
-expand_margin_bottom = 39.0
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13nwv"]
 
 [sub_resource type="Theme" id="Theme_0t7iv"]
-HScrollBar/styles/grabber = SubResource("StyleBoxTexture_4103c")
-HScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_b8sxn")
-HScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_13nwv")
-HScrollBar/styles/scroll = SubResource("StyleBoxFlat_4103c")
-HScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_b8sxn")
+HScrollBar/constants/padding_bottom = 0
+HScrollBar/constants/padding_top = 27
+HScrollBar/styles/grabber = SubResource("StyleBoxTexture_ff7tp")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_ff7tp")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_ff7tp")
+HScrollBar/styles/scroll = SubResource("StyleBoxFlat_b8sxn")
+HScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_13nwv")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1tdj"]
 bg_color = Color(0.82, 0.71914, 0.48380002, 1)
@@ -875,6 +857,8 @@ layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
 item = SubResource("SpriteFrames_k6mts")
+item_to_buy = ExtResource("14_01xdk")
+inventory = ExtResource("15_h5agg")
 
 [node name="Label" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect2" unique_id=703571534]
 layout_mode = 1
@@ -902,6 +886,9 @@ layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
 item = SubResource("SpriteFrames_im6k6")
+for_sell = true
+item_to_buy = ExtResource("19_h5agg")
+inventory = ExtResource("15_h5agg")
 
 [node name="Label2" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect3" unique_id=1423475930]
 layout_mode = 1

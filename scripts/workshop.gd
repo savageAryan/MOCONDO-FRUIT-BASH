@@ -37,6 +37,7 @@ func _physics_process(delta: float) -> void:
 @onready var button_3: Button = $"../../StaticBody2D3/Button3"
 @onready var invenrory: Control = $"../invenrory"
 
+@onready var optionbutton: Button = $optionbutton
 
 func _on_button_pressed() -> void:
 	animation_player.play("backbutton")
@@ -96,3 +97,5 @@ func _on_button_5_pressed() -> void:
 	texture_rect_6.visible = false
 	texture_rect_7.visible = false
 	texture_rect_8.visible = false
+
+	
