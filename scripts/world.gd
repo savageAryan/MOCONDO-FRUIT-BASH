@@ -20,7 +20,9 @@ extends Node2D
 func _ready() -> void:
 	canvas_modulate.time_tick.connect(ui.set_daytime)
 	control.start_dialogue([
-		"hello_world"
+		"HEYYY!!",
+		"Wassup!, You'r new here?",
+		"DANGG!!, Don't fearr, When I am herre"
 	])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

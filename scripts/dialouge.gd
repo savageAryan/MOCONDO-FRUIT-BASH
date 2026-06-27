@@ -1,12 +1,14 @@
 extends Control
 @onready var label: Label = $Label
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var monkerking_mocondo: AnimatedSprite2D = $Control/MonkerkingMocondo
 
 var dialogue = []
 var current = 0
 func show_line():
 	label.text = dialogue[current]
 	animation_player.play("monkeyspeak")
+	monkerking_mocondo.play("default")
 func start_dialogue(lines:Array):
 	dialogue = lines
 	current = 0
