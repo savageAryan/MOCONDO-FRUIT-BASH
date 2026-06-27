@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bpg7yys4ca4n4"]
 
+[ext_resource type="Script" uid="uid://d3yyiy47f7705" path="res://scripts/dialouge.gd" id="1_3ggh0"]
 [ext_resource type="Texture2D" uid="uid://b182dcpfownl6" path="res://assets/dialouge box.png" id="1_seejf"]
 [ext_resource type="Texture2D" uid="uid://clg8ebfyhaue7" path="res://assets/monkerking mocondo.png" id="2_qpcre"]
 [ext_resource type="FontFile" uid="uid://cgox7ipu4flb" path="res://assets/chawp.otf" id="3_vbyai"]
@@ -87,6 +88,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("1_3ggh0")
 
 [node name="DialougeBox" type="Sprite2D" parent="." unique_id=206015358]
 position = Vector2(573, 473)
@@ -101,7 +103,6 @@ offset_bottom = 29.538454
 theme_override_styles/panel = SubResource("StyleBoxFlat_ohge4")
 
 [node name="Control" type="Control" parent="." unique_id=158154343]
-visible = false
 clip_contents = true
 anchors_preset = 0
 offset_left = 726.0
@@ -137,3 +138,5 @@ offset_top = 445.0
 offset_right = 1071.0
 offset_bottom = 461.0
 texture_normal = ExtResource("4_tc1v4")
+
+[connection signal="pressed" from="Crossbutton" to="." method="_on_crossbutton_pressed"]
