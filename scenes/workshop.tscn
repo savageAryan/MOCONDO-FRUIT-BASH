@@ -400,8 +400,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_1pj70"]
-
 [sub_resource type="Animation" id="Animation_4xjol"]
 length = 0.001
 
@@ -1033,36 +1031,6 @@ theme_override_font_sizes/font_size = 65
 text = "10"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect7/Label6" unique_id=1478553173]
-position = Vector2(-28, 26)
-sprite_frames = SubResource("SpriteFrames_2tg6s")
-
-[node name="TextureRect9" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer" unique_id=682594368 instance=ExtResource("3_g1tdj")]
-layout_mode = 2
-expand_mode = 3
-stretch_mode = 5
-item = SubResource("SpriteFrames_1pj70")
-for_sell = true
-item_to_buy = ExtResource("23_ff7tp")
-inventory = ExtResource("15_h5agg")
-
-[node name="Label6" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect9" unique_id=1767550663]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -29.5
-offset_top = -114.0
-offset_right = 29.5
-offset_bottom = -49.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("13_sff0x")
-theme_override_font_sizes/font_size = 65
-text = "10"
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect9/Label6" unique_id=12060532]
 position = Vector2(-28, 26)
 sprite_frames = SubResource("SpriteFrames_2tg6s")
 

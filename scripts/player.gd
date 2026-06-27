@@ -127,3 +127,7 @@ func chop():
 		animated_sprite_2d.play("axeside")
 	await animated_sprite_2d.animation_finished
 	chopping = false
+func hit_enemy():
+	if Input.is_action_pressed("hit"):
+		animated_sprite_2d.play("swordslash")
+		

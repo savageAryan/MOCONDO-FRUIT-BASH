@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://bpg7yys4ca4n4"]
+
+[ext_resource type="Texture2D" uid="uid://b182dcpfownl6" path="res://assets/dialouge box.png" id="1_seejf"]
+[ext_resource type="Texture2D" uid="uid://clg8ebfyhaue7" path="res://assets/monkerking mocondo.png" id="2_qpcre"]
+[ext_resource type="FontFile" uid="uid://cgox7ipu4flb" path="res://assets/chawp.otf" id="3_vbyai"]
+[ext_resource type="Texture2D" uid="uid://da67ds3rixcyw" path="res://assets/crossbutton.png" id="4_tc1v4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohge4"]
+bg_color = Color(0.86, 0.76195997, 0.5332, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8745098, 0.7921569, 0.59607846, 1)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="Animation" id="Animation_qpcre"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/MonkerkingMocondo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(158, 256)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/MonkerkingMocondo:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8.3984375, 8.3984375)]
+}
+
+[sub_resource type="Animation" id="Animation_vbyai"]
+resource_name = "monkeyspeak"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/MonkerkingMocondo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(158, 256), Vector2(158, 237.055)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/MonkerkingMocondo:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(8.3984375, 8.3984375), Vector2(8.723, 8.723)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tc1v4"]
+_data = {
+&"RESET": SubResource("Animation_qpcre"),
+&"monkeyspeak": SubResource("Animation_vbyai")
+}
+
+[node name="Control" type="Control" unique_id=350138170]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="DialougeBox" type="Sprite2D" parent="." unique_id=206015358]
+position = Vector2(573, 473)
+scale = Vector2(4.0625, 4.0625005)
+texture = ExtResource("1_seejf")
+
+[node name="Panel" type="Panel" parent="DialougeBox" unique_id=1175336937]
+offset_left = -127.26154
+offset_top = -8.615385
+offset_right = 125.04615
+offset_bottom = 29.538454
+theme_override_styles/panel = SubResource("StyleBoxFlat_ohge4")
+
+[node name="Control" type="Control" parent="." unique_id=158154343]
+visible = false
+clip_contents = true
+anchors_preset = 0
+offset_left = 726.0
+offset_top = 92.0
+offset_right = 1101.0
+offset_bottom = 608.0
+mouse_filter = 2
+
+[node name="MonkerkingMocondo" type="Sprite2D" parent="Control" unique_id=264415718]
+z_index = 8
+position = Vector2(158, 256)
+scale = Vector2(8.3984375, 8.3984375)
+texture = ExtResource("2_qpcre")
+
+[node name="Label" type="Label" parent="." unique_id=1946783070]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 461.0
+offset_right = 150.0
+offset_bottom = 484.0
+theme_override_fonts/font = ExtResource("3_vbyai")
+theme_override_font_sizes/font_size = 32
+text = "HEY THERE! WHO ARE YOU?,"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1072317908]
+libraries/ = SubResource("AnimationLibrary_tc1v4")
+
+[node name="Crossbutton" type="TextureButton" parent="." unique_id=1563079763]
+modulate = Color(0.7072611, 0.5912351, 0.3260517, 0.49803922)
+layout_mode = 0
+offset_left = 1055.0
+offset_top = 445.0
+offset_right = 1071.0
+offset_bottom = 461.0
+texture_normal = ExtResource("4_tc1v4")

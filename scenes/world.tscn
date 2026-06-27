@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c4i8urefrfc3c" path="res://assets/tractor.png" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://dlx0ecx65mm64" path="res://scenes/invenrory.tscn" id="4_lakw3"]
 [ext_resource type="Script" uid="uid://dm4nugvffg7ug" path="res://scripts/tractorarea.gd" id="5_qfnet"]
+[ext_resource type="PackedScene" uid="uid://bpg7yys4ca4n4" path="res://scenes/dialouge.tscn" id="6_ctatt"]
 [ext_resource type="FontFile" uid="uid://bbbwahii6uqin" path="res://assets/vladimir.ttf" id="6_i7141"]
 [ext_resource type="PackedScene" uid="uid://by3gybddd6b25" path="res://scenes/ui.tscn" id="7_o8fc1"]
 [ext_resource type="PackedScene" uid="uid://bl1kx3v3hndae" path="res://scenes/tree.tscn" id="9_7r4gi"]
@@ -131,7 +132,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w7kh3")
 }],
-"loop": true,
+"loop": 1,
 "name": &"gateclosed",
 "speed": 5.0
 }, {
@@ -148,7 +149,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o8fc1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"gateopen",
 "speed": 5.0
 }]
@@ -213,6 +214,8 @@ grow_vertical = 1
 [node name="invenrory" parent="CanvasLayer" unique_id=1545268138 instance=ExtResource("4_lakw3")]
 process_mode = 3
 mouse_filter = 2
+
+[node name="Control" parent="CanvasLayer" unique_id=350138170 instance=ExtResource("6_ctatt")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1263943274]
 position = Vector2(1, 0)
