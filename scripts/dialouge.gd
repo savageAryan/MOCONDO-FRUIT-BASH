@@ -2,7 +2,7 @@ extends Control
 @onready var label: Label = $Label
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var monkerking_mocondo: AnimatedSprite2D = $Control/MonkerkingMocondo
-
+signal talk_finished
 
 var dialogue = []
 var current = 0
@@ -33,6 +33,7 @@ func _on_crossbutton_pressed() -> void:
 	if current >= dialogue.size():
 		animation_player.stop()
 		visible = false
+		talk_finished.emit()
 
 	else:
 		show_line()

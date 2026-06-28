@@ -495,6 +495,7 @@ position = Vector2(44, -26)
 
 [connection signal="closed" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_closed"]
 [connection signal="opened" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_opened"]
+[connection signal="talk_finished" from="CanvasLayer/dialouge" to="." method="_on_dialouge_talk_finished"]
 [connection signal="body_entered" from="tractorarea" to="tractorarea" method="_on_body_entered"]
 [connection signal="body_exited" from="tractorarea" to="tractorarea" method="_on_body_exited"]
 [connection signal="pressed" from="tractorarea/Button" to="tractorarea" method="_on_button_pressed"]
