@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var current_dir = "none"
 
-var speed = 200
+var speed = 100
 const WHEAT = preload("uid://d13jxal853d8w")
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 @onready var camera_2d: Camera2D = $Camera2D

@@ -75,8 +75,8 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="selector" type="Sprite2D" parent="." unique_id=1519438490]
-position = Vector2(2.888, 10.507)
-scale = Vector2(0.878, 1.016)
+position = Vector2(2.888, 10)
+scale = Vector2(0.878, 0.99999994)
 texture = ExtResource("4_2n1yv")
 centered = false
 

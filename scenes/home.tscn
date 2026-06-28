@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cirrugwpvkeb0" path="res://scripts/home.gd" id="1_o1ld7"]
 [ext_resource type="PackedScene" uid="uid://bkxxnoykda6k" path="res://scenes/player.tscn" id="1_tt30a"]
 [ext_resource type="FontFile" uid="uid://bbbwahii6uqin" path="res://assets/vladimir.ttf" id="4_2ayvv"]
+[ext_resource type="Texture2D" uid="uid://c2ea6e5qt8cc8" path="res://assets/sleeping full.png" id="5_uhids"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o1ld7"]
 texture = ExtResource("1_1ey7h")
@@ -661,6 +662,81 @@ sources/0 = SubResource("TileSetAtlasSource_w1mvj")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ey7h"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tg6s"]
+size = Vector2(32, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ohge4"]
+radius = 34.132095
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxilm"]
+atlas = ExtResource("5_uhids")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mahjx"]
+atlas = ExtResource("5_uhids")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fycn"]
+atlas = ExtResource("5_uhids")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tg6s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxilm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mahjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fycn")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tg6s"]
+bg_color = Color(0.5417868, 0.5417869, 0.54178673, 1)
+
+[sub_resource type="Animation" id="Animation_uhids"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yxilm"]
+resource_name = "new_animation"
+length = 17.585
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 1.1666666, 2.5, 3.5, 4.6666675, 5.500001, 6.233334, 7.1333346, 8.166667, 9.133334, 10.166667, 11.266667, 12.3, 13.733335, 14.766667, 16.1, 16.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.24, 0.24, 0.24, 0), Color(0.24, 0.24, 0.24, 0.21568628), Color(0.24, 0.24, 0.24, 0.22352941), Color(0.24, 0.24, 0.24, 0.36862746), Color(0.24, 0.24, 0.24, 0.44313726), Color(0.24000001, 0.24000001, 0.24000001, 0.44149387), Color(0.24, 0.24, 0.24, 0.39215687), Color(0.24, 0.24, 0.24, 0.3137255), Color(0.24, 0.24, 0.24, 0.5882353), Color(0.24, 0.24, 0.24, 0.5176471), Color(0.24, 0.24, 0.24, 0.8745098), Color(0.24, 0.24, 0.24, 0.5176471), Color(0.24, 0.24, 0.24, 0.8745098), Color(0.24, 0.24, 0.24, 0.5176471), Color(0.24, 0.24, 0.24, 0.8745098), Color(0.24, 0.24, 0.24, 0.5176471), Color(0.24, 0.24, 0.24, 0.8745098)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mahjx"]
+_data = {
+&"RESET": SubResource("Animation_uhids"),
+&"new_animation": SubResource("Animation_yxilm")
+}
+
 [node name="home" type="Node2D" unique_id=831976483]
 script = ExtResource("1_o1ld7")
 
@@ -685,6 +761,7 @@ limit_right = 409
 limit_bottom = 400
 
 [node name="homearea" type="Area2D" parent="." unique_id=1006755279]
+visible = false
 position = Vector2(271, 332)
 scale = Vector2(2.4276638, 1)
 
@@ -704,8 +781,53 @@ theme_override_fonts/font = ExtResource("4_2ayvv")
 theme_override_font_sizes/font_size = 23
 text = "OUTSIDE"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1734708217]
+[node name="RigidBody2D" type="StaticBody2D" parent="." unique_id=407831375]
+position = Vector2(265, 341)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1734708217]
+position = Vector2(7, 12)
+shape = SubResource("RectangleShape2D_2tg6s")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=825225297]
+position = Vector2(323, 256)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1916551854]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_ohge4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1047170457]
+visible = false
+position = Vector2(334, 257)
+rotation = 1.5707964
+scale = Vector2(0.7497263, 0.7497263)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+autoplay = "default"
+frame_progress = 0.66014016
+
+[node name="Button2" type="Button" parent="." unique_id=1992357658]
+visible = false
+offset_left = 320.0
+offset_top = 233.0
+offset_right = 374.0
+offset_bottom = 264.0
+scale = Vector2(0.425, 0.425)
+text = "SLEEP"
+
+[node name="Panel" type="Panel" parent="." unique_id=140785390]
+visible = false
+offset_left = 50.0
+offset_top = 108.0
+offset_right = 430.03488
+offset_bottom = 430.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2tg6s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1583855206]
+libraries/ = SubResource("AnimationLibrary_mahjx")
 
 [connection signal="body_entered" from="homearea" to="." method="_on_homearea_body_entered"]
 [connection signal="body_exited" from="homearea" to="." method="_on_homearea_body_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

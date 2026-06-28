@@ -15,6 +15,7 @@ func _unhandled_input(event) -> void:
 	if event.is_action_pressed("use"):
 		inventory.use_Item_at_Index(currently_selected)
 	if Input.is_action_just_pressed("inventory_selection"):
+		print("selector")
 		move_selector()
 
 # Called when the node enters the scene tree for the first time.
