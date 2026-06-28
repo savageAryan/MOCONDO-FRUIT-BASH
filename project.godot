@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*uid://ce2g7y7ddc3qy"
 Timemanager="*uid://0gopcogo8aiw"
+Dialouge="*uid://bpg7yys4ca4n4"
 
 [display]
 

@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://834k53yj2kfk" path="res://assets/button.png" id="16_dss4m"]
 [ext_resource type="PackedScene" uid="uid://b7g6mhlg0bhji" path="res://scenes/apple.tscn" id="20_7iits"]
 [ext_resource type="PackedScene" uid="uid://davx2rau8b7xv" path="res://scenes/banana.tscn" id="21_oo54l"]
+[ext_resource type="PackedScene" uid="uid://cf3gqano763gj" path="res://scenes/monkey.tscn" id="25_xgqkh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4wyf3"]
 texture = ExtResource("1_rwgxs")
@@ -215,7 +216,8 @@ grow_vertical = 1
 process_mode = 3
 mouse_filter = 2
 
-[node name="Control" parent="CanvasLayer" unique_id=350138170 instance=ExtResource("6_ctatt")]
+[node name="dialouge" parent="CanvasLayer" unique_id=350138170 instance=ExtResource("6_ctatt")]
+visible = false
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1263943274]
 position = Vector2(1, 0)
@@ -488,6 +490,9 @@ position = Vector2(58, -40)
 [node name="Mango3" parent="." unique_id=1558134191 instance=ExtResource("14_kpybi")]
 position = Vector2(-30, -48)
 
+[node name="monkey" parent="." unique_id=278552763 instance=ExtResource("25_xgqkh")]
+position = Vector2(44, -26)
+
 [connection signal="closed" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_closed"]
 [connection signal="opened" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_opened"]
 [connection signal="body_entered" from="tractorarea" to="tractorarea" method="_on_body_entered"]
@@ -502,3 +507,5 @@ position = Vector2(-30, -48)
 [connection signal="pressed" from="StaticBody2D3/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="body_entered" from="StaticBody2D3/workshop area" to="." method="_on_workshop_area_body_entered"]
 [connection signal="body_exited" from="StaticBody2D3/workshop area" to="." method="_on_workshop_area_body_exited"]
+[connection signal="monkey" from="monkey" to="." method="_on_monkey_monkey"]
+[connection signal="out" from="monkey" to="." method="_on_monkey_out"]

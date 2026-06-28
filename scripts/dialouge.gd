@@ -3,12 +3,14 @@ extends Control
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var monkerking_mocondo: AnimatedSprite2D = $Control/MonkerkingMocondo
 
+
 var dialogue = []
 var current = 0
 func show_line():
 	label.text = dialogue[current]
 	animation_player.play("monkeyspeak")
 	monkerking_mocondo.play("default")
+	
 func start_dialogue(lines:Array):
 	dialogue = lines
 	current = 0
@@ -31,5 +33,15 @@ func _on_crossbutton_pressed() -> void:
 	if current >= dialogue.size():
 		animation_player.stop()
 		visible = false
+
 	else:
 		show_line()
+
+@onready var crossbutton: TextureButton = $Crossbutton
+
+func _on_crossbutton_mouse_entered() -> void:
+	crossbutton.modulate = Color("f50004c1")
+
+
+func _on_crossbutton_mouse_exited() -> void:
+	crossbutton.modulate = Color("b497537f")

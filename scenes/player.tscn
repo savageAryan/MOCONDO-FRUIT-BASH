@@ -423,9 +423,7 @@ inventory = ExtResource("2_d2wvv")
 shape = SubResource("CircleShape2D_dqkch")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1878090272]
-position = Vector2(-2.3841858e-07, 1.0000002)
-scale = Vector2(0.4765625, 0.4765625)
+position = Vector2(0, 1)
+scale = Vector2(0.48828128, 0.4765625)
 sprite_frames = SubResource("SpriteFrames_4wyf3")
-animation = &"swordslash"
-frame = 3
-frame_progress = 0.6523346
+animation = &"walking front"
