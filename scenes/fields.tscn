@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://byvrcjyrtta2p" path="res://inventory/player_inventory.tres" id="6_kplcw"]
 [ext_resource type="Texture2D" uid="uid://dgg5fss4dd0bt" path="res://assets/tractorfinal.png" id="7_5t55l"]
 [ext_resource type="FontFile" uid="uid://bbbwahii6uqin" path="res://assets/vladimir.ttf" id="7_rc5ib"]
+[ext_resource type="PackedScene" uid="uid://d13jxal853d8w" path="res://scenes/wheat.tscn" id="10_jlfn3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_33aj3"]
 texture = ExtResource("1_ralw0")
@@ -382,5 +383,9 @@ text = "DONE!"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=489144124]
 libraries/ = SubResource("AnimationLibrary_jlfn3")
 
+[node name="wheat" parent="." unique_id=1407513286 instance=ExtResource("10_jlfn3")]
+position = Vector2(188, -14)
+
 [connection signal="body_entered" from="tractor/wheatcutter" to="tractor" method="_on_wheatcutter_body_entered"]
 [connection signal="pressed" from="tractor/Button" to="tractor" method="_on_button_pressed"]
+[connection signal="wheatpicked" from="wheat" to="wheatlandtile" method="_on_wheat_wheatpicked"]

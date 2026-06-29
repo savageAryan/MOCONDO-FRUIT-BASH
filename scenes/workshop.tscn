@@ -31,8 +31,10 @@
 [ext_resource type="Resource" uid="uid://biotghfn678ff" path="res://inventory/item/apple.tres" id="23_1pj70"]
 [ext_resource type="Resource" uid="uid://b3syqto1y8hsr" path="res://inventory/item/tree_log.tres" id="23_ff7tp"]
 [ext_resource type="Texture2D" uid="uid://6qc0mm2o75cl" path="res://assets/mangoo.png" id="26_1pj70"]
+[ext_resource type="Texture2D" uid="uid://bttcq0d5dswsf" path="res://assets/log.png" id="26_exleu"]
 [ext_resource type="Resource" uid="uid://cfbbv28xuf3m1" path="res://inventory/item/mango.tres" id="27_exleu"]
 [ext_resource type="Script" uid="uid://b3vk2o3cuh3tn" path="res://scenes/boatshopoptions.gd" id="28_1pj70"]
+[ext_resource type="Resource" uid="uid://2l156y0e6jlj" path="res://inventory/item/wheat.tres" id="29_jviq3"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_adiy1"]
 color = Color(0.4255997, 0.29107243, 0.050288737, 1)
@@ -350,6 +352,56 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cljss"]
+atlas = ExtResource("26_exleu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjndg"]
+atlas = ExtResource("26_exleu")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hunf0"]
+atlas = ExtResource("26_exleu")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qte7f"]
+atlas = ExtResource("26_exleu")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2sbw"]
+atlas = ExtResource("26_exleu")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvgd1"]
+atlas = ExtResource("26_exleu")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qsvwc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cljss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjndg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hunf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qte7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2sbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvgd1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_yqm7t"]
 atlas = ExtResource("26_1pj70")
 region = Rect2(64, 64, 16, 32)
@@ -366,7 +418,7 @@ region = Rect2(352, 64, 16, 32)
 atlas = ExtResource("26_1pj70")
 region = Rect2(496, 64, 16, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_qsvwc"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_wvgrp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -1024,9 +1076,9 @@ sprite_frames = SubResource("SpriteFrames_2tg6s")
 layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
-item = SubResource("SpriteFrames_qsvwc")
+item = SubResource("SpriteFrames_wvgrp")
 for_sell = true
-item_to_buy = ExtResource("23_ff7tp")
+item_to_buy = ExtResource("29_jviq3")
 inventory = ExtResource("15_h5agg")
 
 [node name="Label6" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect9" unique_id=1848460305]

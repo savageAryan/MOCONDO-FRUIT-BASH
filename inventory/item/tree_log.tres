@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bm0nfyj7wmstx" path="res://inventory/inventory_item.gd" id="1_kg7b7"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ry3uj"]
+load_path = "res://.godot/imported/log png.png-8fd499af8ee0ef449953343410938496.ctex"
+
 [resource]
 script = ExtResource("1_kg7b7")
 name = "Tree Log"
+texture = SubResource("CompressedTexture2D_ry3uj")
 maxAmountPrStack = 6
 buy_price = 20
 sell_price = 10

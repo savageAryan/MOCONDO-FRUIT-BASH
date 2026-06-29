@@ -5,7 +5,7 @@ var speed = 100
 const WHEAT = preload("uid://d13jxal853d8w")
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 @onready var camera_2d: Camera2D = $Camera2D
-
+@export var wheat = 0
 @onready var wheatlandtile: TileMapLayer = $"../wheatlandtile"
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var label: Label = $Panel/Label
@@ -22,7 +22,8 @@ func _process(delta: float) -> void:
 		else:
 			camera_2d.offset = Vector2.ZERO
 func _physics_process(delta: float) -> void:
-	label.text = str(GameManager.wheat)
+	
+	label.text = str(wheat)
 	player_movement(delta)
 	cut_wheat()
 	animation()
@@ -118,3 +119,6 @@ func regrow(tilemap, cell):
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/world.tscn")
+
+func wheatpicked():
+	wheat += 1

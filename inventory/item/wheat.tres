@@ -1,10 +1,17 @@
 [gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://2l156y0e6jlj"]
 
 [ext_resource type="Script" uid="uid://bm0nfyj7wmstx" path="res://inventory/inventory_item.gd" id="1_5ho1q"]
+[ext_resource type="Texture2D" uid="uid://6qc0mm2o75cl" path="res://assets/mangoo.png" id="2_b23xe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqm7t"]
+atlas = ExtResource("2_b23xe")
+region = Rect2(64, 64, 16, 32)
 
 [resource]
 script = ExtResource("1_5ho1q")
 name = "Wheat"
+texture = SubResource("AtlasTexture_yqm7t")
 maxAmountPrStack = 100
 buy_price = 5
+sell_price = 5
 metadata/_custom_type_script = "uid://bm0nfyj7wmstx"
