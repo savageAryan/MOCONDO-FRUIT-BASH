@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://6qc0mm2o75cl" path="res://assets/mangoo.png" id="1_n1xnp"]
 [ext_resource type="Script" uid="uid://cdta13x512hfp" path="res://scripts/wheat.gd" id="1_w6dv5"]
+[ext_resource type="Resource" uid="uid://2l156y0e6jlj" path="res://inventory/item/wheat.tres" id="2_6qxbf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_40b45"]
 atlas = ExtResource("1_n1xnp")
@@ -34,7 +35,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3n0ht")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -44,6 +45,7 @@ radius = 15.264338
 
 [node name="wheat" type="Area2D" unique_id=1407513286]
 script = ExtResource("1_w6dv5")
+itemRes = ExtResource("2_6qxbf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1041893599]
 sprite_frames = SubResource("SpriteFrames_r503x")

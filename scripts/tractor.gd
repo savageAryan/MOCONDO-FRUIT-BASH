@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var current_dir = "none"
-
+@export var inventory: Inventory
 var speed = 100
 const WHEAT = preload("uid://d13jxal853d8w")
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"

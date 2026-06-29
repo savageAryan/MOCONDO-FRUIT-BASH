@@ -24,13 +24,13 @@
 [ext_resource type="Texture2D" uid="uid://wy8wrmn5nlih" path="res://assets/gold .png" id="14_w8p1n"]
 [ext_resource type="Texture2D" uid="uid://dkwf7t50ywyo3" path="res://assets/mango.png" id="15_eq4dh"]
 [ext_resource type="Resource" uid="uid://byvrcjyrtta2p" path="res://inventory/player_inventory.tres" id="15_h5agg"]
-[ext_resource type="Texture2D" uid="uid://bttcq0d5dswsf" path="res://assets/log.png" id="18_sff0x"]
 [ext_resource type="Resource" uid="uid://camcywpjujg3s" path="res://inventory/item/strawberry.tres" id="19_h5agg"]
 [ext_resource type="FontFile" uid="uid://cgox7ipu4flb" path="res://assets/chawp.otf" id="20_eq4dh"]
 [ext_resource type="Resource" uid="uid://n31w85oglpoy" path="res://inventory/item/banana.tres" id="21_eriun"]
 [ext_resource type="Texture2D" uid="uid://bci1e3sl7htb4" path="res://assets/light gradient butterfly.png" id="21_u2wj3"]
 [ext_resource type="Resource" uid="uid://biotghfn678ff" path="res://inventory/item/apple.tres" id="23_1pj70"]
 [ext_resource type="Resource" uid="uid://b3syqto1y8hsr" path="res://inventory/item/tree_log.tres" id="23_ff7tp"]
+[ext_resource type="Texture2D" uid="uid://6qc0mm2o75cl" path="res://assets/mangoo.png" id="26_1pj70"]
 [ext_resource type="Resource" uid="uid://cfbbv28xuf3m1" path="res://inventory/item/mango.tres" id="27_exleu"]
 [ext_resource type="Script" uid="uid://b3vk2o3cuh3tn" path="res://scenes/boatshopoptions.gd" id="28_1pj70"]
 
@@ -351,28 +351,20 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yqm7t"]
-atlas = ExtResource("18_sff0x")
-region = Rect2(0, 0, 32, 32)
+atlas = ExtResource("26_1pj70")
+region = Rect2(64, 64, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r4hwr"]
-atlas = ExtResource("18_sff0x")
-region = Rect2(0, 32, 32, 32)
+atlas = ExtResource("26_1pj70")
+region = Rect2(208, 64, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kqb82"]
-atlas = ExtResource("18_sff0x")
-region = Rect2(0, 64, 32, 32)
+atlas = ExtResource("26_1pj70")
+region = Rect2(352, 64, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5qt7b"]
-atlas = ExtResource("18_sff0x")
-region = Rect2(0, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cljss"]
-atlas = ExtResource("18_sff0x")
-region = Rect2(0, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yjndg"]
-atlas = ExtResource("18_sff0x")
-region = Rect2(0, 160, 32, 32)
+atlas = ExtResource("26_1pj70")
+region = Rect2(496, 64, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qsvwc"]
 animations = [{
@@ -388,12 +380,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5qt7b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cljss")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yjndg")
 }],
 "loop": 1,
 "name": &"default",
@@ -1031,6 +1017,36 @@ theme_override_font_sizes/font_size = 65
 text = "10"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect7/Label6" unique_id=1478553173]
+position = Vector2(-28, 26)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+
+[node name="TextureRect9" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer" unique_id=705269255 instance=ExtResource("3_g1tdj")]
+layout_mode = 2
+expand_mode = 3
+stretch_mode = 5
+item = SubResource("SpriteFrames_qsvwc")
+for_sell = true
+item_to_buy = ExtResource("23_ff7tp")
+inventory = ExtResource("15_h5agg")
+
+[node name="Label6" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect9" unique_id=1848460305]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.5
+offset_top = -114.0
+offset_right = 29.5
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("13_sff0x")
+theme_override_font_sizes/font_size = 65
+text = "10"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect9/Label6" unique_id=1805147084]
 position = Vector2(-28, 26)
 sprite_frames = SubResource("SpriteFrames_2tg6s")
 

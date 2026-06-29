@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://2u3u048deob0" path="res://scripts/wheatlandtile.gd" id="2_v6klw"]
 [ext_resource type="Script" uid="uid://kndc1de1k3rc" path="res://scripts/tractor.gd" id="3_2cj1f"]
 [ext_resource type="Texture2D" uid="uid://6qc0mm2o75cl" path="res://assets/mangoo.png" id="3_nins7"]
+[ext_resource type="Resource" uid="uid://byvrcjyrtta2p" path="res://inventory/player_inventory.tres" id="6_kplcw"]
 [ext_resource type="Texture2D" uid="uid://dgg5fss4dd0bt" path="res://assets/tractorfinal.png" id="7_5t55l"]
 [ext_resource type="FontFile" uid="uid://bbbwahii6uqin" path="res://assets/vladimir.ttf" id="7_rc5ib"]
 
@@ -167,7 +168,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l70t5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idel",
 "speed": 5.0
 }, {
@@ -193,7 +194,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8hbte")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idel field",
 "speed": 10.0
 }, {
@@ -219,7 +220,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vr0bi")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walking",
 "speed": 9.0
 }]
@@ -258,7 +259,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kplcw")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -314,6 +315,7 @@ script = ExtResource("2_v6klw")
 
 [node name="tractor" type="CharacterBody2D" parent="." unique_id=581134455 groups=["player"]]
 script = ExtResource("3_2cj1f")
+inventory = ExtResource("6_kplcw")
 
 [node name="wheatcutter" type="Area2D" parent="tractor" unique_id=201092048]
 position = Vector2(0, 21.5)
