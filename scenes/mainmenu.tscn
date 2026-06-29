@@ -504,6 +504,7 @@ offset = Vector2(2.43, 3.54)
 texture_scale = 1.12
 
 [node name="Panel" type="Panel" parent="." unique_id=1872482893]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

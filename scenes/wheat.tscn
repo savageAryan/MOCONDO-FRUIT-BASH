@@ -44,6 +44,7 @@ animations = [{
 radius = 15.264338
 
 [node name="wheat" type="Area2D" unique_id=1407513286]
+scale = Vector2(0.75999904, 0.75999904)
 script = ExtResource("1_w6dv5")
 itemRes = ExtResource("2_6qxbf")
 

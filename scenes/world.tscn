@@ -205,6 +205,7 @@ process_mode = 3
 script = ExtResource("2_pm21f")
 
 [node name="workshop" parent="CanvasLayer" unique_id=1920764852 instance=ExtResource("2_7t5mc")]
+visible = false
 
 [node name="ui" parent="CanvasLayer" unique_id=1662368370 instance=ExtResource("7_o8fc1")]
 anchors_preset = 0
