@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cirrugwpvkeb0" path="res://scripts/home.gd" id="1_o1ld7"]
 [ext_resource type="PackedScene" uid="uid://bkxxnoykda6k" path="res://scenes/player.tscn" id="1_tt30a"]
 [ext_resource type="FontFile" uid="uid://bbbwahii6uqin" path="res://assets/vladimir.ttf" id="4_2ayvv"]
+[ext_resource type="FontFile" uid="uid://sb6vba43t4m0" path="res://assets/CircusOrnate.ttf" id="4_yxilm"]
 [ext_resource type="Texture2D" uid="uid://c2ea6e5qt8cc8" path="res://assets/sleeping full.png" id="5_uhids"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o1ld7"]
@@ -789,7 +790,25 @@ animations = [{
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tg6s"]
-bg_color = Color(0.5417868, 0.5417869, 0.54178673, 1)
+bg_color = Color(0.54, 0.54, 0.54, 1)
+border_width_bottom = 90
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhids"]
+bg_color = Color(0.16350216, 0.16350219, 0.16350216, 1)
+border_width_bottom = 132
+border_color = Color(0.36, 0.36, 0.36, 0)
+border_blend = true
+corner_radius_bottom_right = 155
+corner_radius_bottom_left = 194
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxilm"]
+bg_color = Color(0.16350216, 0.16350219, 0.16350216, 1)
+border_width_top = 130
+border_color = Color(0.36, 0.36, 0.36, 0)
+border_blend = true
+corner_radius_top_left = 170
+corner_radius_top_right = 179
 
 [sub_resource type="Animation" id="Animation_uhids"]
 length = 0.001
@@ -805,6 +824,54 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-89, -110)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-73, 286)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_yxilm"]
 resource_name = "new_animation"
@@ -816,10 +883,58 @@ tracks/0/path = NodePath("Panel:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.83333445, 1.6666679, 2.400001, 3.3000016, 4.333334, 5.300001, 6.333334, 7.4333344, 12.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.1, 0.83333445, 1.6666679, 2.400001, 3.3000016, 4.333334, 5.300001, 6.333334, 12.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(0.24, 0.24, 0.24, 0), Color(0.24, 0.24, 0.24, 0.44313726), Color(0.24000001, 0.24000001, 0.24000001, 0.44149387), Color(0.24, 0.24, 0.24, 0.39215687), Color(0.24, 0.24, 0.24, 0.3137255), Color(0.24, 0.24, 0.24, 0.5882353), Color(0.24, 0.24, 0.24, 0.5176471), Color(0.24, 0.24, 0.24, 0.8745098), Color(0.24, 0.24, 0.24, 0.5176471), Color(0.24, 0.24, 0.24, 1)]
+"values": [Color(0.24, 0.24, 0.24, 0), Color(0.24, 0.24, 0.24, 0.44313726), Color(0.24000001, 0.24000001, 0.24000001, 0.44149387), Color(0.24, 0.24, 0.24, 0.39215687), Color(0.24, 0.24, 0.24, 0.3137255), Color(0.24, 0.24, 0.24, 0.5882353), Color(0.24, 0.24, 0.24, 0.5176471), Color(0.24, 0.24, 0.24, 1), Color(0.24, 0.24, 0.24, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.8666667, 1.7, 2.4666667, 3.4666665, 4.233333, 5.2666664, 6.033333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-89, -110), Vector2(-89, 35.215), Vector2(-89, -110), Vector2(-89, 35.215), Vector2(-89, -110), Vector2(-89, 35.215), Vector2(-89, -110), Vector2(-89, 35.215)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.13333334, 0.93333334, 1.7333333, 2.5333333, 3.4999998, 4.2999997, 5.2999997, 6.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-73, 286), Vector2(-71.135, 217.71), Vector2(-73, 286), Vector2(-71.135, 217.71), Vector2(-73, 286), Vector2(-71.135, 217.71), Vector2(-73, 286), Vector2(-71.135, 217.71)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(6.9, 13.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.6, 6.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mahjx"]
@@ -913,8 +1028,36 @@ offset_bottom = 430.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2tg6s")
 
+[node name="Panel2" type="Panel" parent="." unique_id=894314337]
+visible = false
+offset_left = -89.0
+offset_top = -110.0
+offset_right = 643.0
+offset_bottom = 212.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uhids")
+
+[node name="Panel3" type="Panel" parent="." unique_id=342725917]
+visible = false
+offset_left = -73.0
+offset_top = 286.0
+offset_right = 659.0
+offset_bottom = 607.9998
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yxilm")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1583855206]
 libraries/ = SubResource("AnimationLibrary_mahjx")
+
+[node name="Label" type="Label" parent="." unique_id=386744465]
+offset_left = 227.0
+offset_top = 297.0
+offset_right = 747.0
+offset_bottom = 345.0
+scale = Vector2(0.245, 0.245)
+theme_override_fonts/font = ExtResource("4_yxilm")
+theme_override_font_sizes/font_size = 38
+text = "SLEEP TIGHT"
 
 [connection signal="body_entered" from="homearea" to="." method="_on_homearea_body_entered"]
 [connection signal="body_exited" from="homearea" to="." method="_on_homearea_body_exited"]
