@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://4y85pg2qs6ib" path="res://assets/goldpage.png" id="14_cof4p"]
 [ext_resource type="Texture2D" uid="uid://wy8wrmn5nlih" path="res://assets/gold .png" id="14_qsv74"]
 [ext_resource type="FontFile" uid="uid://cgox7ipu4flb" path="res://assets/chawp.otf" id="15_h1mc3"]
+[ext_resource type="PackedScene" uid="uid://bti3nhfkb0cvv" path="res://scenes/hearts.tscn" id="17_f7tlh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cgfq5"]
 atlas = ExtResource("6_p7vwb")
@@ -295,5 +296,19 @@ theme_override_colors/font_color = Color(0.7, 0.3766, 0.23799998, 1)
 theme_override_fonts/font = ExtResource("15_h1mc3")
 theme_override_font_sizes/font_size = 58
 text = "00"
+
+[node name="hearts" parent="." unique_id=430933395 instance=ExtResource("17_f7tlh")]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 115.4345
+offset_top = 71.07652
+offset_right = 190.57452
+offset_bottom = 88.07652
+grow_horizontal = 1
+grow_vertical = 1
 
 [connection signal="pressed" from="pausebutton" to="." method="_on_pausebutton_pressed"]

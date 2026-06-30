@@ -11,7 +11,8 @@ extends Control
 @onready var daylabel: Label = $TimeUiDisplay/daylabel
 @onready var timelabel: Label = $TimeUiDisplay/timelabel
 @onready var weekdaylabel_2: Label = $TimeUiDisplay/weekdaylabel2
-
+var health = 0
+var max_health = 10
 
 var Inventory = "closed"
 
@@ -24,10 +25,26 @@ const days = ["MONDAY",
 "SATURDAY",
 "SUNDAY"]
 
-
+@onready var hearts = $hearts.get_children()
+func heart_anim():
+	var hp = health
+	for heart in hearts:
+		if hp >= 2:
+			heart.play("full")
+			hp -= 2
+		elif hp == 1:
+			heart.play("half")
+		else: heart.play("empty")
+func healthdown(amount):
+	health = max(0 ,health - amount)
+	heart_anim()
+func healthup(amount):
+	health = min(max_health, health + amount)
+	heart_anim()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	heart_anim()
 	pass
 	
 @onready var arrow: AnimatedSprite2D = $TimeUiDisplay/arrow

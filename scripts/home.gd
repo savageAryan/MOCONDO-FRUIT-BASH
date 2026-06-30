@@ -54,6 +54,7 @@ func _on_button_2_pressed() -> void:
 	panel.visible = false
 	panel_2.visible = false
 	panel_3.visible = false
+	label.visible = false
 	
 func label_appear():
 	await get_tree().create_timer(5).timeout
