@@ -11,7 +11,7 @@ extends Control
 @onready var daylabel: Label = $TimeUiDisplay/daylabel
 @onready var timelabel: Label = $TimeUiDisplay/timelabel
 @onready var weekdaylabel_2: Label = $TimeUiDisplay/weekdaylabel2
-var health = 0
+var health = 8
 var max_health = 10
 
 var Inventory = "closed"
@@ -24,6 +24,7 @@ const days = ["MONDAY",
 "FRIDAY",
 "SATURDAY",
 "SUNDAY"]
+@onready var animation_player_2: AnimationPlayer = $AnimationPlayer2
 
 @onready var hearts = $hearts.get_children()
 func heart_anim():
@@ -38,9 +39,11 @@ func heart_anim():
 func healthdown(amount):
 	health = max(0 ,health - amount)
 	heart_anim()
+	animation_player_2.play("new_animation")
 func healthup(amount):
 	health = min(max_health, health + amount)
 	heart_anim()
+	animation_player_2.play("new_animation")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

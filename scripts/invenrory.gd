@@ -5,6 +5,8 @@ signal closed
 var locked:bool = false
 var oldIndex: int = -1
 @onready var texture_rect: TextureRect = $TextureRect
+var health = 8
+var max_health = 10
 
 @onready var panel: Panel = $Panel
 
@@ -15,6 +17,7 @@ var oldIndex: int = -1
 @onready var slots: Array = hotbar_slots +  $TextureRect/GridContainer.get_children()
 @onready var ItemStackGuiClass = preload("res://scenes/itemstack.tscn")
 var itemInHand: ItemStackGui
+
 func update():
 	for i in range(min(inventory.slots.size(), slots.size())):
 		var inventorySlot: InventorySlot = inventory.slots[i]
@@ -56,7 +59,7 @@ func _ready() -> void:
 	texture_rect.visible = false
 	update()
 	inventory.updated.connect(update)
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

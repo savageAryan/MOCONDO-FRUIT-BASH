@@ -131,3 +131,7 @@ func _on_monkey_out() -> void:
 
 func _on_dialouge_talk_finished() -> void:
 	monkey.queue_free()
+
+
+func _on_damage_body_entered(body: Node2D) -> void:
+	ui.healthdown(3)

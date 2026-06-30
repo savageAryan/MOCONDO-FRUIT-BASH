@@ -140,6 +140,91 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="Animation" id="Animation_f7tlh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hearts:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hearts:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hearts:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(115.4345, 55.51232)]
+}
+
+[sub_resource type="Animation" id="Animation_8k7j3"]
+resource_name = "new_animation"
+length = 2.5000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hearts:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.0666666, 2.2333333, 2.4333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hearts:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 0.7, 1.9333333, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.68235296), Color(1, 1, 1, 0.6431373)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hearts:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.03333334, 0.16666667, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(119.675, 58.567), Vector2(119, 58.962), Vector2(119, 63.167)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jkdwc"]
+_data = {
+&"RESET": SubResource("Animation_f7tlh"),
+&"new_animation": SubResource("Animation_8k7j3")
+}
+
 [node name="ui" type="Control" unique_id=1662368370]
 process_mode = 3
 z_index = 6
@@ -305,10 +390,13 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 115.4345
-offset_top = 71.07652
-offset_right = 190.57452
-offset_bottom = 88.07652
+offset_top = 55.51232
+offset_right = 190.57437
+offset_bottom = 72.51252
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=1270256856]
+libraries/ = SubResource("AnimationLibrary_jkdwc")
 
 [connection signal="pressed" from="pausebutton" to="." method="_on_pausebutton_pressed"]

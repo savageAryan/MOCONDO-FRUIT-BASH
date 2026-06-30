@@ -27,6 +27,9 @@
 [ext_resource type="PackedScene" uid="uid://cf3gqano763gj" path="res://scenes/monkey.tscn" id="25_xgqkh"]
 [ext_resource type="PackedScene" uid="uid://d13jxal853d8w" path="res://scenes/wheat.tscn" id="26_munwf"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2tg6s"]
+radius = 4.734887
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4wyf3"]
 texture = ExtResource("1_rwgxs")
 0:0/0 = 0
@@ -194,11 +197,19 @@ gradient = SubResource("Gradient_jhx03")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7t5mc"]
 size = Vector2(74, 69)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dss4m"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_munwf"]
 size = Vector2(117.25191, 65.46565)
 
 [node name="World" type="Node2D" unique_id=340862798]
 script = ExtResource("1_e3hyu")
+
+[node name="damage" type="Area2D" parent="." unique_id=615512217]
+z_index = 2
+position = Vector2(48.758343, 23.356821)
+scale = Vector2(3.855, 3.855)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage" unique_id=752950896]
+shape = SubResource("CircleShape2D_2tg6s")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=93717343]
 process_mode = 3
@@ -460,7 +471,7 @@ texture = ExtResource("15_xo05s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=88068933]
 position = Vector2(198, -117.75001)
 scale = Vector2(0.51171875, 0.5117188)
-shape = SubResource("RectangleShape2D_dss4m")
+shape = SubResource("RectangleShape2D_munwf")
 
 [node name="apple" parent="." unique_id=1699977174 instance=ExtResource("20_7iits")]
 position = Vector2(-38, 2)
@@ -501,6 +512,7 @@ position = Vector2(115, -33)
 [node name="wheat2" parent="." unique_id=358505288 instance=ExtResource("26_munwf")]
 position = Vector2(163, -41)
 
+[connection signal="body_entered" from="damage" to="." method="_on_damage_body_entered"]
 [connection signal="closed" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_closed"]
 [connection signal="opened" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_opened"]
 [connection signal="talk_finished" from="CanvasLayer/dialouge" to="." method="_on_dialouge_talk_finished"]
