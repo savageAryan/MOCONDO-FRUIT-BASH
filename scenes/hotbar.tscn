@@ -52,12 +52,11 @@ script = ExtResource("2_xrqkv")
 
 [node name="Container" type="HBoxContainer" parent="." unique_id=647339178]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 10.507
-offset_right = 103.0
-offset_bottom = 30.507
-scale = Vector2(0.929, 0.929)
-theme_override_constants/separation = 0
+offset_left = 9.0
+offset_top = 27.0
+offset_right = 101.0
+offset_bottom = 47.0
+theme_override_constants/separation = -2
 
 [node name="HotbarSlot" parent="Container" unique_id=1614412372 instance=ExtResource("2_4qkdb")]
 layout_mode = 2
@@ -75,8 +74,8 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="selector" type="Sprite2D" parent="." unique_id=1519438490]
-position = Vector2(2.888, 10)
-scale = Vector2(0.878, 0.99999994)
+position = Vector2(9, 27)
+scale = Vector2(0.7727274, 0.85000014)
 texture = ExtResource("4_2n1yv")
 centered = false
 

@@ -15,7 +15,7 @@ scale = Vector2(0.585, 0.585)
 script = ExtResource("1_vjssj")
 
 [node name="background" type="Sprite2D" parent="." unique_id=260248733]
-scale = Vector2(0.976801, 0.976801)
+scale = Vector2(1.0055305, 1.0055305)
 texture = ExtResource("2_vjssj")
 centered = false
 
@@ -32,14 +32,15 @@ mouse_filter = 2
 script = ExtResource("3_xfbr6")
 
 [node name="items" type="Sprite2D" parent="CenterContainer/Panel" unique_id=300330777]
+position = Vector2(-1.35, -1.435)
 scale = Vector2(0.901, 0.901)
 
 [node name="amountLabel" type="Label" parent="CenterContainer/Panel" unique_id=956760626]
 layout_mode = 0
-offset_left = -3.162393
-offset_top = -1.4529915
-offset_right = 67.83761
-offset_bottom = 66.54701
+offset_left = -6.581197
+offset_top = -3.162393
+offset_right = 64.4188
+offset_bottom = 64.83761
 rotation = -0.00049848267
 scale = Vector2(0.195, 0.195)
 theme_override_colors/font_color = Color(0.5975306, 0.3985662, 0.26403713, 1)

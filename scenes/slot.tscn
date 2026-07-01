@@ -7,18 +7,18 @@
 process_mode = 3
 self_modulate = Color(0, 0, 0, 0)
 custom_minimum_size = Vector2(77, 76)
-offset_right = 77.25
-offset_bottom = 76.7
+offset_right = 77.54
+offset_bottom = 77.505
 script = ExtResource("1_4v6ba")
 
 [node name="background" type="Sprite2D" parent="." unique_id=260248733]
 visible = false
-scale = Vector2(3.6190476, 3.6190476)
+scale = Vector2(4.559, 4.559)
 texture = ExtResource("2_ic0fu")
 centered = false
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1260458337]
 custom_minimum_size = Vector2(76, 77)
 layout_mode = 0
-offset_right = 76.0
+offset_right = 78.0
 offset_bottom = 77.0
