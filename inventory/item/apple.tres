@@ -10,4 +10,5 @@ texture = ExtResource("2_c4dfu")
 maxAmountPrStack = 3
 buy_price = 8
 sell_price = 9
+item_consumable = true
 metadata/_custom_type_script = "uid://bm0nfyj7wmstx"

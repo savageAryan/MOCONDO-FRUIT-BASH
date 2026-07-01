@@ -9,4 +9,5 @@ name = "strawberry"
 texture = ExtResource("2_mjuc1")
 maxAmountPrStack = 3
 sell_price = 10
+item_consumable = true
 metadata/_custom_type_script = "uid://bm0nfyj7wmstx"

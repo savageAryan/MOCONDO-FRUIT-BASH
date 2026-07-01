@@ -12,4 +12,5 @@ texture = SubResource("CompressedTexture2D_ry3uj")
 maxAmountPrStack = 6
 buy_price = 20
 sell_price = 10
+item_type = null
 metadata/_custom_type_script = "uid://bm0nfyj7wmstx"

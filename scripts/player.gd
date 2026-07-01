@@ -9,7 +9,8 @@ var speed = 50
 @export var inventory: Inventory
 
 func _ready() -> void:
-	
+	print("player", inventory)
+	inventory.use_item.connect(use_item)
 	if fruits <= 0 :
 		animated_sprite_2d.play("empty idel")
 	elif fruits > 0 :
@@ -19,9 +20,11 @@ func _physics_process(delta: float) -> void:
 	if chopping:
 		return
 		
-	if Input.is_action_pressed("BREAK"):
-		chop()
-		return
+	if Input.is_action_pressed("use"):
+		var item = get_selected_item()
+		if item and item.item_type == "axe":
+			chop()
+			return
 	player_movement(delta)
 	
 	
@@ -95,6 +98,7 @@ func play_anim(movement):
 		return
 			
 	
+
 	if dir == "right":
 		anim.flip_h = false
 		if movement == 1:
@@ -131,3 +135,8 @@ func hit_enemy():
 	if Input.is_action_pressed("hit"):
 		animated_sprite_2d.play("swordslash")
 		
+func use_item(item: InventoryItem) -> void:
+	item.use(self)
+func get_selected_item() -> InventoryItem:
+	return inventory.slots[inventory.selected_index].item
+	

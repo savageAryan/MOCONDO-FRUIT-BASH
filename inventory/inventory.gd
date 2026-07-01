@@ -1,7 +1,8 @@
 extends Resource
 class_name  Inventory
 @export var slots: Array [InventorySlot]
-
+@export var selected_index := 0
+signal use_item
 signal updated
 func insert(item: InventoryItem):
 	var itemSlots = slots.filter(func(slot):return slot.item == item && slot.amount < slot.item.maxAmountPrStack)
@@ -15,6 +16,7 @@ func insert(item: InventoryItem):
 func removeSlot(inventorySlot: InventorySlot):
 	var index = slots.find(inventorySlot)
 	if index < 0: return
+	
 	remove_at_Index(index)
 func remove_at_Index(index: int) -> void:
 	slots[index] = InventorySlot.new()
@@ -28,12 +30,15 @@ func insertSlot(index: int, inventorySlot: InventorySlot):
 func use_Item_at_Index(index: int) -> void:
 	if index < 0 or index >= slots.size() or not slots[index].item: return
 	var slot = slots[index]
-	if slot.amount > 1:
-		slot.amount -= 1
-		updated.emit()
-		return
+	use_item.emit(slot.item)
+	if slot.item.item_consumable:
+		if slot.amount > 1:
+			slot.amount -= 1
+			updated.emit()
+		else:
+			remove_at_Index(index)
 
-	remove_at_Index(index)
+	
 func remove_item(item: InventoryItem, amount_remove: int = 1):
 	for slot in slots:
 		if slot.item == item:

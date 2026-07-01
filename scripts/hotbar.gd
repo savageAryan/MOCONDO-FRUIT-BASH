@@ -10,9 +10,11 @@ func update() -> void:
 		slots[i].update_to_slot(inventory_slot)
 func move_selector() -> void:
 	currently_selected = (currently_selected +1)% slots.size()
+	inventory.selected_index = currently_selected
 	selector.global_position = slots[currently_selected].global_position
 func move_selectorback() -> void:
 	currently_selected = (currently_selected -1)% slots.size()
+	inventory.selected_index = currently_selected
 	selector.global_position = slots[currently_selected].global_position
 
 func _unhandled_input(event) -> void:
@@ -33,6 +35,7 @@ func _unhandled_input(event) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("h",inventory)
 	update()
 	inventory.updated.connect(update)
 

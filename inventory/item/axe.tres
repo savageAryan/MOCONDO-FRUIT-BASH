@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://das538p2ukvg4"]
+[gd_resource type="Resource" format=3 uid="uid://das538p2ukvg4"]
 
-[ext_resource type="Script" uid="uid://bm0nfyj7wmstx" path="res://inventory/inventory_item.gd" id="1_sh382"]
+[ext_resource type="Script" uid="uid://b4xhikqemrh03" path="res://axe.gd" id="1_g8xk4"]
 [ext_resource type="Texture2D" uid="uid://7gtph05akmy8" path="res://assets/axepng.png" id="2_mjuc1"]
 
 [resource]
-script = ExtResource("1_sh382")
+script = ExtResource("1_g8xk4")
 name = "Axe"
 texture = ExtResource("2_mjuc1")
 maxAmountPrStack = 1
 buy_price = 40
+item_type = "axe"
 metadata/_custom_type_script = "uid://bm0nfyj7wmstx"

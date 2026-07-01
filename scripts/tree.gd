@@ -22,7 +22,8 @@ preload("res://scenes/banana.tscn"),
 preload("res://scenes/apple.tscn"),
 preload("res://scenes/apple.tscn"),]
 
-
+func _ready() -> void:
+	pass
 func _physics_process(delta: float) -> void:
 	treecut(delta)
 
@@ -35,7 +36,7 @@ const LOG = preload("uid://m4h7dpmsqlhv")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	treecut(delta)
+	pass
 
 
 func _on_timer_timeout() -> void:
@@ -57,23 +58,28 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		player_neartree = true
 		
 
+
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player_neartree = false
-		
+@onready var player: Player = $"../../player"
+
 func treecut(delta):
-	if Input.is_action_pressed("BREAK") and  player_neartree:
-		if not chopped:
-			break_time += delta
-			if break_time >= 3.0:
+	if player_neartree:
+		var item = player.get_selected_item()
+		
+		if item and item.item_type == "axe" and Input.is_action_pressed("use"):
+			if not chopped:
+				break_time += delta
+				if break_time >= 3.0:
 				
 	
-				var log = LOG.instantiate()
-				log.global_position = global_position + Vector2(randi_range(-10,30),randi_range(30,10))
+					var log = LOG.instantiate()
+					log.global_position = global_position + Vector2(randi_range(-10,30),randi_range(30,10))
 				
-				get_tree().current_scene.call_deferred("add_child", log)
+					get_tree().current_scene.call_deferred("add_child", log)
 				
-				chopped = true
-		else:
-			break_time = 0.0
-			chopped = false
+					chopped = true
+			else:
+				break_time = 0.0
+				chopped = false
