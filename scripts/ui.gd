@@ -67,7 +67,7 @@ func _physics_process(delta: float) -> void:
 		pausemenu.visible = paused
 		time_ui_display.visible = not paused
 		invenrory.visible = not paused
-
+		heart.visible = !paused
 		get_tree().paused = paused
 	
 	
@@ -121,19 +121,24 @@ func _on_pausebutton_pressed() -> void:
 	time_ui_display.visible = not paused
 	invenrory.visible = not paused
 	get_tree().paused = paused
-	
+	heart.visible = not paused
 @onready var invenrory: Control = $"../invenrory"
+@onready var heart: Control = $hearts
+
 
 func workshop_close():
 	time_ui_display.visible = true
 	pausebutton.visible = true
 	
-func inventory_open():
-	if invenrory.opened.emit():
-		visible = false
-func inventory_close():
-	if invenrory.closed.emit():
-		visible = true
+
+		
+
 @onready var label: Label = $Panel2/Label
 func goldcount():
 	label.text = str(GameManager.gold)
+func inventory_open():
+	time_ui_display.visible = false
+	pausebutton.visible = false
+func inventory_close():
+	time_ui_display.visible = true
+	pausebutton.visible = true

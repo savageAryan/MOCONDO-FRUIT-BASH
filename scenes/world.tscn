@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bkxxnoykda6k" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="Texture2D" uid="uid://d01o40rgtjc71" path="res://assets/land.png" id="1_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://cjxsrfrcy4nbo" path="res://scenes/workshop.tscn" id="2_7t5mc"]
-[ext_resource type="Script" uid="uid://bs7sevies8s4f" path="res://scripts/canvas_layer.gd" id="2_pm21f"]
 [ext_resource type="Texture2D" uid="uid://t1esl6680muq" path="res://assets/lan1d.png" id="3_71j4m"]
 [ext_resource type="Texture2D" uid="uid://dqc0yki0jt0n6" path="res://assets/lan10d.png" id="4_4mrxx"]
 [ext_resource type="Texture2D" uid="uid://cpuiqt7e7qypk" path="res://assets/house.png" id="4_7r4gi"]
@@ -213,7 +212,6 @@ shape = SubResource("CircleShape2D_2tg6s")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=93717343]
 process_mode = 3
-script = ExtResource("2_pm21f")
 
 [node name="workshop" parent="CanvasLayer" unique_id=1920764852 instance=ExtResource("2_7t5mc")]
 visible = false

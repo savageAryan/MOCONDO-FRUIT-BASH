@@ -123,6 +123,7 @@ _data = {
 }
 
 [node name="dialouge" type="Control" unique_id=350138170]
+z_index = 4
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -147,6 +148,7 @@ scale = Vector2(1.18, 1.18)
 theme_override_styles/panel = SubResource("StyleBoxFlat_2tg6s")
 
 [node name="DialougeBox" type="Sprite2D" parent="." unique_id=206015358]
+z_index = 2
 position = Vector2(573, 473)
 scale = Vector2(4.0625, 4.0625005)
 texture = ExtResource("1_seejf")
@@ -175,6 +177,7 @@ sprite_frames = SubResource("SpriteFrames_2tg6s")
 frame_progress = 0.15073635
 
 [node name="Label" type="Label" parent="." unique_id=1946783070]
+z_index = 2
 layout_mode = 0
 offset_left = 110.0
 offset_top = 461.0

@@ -135,3 +135,19 @@ func _on_dialouge_talk_finished() -> void:
 
 func _on_damage_body_entered(body: Node2D) -> void:
 	ui.healthdown(3)
+
+@onready var player: Player = $"../player"
+
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("Inventory"):
+		
+		if invenrory.isopen:
+			ui.inventory_close()
+			invenrory.close()
+			
+		else:
+			invenrory.open()
+			ui.inventory_open()
+			
+@onready var texture_button = $invenrory/TextureButton

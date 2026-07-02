@@ -278,13 +278,14 @@ texture_normal = ExtResource("8_cgfq5")
 texture_pressed = ExtResource("9_vdcm2")
 stretch_mode = 3
 
-[node name="Panel" type="Panel" parent="." unique_id=1763486160]
+[node name="Panel" type="Panel" parent="pausebutton" unique_id=1763486160]
+z_index = -1
 texture_filter = 2
 layout_mode = 0
-offset_left = 263.55383
-offset_top = 3.8910503
-offset_right = 293.64462
-offset_bottom = 34.76005
+offset_left = 1.0376282
+offset_top = 0.7782097
+offset_right = 31.128418
+offset_bottom = 31.647211
 mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1628164519]
