@@ -20,9 +20,9 @@ region = Rect2(0, 32, 16, 16)
 atlas = ExtResource("1_hugpe")
 region = Rect2(0, 48, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_74r1k"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2a3c5"]
 atlas = ExtResource("2_q6mno")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(0, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h7ic4"]
 atlas = ExtResource("2_q6mno")
@@ -36,9 +36,9 @@ region = Rect2(0, 48, 16, 16)
 atlas = ExtResource("2_q6mno")
 region = Rect2(0, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2a3c5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_74r1k"]
 atlas = ExtResource("2_q6mno")
-region = Rect2(0, 32, 16, 16)
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_au7lq"]
 atlas = ExtResource("3_2f4b7")
@@ -80,8 +80,8 @@ animations = [{
 "speed": 7.0
 }, {
 "frames": [{
-"duration": 2.1,
-"texture": SubResource("AtlasTexture_74r1k")
+"duration": 1.6,
+"texture": SubResource("AtlasTexture_2a3c5")
 }, {
 "duration": 1.3,
 "texture": SubResource("AtlasTexture_h7ic4")
@@ -92,8 +92,8 @@ animations = [{
 "duration": 0.8,
 "texture": SubResource("AtlasTexture_8svfe")
 }, {
-"duration": 1.6,
-"texture": SubResource("AtlasTexture_2a3c5")
+"duration": 2.1,
+"texture": SubResource("AtlasTexture_74r1k")
 }],
 "loop": 1,
 "name": &"full",
@@ -138,28 +138,28 @@ grow_vertical = 2
 position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_2tg6s")
 animation = &"full"
-frame_progress = 0.008846197
+frame_progress = 0.40500003
 
 [node name="heart2" type="AnimatedSprite2D" parent="." unique_id=173602238]
 position = Vector2(23, 8)
 sprite_frames = SubResource("SpriteFrames_2tg6s")
 animation = &"full"
-frame_progress = 0.7855205
+frame_progress = 0.9833295
 
 [node name="heart3" type="AnimatedSprite2D" parent="." unique_id=1756638712]
 position = Vector2(38, 8)
 sprite_frames = SubResource("SpriteFrames_2tg6s")
 animation = &"full"
-frame_progress = 0.78876364
+frame_progress = 0.7971975
 
 [node name="heart4" type="AnimatedSprite2D" parent="." unique_id=10610312]
 position = Vector2(53, 8)
 sprite_frames = SubResource("SpriteFrames_2tg6s")
 animation = &"full"
-frame_progress = 0.6629825
+frame_progress = 0.028327426
 
 [node name="heart5" type="AnimatedSprite2D" parent="." unique_id=1468274138]
 position = Vector2(68, 8)
 sprite_frames = SubResource("SpriteFrames_2tg6s")
 animation = &"full"
-frame_progress = 0.7887398
+frame_progress = 0.042006966

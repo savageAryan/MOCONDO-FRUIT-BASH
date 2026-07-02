@@ -1,14 +1,15 @@
-[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://biotghfn678ff"]
+[gd_resource type="Resource" script_class="HealthItem" format=3 uid="uid://biotghfn678ff"]
 
-[ext_resource type="Script" uid="uid://bm0nfyj7wmstx" path="res://inventory/inventory_item.gd" id="1_c4dfu"]
+[ext_resource type="Script" uid="uid://b24rqvnibuynd" path="res://inventory/item/health_item.gd" id="1_c4dfu"]
 [ext_resource type="Texture2D" uid="uid://cva4drmyqgvsa" path="res://assets/applepng.png" id="2_c4dfu"]
 
 [resource]
 script = ExtResource("1_c4dfu")
+health_increase = 1
 name = "Apple"
 texture = ExtResource("2_c4dfu")
-maxAmountPrStack = 3
-buy_price = 8
-sell_price = 9
+maxAmountPrStack = 20
+buy_price = 11
+sell_price = 6
 item_consumable = true
 metadata/_custom_type_script = "uid://bm0nfyj7wmstx"

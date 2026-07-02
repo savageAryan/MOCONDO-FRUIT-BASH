@@ -139,4 +139,6 @@ func use_item(item: InventoryItem) -> void:
 	item.use(self)
 func get_selected_item() -> InventoryItem:
 	return inventory.slots[inventory.selected_index].item
-	
+func increase_health(amount: int):
+	ui.healthup(amount)
+@onready var ui: ui = $"../CanvasLayer/ui"

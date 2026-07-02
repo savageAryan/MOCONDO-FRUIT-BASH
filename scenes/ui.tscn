@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://wy8wrmn5nlih" path="res://assets/gold .png" id="14_qsv74"]
 [ext_resource type="FontFile" uid="uid://cgox7ipu4flb" path="res://assets/chawp.otf" id="15_h1mc3"]
 [ext_resource type="PackedScene" uid="uid://bti3nhfkb0cvv" path="res://scenes/hearts.tscn" id="17_f7tlh"]
+[ext_resource type="Animation" uid="uid://d30xoe54prqdl" path="res://hearts animation.res" id="18_8k7j3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cgfq5"]
 atlas = ExtResource("6_p7vwb")
@@ -140,53 +141,49 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="Animation" id="Animation_f7tlh"]
-length = 0.001
-
 [sub_resource type="Animation" id="Animation_8k7j3"]
-resource_name = "new_animation"
-length = 2.5000000000000004
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("hearts:visible")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.0666666, 2.2333333, 2.4333334),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [true, false, true, false]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(92.262, 120.517)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("hearts:modulate")
+tracks/1/path = NodePath(".:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.033333335, 0.7, 1.9333333, 2.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.68235296), Color(1, 1, 1, 0.6431373)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("hearts:position")
+tracks/2/path = NodePath(".:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.03333334, 0.16666667, 0.33333334),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(119.675, 58.567), Vector2(119, 58.962), Vector2(119, 63.167)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jkdwc"]
 _data = {
-&"RESET": SubResource("Animation_f7tlh"),
-&"new_animation": SubResource("Animation_8k7j3")
+&"RESET": SubResource("Animation_8k7j3"),
+&"hearts animation": ExtResource("18_8k7j3")
 }
 
 [node name="ui" type="Control" unique_id=1662368370]
@@ -347,21 +344,22 @@ theme_override_font_sizes/font_size = 58
 text = "00"
 
 [node name="hearts" parent="." unique_id=430933395 instance=ExtResource("17_f7tlh")]
-layout_mode = 1
+layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 85.567
-offset_top = 120.751
-offset_right = 160.70697
-offset_bottom = 137.75119
+offset_left = 92.262
+offset_top = 120.517
+offset_right = 167.40186
+offset_bottom = 137.51636
 grow_horizontal = 1
 grow_vertical = 1
-scale = Vector2(0.82, 0.82)
+scale = Vector2(0.84, 0.84)
 
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=1270256856]
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=1924096697]
+root_node = NodePath("../hearts")
 libraries/ = SubResource("AnimationLibrary_jkdwc")
 
 [connection signal="pressed" from="pausebutton" to="." method="_on_pausebutton_pressed"]

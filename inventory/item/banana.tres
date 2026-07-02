@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://n31w85oglpoy"]
+[gd_resource type="Resource" script_class="HealthItem" format=3 uid="uid://n31w85oglpoy"]
 
-[ext_resource type="Script" uid="uid://bm0nfyj7wmstx" path="res://inventory/inventory_item.gd" id="1_rco8t"]
+[ext_resource type="Script" uid="uid://b24rqvnibuynd" path="res://inventory/item/health_item.gd" id="1_rco8t"]
 [ext_resource type="Texture2D" uid="uid://da1oj6kfvs3lg" path="res://assets/bananapng.png" id="2_rco8t"]
 
 [resource]
 script = ExtResource("1_rco8t")
+health_increase = 1
 name = "banana"
 texture = ExtResource("2_rco8t")
 maxAmountPrStack = 3

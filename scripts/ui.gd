@@ -1,4 +1,4 @@
-extends Control
+class_name ui extends Control
 @onready var ampmlabel: Label = $TimeUiDisplay/ampmlabel
 @onready var hotbar: Sprite2D = $hotbar
 
@@ -7,12 +7,12 @@ extends Control
 @onready var strawberrylabel: Label = $hotbar/AnimatedSprite2D3/strawberrylabel
 @onready var bananalabel: Label = $hotbar/AnimatedSprite2D4/bananalabel
 
-
+var health = 8
+var max_health = 10
 @onready var daylabel: Label = $TimeUiDisplay/daylabel
 @onready var timelabel: Label = $TimeUiDisplay/timelabel
 @onready var weekdaylabel_2: Label = $TimeUiDisplay/weekdaylabel2
-var health = 8
-var max_health = 10
+
 
 var Inventory = "closed"
 
@@ -24,9 +24,10 @@ const days = ["MONDAY",
 "FRIDAY",
 "SATURDAY",
 "SUNDAY"]
-@onready var animation_player_2: AnimationPlayer = $AnimationPlayer2
-
 @onready var hearts = $hearts.get_children()
+func _ready() -> void:
+	heart_anim()
+
 func heart_anim():
 	var hp = health
 	for heart in hearts:
@@ -39,16 +40,15 @@ func heart_anim():
 func healthdown(amount):
 	health = max(0 ,health - amount)
 	heart_anim()
-	animation_player_2.play("new_animation")
+	animation_player_2.play("hearts animation")
 func healthup(amount):
 	health = min(max_health, health + amount)
 	heart_anim()
-	animation_player_2.play("new_animation")
+	animation_player_2.play("hearts animation")
+@onready var animation_player_2: AnimationPlayer = $AnimationPlayer2
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	heart_anim()
-	pass
+
 	
 @onready var arrow: AnimatedSprite2D = $TimeUiDisplay/arrow
 @onready var pausebutton: TextureButton = $pausebutton

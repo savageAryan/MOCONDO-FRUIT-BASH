@@ -5,8 +5,7 @@ signal closed
 var locked:bool = false
 var oldIndex: int = -1
 @onready var texture_rect: TextureRect = $TextureRect
-var health = 8
-var max_health = 10
+
 
 @onready var panel: Panel = $Panel
 
@@ -54,6 +53,7 @@ func close():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+
 	panel.visible = false
 	connectSlots()
 	texture_rect.visible = false
