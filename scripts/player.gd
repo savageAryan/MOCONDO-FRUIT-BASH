@@ -16,10 +16,13 @@ func _ready() -> void:
 	elif fruits > 0 :
 		animated_sprite_2d.play("idel front")
 		
+func _unhandled_input(event: InputEvent) -> void:
+		if Input.is_action_just_pressed("hit"):
+			hit_enemy()
+			return
 func _physics_process(delta: float) -> void:
-	if chopping:
+	if using_tool:
 		return
-		
 	if Input.is_action_pressed("use"):
 		var item = get_selected_item()
 		if item and item.item_type == "axe":
@@ -122,19 +125,20 @@ func play_anim(movement):
 		elif movement == 0:
 			anim.play("back idel")
 			
-var chopping = false
+var using_tool = false
 func chop():
-	chopping = true
+	using_tool = true
 	if fruits <= 0:
 		animated_sprite_2d.play("axeside")
 	else:
 		animated_sprite_2d.play("axeside")
 	await animated_sprite_2d.animation_finished
-	chopping = false
+	using_tool = false
 func hit_enemy():
-	if Input.is_action_pressed("hit"):
-		animated_sprite_2d.play("swordslash")
-		
+	using_tool = true
+	animated_sprite_2d.play("swordslash")
+	await animated_sprite_2d.animation_finished
+	using_tool = false
 func use_item(item: InventoryItem) -> void:
 	item.use(self)
 func get_selected_item() -> InventoryItem:

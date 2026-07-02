@@ -350,7 +350,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2gdjj")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"swordslash",
 "speed": 5.0
 }, {
@@ -426,4 +426,4 @@ shape = SubResource("CircleShape2D_dqkch")
 position = Vector2(0, 1)
 scale = Vector2(0.48828128, 0.4765625)
 sprite_frames = SubResource("SpriteFrames_4wyf3")
-animation = &"walking front"
+animation = &"swordslash"
