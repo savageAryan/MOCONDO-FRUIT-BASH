@@ -25,9 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://davx2rau8b7xv" path="res://scenes/banana.tscn" id="21_oo54l"]
 [ext_resource type="PackedScene" uid="uid://cf3gqano763gj" path="res://scenes/monkey.tscn" id="25_xgqkh"]
 [ext_resource type="PackedScene" uid="uid://d13jxal853d8w" path="res://scenes/wheat.tscn" id="26_munwf"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_2tg6s"]
-radius = 4.734887
+[ext_resource type="PackedScene" uid="uid://drb2l7uw0lx5" path="res://scenes/bolb.tscn" id="26_ts3gi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4wyf3"]
 texture = ExtResource("1_rwgxs")
@@ -201,14 +199,6 @@ size = Vector2(117.25191, 65.46565)
 
 [node name="World" type="Node2D" unique_id=340862798]
 script = ExtResource("1_e3hyu")
-
-[node name="damage" type="Area2D" parent="." unique_id=615512217]
-z_index = 2
-position = Vector2(48.758343, 23.356821)
-scale = Vector2(3.855, 3.855)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="damage" unique_id=752950896]
-shape = SubResource("CircleShape2D_2tg6s")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=93717343]
 process_mode = 3
@@ -510,7 +500,9 @@ position = Vector2(115, -33)
 [node name="wheat2" parent="." unique_id=358505288 instance=ExtResource("26_munwf")]
 position = Vector2(163, -41)
 
-[connection signal="body_entered" from="damage" to="." method="_on_damage_body_entered"]
+[node name="blob" parent="." unique_id=752804772 instance=ExtResource("26_ts3gi")]
+position = Vector2(77, -20)
+
 [connection signal="closed" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_closed"]
 [connection signal="opened" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_opened"]
 [connection signal="talk_finished" from="CanvasLayer/dialouge" to="." method="_on_dialouge_talk_finished"]
