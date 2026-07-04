@@ -16,6 +16,7 @@
 [ext_resource type="FontFile" uid="uid://1wp8whuqfa5o" path="res://assets/LowresPixel-Regular.otf" id="8_gdjy1"]
 [ext_resource type="Texture2D" uid="uid://di1qd1h8mybjx" path="res://assets/mocondo butterfly.png" id="8_im6k6"]
 [ext_resource type="Texture2D" uid="uid://cadys8bediek6" path="res://assets/boat real empty  mocondo.png" id="9_b8sxn"]
+[ext_resource type="Texture2D" uid="uid://bck3x7s54c7a" path="res://assets/sword.png" id="11_whqwi"]
 [ext_resource type="Texture2D" uid="uid://dq8rmbas1k85q" path="res://assets/strawberry.png" id="12_45mnr"]
 [ext_resource type="FontFile" uid="uid://dkopncmaw641n" path="res://assets/Regular.otf" id="13_sff0x"]
 [ext_resource type="Texture2D" uid="uid://la6ra60g8xgh" path="res://assets/banana.png" id="13_wmany"]
@@ -34,7 +35,9 @@
 [ext_resource type="Texture2D" uid="uid://bttcq0d5dswsf" path="res://assets/log.png" id="26_exleu"]
 [ext_resource type="Resource" uid="uid://cfbbv28xuf3m1" path="res://inventory/item/mango.tres" id="27_exleu"]
 [ext_resource type="Script" uid="uid://b3vk2o3cuh3tn" path="res://scenes/boatshopoptions.gd" id="28_1pj70"]
+[ext_resource type="Texture2D" uid="uid://hxt4j4sy0jfo" path="res://assets/swordani.png" id="28_jviq3"]
 [ext_resource type="Resource" uid="uid://2l156y0e6jlj" path="res://inventory/item/wheat.tres" id="29_jviq3"]
+[ext_resource type="Resource" uid="uid://cp76mlnv2big" path="res://inventory/item/sword.tres" id="31_rpvwf"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_adiy1"]
 color = Color(0.4255997, 0.29107243, 0.050288737, 1)
@@ -402,36 +405,79 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yqm7t"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vdsi"]
 atlas = ExtResource("26_1pj70")
 region = Rect2(64, 64, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r4hwr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bc6ut"]
 atlas = ExtResource("26_1pj70")
 region = Rect2(208, 64, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kqb82"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfy6l"]
 atlas = ExtResource("26_1pj70")
 region = Rect2(352, 64, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5qt7b"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxp85"]
 atlas = ExtResource("26_1pj70")
 region = Rect2(496, 64, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_whqwi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vdsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bc6ut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfy6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxp85")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqm7t"]
+atlas = ExtResource("28_jviq3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4hwr"]
+atlas = ExtResource("28_jviq3")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqb82"]
+atlas = ExtResource("28_jviq3")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qt7b"]
+atlas = ExtResource("28_jviq3")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvgrp"]
+atlas = ExtResource("28_jviq3")
+region = Rect2(0, 128, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wvgrp"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 1.9,
 "texture": SubResource("AtlasTexture_yqm7t")
 }, {
-"duration": 1.0,
+"duration": 1.3,
 "texture": SubResource("AtlasTexture_r4hwr")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kqb82")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_5qt7b")
+}, {
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_wvgrp")
 }],
 "loop": 1,
 "name": &"default",
@@ -862,6 +908,67 @@ theme_override_fonts/font = ExtResource("5_f1oc0")
 theme_override_font_sizes/font_size = 70
 text = "G    ME"
 
+[node name="Button6" type="Button" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer" unique_id=1706581710]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_35y6k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w36ov")
+theme_override_styles/hover = SubResource("StyleBoxFlat_im6k6")
+toggle_mode = true
+button_group = ExtResource("5_wmany")
+
+[node name="Label" type="Label" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button6" unique_id=590782943]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.5
+offset_top = -56.0
+offset_right = 53.5
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.826, 0.826)
+theme_override_colors/font_color = Color(0.85490197, 0.5176471, 0.16470589, 1)
+theme_override_colors/font_outline_color = Color(0.56078434, 0.1764706, 0.15686275, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("5_f1oc0")
+theme_override_font_sizes/font_size = 90
+text = "   ea"
+
+[node name="Mangopng" type="Sprite2D" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button6" unique_id=520130771]
+position = Vector2(149.00002, 46.99999)
+rotation = 0.28381914
+scale = Vector2(3.9519527, 3.9519527)
+texture = ExtResource("11_whqwi")
+
+[node name="Label2" type="Label" parent="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button6" unique_id=1845965776]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.5
+offset_top = -30.0
+offset_right = 131.5
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.826, 0.826)
+theme_override_colors/font_color = Color(0.85490197, 0.5176471, 0.16470589, 1)
+theme_override_colors/font_outline_color = Color(0.56078434, 0.1764706, 0.15686275, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("5_f1oc0")
+theme_override_font_sizes/font_size = 70
+text = "W    Pon"
+
 [node name="ScrollContainer" type="ScrollContainer" parent="TextureRect2" unique_id=1326786636]
 layout_mode = 1
 anchors_preset = 8
@@ -1076,7 +1183,7 @@ sprite_frames = SubResource("SpriteFrames_2tg6s")
 layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
-item = SubResource("SpriteFrames_wvgrp")
+item = SubResource("SpriteFrames_whqwi")
 for_sell = true
 item_to_buy = ExtResource("29_jviq3")
 inventory = ExtResource("15_h5agg")
@@ -1099,6 +1206,35 @@ theme_override_font_sizes/font_size = 65
 text = "10"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect9/Label6" unique_id=1805147084]
+position = Vector2(-28, 26)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+
+[node name="TextureRect10" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer" unique_id=1270013836 instance=ExtResource("3_g1tdj")]
+layout_mode = 2
+expand_mode = 3
+stretch_mode = 5
+item = SubResource("SpriteFrames_wvgrp")
+item_to_buy = ExtResource("31_rpvwf")
+inventory = ExtResource("15_h5agg")
+
+[node name="Label6" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect10" unique_id=1133302499]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.5
+offset_top = -114.0
+offset_right = 29.5
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("13_sff0x")
+theme_override_font_sizes/font_size = 65
+text = "10"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect10/Label6" unique_id=488814037]
 position = Vector2(-28, 26)
 sprite_frames = SubResource("SpriteFrames_2tg6s")
 
@@ -1227,4 +1363,5 @@ texture = ExtResource("21_u2wj3")
 [connection signal="pressed" from="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button6" to="." method="_on_button_6_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

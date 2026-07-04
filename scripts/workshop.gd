@@ -20,7 +20,7 @@ func _ready() -> void:
 	texture_rect_7.visible = false
 	texture_rect_8.visible = false
 	texture_rect_9.visible = false
-
+	texture_rect_10.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -57,6 +57,7 @@ func _on_button_pressed() -> void:
 @onready var texture_rect_7: TextureRect = $TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect7
 @onready var texture_rect_8: TextureRect = $TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect8
 @onready var texture_rect_9: TextureRect = $TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect9
+@onready var texture_rect_10: TextureRect = $TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect10
 
 func _on_button_2_pressed() -> void:
 	selected = $TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button2
@@ -69,6 +70,7 @@ func _on_button_2_pressed() -> void:
 	texture_rect_7.visible = true
 	texture_rect_8.visible = false
 	texture_rect_9.visible = true
+	texture_rect_10.visible = false
 @onready var workshopselectedui_2: Sprite2D = $Workshopselectedui2
 
 func _on_button_3_pressed() -> void:
@@ -81,6 +83,7 @@ func _on_button_3_pressed() -> void:
 	texture_rect_7.visible = false
 	texture_rect_8.visible = false
 	texture_rect_9.visible = false
+	texture_rect_10.visible = false
 	
 func _on_button_4_pressed() -> void:
 	selected = $TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button4
@@ -92,6 +95,7 @@ func _on_button_4_pressed() -> void:
 	texture_rect_7.visible = false
 	texture_rect_8.visible = true
 	texture_rect_9.visible = false
+	texture_rect_10.visible = false
 func _on_button_5_pressed() -> void:
 	selected = $TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button5
 	texture_rect_2.visible = false
@@ -102,4 +106,17 @@ func _on_button_5_pressed() -> void:
 	texture_rect_7.visible = false
 	texture_rect_8.visible = false
 	texture_rect_9.visible = false
-	
+	texture_rect_10.visible = false
+
+
+func _on_button_6_pressed() -> void:
+	selected = $TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button6
+	texture_rect_2.visible = false
+	texture_rect_3.visible = false
+	texture_rect_4.visible = false
+	texture_rect_5.visible = false
+	texture_rect_6.visible = false
+	texture_rect_7.visible = false
+	texture_rect_8.visible = false
+	texture_rect_9.visible = false
+	texture_rect_10.visible = true

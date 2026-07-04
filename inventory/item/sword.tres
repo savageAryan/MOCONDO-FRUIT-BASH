@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://cp76mlnv2big"]
+
+[ext_resource type="Script" uid="uid://bm0nfyj7wmstx" path="res://inventory/inventory_item.gd" id="1_qc2pp"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wwrcc"]
+load_path = "res://.godot/imported/sword.png-95f2475a1c94b517c0dc8c8a23b270ed.ctex"
+
+[resource]
+script = ExtResource("1_qc2pp")
+name = "sword"
+texture = SubResource("CompressedTexture2D_wwrcc")
+maxAmountPrStack = 1
+buy_price = 52
+item_type = "weapon"
+metadata/_custom_type_script = "uid://bm0nfyj7wmstx"
