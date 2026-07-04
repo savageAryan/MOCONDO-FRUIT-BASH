@@ -8,7 +8,7 @@ func _physics_process(delta: float) -> void:
 	folloe_player()
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		ui.healthdown(2)
+		
 		player = body
 		chasing = true
 
@@ -16,15 +16,33 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		if body == player:
-			body = null
+			player = null
 			chasing = false
 
+
 func folloe_player():
-	if chasing and player:
-		var direction = (player.global_position - global_position).normalized()
-		velocity = direction * speed
-		animated_sprite_2d.look_at(player.global_position)
-	else: velocity = Vector2.ZERO
+	if player == null:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+	var direction = (player.global_position - global_position).normalized()
+	velocity = direction * speed
+	if abs(direction.x) > abs(direction.y):
+		if direction.x > 0:
+			animated_sprite_2d.play("side walking")
+			animated_sprite_2d.flip_h = true
+		else: 
+			animated_sprite_2d.play("side walking")
+			animated_sprite_2d.flip_h = false
+	else:
+		if direction.y > 0:
+			animated_sprite_2d.play("walking front")
+		else:
+			animated_sprite_2d.play("back walking")
 	
+	var distance = global_position.distance_to(player.global_position)
+	if distance < 40:
+		velocity = Vector2.ZERO
+		
 	move_and_slide()
-	
+		
