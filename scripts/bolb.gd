@@ -34,8 +34,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 			chasing = false
 
 func random_Targer():
-	var random_x = randf_range(-100, 100)
-	var random_y = randf_range(-100, 100)
+
 	
 	ramdon_target = global_position + Vector2(randf_range(-200,200), randf_range(-200,200))
 	navigation_agent_2d.target_position = ramdon_target
