@@ -36,14 +36,20 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func random_Targer():
 	var random_x = randf_range(-100, 100)
 	var random_y = randf_range(-100, 100)
-	ramdon_target = global_position + Vector2(random_x, random_y)
+	
+	ramdon_target = global_position + Vector2(randf_range(-200,200), randf_range(-200,200))
 	navigation_agent_2d.target_position = ramdon_target
 func roaming():
+	if chasing:
+		return
 	if waiting:
 		return
-	
+	if navigation_agent_2d.is_navigation_finished():
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
 	var point_X = navigation_agent_2d.get_next_path_position()
-	print(point_X)
+	
 	var direction = (point_X - global_position).normalized()
 	if abs(direction.x) > abs(direction.y):
 		if direction.x > 0:
@@ -57,10 +63,10 @@ func roaming():
 			animated_sprite_2d.play("walking front")
 		else:
 			animated_sprite_2d.play("back walking")
-	velocity = direction * speed
-	print(velocity)
+	velocity = velocity.move_toward(direction * speed, 6)
+	
 	move_and_slide()
-	if navigation_agent_2d.navigation_finished:
+	if navigation_agent_2d.is_navigation_finished():
 		velocity = Vector2.ZERO
 		waiting = true
 		await get_tree().create_timer(3).timeout
@@ -73,11 +79,12 @@ func folloe_player():
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
-	navigation_agent_2d.target_position = player.global_position
+	if player.global_position.distance_to(navigation_agent_2d.target_position) > 8:
+		navigation_agent_2d.target_position = player.global_position
 	var point_X = navigation_agent_2d.get_next_path_position()
 	var direction = (point_X - global_position).normalized()
 	
-	velocity = direction * speed
+	
 	if abs(direction.x) > abs(direction.y):
 		if direction.x > 0:
 			animated_sprite_2d.play("side walking")
@@ -92,8 +99,10 @@ func folloe_player():
 			animated_sprite_2d.play("back walking")
 	
 	var distance = global_position.distance_to(player.global_position)
-	if distance < 50:
+	if distance < 12:
 		velocity = Vector2.ZERO
+	else:
+		velocity = velocity.move_toward(direction * speed,8)
 		
 		
 	move_and_slide()

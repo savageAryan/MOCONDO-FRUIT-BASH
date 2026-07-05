@@ -392,7 +392,6 @@ debug_color = Color(0.8288727, 0.35348046, 0.46974277, 0.41960785)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=640459991]
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_2tg6s")
-disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=319454871]
 sprite_frames = SubResource("SpriteFrames_2tg6s")
