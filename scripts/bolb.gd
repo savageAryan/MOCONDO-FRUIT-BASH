@@ -8,6 +8,7 @@ var waiting = false
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
+
 var ramdon_target = Vector2.ZERO
 func _ready() -> void:
 	random_Targer()
@@ -42,6 +43,7 @@ func roaming():
 		return
 	
 	var point_X = navigation_agent_2d.get_next_path_position()
+	print(point_X)
 	var direction = (point_X - global_position).normalized()
 	if abs(direction.x) > abs(direction.y):
 		if direction.x > 0:
@@ -56,6 +58,7 @@ func roaming():
 		else:
 			animated_sprite_2d.play("back walking")
 	velocity = direction * speed
+	print(velocity)
 	move_and_slide()
 	if navigation_agent_2d.navigation_finished:
 		velocity = Vector2.ZERO

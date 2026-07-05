@@ -392,6 +392,7 @@ debug_color = Color(0.8288727, 0.35348046, 0.46974277, 0.41960785)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=640459991]
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_2tg6s")
+disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=319454871]
 sprite_frames = SubResource("SpriteFrames_2tg6s")
@@ -402,6 +403,8 @@ frame_progress = 0.734193
 [node name="Timer" type="Timer" parent="." unique_id=1656706385]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=81360640]
+path_desired_distance = 4.0
+target_desired_distance = 2.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
