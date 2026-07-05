@@ -64,9 +64,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 func takeItemFromSlot(slot):
-	print("taking item")
+	
 	itemInHand = slot.takeItem()
-	print(itemInHand)
 	add_child(itemInHand)
 
 	updateItemInHand()

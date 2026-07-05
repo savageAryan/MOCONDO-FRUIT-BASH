@@ -197,11 +197,17 @@ size = Vector2(74, 69)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_munwf"]
 size = Vector2(117.25191, 65.46565)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_munwf"]
+vertices = PackedVector2Array(257.89063, 1070.7031, 69.32031, 956.1406, -60.101563, 818.9219, -64.96875, 643.46094, -41.117188, 455.85156, 207.35156, 755.27344, 235.89063, 791.8672, 386.35156, 1019.0469, 450.6328, 1147.6172, 275.95313, 1156.0234, 369.20313, 1220.2969, 189.78906, 650.7969, 246.36719, 770.96094, 222.75, 742.4922, -54.070313, 399.0625, -55.148438, 407.6328, -58.796875, 403.2422, 249.21875, 58.5, 33.078125, 332.97656, -41.0625, 395.60938, 262.07813, 44.09375, 277.71094, 26.609375, 416.84375, -21.0625, 222.74219, 742.4922, 141.88281, 638.85156, 203.57031, 500.1875, 26.773438, 346.6172, -28.851563, 11.3828125, -46.1875, -46.101563, -52, -88.6875, -52, -156.6875, 66.21875, -142.22656, 58.84375, -54.648438, 16.78125, 28.601563, 81.71094, 14.5625, 89.35156, -17.921875, 151.9375, -79.63281, 175.63281, -59.820313, 215.21094, -62.046875, 188.17188, 14.296875, 227.70313, 10.921875, 939, 244.22656, 1017.21094, 389.07813, 1003.3594, 434.5, 822.5, 379, 819.8672, 134.95313, 723.1094, 379, 661.0625, 35.078125, 588.4531, -26.867188, 594.65625, 402.07813, 525.3672, 407.9297)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8), PackedInt32Array(9, 0, 8, 10), PackedInt32Array(11, 12, 13), PackedInt32Array(14, 15, 16), PackedInt32Array(14, 16, 17), PackedInt32Array(18, 19, 14, 17, 20, 21, 22), PackedInt32Array(11, 13, 23, 24), PackedInt32Array(25, 11, 24, 19, 26), PackedInt32Array(27, 28, 29, 30, 31, 32, 33), PackedInt32Array(34, 33, 32, 35), PackedInt32Array(35, 32, 36, 37), PackedInt32Array(37, 36, 38), PackedInt32Array(39, 37, 38, 40), PackedInt32Array(17, 39, 40, 20), PackedInt32Array(41, 42, 43, 44, 45), PackedInt32Array(45, 44, 46, 47), PackedInt32Array(48, 47, 46, 49, 50, 18, 22), PackedInt32Array(19, 18, 26)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(272, 18, 415, -31, 592, -37, 667, 27, 826, 127, 947, 238, 1028, 388, 1010, 447, 821, 389, 724, 389, 596, 412, 525, 418, 39, 344, 214, 496, 200, 649, 289, 838, -72, 403), PackedVector2Array(-62, -168, 77, -151, 70, -68, 152, -90, 224, -70, 237, 6, 265, 33, 237, 62, 179, 20, 168, -45, 98, -11, 90, 23, 16, 39, -37, 19, -56, -44, -62, -88), PackedVector2Array(267, 1162, 370, 1233, 463, 1150, 395, 1014, 244, 786, 134, 645, -45, 407, -75, 643, -70, 823, 63, 964, 249, 1077)])
+
 [node name="World" type="Node2D" unique_id=340862798]
 script = ExtResource("1_e3hyu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=93717343]
 process_mode = 3
+visible = false
 
 [node name="workshop" parent="CanvasLayer" unique_id=1920764852 instance=ExtResource("2_7t5mc")]
 visible = false
@@ -502,6 +508,9 @@ position = Vector2(163, -41)
 
 [node name="blob" parent="." unique_id=752804772 instance=ExtResource("26_ts3gi")]
 position = Vector2(77, -20)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1451489125]
+navigation_polygon = SubResource("NavigationPolygon_munwf")
 
 [connection signal="closed" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_closed"]
 [connection signal="opened" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_opened"]
