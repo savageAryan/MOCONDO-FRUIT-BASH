@@ -186,6 +186,11 @@ _data = {
 &"hearts animation": ExtResource("18_8k7j3")
 }
 
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8k7j3"]
+_data = {
+&"hearts animation": ExtResource("18_8k7j3")
+}
+
 [node name="ui" type="Control" unique_id=1662368370]
 process_mode = 3
 z_index = 6
@@ -362,5 +367,6 @@ scale = Vector2(0.84, 0.84)
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=1924096697]
 root_node = NodePath("../hearts")
 libraries/ = SubResource("AnimationLibrary_jkdwc")
+libraries/ff = SubResource("AnimationLibrary_8k7j3")
 
 [connection signal="pressed" from="pausebutton" to="." method="_on_pausebutton_pressed"]

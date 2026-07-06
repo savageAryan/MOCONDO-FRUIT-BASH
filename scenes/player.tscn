@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://c1ac82ds84xsb" path="res://assets/idel side n back.png" id="11_jej6c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dqkch"]
-radius = 6.0
+radius = 4.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hhpqf"]
 atlas = ExtResource("2_y4r1p")
@@ -435,6 +435,7 @@ script = ExtResource("1_g2els")
 inventory = ExtResource("2_d2wvv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1852352655]
+position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_dqkch")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1878090272]
