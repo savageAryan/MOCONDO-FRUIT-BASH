@@ -671,7 +671,6 @@ frame_progress = 0.68790036
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=81360640]
 path_desired_distance = 4.0
 target_desired_distance = 2.0
-avoidance_enabled = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
