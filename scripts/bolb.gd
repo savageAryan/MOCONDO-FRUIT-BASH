@@ -3,15 +3,16 @@ class_name blob extends CharacterBody2D
 
 var speed = 40
 @export var player: CharacterBody2D
-var chasing = false
-var waiting = false
+var chasing: bool = false
+var waiting: bool = false
 var knocked:bool = false
-var attacking = false
+var attacking: bool = false
 var blob_health = 5
 var max_health = 5
 var facing = "front"
 var stuck_pos = Vector2.ZERO
 var stuck_time = 0.0
+var deaddd:bool = false
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hearts: Control = $hearts
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -27,27 +28,31 @@ func heart_anim():
 		else: heart.play("empty")
 func blob_healthdown(amount, pos):
 	var knockback = (global_position - pos).normalized()
-	velocity += knockback * 180
+	velocity = knockback * 180
 	chasing = false
 	knocked = true
-	await get_tree().create_timer(0.6).timeout
-	chasing = true
-	knocked = false
-	
-	
 	blob_health = max(0 ,blob_health - amount)
 	heart_anim()
-	animation_player.play("hearts animation")
+	animation_player.play("damage/hearts animation")
+	if blob_health <= 0:
+		deaddd = true
+		await blob_dying()
+		return
+	await  get_tree().create_timer(0.6).timeout
+	chasing = true
+	knocked = false
 func blob_healthup(amount):
 	blob_health = min(max_health, blob_health + amount)
 	heart_anim()
-	animation_player.play("hearts animation")
+	animation_player.play("damage/hearts animation")
 
 var ramdon_target = Vector2.ZERO
 func _ready() -> void:
 	random_Targer()
 	heart_anim()
 func _physics_process(delta: float) -> void:
+	if deaddd:
+		return
 	if knocked:
 		move_and_slide()
 		velocity = velocity.move_toward(Vector2.ZERO, 800 * delta)
@@ -212,7 +217,7 @@ func attack():
 	elif facing == "side":
 		animated_sprite_2d.play("side attack")
 	elif facing == "back":
-		animated_sprite_2d.play("side attack")
+		animated_sprite_2d.play("back attack")
 	
 	await animated_sprite_2d.animation_finished
 	
@@ -221,3 +226,10 @@ func attack():
 		return
 	if player !=null and global_position.distance_to(player.global_position) < 30:
 		player.decrease_health(2)
+func blob_dying():
+	attacking = false
+	chasing = false
+	knocked = true
+	animated_sprite_2d.play("die")
+	await animated_sprite_2d.animation_finished
+	queue_free()

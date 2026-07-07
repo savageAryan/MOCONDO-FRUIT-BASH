@@ -149,8 +149,9 @@ func hit_enemy():
 	using_tool = true
 	animated_sprite_2d.play("swordslash")
 	await get_tree().create_timer(0.15).timeout
-	if global_position.distance_to(blob.global_position) < 20:
-		blob.blob_healthdown(2, global_position)
+	if blob.deaddd != true:
+		if global_position.distance_to(blob.global_position) < 20:
+			blob.blob_healthdown(2, global_position)
 		
 	await  animated_sprite_2d.animation_finished
 	using_tool = false

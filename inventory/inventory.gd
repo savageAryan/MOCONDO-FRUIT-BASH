@@ -10,8 +10,11 @@ func insert(item: InventoryItem):
 		itemSlots[0].amount += 1
 	else:
 		var emptySlots = slots.filter(func(slot): return slot.item == null)
-		emptySlots[0].item = item
-		emptySlots[0].amount = 1
+		if emptySlots:
+			emptySlots[0].item = item
+			emptySlots[0].amount = 1
+		else:
+			return
 	updated.emit()
 func removeSlot(inventorySlot: InventorySlot):
 	var index = slots.find(inventorySlot)
