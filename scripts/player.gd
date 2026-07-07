@@ -17,7 +17,11 @@ func _ready() -> void:
 		animated_sprite_2d.play("idel front")
 		
 func _unhandled_input(event: InputEvent) -> void:
-		if Input.is_action_just_pressed("hit"):
+	if using_tool:
+		return
+	if Input.is_action_just_pressed("hit"):
+		var item = get_selected_item()
+		if item and item.item_type == "weapon":
 			hit_enemy()
 			return
 func _physics_process(delta: float) -> void:
@@ -134,10 +138,21 @@ func chop():
 		animated_sprite_2d.play("axeside")
 	await animated_sprite_2d.animation_finished
 	using_tool = false
+
+
+
+
+
+@onready var blob: blob = $"../blob"
+
 func hit_enemy():
 	using_tool = true
 	animated_sprite_2d.play("swordslash")
-	await animated_sprite_2d.animation_finished
+	await get_tree().create_timer(0.15).timeout
+	if global_position.distance_to(blob.global_position) < 20:
+		blob.blob_healthdown(2, global_position)
+		
+	await  animated_sprite_2d.animation_finished
 	using_tool = false
 func use_item(item: InventoryItem) -> void:
 	item.use(self)

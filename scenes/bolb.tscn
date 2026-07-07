@@ -7,7 +7,7 @@
 [ext_resource type="Animation" uid="uid://d30xoe54prqdl" path="res://hearts animation.res" id="5_0xfgb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ohge4"]
-radius = 47.419685
+radius = 79.025314
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xfk23"]
 atlas = ExtResource("2_xequk")

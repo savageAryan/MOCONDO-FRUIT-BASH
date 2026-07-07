@@ -1,9 +1,11 @@
-extends CharacterBody2D
+class_name blob extends CharacterBody2D
 @onready var ui: ui = $"../CanvasLayer/ui"
+
 var speed = 40
 @export var player: CharacterBody2D
 var chasing = false
 var waiting = false
+var knocked:bool = false
 var attacking = false
 var blob_health = 5
 var max_health = 5
@@ -23,7 +25,16 @@ func heart_anim():
 		elif hp == 1:
 			heart.play("half")
 		else: heart.play("empty")
-func blob_healthdown(amount):
+func blob_healthdown(amount, pos):
+	var knockback = (global_position - pos).normalized()
+	velocity += knockback * 180
+	chasing = false
+	knocked = true
+	await get_tree().create_timer(0.6).timeout
+	chasing = true
+	knocked = false
+	
+	
 	blob_health = max(0 ,blob_health - amount)
 	heart_anim()
 	animation_player.play("hearts animation")
@@ -37,6 +48,14 @@ func _ready() -> void:
 	random_Targer()
 	heart_anim()
 func _physics_process(delta: float) -> void:
+	if knocked:
+		move_and_slide()
+		velocity = velocity.move_toward(Vector2.ZERO, 800 * delta)
+		if velocity.length() < 5:
+			velocity = Vector2.ZERO
+			chasing = true
+			knocked = false
+		return
 	if attacking:
 		return
 	if global_position.distance_to(stuck_pos) < 1:
@@ -113,6 +132,7 @@ func roaming():
 		velocity = Vector2.ZERO
 		play_idel()
 		waiting = true
+		
 		await get_tree().create_timer(3).timeout
 		random_Targer()
 		waiting = false
@@ -123,25 +143,29 @@ func folloe_player():
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
-	if player.global_position.distance_to(navigation_agent_2d.target_position) > 24:
+	if player.global_position.distance_to(navigation_agent_2d.target_position) > 35:
 		navigation_agent_2d.target_position = player.global_position
 	var point_X = navigation_agent_2d.get_next_path_position()
 	var direction = (point_X - global_position).normalized()
 	var distance = global_position.distance_to(player.global_position)
-	if distance < 17:
+	if distance < 15:
 		if attacking:
 			return
 		
+			
 		velocity = Vector2.ZERO
 		attacking = true
 		play_idel()
 		
-		await get_tree().create_timer(2).timeout
-		distance = global_position.distance_to(player.global_position)
-		if distance > 25:
+		await get_tree().create_timer(0.5).timeout
+		if player == null:
 			attacking = false
 			return
-		attack()
+		distance = global_position.distance_to(player.global_position)
+		if distance > 40:
+			attacking = false
+			return
+		await attack()
 		attacking = false
 		return
 		
@@ -181,7 +205,7 @@ func play_idel():
 			if facing == "side":
 				animated_sprite_2d.play("side idel")
 func attack():
-	print('attackwwwwwwwwwwwww')
+	
 	attacking = true
 	if facing == "front":
 		animated_sprite_2d.play("jump attack")
@@ -189,8 +213,11 @@ func attack():
 		animated_sprite_2d.play("side attack")
 	elif facing == "back":
 		animated_sprite_2d.play("side attack")
-	print(animated_sprite_2d.animation)
+	
 	await animated_sprite_2d.animation_finished
 	
-	print(animated_sprite_2d.is_playing())
-	player.decrease_health(2)
+	
+	if player == null:
+		return
+	if player !=null and global_position.distance_to(player.global_position) < 30:
+		player.decrease_health(2)
