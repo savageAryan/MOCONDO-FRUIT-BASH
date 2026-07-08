@@ -145,13 +145,28 @@ func chop():
 
 @onready var blob: blob = $"../blob"
 
+
 func hit_enemy():
 	using_tool = true
 	animated_sprite_2d.play("swordslash")
 	await get_tree().create_timer(0.15).timeout
-	if blob.deaddd != true:
-		if global_position.distance_to(blob.global_position) < 20:
+	if blob:
+		var facing = Vector2.ZERO
+		match current_dir:
+			"right":
+				facing = Vector2.RIGHT
+			"left":
+				facing = Vector2.LEFT
+			"up":
+				facing = Vector2.UP
+			"down":
+				facing = Vector2.DOWN
+		var blob_hit = (blob.global_position - global_position).normalized()
+		var hit = facing.dot(blob_hit) > 0.5
+		if hit and global_position.distance_to(blob.global_position) < 25:
 			blob.blob_healthdown(2, global_position)
+		await  animated_sprite_2d.animation_finished
+		using_tool = false
 		
 	await  animated_sprite_2d.animation_finished
 	using_tool = false

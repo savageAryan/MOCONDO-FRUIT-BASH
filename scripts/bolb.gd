@@ -230,6 +230,7 @@ func blob_dying():
 	attacking = false
 	chasing = false
 	knocked = true
+	animated_sprite_2d.stop()
 	animated_sprite_2d.play("die")
 	await animated_sprite_2d.animation_finished
 	queue_free()

@@ -635,7 +635,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y88j0")
 }, {
-"duration": 1.0,
+"duration": 1.8,
 "texture": SubResource("AtlasTexture_bp3i4")
 }, {
 "duration": 1.0,
@@ -644,7 +644,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q3xxg")
 }, {
-"duration": 1.0,
+"duration": 1.4,
 "texture": SubResource("AtlasTexture_p1kt1")
 }, {
 "duration": 1.0,
@@ -664,7 +664,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"side attack",
-"speed": 7.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -796,7 +796,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2tg6s"]
-radius = 7.983552
+radius = 13.0
 
 [sub_resource type="Animation" id="Animation_0xfgb"]
 length = 0.001
@@ -858,13 +858,13 @@ debug_color = Color(0.8288727, 0.35348046, 0.46974277, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=319454871]
 sprite_frames = SubResource("SpriteFrames_2tg6s")
-animation = &"die"
+animation = &"side attack"
 autoplay = "walking front"
 frame = 9
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=640459991]
-position = Vector2(-1, 6)
+position = Vector2(-3, 6)
 shape = SubResource("CircleShape2D_2tg6s")
 
 [node name="Timer" type="Timer" parent="." unique_id=1656706385]

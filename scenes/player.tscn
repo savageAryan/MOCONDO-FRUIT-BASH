@@ -14,8 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://ck445ex7u1p88" path="res://assets/sword slash.png" id="10_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://c1ac82ds84xsb" path="res://assets/idel side n back.png" id="11_jej6c"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dqkch"]
-radius = 4.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_munwf"]
+radius = 3.0
+height = 12.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hhpqf"]
 atlas = ExtResource("2_y4r1p")
@@ -436,7 +437,7 @@ inventory = ExtResource("2_d2wvv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1852352655]
 position = Vector2(-1, 1)
-shape = SubResource("CircleShape2D_dqkch")
+shape = SubResource("CapsuleShape2D_munwf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1878090272]
 position = Vector2(0, 1)
