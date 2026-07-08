@@ -1,5 +1,6 @@
 class_name blob extends CharacterBody2D
 @onready var ui: ui = $"../CanvasLayer/ui"
+@onready var world: Node2D = $".."
 
 var speed = 40
 @export var player: CharacterBody2D
@@ -36,6 +37,7 @@ func blob_healthdown(amount, pos):
 	animation_player.play("damage/hearts animation")
 	if blob_health <= 0:
 		deaddd = true
+		world.blob_spawn()
 		await blob_dying()
 		return
 	await  get_tree().create_timer(0.6).timeout
@@ -221,7 +223,6 @@ func attack():
 	
 	await animated_sprite_2d.animation_finished
 	
-	
 	if player == null:
 		return
 	if player !=null and global_position.distance_to(player.global_position) < 30:
@@ -231,6 +232,13 @@ func blob_dying():
 	chasing = false
 	knocked = true
 	animated_sprite_2d.stop()
-	animated_sprite_2d.play("die")
+	
+	if player.current_dir == "left" or "down":
+		animated_sprite_2d.play("die")
+		animated_sprite_2d.flip_h = true
+	if player.current_dir == "right" or "up":
+		animated_sprite_2d.play("die")
+		animated_sprite_2d.flip_h = false
+		
 	await animated_sprite_2d.animation_finished
 	queue_free()
