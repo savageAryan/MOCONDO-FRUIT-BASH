@@ -32,6 +32,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 tilemap=""
 player=""
+enemy=""
 
 [input]
 

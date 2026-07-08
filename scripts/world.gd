@@ -14,12 +14,13 @@ extends Node2D
 
 @onready var ui: Control = $CanvasLayer/ui
 
-
+func _process(delta: float) -> void:
+	pass
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	canvas_modulate.time_tick.connect(ui.set_daytime)
-	
+	blob_spawn()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
@@ -151,3 +152,10 @@ func _input(event: InputEvent) -> void:
 			ui.inventory_open()
 			
 @onready var texture_button = $invenrory/TextureButton
+const BOLB = preload("res://scenes/bolb.tscn")
+func blob_spawn():
+	var point = points.pick_random()
+	var blobenemy = BOLB.instantiate()
+	blobenemy.global_position  = point.global_position
+	add_child(blobenemy)
+@onready var points = $points.get_children()

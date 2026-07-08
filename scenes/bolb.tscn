@@ -796,7 +796,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2tg6s"]
-radius = 13.0
+radius = 11.678833
 
 [sub_resource type="Animation" id="Animation_0xfgb"]
 length = 0.001
@@ -847,7 +847,8 @@ _data = {
 &"hearts animation": ExtResource("5_0xfgb")
 }
 
-[node name="blob" type="CharacterBody2D" unique_id=752804772]
+[node name="blob" type="CharacterBody2D" unique_id=752804772 groups=["enemy"]]
+scale = Vector2(0.685, 0.685)
 script = ExtResource("1_xequk")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=188807888]
@@ -858,13 +859,11 @@ debug_color = Color(0.8288727, 0.35348046, 0.46974277, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=319454871]
 sprite_frames = SubResource("SpriteFrames_2tg6s")
-animation = &"side attack"
+animation = &"back idel"
 autoplay = "walking front"
-frame = 9
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=640459991]
-position = Vector2(-3, 6)
+position = Vector2(-5.684342e-14, 2.9197078)
 shape = SubResource("CircleShape2D_2tg6s")
 
 [node name="Timer" type="Timer" parent="." unique_id=1656706385]
