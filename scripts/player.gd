@@ -3,7 +3,7 @@ class_name Player
 var fruits = 10
 var current_dir = "none"
 var speed = 50
-
+var dying:bool = false
 #@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var inventory: Inventory
@@ -25,6 +25,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			hit_enemy()
 			return
 func _physics_process(delta: float) -> void:
+	if dying:
+		return
+	
 	if using_tool:
 		return
 	if Input.is_action_pressed("use"):
@@ -171,5 +174,23 @@ func get_selected_item() -> InventoryItem:
 func increase_health(amount: int):
 	ui.healthup(amount)
 func decrease_health(amount: int):
+	animated_sprite_2d.position.y -= 1.6
+	modulate = Color.CRIMSON
+	await get_tree().create_timer(0.2).timeout
+	animated_sprite_2d.position.y += 1.6
+	modulate = Color("ffffff")
 	ui.healthdown(amount)
+	if ui.health <= 0 and !dying:
+		player_dying()
+var knockbacks = Vector2.ZERO
 @onready var ui: ui = $"../CanvasLayer/ui"
+@onready var marker_2d: Marker2D = $Marker2D
+func player_dying():
+	#knockbacks = (global_position - blob.global_position).normalized()
+	velocity = (knockbacks * 180)
+	dying = true
+	marker_2d.global_position = animated_sprite_2d.position
+	animated_sprite_2d.play("die")
+	await animated_sprite_2d.animation_finished
+	queue_free()
+	

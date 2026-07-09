@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://6pqfxsst8dug" path="res://assets/axeside.png" id="2_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://bgeduts41kf5y" path="res://assets/player sprites/empty walking front.png" id="3_ur7pv"]
 [ext_resource type="Texture2D" uid="uid://cieg7xrtp23ne" path="res://assets/player sprites/empty side n back idl.png" id="4_ur7pv"]
+[ext_resource type="Texture2D" uid="uid://bby3d4rfnqrl4" path="res://assets/die.png" id="5_f1ej7"]
 [ext_resource type="Texture2D" uid="uid://b633a5ldv56yl" path="res://assets/player sprites/enpty walking.png" id="5_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://df3nn615th376" path="res://assets/player sprites/walking side n back.png" id="7_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://b2omkpojgi044" path="res://assets/player sprites/walking front.png" id="8_3v2ag"]
@@ -45,6 +46,54 @@ region = Rect2(96, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
 atlas = ExtResource("2_smehm")
 region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ha2mi"]
+atlas = ExtResource("5_f1ej7")
+region = Rect2(0, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apa73"]
+atlas = ExtResource("5_f1ej7")
+region = Rect2(0, 48, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74r1k"]
+atlas = ExtResource("5_f1ej7")
+region = Rect2(0, 96, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8svfe"]
+atlas = ExtResource("5_f1ej7")
+region = Rect2(0, 144, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2a3c5"]
+atlas = ExtResource("5_f1ej7")
+region = Rect2(0, 192, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42b1b"]
+atlas = ExtResource("5_f1ej7")
+region = Rect2(0, 240, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7ic4"]
+atlas = ExtResource("5_f1ej7")
+region = Rect2(0, 288, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_au7lq"]
+atlas = ExtResource("5_f1ej7")
+region = Rect2(64, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nubpm"]
+atlas = ExtResource("5_f1ej7")
+region = Rect2(64, 48, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua5cf"]
+atlas = ExtResource("5_f1ej7")
+region = Rect2(64, 96, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51ujp"]
+atlas = ExtResource("5_f1ej7")
+region = Rect2(64, 144, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tk41t"]
+atlas = ExtResource("5_f1ej7")
+region = Rect2(64, 192, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
 atlas = ExtResource("3_ur7pv")
@@ -253,6 +302,47 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ha2mi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apa73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74r1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8svfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2a3c5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42b1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7ic4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_au7lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nubpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ua5cf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51ujp")
+}, {
+"duration": 6.5,
+"texture": SubResource("AtlasTexture_tk41t")
+}],
+"loop": 0,
+"name": &"die",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_y4r1p")
 }, {
 "duration": 1.0,
@@ -440,9 +530,9 @@ position = Vector2(-1, 1)
 shape = SubResource("CapsuleShape2D_munwf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1878090272]
-position = Vector2(0, 1)
 scale = Vector2(0.48828128, 0.4765625)
 sprite_frames = SubResource("SpriteFrames_4wyf3")
-animation = &"swordslash"
-frame = 5
-frame_progress = 1.0
+animation = &"die"
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1893066326]
+position = Vector2(-8, 0)

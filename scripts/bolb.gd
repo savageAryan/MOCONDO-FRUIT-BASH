@@ -50,6 +50,7 @@ func blob_healthup(amount):
 
 var ramdon_target = Vector2.ZERO
 func _ready() -> void:
+	hearts.visible = false
 	random_Targer()
 	heart_anim()
 func _physics_process(delta: float) -> void:
