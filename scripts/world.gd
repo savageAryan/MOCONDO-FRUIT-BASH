@@ -102,6 +102,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_monkey_monkey() -> void:
 	dialouge.visible = true
+	invenrory.visible = false
 	dialouge.start_dialogue([
 		"HEYYY!!",
 		"Wassup!, You'r new here?",
@@ -126,6 +127,7 @@ func _on_monkey_monkey() -> void:
 
 func _on_monkey_out() -> void:
 	dialouge.visible = false
+	invenrory.visible = true
 
 
 
@@ -133,6 +135,7 @@ func _on_monkey_out() -> void:
 
 func _on_dialouge_talk_finished() -> void:
 	monkey.queue_free()
+	invenrory.visible = true
 
 
 func _on_damage_body_entered(body: Node2D) -> void:

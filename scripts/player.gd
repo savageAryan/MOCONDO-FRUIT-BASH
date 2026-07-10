@@ -196,7 +196,7 @@ func player_dying():
 	
 	player_dead.emit()
 	tween.tween_property(camera_2d,"zoom",Vector2(6.8, 6.8), 0.8)
-	tween.tween_property(camera_2d,"rotation_degrees",20.0, 0.10)
+	tween.tween_property(camera_2d,"rotation_degrees",40.0, 2)
 	animated_sprite_2d.play("die")
 	tween.tween_property(ui,"modulate",Color("0000"),0.3)
 	tween.tween_property(invenrory,"modulate",Color("0000"),0.3)

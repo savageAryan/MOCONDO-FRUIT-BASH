@@ -158,6 +158,7 @@ offset_left = -127.26154
 offset_top = -8.615385
 offset_right = 125.04615
 offset_bottom = 29.538454
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ohge4")
 
 [node name="Control" type="Control" parent="." unique_id=158154343]
@@ -193,6 +194,7 @@ libraries/ = SubResource("AnimationLibrary_tc1v4")
 
 [node name="Crossbutton" type="TextureButton" parent="." unique_id=1563079763]
 modulate = Color(0.7058824, 0.5921569, 0.3254902, 0.49803922)
+z_index = 2
 layout_mode = 0
 offset_left = 67.0
 offset_top = 445.0

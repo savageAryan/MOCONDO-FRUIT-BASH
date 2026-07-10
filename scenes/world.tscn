@@ -209,6 +209,9 @@ script = ExtResource("1_e3hyu")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=93717343]
 process_mode = 3
 
+[node name="workshop" parent="CanvasLayer" unique_id=1920764852 instance=ExtResource("2_7t5mc")]
+visible = false
+
 [node name="ui" parent="CanvasLayer" unique_id=1662368370 instance=ExtResource("7_o8fc1")]
 anchors_preset = 0
 anchor_right = 0.0
@@ -216,13 +219,10 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="workshop" parent="CanvasLayer" unique_id=1920764852 instance=ExtResource("2_7t5mc")]
+[node name="dialouge" parent="CanvasLayer" unique_id=350138170 instance=ExtResource("6_ctatt")]
 visible = false
 
 [node name="death scene" parent="CanvasLayer" unique_id=1062695168 instance=ExtResource("6_ts3gi")]
-
-[node name="dialouge" parent="CanvasLayer" unique_id=350138170 instance=ExtResource("6_ctatt")]
-visible = false
 
 [node name="invenrory" parent="CanvasLayer" unique_id=1545268138 instance=ExtResource("4_lakw3")]
 process_mode = 3
