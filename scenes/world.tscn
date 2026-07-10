@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://dm4nugvffg7ug" path="res://scripts/tractorarea.gd" id="5_qfnet"]
 [ext_resource type="PackedScene" uid="uid://bpg7yys4ca4n4" path="res://scenes/dialouge.tscn" id="6_ctatt"]
 [ext_resource type="FontFile" uid="uid://bbbwahii6uqin" path="res://assets/vladimir.ttf" id="6_i7141"]
+[ext_resource type="PackedScene" uid="uid://3kloel62mqh5" path="res://scenes/death_scene.tscn" id="6_ts3gi"]
 [ext_resource type="PackedScene" uid="uid://by3gybddd6b25" path="res://scenes/ui.tscn" id="7_o8fc1"]
 [ext_resource type="PackedScene" uid="uid://bl1kx3v3hndae" path="res://scenes/tree.tscn" id="9_7r4gi"]
 [ext_resource type="Texture2D" uid="uid://cglyx62jrtui8" path="res://assets/househome.png" id="10_w7kh3"]
@@ -208,9 +209,6 @@ script = ExtResource("1_e3hyu")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=93717343]
 process_mode = 3
 
-[node name="workshop" parent="CanvasLayer" unique_id=1920764852 instance=ExtResource("2_7t5mc")]
-visible = false
-
 [node name="ui" parent="CanvasLayer" unique_id=1662368370 instance=ExtResource("7_o8fc1")]
 anchors_preset = 0
 anchor_right = 0.0
@@ -218,12 +216,17 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="invenrory" parent="CanvasLayer" unique_id=1545268138 instance=ExtResource("4_lakw3")]
-process_mode = 3
-mouse_filter = 2
+[node name="workshop" parent="CanvasLayer" unique_id=1920764852 instance=ExtResource("2_7t5mc")]
+visible = false
+
+[node name="death scene" parent="CanvasLayer" unique_id=1062695168 instance=ExtResource("6_ts3gi")]
 
 [node name="dialouge" parent="CanvasLayer" unique_id=350138170 instance=ExtResource("6_ctatt")]
 visible = false
+
+[node name="invenrory" parent="CanvasLayer" unique_id=1545268138 instance=ExtResource("4_lakw3")]
+process_mode = 3
+mouse_filter = 2
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1263943274]
 position = Vector2(1, 0)
@@ -550,9 +553,10 @@ position = Vector2(-5, 579)
 [node name="Marker2D7" type="Marker2D" parent="points" unique_id=371876127]
 position = Vector2(682, 190)
 
+[connection signal="talk_finished" from="CanvasLayer/dialouge" to="." method="_on_dialouge_talk_finished"]
 [connection signal="closed" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_closed"]
 [connection signal="opened" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_opened"]
-[connection signal="talk_finished" from="CanvasLayer/dialouge" to="." method="_on_dialouge_talk_finished"]
+[connection signal="player_dead" from="player" to="CanvasLayer/death scene" method="_on_player_player_dead"]
 [connection signal="body_entered" from="tractorarea" to="tractorarea" method="_on_body_entered"]
 [connection signal="body_exited" from="tractorarea" to="tractorarea" method="_on_body_exited"]
 [connection signal="pressed" from="tractorarea/Button" to="tractorarea" method="_on_button_pressed"]

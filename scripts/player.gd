@@ -185,12 +185,24 @@ func decrease_health(amount: int):
 var knockbacks = Vector2.ZERO
 @onready var ui: ui = $"../CanvasLayer/ui"
 @onready var marker_2d: Marker2D = $Marker2D
+@onready var camera_2d: Camera2D = $Camera2D
+@onready var invenrory: Control = $"../CanvasLayer/invenrory"
+signal player_dead
+
 func player_dying():
-	#knockbacks = (global_position - blob.global_position).normalized()
-	velocity = (knockbacks * 180)
+	var tween = create_tween()
+	tween.set_parallel()
 	dying = true
-	marker_2d.global_position = animated_sprite_2d.position
+	
+	player_dead.emit()
+	tween.tween_property(camera_2d,"zoom",Vector2(6.8, 6.8), 0.8)
+	tween.tween_property(camera_2d,"rotation_degrees",20.0, 0.10)
 	animated_sprite_2d.play("die")
+	tween.tween_property(ui,"modulate",Color("0000"),0.3)
+	tween.tween_property(invenrory,"modulate",Color("0000"),0.3)
+	
+	
+	await tween.finished
 	await animated_sprite_2d.animation_finished
 	queue_free()
 	

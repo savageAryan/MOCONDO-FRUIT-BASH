@@ -10,6 +10,7 @@ extends Node2D
 
 @onready var button: Button = $Button
 @onready var canvas_modulate: CanvasModulate = $CanvasModulate
+@onready var death_scene: Control = $"CanvasLayer/death scene"
 
 
 @onready var ui: Control = $CanvasLayer/ui
@@ -21,7 +22,7 @@ func _process(delta: float) -> void:
 func _ready() -> void:
 	canvas_modulate.time_tick.connect(ui.set_daytime)
 	blob_spawn()
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 
