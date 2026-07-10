@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://d3ughq3dgu2jv" path="res://assets/mainmenunightsky.png" id="1_vcjmr"]
 [ext_resource type="Texture2D" uid="uid://dv3mr4jv4enpm" path="res://assets/mocondonightground.png" id="2_dkhfj"]
 [ext_resource type="FontFile" uid="uid://dc78dhffhyvkm" path="res://assets/RUSTY ATTACK DEMO Regular.otf" id="4_dkhfj"]
+[ext_resource type="FontFile" uid="uid://dkopncmaw641n" path="res://assets/Regular.otf" id="5_mr0a8"]
+[ext_resource type="Texture2D" uid="uid://cv8sr3sr4owf0" path="res://assets/texturelightbutton.png" id="6_f78ek"]
 
 [node name="death scene" type="Control" unique_id=1062695168]
 layout_mode = 3
@@ -46,6 +48,7 @@ grow_vertical = 2
 texture = ExtResource("2_dkhfj")
 
 [node name="Label" type="Label" parent="." unique_id=261632865]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -61,7 +64,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.33193687, 0.010487892, 2.4065375e-08, 1)
 theme_override_colors/font_shadow_color = Color(0.80216354, 0.3794001, 0.68917966, 0)
-theme_override_colors/font_outline_color = Color(0.66, 0.09239999, 0.16807994, 1)
+theme_override_colors/font_outline_color = Color(0.44205332, 0.0471488, 0.10006531, 1)
 theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("4_dkhfj")
 theme_override_font_sizes/font_size = 137
@@ -69,15 +72,63 @@ text = "YOU WERE KILLED"
 
 [node name="Button" type="Button" parent="." unique_id=387796969]
 visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -98.5
-offset_top = -37.5
-offset_right = 98.5
-offset_bottom = 37.5
+offset_left = -332.0
+offset_top = 5.0
+offset_right = 349.5
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.6041623, 0.008422857, 1.4439226e-07, 1)
+theme_override_fonts/font = ExtResource("5_mr0a8")
+theme_override_font_sizes/font_size = 55
+text = "RESPAWN"
+flat = true
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1970587254]
+visible = false
+position = Vector2(602.99994, 369.00003)
+scale = Vector2(10.324999, 4.2500014)
+energy = 1.68
+texture = ExtResource("6_f78ek")
+
+[node name="Button2" type="Button" parent="." unique_id=27867668]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -332.0
+offset_top = 115.0
+offset_right = 349.5
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.6041623, 0.008422857, 1.4439226e-07, 1)
+theme_override_fonts/font = ExtResource("5_mr0a8")
+theme_override_font_sizes/font_size = 55
+text = "MAIN MENU"
+flat = true
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1089341709]
+visible = false
+position = Vector2(602.99994, 479.00003)
+scale = Vector2(10.324999, 4.2500014)
+energy = 1.68
+texture = ExtResource("6_f78ek")
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Button2" to="." method="_on_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="Button2" to="." method="_on_button_2_mouse_exited"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
