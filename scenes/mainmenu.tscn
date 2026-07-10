@@ -469,8 +469,6 @@ position = Vector2(596.5, 414)
 scale = Vector2(8.937499, 5.5625005)
 color = Color(1, 0.9613334, 0.42000002, 1)
 energy = 1.5
-shadow_enabled = true
-shadow_color = Color(1, 1, 1, 0)
 texture = ExtResource("12_kait0")
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=2013519531]
@@ -479,8 +477,6 @@ position = Vector2(596.5, 527)
 scale = Vector2(8.937499, 5.5625005)
 color = Color(1, 0.9613334, 0.42000002, 1)
 energy = 1.5
-shadow_enabled = true
-shadow_color = Color(1, 1, 1, 0)
 texture = ExtResource("12_kait0")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=561134367]

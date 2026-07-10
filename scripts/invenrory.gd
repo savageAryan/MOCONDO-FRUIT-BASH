@@ -160,5 +160,6 @@ func _on_texture_button_toggled(toggled_on: bool) -> void:
 		
 	else: 
 		close()
+		
 		closed.emit()
 		

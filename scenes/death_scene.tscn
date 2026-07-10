@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://3kloel62mqh5"]
 
 [ext_resource type="Script" uid="uid://chiquh6qpaprs" path="res://scripts/death_scene.gd" id="1_dkhfj"]
-[ext_resource type="Texture2D" uid="uid://d3ughq3dgu2jv" path="res://assets/mainmenunightsky.png" id="1_vcjmr"]
-[ext_resource type="Texture2D" uid="uid://dv3mr4jv4enpm" path="res://assets/mocondonightground.png" id="2_dkhfj"]
 [ext_resource type="FontFile" uid="uid://dc78dhffhyvkm" path="res://assets/RUSTY ATTACK DEMO Regular.otf" id="4_dkhfj"]
 [ext_resource type="FontFile" uid="uid://dkopncmaw641n" path="res://assets/Regular.otf" id="5_mr0a8"]
 [ext_resource type="Texture2D" uid="uid://cv8sr3sr4owf0" path="res://assets/texturelightbutton.png" id="6_f78ek"]
@@ -17,6 +15,7 @@ grow_vertical = 2
 script = ExtResource("1_dkhfj")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=325087213]
+z_index = -1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,28 +23,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0.011764706, 0.011764706, 0.5764706)
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=334455981]
-visible = false
-modulate = Color(1, 1, 1, 0.101960786)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_vcjmr")
-
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=896600231]
-visible = false
-modulate = Color(1, 1, 1, 0.21960784)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_dkhfj")
 
 [node name="Label" type="Label" parent="." unique_id=261632865]
 visible = false
@@ -72,7 +49,6 @@ text = "YOU WERE KILLED"
 
 [node name="Button" type="Button" parent="." unique_id=387796969]
 visible = false
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -100,7 +76,6 @@ texture = ExtResource("6_f78ek")
 
 [node name="Button2" type="Button" parent="." unique_id=27867668]
 visible = false
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -188,11 +188,17 @@ var knockbacks = Vector2.ZERO
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var invenrory: Control = $"../CanvasLayer/invenrory"
 signal player_dead
+@onready var dialouge: Control = $"../CanvasLayer/dialouge"
+@onready var workshop: Control = $"../CanvasLayer/workshop"
 
 func player_dying():
 	var tween = create_tween()
 	tween.set_parallel()
 	dying = true
+	ui.visible = false
+	invenrory.visible = false
+	dialouge.visible = false
+	workshop.visible = false
 	
 	player_dead.emit()
 	tween.tween_property(camera_2d,"zoom",Vector2(6.8, 6.8), 0.8)

@@ -51,5 +51,5 @@ func _on_button_2_mouse_exited() -> void:
 
 
 func _on_button_2_pressed() -> void:
-	get_tree().create_timer(1.2).timeout
+	await get_tree().create_timer(1.2).timeout
 	get_tree().change_scene_to_file("res://scenes/mainmenu.tscn")
