@@ -31,7 +31,8 @@ func update():
 		itemStackGui.inventorySlot = inventorySlot
 		itemStackGui.update()
 
-@onready var ui: Control = $"."
+@onready var ui: ui = $"../ui"
+
 
 func open():
 	texture_rect.visible = true
@@ -157,9 +158,9 @@ func _on_texture_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		open()
 		opened.emit()
-		
+		ui.inventory_open()
 	else: 
 		close()
-		
+		ui.inventory_close()
 		closed.emit()
 		

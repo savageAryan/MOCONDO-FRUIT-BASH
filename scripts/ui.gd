@@ -132,13 +132,22 @@ func workshop_close():
 	
 
 		
+@onready var panel_2: TextureRect = $Panel2
 
 @onready var label: Label = $Panel2/Label
 func goldcount():
 	label.text = str(GameManager.gold)
 func inventory_open():
+	var gold_tween = create_tween()
+	gold_tween.set_parallel()
+	gold_tween.tween_property(panel_2,"position",Vector2(257, 53),0.4)
+	panel_2.scale = Vector2(0.65,0.65)
 	time_ui_display.visible = false
 	pausebutton.visible = false
 func inventory_close():
+	var gold_tween = create_tween()
+	gold_tween.set_parallel()
+	gold_tween.tween_property(panel_2,"position",Vector2(208,-6.2),0.4)
+	panel_2.scale = Vector2(0.885,0.885)
 	time_ui_display.visible = true
 	pausebutton.visible = true

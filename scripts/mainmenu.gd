@@ -28,8 +28,9 @@ func _on_mocondorect_pressed() -> void:
 func _on_button_mouse_entered() -> void:
 	point_light_2d.visible = true
 	point_light_2d.energy = 0.5
-	
-
+	button.position.y -= 4
+	button.scale = Vector2(1.01,1.01)
+	button.position.x -= 5
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/world.tscn")
@@ -38,10 +39,11 @@ func _on_button_pressed() -> void:
 
 
 func _on_button_mouse_exited() -> void:
-	
+	button.scale = Vector2(1,1)
+	button.position.y += 4
 	point_light_2d.energy = 0.5
 	point_light_2d.visible = false
-
+	button.position.x += 5
 
 func _on_button_button_down() -> void:
 	point_light_2d.texture_scale = 1.05
@@ -83,12 +85,16 @@ func _on_button_2_pressed() -> void:
 func _on_button_2_mouse_entered() -> void:
 	point_light_2d_2.visible = true
 	point_light_2d_2.energy = 0.5
-
+	button_2.position.y -= 4
+	button_2.scale = Vector2(1.01,1.01)
+	button_2.position.x -= 3
 
 func _on_button_2_mouse_exited() -> void:
 	point_light_2d_2.energy = 0.5
 	point_light_2d_2.visible = false
-
+	button_2.position.y += 4
+	button_2.scale = Vector2(1,1) 
+	button_2.position.x += 3
 
 func _on_button_3_pressed() -> void:
 	panel.visible = false

@@ -5,6 +5,20 @@
 [ext_resource type="FontFile" uid="uid://dkopncmaw641n" path="res://assets/Regular.otf" id="5_mr0a8"]
 [ext_resource type="Texture2D" uid="uid://cv8sr3sr4owf0" path="res://assets/texturelightbutton.png" id="6_f78ek"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tg6s"]
+bg_color = Color(0.99, 0.36168, 0.3168, 0)
+border_width_left = 112
+border_width_top = 149
+border_width_right = 107
+border_width_bottom = 118
+border_color = Color(0.77, 0, 0.1925, 1)
+border_blend = true
+corner_radius_top_left = 130
+corner_radius_top_right = 130
+corner_radius_bottom_right = 130
+corner_radius_bottom_left = 130
+corner_detail = 12
+
 [node name="death scene" type="Control" unique_id=1062695168]
 layout_mode = 3
 anchors_preset = 15
@@ -15,6 +29,7 @@ grow_vertical = 2
 script = ExtResource("1_dkhfj")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=325087213]
+visible = false
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -23,6 +38,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0.011764706, 0.011764706, 0.5764706)
+
+[node name="Panel" type="Panel" parent="ColorRect" unique_id=1850660061]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = -96.0
+offset_right = -237.28125
+offset_bottom = -101.03125
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.28, 1.28)
+theme_override_styles/panel = SubResource("StyleBoxFlat_2tg6s")
 
 [node name="Label" type="Label" parent="." unique_id=261632865]
 visible = false
@@ -49,6 +78,7 @@ text = "YOU WERE KILLED"
 
 [node name="Button" type="Button" parent="." unique_id=387796969]
 visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -76,6 +106,7 @@ texture = ExtResource("6_f78ek")
 
 [node name="Button2" type="Button" parent="." unique_id=27867668]
 visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
