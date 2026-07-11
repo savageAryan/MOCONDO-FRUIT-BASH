@@ -139,15 +139,20 @@ func goldcount():
 	label.text = str(GameManager.gold)
 func inventory_open():
 	var gold_tween = create_tween()
-	gold_tween.set_parallel()
-	gold_tween.tween_property(panel_2,"position",Vector2(257, 53),0.4)
+	
+
+
+	gold_tween.tween_property(panel_2,"modulate",Color("0000"),0.1)
+
+	gold_tween.tween_callback(func():panel_2.position = Vector2(257, 53))
+	gold_tween.tween_property(panel_2,"modulate",Color("ffffff"),0.2)
 	panel_2.scale = Vector2(0.65,0.65)
 	time_ui_display.visible = false
 	pausebutton.visible = false
 func inventory_close():
 	var gold_tween = create_tween()
 	gold_tween.set_parallel()
-	gold_tween.tween_property(panel_2,"position",Vector2(208,-6.2),0.4)
+	gold_tween.tween_property(panel_2,"position",Vector2(208,-6.2),0.1)
 	panel_2.scale = Vector2(0.885,0.885)
 	time_ui_display.visible = true
 	pausebutton.visible = true
