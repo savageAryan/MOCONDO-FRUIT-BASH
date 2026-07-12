@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://8pxfqru4d58"]
+
+[ext_resource type="Script" uid="uid://b6yrg1idkrjfu" path="res://scripts/capybara.gd" id="1_8rfww"]
+[ext_resource type="Texture2D" uid="uid://brxfm6lb2bnx8" path="res://assets/capybara idel.png" id="2_0d6kp"]
+[ext_resource type="Texture2D" uid="uid://uda7o232d8br" path="res://assets/capybara walking.png" id="3_pbiwp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2tg6s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5h5f7"]
+atlas = ExtResource("2_0d6kp")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji052"]
+atlas = ExtResource("2_0d6kp")
+region = Rect2(0, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o0kj"]
+atlas = ExtResource("2_0d6kp")
+region = Rect2(0, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ve3r5"]
+atlas = ExtResource("3_pbiwp")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohj7w"]
+atlas = ExtResource("3_pbiwp")
+region = Rect2(0, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwg3t"]
+atlas = ExtResource("3_pbiwp")
+region = Rect2(0, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0a36f"]
+atlas = ExtResource("3_pbiwp")
+region = Rect2(0, 96, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usf8f"]
+atlas = ExtResource("3_pbiwp")
+region = Rect2(0, 128, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hg0m"]
+atlas = ExtResource("3_pbiwp")
+region = Rect2(0, 160, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4ttk"]
+atlas = ExtResource("3_pbiwp")
+region = Rect2(0, 192, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfr7q"]
+atlas = ExtResource("3_pbiwp")
+region = Rect2(0, 224, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82nn0"]
+atlas = ExtResource("3_pbiwp")
+region = Rect2(0, 256, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3y3lu"]
+atlas = ExtResource("3_pbiwp")
+region = Rect2(0, 288, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0eas"]
+atlas = ExtResource("3_pbiwp")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i741x"]
+atlas = ExtResource("3_pbiwp")
+region = Rect2(48, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylwnl"]
+atlas = ExtResource("3_pbiwp")
+region = Rect2(48, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_te5mc"]
+atlas = ExtResource("3_pbiwp")
+region = Rect2(48, 96, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ohge4"]
+animations = [{
+"frames": [{
+"duration": 2.7,
+"texture": SubResource("AtlasTexture_5h5f7")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_ji052")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_2o0kj")
+}],
+"loop": 1,
+"name": &"bara idel",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ve3r5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohj7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwg3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0a36f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usf8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hg0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4ttk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfr7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82nn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3y3lu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0eas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i741x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylwnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_te5mc")
+}],
+"loop": 1,
+"name": &"bara walking",
+"speed": 2.0
+}]
+
+[node name="capybara" type="CharacterBody2D" unique_id=32064895]
+script = ExtResource("1_8rfww")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=710299157]
+shape = SubResource("CircleShape2D_2tg6s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1586736042]
+sprite_frames = SubResource("SpriteFrames_ohge4")
+animation = &"bara walking"
+frame = 7
+frame_progress = 0.60265154
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=377669342]

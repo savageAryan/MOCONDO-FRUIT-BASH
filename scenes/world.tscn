@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://cf3gqano763gj" path="res://scenes/monkey.tscn" id="25_xgqkh"]
 [ext_resource type="PackedScene" uid="uid://d13jxal853d8w" path="res://scenes/wheat.tscn" id="26_munwf"]
 [ext_resource type="PackedScene" uid="uid://drb2l7uw0lx5" path="res://scenes/bolb.tscn" id="26_ts3gi"]
+[ext_resource type="PackedScene" uid="uid://8pxfqru4d58" path="res://scenes/capybara.tscn" id="28_0nbtd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4wyf3"]
 texture = ExtResource("1_rwgxs")
@@ -552,6 +553,9 @@ position = Vector2(-5, 579)
 
 [node name="Marker2D7" type="Marker2D" parent="points" unique_id=371876127]
 position = Vector2(682, 190)
+
+[node name="capybara" parent="." unique_id=32064895 instance=ExtResource("28_0nbtd")]
+position = Vector2(139, -73)
 
 [connection signal="talk_finished" from="CanvasLayer/dialouge" to="." method="_on_dialouge_talk_finished"]
 [connection signal="closed" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_closed"]
