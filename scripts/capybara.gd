@@ -3,7 +3,7 @@ class_name capybara extends CharacterBody2D
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 var ramdon_target = Vector2.ZERO
 var facing = "front"
-var speed = 40
+var speed = 20
 var waiting = false
 var stuck_pos = Vector2.ZERO
 var stuck_time = 0.0
@@ -40,19 +40,19 @@ func roaming():
 	if abs(direction.x) > abs(direction.y):
 		if direction.x > 0:
 			facing = "side"
-			animated_sprite_2d.play("side walking")
+			animated_sprite_2d.play("bara side walking")
 			animated_sprite_2d.flip_h = true
 		else: 
 			facing = "side"
-			animated_sprite_2d.play("side walking")
+			animated_sprite_2d.play("bara side walking")
 			animated_sprite_2d.flip_h = false
 	else:
 		facing = "front"
 		if direction.y > 0:
-			animated_sprite_2d.play("walking front")
+			animated_sprite_2d.play("bara front walking")
 		else:
 			facing = "back"
-			animated_sprite_2d.play("back walking")
+			animated_sprite_2d.play("bara back walking")
 	velocity = velocity.move_toward(direction * speed, 6)
 	
 	move_and_slide()
@@ -63,7 +63,7 @@ func roaming():
 		play_idel()
 		waiting = true
 		
-		await get_tree().create_timer(3).timeout
+		await get_tree().create_timer(6).timeout
 		random_Targer()
 		waiting = false
 
