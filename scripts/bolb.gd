@@ -37,6 +37,7 @@ func blob_healthdown(amount, pos):
 	animation_player.play("damage/hearts animation")
 	if blob_health <= 0:
 		deaddd = true
+		blobseed()
 		world.blob_spawn()
 		await blob_dying()
 		return
@@ -47,8 +48,12 @@ func blob_healthup(amount):
 	blob_health = min(max_health, blob_health + amount)
 	heart_anim()
 	animation_player.play("damage/hearts animation")
+const ROOTSEED = preload("uid://dk4frwrs4ek6s")
 
 var ramdon_target = Vector2.ZERO
+func blobseed():
+	var drop = ROOTSEED.instantiate()
+	get_parent().add_child(drop)
 func _ready() -> void:
 	hearts.visible = false
 	random_Targer()

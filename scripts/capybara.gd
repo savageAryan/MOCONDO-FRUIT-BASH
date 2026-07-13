@@ -72,7 +72,7 @@ func play_idel():
 		if facing == "front":
 			animated_sprite_2d.play("bara idel")
 		elif facing == "back":
-			animated_sprite_2d.play("bara idel")
+			animated_sprite_2d.play("bara back idel")
 		else:
 			if facing == "side":
-				animated_sprite_2d.play("bara idel")
+				animated_sprite_2d.play("bara front idel")

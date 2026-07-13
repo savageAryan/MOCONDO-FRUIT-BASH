@@ -2,11 +2,28 @@
 
 [ext_resource type="Script" uid="uid://b6yrg1idkrjfu" path="res://scripts/capybara.gd" id="1_8rfww"]
 [ext_resource type="Texture2D" uid="uid://brxfm6lb2bnx8" path="res://assets/capybara idel.png" id="2_0d6kp"]
+[ext_resource type="Texture2D" uid="uid://cjc15jwojgb3x" path="res://assets/capybara back sit idel.png" id="2_pbiwp"]
 [ext_resource type="Texture2D" uid="uid://ba8p3qor032t1" path="res://assets/capybara walking.png" id="3_pbiwp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8rfww"]
-radius = 10.514019
-height = 37.38318
+radius = 8.857582
+height = 17.715164
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7a7ge"]
+atlas = ExtResource("2_pbiwp")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p6hr"]
+atlas = ExtResource("2_pbiwp")
+region = Rect2(96, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jhlf"]
+atlas = ExtResource("2_pbiwp")
+region = Rect2(96, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dillu"]
+atlas = ExtResource("2_pbiwp")
+region = Rect2(96, 96, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8rfww"]
 atlas = ExtResource("3_pbiwp")
@@ -35,6 +52,22 @@ region = Rect2(96, 160, 48, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_0a36f"]
 atlas = ExtResource("3_pbiwp")
 region = Rect2(96, 192, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkrla"]
+atlas = ExtResource("2_pbiwp")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vp72c"]
+atlas = ExtResource("2_pbiwp")
+region = Rect2(48, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u04kx"]
+atlas = ExtResource("2_pbiwp")
+region = Rect2(48, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn0e6"]
+atlas = ExtResource("2_pbiwp")
+region = Rect2(48, 96, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_usf8f"]
 atlas = ExtResource("3_pbiwp")
@@ -148,6 +181,23 @@ region = Rect2(144, 96, 48, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_7a7ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3p6hr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jhlf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dillu")
+}],
+"loop": 1,
+"name": &"bara back idel",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_8rfww")
 }, {
 "duration": 1.0,
@@ -170,6 +220,23 @@ animations = [{
 }],
 "loop": 1,
 "name": &"bara back walking",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.6,
+"texture": SubResource("AtlasTexture_pkrla")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_vp72c")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_u04kx")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_wn0e6")
+}],
+"loop": 1,
+"name": &"bara front idel",
 "speed": 7.0
 }, {
 "frames": [{
@@ -281,7 +348,7 @@ shape = SubResource("CapsuleShape2D_8rfww")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1586736042]
 sprite_frames = SubResource("SpriteFrames_ohge4")
-animation = &"bara front walking"
-frame_progress = 0.50367457
+animation = &"bara back idel"
+frame_progress = 0.14429344
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=377669342]
