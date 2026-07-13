@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://vkbt53fc7shr" path="res://scripts/seed.gd" id="1_bppu2"]
 [ext_resource type="Texture2D" uid="uid://bavrexrf2ujad" path="res://assets/blob seeds.png" id="2_a03eh"]
+[ext_resource type="Resource" uid="uid://l0adj35jvn2t" path="res://inventory/item/rootseed.tres" id="2_xl0ov"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2tg6s"]
 radius = 5.0
@@ -51,6 +52,7 @@ animations = [{
 
 [node name="rootseed" type="Area2D" unique_id=381984733]
 script = ExtResource("1_bppu2")
+itemRes = ExtResource("2_xl0ov")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=475196914]
 shape = SubResource("CircleShape2D_2tg6s")
@@ -60,4 +62,6 @@ position = Vector2(-0.49999988, -0.49999988)
 scale = Vector2(0.6875, 0.6875)
 sprite_frames = SubResource("SpriteFrames_2tg6s")
 autoplay = "default"
-frame_progress = 0.5759652
+frame_progress = 0.5113775
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

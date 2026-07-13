@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://l0adj35jvn2t"]
+
+[ext_resource type="Script" uid="uid://bm0nfyj7wmstx" path="res://inventory/inventory_item.gd" id="1_ackf3"]
+[ext_resource type="Texture2D" uid="uid://bavrexrf2ujad" path="res://assets/blob seeds.png" id="2_ct2vg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq6mk"]
+atlas = ExtResource("2_ct2vg")
+region = Rect2(0, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_ackf3")
+name = "rootseed"
+texture = SubResource("AtlasTexture_kq6mk")
+maxAmountPrStack = 20
+buy_price = 35
+sell_price = 25
+item_type = "seed"
+metadata/_custom_type_script = "uid://bm0nfyj7wmstx"

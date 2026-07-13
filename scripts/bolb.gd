@@ -53,6 +53,7 @@ const ROOTSEED = preload("uid://dk4frwrs4ek6s")
 var ramdon_target = Vector2.ZERO
 func blobseed():
 	var drop = ROOTSEED.instantiate()
+	drop.global_position = position
 	get_parent().add_child(drop)
 func _ready() -> void:
 	hearts.visible = false

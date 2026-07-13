@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://xqqrahry8uoi" path="res://scripts/invenrory.gd" id="1_gjr0y"]
 [ext_resource type="Texture2D" uid="uid://dtg4oj80aaggd" path="res://assets/inventory.png" id="1_px0oa"]
 [ext_resource type="PackedScene" uid="uid://dh8dvwsrbygtf" path="res://scenes/slot.tscn" id="3_ovfi1"]
+[ext_resource type="FontFile" uid="uid://sb6vba43t4m0" path="res://assets/CircusOrnate.ttf" id="4_1c2ov"]
 [ext_resource type="PackedScene" uid="uid://d3lnmkiundssc" path="res://scenes/hotbar.tscn" id="5_1c2ov"]
 [ext_resource type="Texture2D" uid="uid://biveh5j4s23iu" path="res://assets/weaponslot.png" id="5_27hiw"]
 [ext_resource type="Texture2D" uid="uid://6rftbj4lnd44" path="res://assets/inventoryicon.png" id="6_icpxe"]
@@ -419,7 +420,6 @@ offset_bottom = 443.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_icpxe")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1692891955]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -511,6 +511,17 @@ layout_mode = 2
 
 [node name="slot20" parent="TextureRect/GridContainer" unique_id=1543599858 instance=ExtResource("3_ovfi1")]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=696746114]
+layout_mode = 0
+offset_left = 577.0
+offset_top = 96.0
+offset_right = 667.0
+offset_bottom = 119.0
+theme_override_colors/font_color = Color(0.61, 0.32025, 0.1525, 1)
+theme_override_fonts/font = ExtResource("4_1c2ov")
+theme_override_font_sizes/font_size = 20
+text = "ITEM:"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1867007860]
 libraries/ = SubResource("AnimationLibrary_27hiw")
