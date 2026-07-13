@@ -7,6 +7,7 @@ class_name InventoryItem
 @export var sell_price : int
 @export var item_consumable:bool
 @export var item_type: String
+@export_multiline var description: String
 
 func use(_player: Player) -> void:
 	pass

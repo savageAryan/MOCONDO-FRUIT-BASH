@@ -22,3 +22,6 @@ custom_minimum_size = Vector2(76, 77)
 layout_mode = 0
 offset_right = 78.0
 offset_bottom = 77.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -6,9 +6,13 @@
 [ext_resource type="FontFile" uid="uid://sb6vba43t4m0" path="res://assets/CircusOrnate.ttf" id="4_1c2ov"]
 [ext_resource type="PackedScene" uid="uid://d3lnmkiundssc" path="res://scenes/hotbar.tscn" id="5_1c2ov"]
 [ext_resource type="Texture2D" uid="uid://biveh5j4s23iu" path="res://assets/weaponslot.png" id="5_27hiw"]
+[ext_resource type="FontFile" uid="uid://dkopncmaw641n" path="res://assets/Regular.otf" id="5_f33l1"]
 [ext_resource type="Texture2D" uid="uid://6rftbj4lnd44" path="res://assets/inventoryicon.png" id="6_icpxe"]
+[ext_resource type="FontFile" uid="uid://cgox7ipu4flb" path="res://assets/chawp.otf" id="6_muxr0"]
 [ext_resource type="Texture2D" uid="uid://c0ld0d4cga244" path="res://assets/inventoryicon3.png" id="7_1c2ov"]
+[ext_resource type="FontFile" uid="uid://dc78dhffhyvkm" path="res://assets/RUSTY ATTACK DEMO Regular.otf" id="7_7aho6"]
 [ext_resource type="Texture2D" uid="uid://b2dybayxmm31y" path="res://assets/inventoryicon2.png" id="8_8v348"]
+[ext_resource type="Texture2D" uid="uid://di1qd1h8mybjx" path="res://assets/mocondo butterfly.png" id="8_muxr0"]
 [ext_resource type="Texture2D" uid="uid://dsvaur8vktfu2" path="res://assets/audioicon1.png" id="9_a5boj"]
 [ext_resource type="Texture2D" uid="uid://buoxojah1bm5i" path="res://assets/audioicon3.png" id="10_f33l1"]
 [ext_resource type="Texture2D" uid="uid://bvyvnnkkmeb4f" path="res://assets/audioicon2.png" id="11_muxr0"]
@@ -25,6 +29,15 @@ corner_radius_top_left = 35
 corner_radius_top_right = 35
 corner_radius_bottom_right = 35
 corner_radius_bottom_left = 35
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f33l1"]
+bg_color = Color(0.95686275, 0.8666667, 0.6509804, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0.93333334, 0.8666667, 0.7490196, 1)
+border_blend = true
 
 [sub_resource type="Animation" id="Animation_oyyiu"]
 length = 0.001
@@ -512,16 +525,109 @@ layout_mode = 2
 [node name="slot20" parent="TextureRect/GridContainer" unique_id=1543599858 instance=ExtResource("3_ovfi1")]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="TextureRect" unique_id=696746114]
-layout_mode = 0
-offset_left = 577.0
-offset_top = 96.0
-offset_right = 667.0
-offset_bottom = 119.0
-theme_override_colors/font_color = Color(0.61, 0.32025, 0.1525, 1)
+[node name="labelnode" type="Node2D" parent="TextureRect" unique_id=773017840]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-197, -84)
+
+[node name="itemperm" type="Label" parent="TextureRect/labelnode" unique_id=696746114]
+offset_left = 774.0
+offset_top = 180.0
+offset_right = 883.0
+offset_bottom = 203.0
+theme_override_colors/font_color = Color(0.004406178, 0.21195722, 0.3493295, 1)
 theme_override_fonts/font = ExtResource("4_1c2ov")
 theme_override_font_sizes/font_size = 20
-text = "ITEM:"
+text = "ITEM"
+
+[node name="itemname" type="Label" parent="TextureRect/labelnode" unique_id=1214892267]
+offset_left = 774.0
+offset_top = 205.0
+offset_right = 965.0
+offset_bottom = 245.0
+theme_override_colors/font_color = Color(0.6117647, 0.32156864, 0.15294118, 1)
+theme_override_fonts/font = ExtResource("5_f33l1")
+theme_override_font_sizes/font_size = 39
+text = "rootseed"
+
+[node name="Label3" type="Label" parent="TextureRect/labelnode" unique_id=843367796]
+offset_left = 769.0
+offset_top = 227.0
+offset_right = 967.0
+offset_bottom = 267.0
+theme_override_colors/font_color = Color(0.6117647, 0.32156864, 0.15294118, 1)
+theme_override_fonts/font = ExtResource("5_f33l1")
+theme_override_font_sizes/font_size = 39
+text = "-------------"
+
+[node name="itemdes" type="Label" parent="TextureRect/labelnode" unique_id=949844401]
+offset_left = 769.0
+offset_top = 265.0
+offset_right = 969.0
+offset_bottom = 433.0
+theme_override_colors/font_color = Color(0.6117647, 0.32156864, 0.15294118, 1)
+theme_override_fonts/font = ExtResource("6_muxr0")
+theme_override_font_sizes/font_size = 16
+text = "-ROOTSEED ARE DRIED
+POOP OF A BLOB,
+
+-WHEN MIXED WITH ANY 
+TYPE OF SEED THEY GIVE
+NOURISHMENT TO THAT
+SEED
+ 
+"
+
+[node name="itemtypeperm" type="Label" parent="TextureRect/labelnode" unique_id=1245555455]
+offset_left = 766.0
+offset_top = 395.0
+offset_right = 903.0
+offset_bottom = 419.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_7aho6")
+theme_override_font_sizes/font_size = 24
+text = "LOOTTYPE -"
+
+[node name="itemtype" type="Label" parent="TextureRect/labelnode" unique_id=935939961]
+offset_left = 823.0
+offset_top = 416.0
+offset_right = 960.0
+offset_bottom = 450.0
+theme_override_colors/font_color = Color(0.87, 0, 0.27549994, 1)
+theme_override_fonts/font = ExtResource("5_f33l1")
+theme_override_font_sizes/font_size = 33
+text = "common"
+
+[node name="Panel" type="Panel" parent="TextureRect" unique_id=886418200]
+layout_mode = 0
+offset_left = 568.0
+offset_top = 94.0
+offset_right = 771.0
+offset_bottom = 362.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f33l1")
+
+[node name="MocondoButterfly" type="Sprite2D" parent="TextureRect/Panel" unique_id=1030018559]
+modulate = Color(0.9975291, 0.9975508, 0.98590225, 0.4745098)
+position = Vector2(99, 74)
+texture = ExtResource("8_muxr0")
+
+[node name="Label" type="Label" parent="TextureRect/Panel" unique_id=1502430948]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.92
+offset_top = -20.5
+offset_right = 90.08
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.75, 0.454, 0.195, 0.5254902)
+theme_override_fonts/font = ExtResource("6_muxr0")
+theme_override_font_sizes/font_size = 18
+text = "HOVER OVER ITEMS 
+   TO KNOW MORE"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1867007860]
 libraries/ = SubResource("AnimationLibrary_27hiw")

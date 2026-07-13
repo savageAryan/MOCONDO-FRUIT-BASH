@@ -30,9 +30,14 @@ func update():
 			slots[i].insert(itemStackGui)
 		itemStackGui.inventorySlot = inventorySlot
 		itemStackGui.update()
+@onready var itemperm: Label = $TextureRect/itemperm
+@onready var itemname: Label = $TextureRect/itemname
+@onready var label_3: Label = $TextureRect/Label3
+@onready var itemdes: Label = $TextureRect/itemdes
+@onready var itemtypeperm: Label = $TextureRect/itemtypeperm
+@onready var itemtype: Label = $TextureRect/itemtype
 
 @onready var ui: ui = $"../ui"
-
 
 func open():
 	texture_rect.visible = true
