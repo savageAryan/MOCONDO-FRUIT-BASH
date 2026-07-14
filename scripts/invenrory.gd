@@ -5,8 +5,8 @@ signal closed
 var locked:bool = false
 var oldIndex: int = -1
 @onready var texture_rect: TextureRect = $TextureRect
-
-
+var itemStackGui: ItemStackGui
+var label_tween: Tween
 @onready var panel: Panel = $Panel
 
 @onready var hotbar: TextureRect = $hotbar
@@ -36,8 +36,9 @@ func update():
 @onready var itemdes: Label = $TextureRect/itemdes
 @onready var itemtypeperm: Label = $TextureRect/itemtypeperm
 @onready var itemtype: Label = $TextureRect/itemtype
-
+var hovering = false
 @onready var ui: ui = $"../ui"
+@onready var labelnode: Control = $TextureRect/labelnode
 
 func open():
 	texture_rect.visible = true
@@ -85,11 +86,16 @@ func insertItemInSlot(slot):
 	oldIndex = -1
 func connectSlots():
 	for i in range(slots.size()):
-		var slot = slots[i]
+		var slot: InventorySlotButton = slots[i] as InventorySlotButton
 		slot.index = i
 		var callable = Callable(onSlotClicked)
 		callable = callable.bind(slot)
 		slot.pressed.connect(callable)
+		slot.pressed.connect(onSlotClicked.bind(slot))
+		slot.hovered.connect(onSlotHovered)
+		slot.unhovered.connect(onSlotUnhovered)
+		
+
 func onSlotClicked(slot):
 	if locked: return
 	if slot.isEmpty():
@@ -168,4 +174,42 @@ func _on_texture_button_toggled(toggled_on: bool) -> void:
 		close()
 		ui.inventory_close()
 		closed.emit()
+
+func onSlotHovered():
+	hovering = true
+	if itemStackGui == null :
+		return
+	if hovering:
+		await  get_tree().create_timer(0.2).timeout
+	if label_tween:
+		label_tween.kill()
+	var item = itemStackGui.inventorySlot.item
+	panel.visible = false
+	itemname.text = item.name
+	itemtype.text = item.item_type
+	itemdes.text = item.description
+	labelnode.modulate = Color.TRANSPARENT
+	
+	label_tween = create_tween()
+	label_tween.tween_property(labelnode,"modulate",Color("ffff"),0.2)
+	await label_tween.finished
+	
+	labelnode.visible = true
+	panel.visible = false
+	
+
+func onSlotUnhovered():
+	hovering = false
+	if hovering:
+		return
+	
+	if !hovering:
+		await get_tree().create_timer(0.5).timeout
 		
+	if label_tween:
+		label_tween.kill()
+	label_tween = create_tween()
+	label_tween.tween_property(labelnode,"modulate",Color("0000"),0.2)
+	await label_tween.finished
+	panel.visible =true
+	labelnode.visible = false

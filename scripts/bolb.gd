@@ -34,7 +34,7 @@ func blob_healthdown(amount, pos):
 	knocked = true
 	blob_health = max(0 ,blob_health - amount)
 	heart_anim()
-	animation_player.play("damage/hearts animation")
+	animation_player.play("damage/new_animation")
 	if blob_health <= 0:
 		deaddd = true
 		blobseed()

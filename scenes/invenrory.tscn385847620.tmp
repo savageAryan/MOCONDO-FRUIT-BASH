@@ -525,16 +525,11 @@ layout_mode = 2
 [node name="slot20" parent="TextureRect/GridContainer" unique_id=1543599858 instance=ExtResource("3_ovfi1")]
 layout_mode = 2
 
-[node name="labelnode" type="Control" parent="TextureRect" unique_id=885172926]
+[node name="labelnode" type="Node2D" parent="TextureRect" unique_id=773017840]
 modulate = Color(1, 1, 1, 0)
-anchors_preset = 0
-offset_left = -197.0
-offset_top = -84.0
-offset_right = -197.0
-offset_bottom = -84.0
+position = Vector2(-197, -84)
 
 [node name="itemperm" type="Label" parent="TextureRect/labelnode" unique_id=696746114]
-layout_mode = 0
 offset_left = 774.0
 offset_top = 180.0
 offset_right = 883.0
@@ -545,7 +540,6 @@ theme_override_font_sizes/font_size = 20
 text = "ITEM"
 
 [node name="itemname" type="Label" parent="TextureRect/labelnode" unique_id=1214892267]
-layout_mode = 0
 offset_left = 774.0
 offset_top = 205.0
 offset_right = 965.0
@@ -556,7 +550,6 @@ theme_override_font_sizes/font_size = 39
 text = "rootseed"
 
 [node name="Label3" type="Label" parent="TextureRect/labelnode" unique_id=843367796]
-layout_mode = 0
 offset_left = 769.0
 offset_top = 227.0
 offset_right = 967.0
@@ -567,7 +560,6 @@ theme_override_font_sizes/font_size = 39
 text = "-------------"
 
 [node name="itemdes" type="Label" parent="TextureRect/labelnode" unique_id=949844401]
-layout_mode = 0
 offset_left = 769.0
 offset_top = 265.0
 offset_right = 969.0
@@ -586,7 +578,6 @@ SEED
 "
 
 [node name="itemtypeperm" type="Label" parent="TextureRect/labelnode" unique_id=1245555455]
-layout_mode = 0
 offset_left = 766.0
 offset_top = 395.0
 offset_right = 903.0
@@ -597,7 +588,6 @@ theme_override_font_sizes/font_size = 24
 text = "LOOTTYPE -"
 
 [node name="itemtype" type="Label" parent="TextureRect/labelnode" unique_id=935939961]
-layout_mode = 0
 offset_left = 823.0
 offset_top = 416.0
 offset_right = 960.0

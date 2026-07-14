@@ -1,4 +1,7 @@
 extends Button
+class_name InventorySlotButton
+signal hovered(item)
+signal unhovered()
 @onready var backgroundsprite: Sprite2D = $background
 @onready var container: CenterContainer = $CenterContainer
 @onready var inventory = preload("res://inventory/player_inventory.tres")
@@ -8,8 +11,9 @@ extends Button
 @onready var itemdes: Label = $"../../labelnode/itemdes"
 @onready var itemtypeperm: Label = $"../../labelnode/itemtypeperm"
 @onready var itemtype: Label = $"../../labelnode/itemtype"
-@onready var labelnode: Node2D = $"../../labelnode"
-
+@onready var labelnode: Control = $"../../labelnode"
+var label_tween: Tween
+var hovering:bool = false
 @onready var panel: Panel = $"../../Panel"
 var itemStackGui: ItemStackGui
 var index: int
@@ -49,37 +53,12 @@ func _process(delta: float) -> void:
 
 
 func _on_mouse_entered() -> void:
-	if itemStackGui == null :
+	if itemStackGui == null:
 		return
-	
-	
-	itemdes.visible = true
-	itemname.visible = true
-	itemtype.visible = true
-	itemperm.visible = true
-	itemtypeperm.visible = true
-	label_3.visible = true
-	panel.visible = false
-	var item = itemStackGui.inventorySlot.item
-	itemname.text = item.name
-	itemtype.text = item.item_type
-	itemdes.text = item.description
-	var label_tween = create_tween()
-	label_tween.tween_property(labelnode,"modulate",Color("ffff"),0.2)
-	await label_tween.finished
-	
+	hovered.emit(itemStackGui.inventorySlot.item)
 	
 
 func _on_mouse_exited() -> void:
+	unhovered.emit()
 	
-	await get_tree().create_timer(0.1).timeout
-	itemdes.visible = false
-	itemname.visible = false
-	itemtype.visible = false
-	itemperm.visible = false
-	itemtypeperm.visible = false
-	label_3.visible = false
-	panel.visible = true
-	var label_tween = create_tween()
-	label_tween.tween_property(labelnode,"modulate",Color("0000"),0.2)
-	await label_tween.finished
+	

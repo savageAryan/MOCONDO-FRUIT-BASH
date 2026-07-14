@@ -842,9 +842,50 @@ _data = {
 &"RESET": SubResource("Animation_0xfgb")
 }
 
+[sub_resource type="Animation" id="Animation_8182q"]
+resource_name = "new_animation"
+length = 1.615
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hearts:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.1, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-40.87591, -24.817518), Vector2(-40.876, -29.188), Vector2(-40.876, -24.813)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hearts:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(7.450581e-09, 0.033333335, 1.1666666, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hearts:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.03333334, 0.10000001, 0.26666668, 0.9333334, 1.3333334, 1.4666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.385, 0.46899992, 0.7, 0), Color(0.385, 0.46899992, 0.7, 1), Color(0.385, 0.46899992, 0.7, 0.75686276), Color(0.385, 0.46899992, 0.7, 1), Color(0.385, 0.46899992, 0.7, 0.5568628), Color(0.385, 0.46899992, 0.7, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mmuc6"]
 _data = {
-&"hearts animation": ExtResource("5_0xfgb")
+&"hearts animation": ExtResource("5_0xfgb"),
+&"new_animation": SubResource("Animation_8182q")
 }
 
 [node name="blob" type="CharacterBody2D" unique_id=752804772 groups=["enemy"]]
