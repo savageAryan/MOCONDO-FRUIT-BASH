@@ -607,7 +607,7 @@ theme_override_fonts/font = ExtResource("5_f33l1")
 theme_override_font_sizes/font_size = 33
 text = "common"
 
-[node name="Panel" type="Panel" parent="TextureRect" unique_id=886418200]
+[node name="Panel1" type="Panel" parent="TextureRect" unique_id=886418200]
 layout_mode = 0
 offset_left = 568.0
 offset_top = 94.0
@@ -615,12 +615,12 @@ offset_right = 771.0
 offset_bottom = 362.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_f33l1")
 
-[node name="MocondoButterfly" type="Sprite2D" parent="TextureRect/Panel" unique_id=1030018559]
+[node name="MocondoButterfly" type="Sprite2D" parent="TextureRect/Panel1" unique_id=1030018559]
 modulate = Color(0.9975291, 0.9975508, 0.98590225, 0.4745098)
 position = Vector2(99, 74)
 texture = ExtResource("8_muxr0")
 
-[node name="Label" type="Label" parent="TextureRect/Panel" unique_id=1502430948]
+[node name="Label" type="Label" parent="TextureRect/Panel1" unique_id=1502430948]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -30,12 +30,14 @@ func update():
 			slots[i].insert(itemStackGui)
 		itemStackGui.inventorySlot = inventorySlot
 		itemStackGui.update()
-@onready var itemperm: Label = $TextureRect/itemperm
-@onready var itemname: Label = $TextureRect/itemname
-@onready var label_3: Label = $TextureRect/Label3
-@onready var itemdes: Label = $TextureRect/itemdes
-@onready var itemtypeperm: Label = $TextureRect/itemtypeperm
-@onready var itemtype: Label = $TextureRect/itemtype
+@onready var itemperm: Label = $TextureRect/labelnode/itemperm
+@onready var itemname: Label = $TextureRect/labelnode/itemname
+@onready var label_3: Label = $TextureRect/labelnode/Label3
+@onready var itemdes: Label = $TextureRect/labelnode/itemdes
+@onready var itemtypeperm: Label = $TextureRect/labelnode/itemtypeperm
+@onready var itemtype: Label = $TextureRect/labelnode/itemtype
+@onready var panel_1: Panel = $TextureRect/Panel1
+
 var hovering = false
 @onready var ui: ui = $"../ui"
 @onready var labelnode: Control = $TextureRect/labelnode
@@ -86,11 +88,13 @@ func insertItemInSlot(slot):
 	oldIndex = -1
 func connectSlots():
 	for i in range(slots.size()):
+		
 		var slot: InventorySlotButton = slots[i] as InventorySlotButton
 		slot.index = i
+		print(slot)
+		print(slot.get_script())
 		var callable = Callable(onSlotClicked)
 		callable = callable.bind(slot)
-		slot.pressed.connect(callable)
 		slot.pressed.connect(onSlotClicked.bind(slot))
 		slot.hovered.connect(onSlotHovered)
 		slot.unhovered.connect(onSlotUnhovered)
@@ -175,16 +179,13 @@ func _on_texture_button_toggled(toggled_on: bool) -> void:
 		ui.inventory_close()
 		closed.emit()
 
-func onSlotHovered():
-	hovering = true
-	if itemStackGui == null :
+func onSlotHovered(item: InventoryItem):
+	
+	if item == null :
 		return
-	if hovering:
-		await  get_tree().create_timer(0.2).timeout
 	if label_tween:
 		label_tween.kill()
-	var item = itemStackGui.inventorySlot.item
-	panel.visible = false
+	panel_1.visible = false
 	itemname.text = item.name
 	itemtype.text = item.item_type
 	itemdes.text = item.description
@@ -199,17 +200,10 @@ func onSlotHovered():
 	
 
 func onSlotUnhovered():
-	hovering = false
-	if hovering:
-		return
-	
-	if !hovering:
-		await get_tree().create_timer(0.5).timeout
-		
 	if label_tween:
 		label_tween.kill()
 	label_tween = create_tween()
 	label_tween.tween_property(labelnode,"modulate",Color("0000"),0.2)
 	await label_tween.finished
-	panel.visible =true
+	panel_1.visible =true
 	labelnode.visible = false
