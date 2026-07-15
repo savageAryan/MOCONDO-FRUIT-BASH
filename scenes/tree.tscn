@@ -7,7 +7,7 @@
 size = Vector2(26, 43)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnvrw"]
-size = Vector2(16, 30)
+size = Vector2(16, 31)
 
 [node name="tree" type="StaticBody2D" unique_id=670320657]
 z_index = 2
@@ -23,7 +23,7 @@ shape = SubResource("RectangleShape2D_vplca")
 texture = ExtResource("1_brfkd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1649313647]
-position = Vector2(13, 33)
+position = Vector2(13, 33.5)
 shape = SubResource("RectangleShape2D_nnvrw")
 
 [node name="Timer" type="Timer" parent="." unique_id=909569425]

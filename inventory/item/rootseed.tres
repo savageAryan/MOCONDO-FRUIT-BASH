@@ -15,4 +15,9 @@ maxAmountPrStack = 20
 buy_price = 35
 sell_price = 25
 item_type = "seed"
+description = "- Dried Poop Of Blob,
+Gives Nourishment To
+seeds
+
+- Mix With Other Seeds"
 metadata/_custom_type_script = "uid://bm0nfyj7wmstx"

@@ -12,5 +12,9 @@ texture = SubResource("CompressedTexture2D_ry3uj")
 maxAmountPrStack = 6
 buy_price = 20
 sell_price = 10
-item_type = null
+item_type = "log"
+description = "- Log From A Tree
+
+- Wonder What You Can
+Make With These!"
 metadata/_custom_type_script = "uid://bm0nfyj7wmstx"

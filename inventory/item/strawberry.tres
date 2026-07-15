@@ -11,4 +11,9 @@ texture = ExtResource("2_mjuc1")
 maxAmountPrStack = 3
 sell_price = 10
 item_consumable = true
+item_type = "fruit"
+description = "- Guess what??? These
+Are Not Berries!!
+
+- {+1} Health Point"
 metadata/_custom_type_script = "uid://bm0nfyj7wmstx"

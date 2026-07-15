@@ -12,4 +12,8 @@ texture = SubResource("CompressedTexture2D_wwrcc")
 maxAmountPrStack = 1
 buy_price = 52
 item_type = "weapon"
+description = "- A Iron Sword ,CLASSSIC
+
+-Be Mindful Of What
+You Cut"
 metadata/_custom_type_script = "uid://bm0nfyj7wmstx"

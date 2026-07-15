@@ -5,11 +5,16 @@
 
 [resource]
 script = ExtResource("1_8ucqi")
-health_increase = 1
+health_increase = 2
 name = "mango"
 texture = ExtResource("2_hm1xo")
 maxAmountPrStack = 3
 buy_price = 10
 sell_price = 10
 item_consumable = true
+item_type = "Fruit"
+description = "-Mnago!!! Don't Eat
+MangoMan now plss!
+
+- {+2} Health Point"
 metadata/_custom_type_script = "uid://bm0nfyj7wmstx"

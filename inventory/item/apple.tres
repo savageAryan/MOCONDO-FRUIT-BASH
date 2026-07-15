@@ -12,4 +12,9 @@ maxAmountPrStack = 20
 buy_price = 11
 sell_price = 6
 item_consumable = true
+item_type = "fruit"
+description = "-an apple a day, keeps
+ the doctor away
+
+-{+1} health point!"
 metadata/_custom_type_script = "uid://bm0nfyj7wmstx"

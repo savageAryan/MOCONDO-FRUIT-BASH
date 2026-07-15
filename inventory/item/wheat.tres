@@ -14,4 +14,10 @@ texture = SubResource("AtlasTexture_b23xe")
 maxAmountPrStack = 100
 buy_price = 5
 sell_price = 5
+item_type = "Crop"
+description = "-Straight From The
+Old Man's Farm
+
+-DON'T EAT WITHOUT
+COOKING"
 metadata/_custom_type_script = "uid://bm0nfyj7wmstx"

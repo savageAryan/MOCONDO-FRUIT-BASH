@@ -10,4 +10,9 @@ texture = ExtResource("2_mjuc1")
 maxAmountPrStack = 1
 buy_price = 40
 item_type = "axe"
+description = "- Tool to cut logs from 
+trees
+
+-Too heavy for combat
+"
 metadata/_custom_type_script = "uid://bm0nfyj7wmstx"

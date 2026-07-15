@@ -12,4 +12,8 @@ maxAmountPrStack = 3
 buy_price = 10
 sell_price = 10
 item_consumable = true
+item_type = "fruit"
+description = "- BANANAAAA!!! 
+
+- {+1} Health Point"
 metadata/_custom_type_script = "uid://bm0nfyj7wmstx"
