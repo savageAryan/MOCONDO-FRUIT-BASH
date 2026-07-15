@@ -4,9 +4,10 @@ class_name capybara extends CharacterBody2D
 var ramdon_target = Vector2.ZERO
 var facing = "front"
 var speed = 20
-var waiting = false
+var waiting:bool = false
 var stuck_pos = Vector2.ZERO
 var stuck_time = 0.0
+var sleeping:bool = false
 func _physics_process(delta: float) -> void:
 	roaming()
 	if global_position.distance_to(stuck_pos) < 1:
@@ -25,10 +26,18 @@ func random_Targer():
 	ramdon_target = global_position + Vector2(randf_range(-200,200), randf_range(-200,200))
 	navigation_agent_2d.target_position = ramdon_target
 func roaming():
+	if sleeping:
+		return
 	if waiting:
 		play_idel()
 		return
-	
+	var sleep_timer = get_tree().create_timer(200)
+	if sleep_timer.timeout:
+		sleeping = true
+		sleep()
+		await get_tree().create_timer(100).timeout
+		sleeping = false
+		random_Targer()
 	if navigation_agent_2d.is_navigation_finished():
 		velocity = Vector2.ZERO
 		play_idel()
@@ -76,3 +85,14 @@ func play_idel():
 		else:
 			if facing == "side":
 				animated_sprite_2d.play("bara front idel")
+				
+func sleep():
+	sleeping = true
+	velocity = Vector2.ZERO
+	if facing == "front":
+		animated_sprite_2d.play("sleeping front")
+	elif facing == "back":
+		animated_sprite_2d.play("sleeping back")
+	elif facing == "side":
+		animated_sprite_2d.play("sleeping front")
+	
