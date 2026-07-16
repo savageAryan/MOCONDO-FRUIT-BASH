@@ -34,7 +34,7 @@ func roaming():
 		chasing_player()
 		return
 	if annoyed:
-		attack()
+		got_annoyed()
 		return
 	if attacking:
 		return
@@ -112,6 +112,12 @@ func chasing_player():
 	navigation_agent_2d.target_position = player.global_position
 	var next_x = navigation_agent_2d.get_next_path_position()
 	var direction = (next_x - global_position).normalized()
+	var distance = global_position.distance_to(player.global_position)
+	if chasing:
+		if distance < 25:
+			chasing = false
+			attack()
+			return
 	if abs(direction.x) > abs(direction.y):
 		if direction.x > 0:
 			facing = "side"
@@ -128,26 +134,41 @@ func chasing_player():
 		else: 
 			facing = "back"
 			animated_sprite_2d.play("chasing back")
-	velocity = velocity.move_toward(direction * speed ,12)
+	velocity = velocity.move_toward(direction * speed * 1.5 ,12)
 	move_and_slide()
-func attack():
-	if attacking:
+func got_annoyed():
+	if annoyed:
 		return
-	attacking = true
+	annoyed = true
 	animated_sprite_2d.play("alert front")
-	await get_tree().create_timer(3).timeout
+	await animated_sprite_2d.animation_finished
+	annoyed = false
 	var distance = global_position.distance_to(player.global_position)
 	if distance < 60:
-		attacking = true
+		chasing = true
 		chasing_player()
 	else:
 		random_Targer()
-
+func attack():
+	attacking = true
+	if facing == "front":
+		animated_sprite_2d.play("attack front")
+	elif facing == "side":
+		animated_sprite_2d.play("attack side")
+	else:
+		animated_sprite_2d.play("attack back")
+	await  animated_sprite_2d.animation_finished
+	attacking = false
+	if global_position.distance_to(player.global_position) > 40:
+		chasing = true
+	else:
+		attack()
 func _on_detectarea_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		annoyed = true
-
-
+	if sleeping:
+		if body.is_in_group("player"):
+			annoyed = true
 func _on_detectarea_body_exited(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		annoyed = false
+	if annoyed:
+		if body.is_in_group("player"):
+			annoyed = false
+			sleeping = false
