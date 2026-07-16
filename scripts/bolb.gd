@@ -60,6 +60,7 @@ func _ready() -> void:
 	random_Targer()
 	heart_anim()
 func _physics_process(delta: float) -> void:
+	return
 	if deaddd:
 		return
 	if knocked:

@@ -921,6 +921,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2tg6s"]
+radius = 51.971592
+
 [node name="capybara" type="CharacterBody2D" unique_id=32064895]
 scale = Vector2(0.536, 0.536)
 script = ExtResource("1_8rfww")
@@ -937,3 +940,11 @@ animation = &"sleeping back"
 frame_progress = 0.6634226
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=377669342]
+
+[node name="detectarea" type="Area2D" parent="." unique_id=5509746]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectarea" unique_id=540539557]
+shape = SubResource("CircleShape2D_2tg6s")
+
+[connection signal="body_entered" from="detectarea" to="." method="_on_detectarea_body_entered"]
+[connection signal="body_exited" from="detectarea" to="." method="_on_detectarea_body_exited"]
