@@ -917,9 +917,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8rfww"]
-radius = 8.857582
-height = 17.715164
+[sub_resource type="CircleShape2D" id="CircleShape2D_pbiwp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2tg6s"]
 radius = 51.971592
@@ -934,10 +932,10 @@ sprite_frames = SubResource("SpriteFrames_ohge4")
 animation = &"bara idel"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=710299157]
-position = Vector2(-5.684342e-14, -3.7313437)
+position = Vector2(1.8656716, 1.8656718)
 rotation = 1.5707964
-scale = Vector2(1.6828445, 1.3817705)
-shape = SubResource("CapsuleShape2D_8rfww")
+scale = Vector2(1.3843367, 1.3817705)
+shape = SubResource("CircleShape2D_pbiwp")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=377669342]
 

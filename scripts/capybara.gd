@@ -5,49 +5,37 @@ class_name capybara extends CharacterBody2D
 var ramdon_target = Vector2.ZERO
 var facing = "front"
 var speed = 20
-var waiting:bool = false
 var stuck_pos = Vector2.ZERO
 var stuck_time = 0.0
-var annoyed:bool = false
-var chasing:bool =false
-var attacking:bool = false
-var sleeping:bool = false
+enum states {wait,sleep,chase,alert,attack,stuck,roam}
+var state = states.roam
 func _physics_process(delta: float) -> void:
-	roaming()
 	if global_position.distance_to(stuck_pos) < 1:
 		stuck_time += delta
-	else: stuck_time = 0
-	stuck_pos = global_position
+	else: 
+		stuck_time = 0
+		stuck_pos = global_position
 	if stuck_time > 5.0:
 		stuck_time = 0
 		random_Targer()
+	
+	match state:
+		states.roam:
+			roaming()
+		states.chase:
+			chasing_player()
+		states.sleep:
+			sleep()
 func _ready() -> void:
 	random_Targer()
 	sleep_cycle()
 func random_Targer():
-
-	
 	ramdon_target = global_position + Vector2(randf_range(-200,200), randf_range(-200,200))
 	navigation_agent_2d.target_position = ramdon_target
 func roaming():
-	if chasing:
-		chasing_player()
-		return
-	if annoyed:
-		got_annoyed()
-		return
-	if attacking:
-		return
-	if sleeping:
-		return
-	if waiting:
-		play_idel()
-		return
 	if navigation_agent_2d.is_navigation_finished():
-		velocity = Vector2.ZERO
-		play_idel()
-		move_and_slide()
-		return
+		state = states.wait
+		wait_finished()
 	var point_X = navigation_agent_2d.get_next_path_position()
 	
 	var direction = (point_X - global_position).normalized()
@@ -70,17 +58,12 @@ func roaming():
 	velocity = velocity.move_toward(direction * speed, 6)
 	
 	move_and_slide()
-	if velocity.length() < 1:
-		play_idel()
-	if navigation_agent_2d.is_navigation_finished():
-		velocity = Vector2.ZERO
-		play_idel()
-		waiting = true
-		
-		await get_tree().create_timer(6).timeout
-		random_Targer()
-		waiting = false
-
+func wait_finished():
+	state = states.wait
+	play_idel()
+	await get_tree().create_timer(5).timeout
+	random_Targer()
+	state = states.roam
 func play_idel():
 	if velocity.length() < 1:
 		if facing == "front":
@@ -92,7 +75,6 @@ func play_idel():
 				animated_sprite_2d.play("bara front idel")
 				
 func sleep():
-	sleeping = true
 	velocity = Vector2.ZERO
 	if facing == "front":
 		animated_sprite_2d.play("sleeping front")
@@ -103,21 +85,18 @@ func sleep():
 func sleep_cycle():
 	while true:
 		await get_tree().create_timer(20).timeout
-		sleep()
+		state = states.sleep
 		await get_tree().create_timer(10).timeout
-		sleeping = false
-		random_Targer()
+		state = states.roam
 		
 func chasing_player():
 	navigation_agent_2d.target_position = player.global_position
 	var next_x = navigation_agent_2d.get_next_path_position()
 	var direction = (next_x - global_position).normalized()
 	var distance = global_position.distance_to(player.global_position)
-	if chasing:
-		if distance < 25:
-			chasing = false
-			attack()
-			return
+	if distance < 25:
+		attack()
+		return
 	if abs(direction.x) > abs(direction.y):
 		if direction.x > 0:
 			facing = "side"
@@ -137,38 +116,31 @@ func chasing_player():
 	velocity = velocity.move_toward(direction * speed * 1.5 ,12)
 	move_and_slide()
 func got_annoyed():
-	if annoyed:
-		return
-	annoyed = true
 	animated_sprite_2d.play("alert front")
 	await animated_sprite_2d.animation_finished
-	annoyed = false
 	var distance = global_position.distance_to(player.global_position)
 	if distance < 60:
-		chasing = true
-		chasing_player()
+		state = states.chase
 	else:
 		random_Targer()
 func attack():
-	attacking = true
+	state = states.attack
 	if facing == "front":
 		animated_sprite_2d.play("attack front")
 	elif facing == "side":
 		animated_sprite_2d.play("attack side")
 	else:
 		animated_sprite_2d.play("attack back")
-	await  animated_sprite_2d.animation_finished
-	attacking = false
-	if global_position.distance_to(player.global_position) > 40:
-		chasing = true
-	else:
-		attack()
+		state = states.chase
 func _on_detectarea_body_entered(body: Node2D) -> void:
-	if sleeping:
 		if body.is_in_group("player"):
-			annoyed = true
+			if state == states.sleep:
+				alert()
 func _on_detectarea_body_exited(body: Node2D) -> void:
-	if annoyed:
 		if body.is_in_group("player"):
-			annoyed = false
-			sleeping = false
+			state = states.roam
+func alert():
+	state = states.alert
+	animated_sprite_2d.play("alert front")
+	await animated_sprite_2d.animation_finished
+	state = states.chase
