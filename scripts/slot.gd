@@ -51,7 +51,6 @@ func _process(delta: float) -> void:
 func _on_mouse_entered() -> void:
 	if itemStackGui == null:
 		return
-	print("entred",index)
 	hovered.emit(itemStackGui.inventorySlot.item)
 func _on_mouse_exited() -> void:
 	unhovered.emit()

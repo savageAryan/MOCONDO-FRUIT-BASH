@@ -9,7 +9,6 @@ var dying:bool = false
 @export var inventory: Inventory
 
 func _ready() -> void:
-	print("player", inventory)
 	inventory.use_item.connect(use_item)
 	if fruits <= 0 :
 		animated_sprite_2d.play("empty idel")

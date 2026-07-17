@@ -35,7 +35,6 @@ func _unhandled_input(event) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("h",inventory)
 	update()
 	inventory.updated.connect(update)
 

@@ -500,7 +500,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2d3ra")
 }],
-"loop": 2,
+"loop": 0,
 "name": &"alert front",
 "speed": 4.0
 }, {

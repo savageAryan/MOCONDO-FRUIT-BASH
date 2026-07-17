@@ -34,8 +34,11 @@ func random_Targer():
 	navigation_agent_2d.target_position = ramdon_target
 func roaming():
 	if navigation_agent_2d.is_navigation_finished():
+		velocity = Vector2.ZERO
+		move_and_slide()
 		state = states.wait
 		wait_finished()
+		return
 	var point_X = navigation_agent_2d.get_next_path_position()
 	
 	var direction = (point_X - global_position).normalized()
@@ -59,7 +62,7 @@ func roaming():
 	
 	move_and_slide()
 func wait_finished():
-	state = states.wait
+	velocity = Vector2.ZERO
 	play_idel()
 	await get_tree().create_timer(5).timeout
 	random_Targer()
@@ -84,13 +87,19 @@ func sleep():
 		animated_sprite_2d.play("sleeping front")
 func sleep_cycle():
 	while true:
-		await get_tree().create_timer(20).timeout
-		state = states.sleep
-		await get_tree().create_timer(10).timeout
-		state = states.roam
+		if state == states.roam:
+			await get_tree().create_timer(20).timeout
+		if state == states.roam:
+			state = states.sleep
+			if state == states.sleep:
+				await get_tree().create_timer(10).timeout
+				if state == states.sleep:
+					state = states.roam
+		else: await get_tree().physics_frame
 		
 func chasing_player():
-	navigation_agent_2d.target_position = player.global_position
+	if navigation_agent_2d.target_position != player.global_position:
+		navigation_agent_2d.target_position = player.global_position
 	var next_x = navigation_agent_2d.get_next_path_position()
 	var direction = (next_x - global_position).normalized()
 	var distance = global_position.distance_to(player.global_position)
@@ -131,13 +140,14 @@ func attack():
 		animated_sprite_2d.play("attack side")
 	else:
 		animated_sprite_2d.play("attack back")
-		state = states.chase
+	await animated_sprite_2d.animation_finished
+	state = states.chase
 func _on_detectarea_body_entered(body: Node2D) -> void:
 		if body.is_in_group("player"):
 			if state == states.sleep:
 				alert()
 func _on_detectarea_body_exited(body: Node2D) -> void:
-		if body.is_in_group("player"):
+		if body.is_in_group("player") and state == states.alert:
 			state = states.roam
 func alert():
 	state = states.alert
