@@ -23,7 +23,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 func _physics_process(delta: float) -> void:
-	
 	if selected == true:
 		color_rect.visible = true
 		animation_player.play("selected")

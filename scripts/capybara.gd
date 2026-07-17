@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 	if stuck_time > 5.0:
 		stuck_time = 0
 		random_Targer()
-	
+	print(state)
 	match state:
 		states.roam:
 			roaming()
@@ -98,12 +98,14 @@ func sleep_cycle():
 		else: await get_tree().physics_frame
 		
 func chasing_player():
-	if navigation_agent_2d.target_position != player.global_position:
-		navigation_agent_2d.target_position = player.global_position
+	navigation_agent_2d.target_position = player.global_position
 	var next_x = navigation_agent_2d.get_next_path_position()
 	var direction = (next_x - global_position).normalized()
 	var distance = global_position.distance_to(player.global_position)
-	if distance < 25:
+	print("Player:", player.global_position)
+	print("Next:", navigation_agent_2d.get_next_path_position())
+	print(direction)
+	if distance < 15:
 		attack()
 		return
 	if abs(direction.x) > abs(direction.y):
@@ -133,7 +135,6 @@ func got_annoyed():
 	else:
 		random_Targer()
 func attack():
-	state = states.attack
 	if facing == "front":
 		animated_sprite_2d.play("attack front")
 	elif facing == "side":
