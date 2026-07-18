@@ -9,6 +9,7 @@ var stuck_pos = Vector2.ZERO
 var stuck_time = 0.0
 enum states {wait,sleep,chase,alert,attack,roam}
 var state = states.roam
+
 func _physics_process(delta: float) -> void:
 	if global_position.distance_to(stuck_pos) < 1:
 		stuck_time += delta
@@ -18,7 +19,6 @@ func _physics_process(delta: float) -> void:
 	if stuck_time > 5.0:
 		stuck_time = 0
 		random_Targer()
-	print(state)
 	match state:
 		states.roam:
 			roaming()
@@ -138,7 +138,7 @@ func got_annoyed():
 	await animated_sprite_2d.animation_finished
 	state = states.chase
 func attack():
-	print("attack start")
+	var knockback = (player.global_position - global_position).normalized()
 	state = states.attack
 	if facing == "front":
 		animated_sprite_2d.play("attack front")
@@ -147,12 +147,16 @@ func attack():
 	else:
 		animated_sprite_2d.play("attack back")
 	await get_tree().create_timer(0.45).timeout
-	if player:
+	if player and global_position.distance_to(player.global_position) < 15:
+		player.knockback = (player.global_position - global_position).normalized() * 150
 		player.decrease_health(3)
+		move_and_slide()
 	if player == null:
 		state = states.roam
 		return
 	await animated_sprite_2d.animation_finished
+	if player == null:
+		return
 	if global_position.distance_to(player.global_position) < 65:
 		state = states.chase
 	else:

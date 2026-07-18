@@ -4,6 +4,7 @@ var fruits = 10
 var current_dir = "none"
 var speed = 50
 var dying:bool = false
+var knockback = Vector2.ZERO
 #@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var inventory: Inventory
@@ -39,35 +40,31 @@ func _physics_process(delta: float) -> void:
 	
 	
 func player_movement(delta):
-
-	
-		if Input.is_action_pressed("right"):
-			current_dir = "right"
-			play_anim(1)
-			
-			velocity.x = speed
-			velocity.y = 0
-		elif Input.is_action_pressed("left"):
-			current_dir = "left"
-			play_anim(1)
-			velocity.x = -speed
-			velocity.y =0
-		elif Input.is_action_pressed("forward"):
-			current_dir = "down"
-			play_anim(1)
-			velocity.x = 0
-			velocity.y = speed
-		elif Input.is_action_pressed("backward"):
-			current_dir = "up"
-			play_anim(1)
-			velocity.x = 0
-			velocity.y = -speed
-		else:
-			play_anim(0)
-			velocity.x = 0
-			velocity.y = 0
-			
-		move_and_slide()
+	velocity = Vector2.ZERO
+	var input_velocity = Vector2.ZERO
+	if Input.is_action_pressed("right"):
+		current_dir = "right"
+		play_anim(1)
+		input_velocity.x = speed
+	elif Input.is_action_pressed("left"):
+		current_dir = "left"
+		play_anim(1)
+		input_velocity.x = -speed
+	elif Input.is_action_pressed("forward"):
+		current_dir = "down"
+		play_anim(1)
+		input_velocity.y = speed
+	elif Input.is_action_pressed("backward"):
+		current_dir = "up"
+		play_anim(1)
+		input_velocity.y = -speed
+	else:
+		play_anim(0)
+		input_velocity = Vector2.ZERO
+		
+	velocity = input_velocity + knockback
+	knockback = knockback.move_toward(Vector2.ZERO, 500 * delta)
+	move_and_slide()
 	
 func play_anim(movement):
 	var dir = current_dir
@@ -181,7 +178,6 @@ func decrease_health(amount: int):
 	ui.healthdown(amount)
 	if ui.health <= 0 and !dying:
 		player_dying()
-var knockbacks = Vector2.ZERO
 @onready var ui: ui = $"../CanvasLayer/ui"
 @onready var marker_2d: Marker2D = $Marker2D
 @onready var camera_2d: Camera2D = $Camera2D
