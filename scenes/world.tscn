@@ -235,27 +235,21 @@ tile_map_data = PackedByteArray("AAD//wEAAwAIAAAAAFAAAAEAAwAIAAAAAFABAAEAAwAIAAA
 tile_set = SubResource("TileSet_k0juu")
 
 [node name="blob" parent="." unique_id=752804772 instance=ExtResource("26_ts3gi")]
-visible = false
 position = Vector2(77, -20)
 
 [node name="blob2" parent="." unique_id=900089173 instance=ExtResource("26_ts3gi")]
-visible = false
 position = Vector2(49.999996, 415.00006)
 
 [node name="blob3" parent="." unique_id=1702101496 instance=ExtResource("26_ts3gi")]
-visible = false
 position = Vector2(883.0001, 292.00003)
 
 [node name="blob4" parent="." unique_id=1081513936 instance=ExtResource("26_ts3gi")]
-visible = false
 position = Vector2(301.00003, 995.0001)
 
 [node name="blob5" parent="." unique_id=1852408574 instance=ExtResource("26_ts3gi")]
-visible = false
 position = Vector2(326.00003, 181.00003)
 
 [node name="blob6" parent="." unique_id=2073180058 instance=ExtResource("26_ts3gi")]
-visible = false
 position = Vector2(604.00006, 119.000015)
 
 [node name="player" parent="." unique_id=756428043 groups=["player"] instance=ExtResource("1_nnsk1")]

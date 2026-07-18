@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c2x6qv7xt7jkr" path="res://scripts/bolb.gd" id="1_xequk"]
 [ext_resource type="Texture2D" uid="uid://de2uf8uuwc7mq" path="res://assets/enemy idel.png" id="2_xequk"]
 [ext_resource type="PackedScene" uid="uid://bti3nhfkb0cvv" path="res://scenes/hearts.tscn" id="4_1t07j"]
+[ext_resource type="Texture2D" uid="uid://cngho2cg5mk6v" path="res://assets/enemy die.png" id="4_8182q"]
 [ext_resource type="Animation" uid="uid://d30xoe54prqdl" path="res://hearts animation.res" id="5_0xfgb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ohge4"]
@@ -120,6 +121,10 @@ region = Rect2(640, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_h61jx"]
 atlas = ExtResource("1_igaww")
 region = Rect2(736, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1gfh"]
+atlas = ExtResource("4_8182q")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ls3e"]
 atlas = ExtResource("2_xequk")
@@ -528,6 +533,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_n1gfh")
+}],
+"loop": 1,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_5ls3e")
 }, {
 "duration": 1.0,
@@ -900,7 +913,7 @@ debug_color = Color(0.8288727, 0.35348046, 0.46974277, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=319454871]
 sprite_frames = SubResource("SpriteFrames_2tg6s")
-animation = &"back idel"
+animation = &"dead"
 autoplay = "walking front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=640459991]

@@ -14,6 +14,7 @@ var facing = "front"
 var stuck_pos = Vector2.ZERO
 var stuck_time = 0.0
 var deaddd:bool = false
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hearts: Control = $hearts
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -60,7 +61,6 @@ func _ready() -> void:
 	random_Targer()
 	heart_anim()
 func _physics_process(delta: float) -> void:
-	return
 	if deaddd:
 		return
 	if knocked:
@@ -247,6 +247,12 @@ func blob_dying():
 	if player.current_dir == "right" or "up":
 		animated_sprite_2d.play("die")
 		animated_sprite_2d.flip_h = false
-		
+	set_physics_process(false)
+	remove_from_group("enemy")
 	await animated_sprite_2d.animation_finished
+	animated_sprite_2d.play("dead")
+	collision_shape_2d.disabled = true
+	
+	
+	await get_tree().create_timer(10).timeout
 	queue_free()

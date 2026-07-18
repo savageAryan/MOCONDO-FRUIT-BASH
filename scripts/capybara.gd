@@ -150,10 +150,11 @@ func attack():
 		animated_sprite_2d.play("attack side")
 	else:
 		animated_sprite_2d.play("attack back")
+	await get_tree().create_timer(0.45).timeout
 	if player and global_position.distance_to(player.global_position) < 15:
 		player.knockback = (player.global_position - global_position).normalized() * 150
 		player.decrease_health(3)
-	await get_tree().create_timer(0.45).timeout
+	
 	
 	if player == null:
 		state = states.roam
@@ -162,7 +163,7 @@ func attack():
 	if player == null:
 		return
 	print("Distance after attack:", global_position.distance_to(player.global_position))
-	if global_position.distance_to(player.global_position) < 55:
+	if global_position.distance_to(player.global_position) < 105:
 		state = states.chase
 	else:
 		state = states.roam
