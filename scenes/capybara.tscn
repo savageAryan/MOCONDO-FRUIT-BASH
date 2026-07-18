@@ -870,4 +870,3 @@ shape = SubResource("CircleShape2D_pbiwp")
 shape = SubResource("CircleShape2D_2tg6s")
 
 [connection signal="body_entered" from="detectarea" to="." method="_on_detectarea_body_entered"]
-[connection signal="body_exited" from="detectarea" to="." method="_on_detectarea_body_exited"]

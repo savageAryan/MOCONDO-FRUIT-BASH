@@ -110,6 +110,10 @@ func chasing_player():
 	var next_x = navigation_agent_2d.get_next_path_position()
 	var direction = (next_x - global_position).normalized()
 	var distance = global_position.distance_to(player.global_position)
+	if distance > 105:
+		state = states.roam
+		random_Targer()
+		return
 	if distance < 15:
 		state = states.attack
 		attack()
@@ -146,18 +150,19 @@ func attack():
 		animated_sprite_2d.play("attack side")
 	else:
 		animated_sprite_2d.play("attack back")
-	await get_tree().create_timer(0.45).timeout
 	if player and global_position.distance_to(player.global_position) < 15:
 		player.knockback = (player.global_position - global_position).normalized() * 150
 		player.decrease_health(3)
-		move_and_slide()
+	await get_tree().create_timer(0.45).timeout
+	
 	if player == null:
 		state = states.roam
 		return
 	await animated_sprite_2d.animation_finished
 	if player == null:
 		return
-	if global_position.distance_to(player.global_position) < 65:
+	print("Distance after attack:", global_position.distance_to(player.global_position))
+	if global_position.distance_to(player.global_position) < 55:
 		state = states.chase
 	else:
 		state = states.roam
@@ -165,6 +170,3 @@ func _on_detectarea_body_entered(body: Node2D) -> void:
 		if body.is_in_group("player"):
 			if state == states.sleep:
 				got_annoyed()
-func _on_detectarea_body_exited(body: Node2D) -> void:
-		if body.is_in_group("player") and state == states.alert:
-			state = states.roam
