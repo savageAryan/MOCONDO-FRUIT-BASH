@@ -7,7 +7,7 @@ var facing = "front"
 var speed = 20
 var stuck_pos = Vector2.ZERO
 var stuck_time = 0.0
-enum states {wait,sleep,chase,alert,attack,stuck,roam}
+enum states {wait,sleep,chase,alert,attack,roam}
 var state = states.roam
 func _physics_process(delta: float) -> void:
 	if global_position.distance_to(stuck_pos) < 1:
@@ -26,6 +26,12 @@ func _physics_process(delta: float) -> void:
 			chasing_player()
 		states.sleep:
 			sleep()
+		states.wait:
+			pass
+		states.attack:
+			pass
+		states.alert:
+			pass
 func _ready() -> void:
 	random_Targer()
 	sleep_cycle()
@@ -62,6 +68,7 @@ func roaming():
 	
 	move_and_slide()
 func wait_finished():
+	state = states.wait
 	velocity = Vector2.ZERO
 	play_idel()
 	await get_tree().create_timer(5).timeout
@@ -86,30 +93,25 @@ func sleep():
 	elif facing == "side":
 		animated_sprite_2d.play("sleeping front")
 func sleep_cycle():
-	if player == null:
-		return
 	while true:
-		if state == states.roam:
-			await get_tree().create_timer(20).timeout
-		if state == states.roam:
-			state = states.sleep
-			if state == states.sleep:
-				await get_tree().create_timer(10).timeout
-				if state == states.sleep:
-					state = states.roam
-		else: await get_tree().physics_frame
-		
+		await get_tree().create_timer(20).timeout
+		if state != states.roam:
+			continue
+		state = states.sleep
+		await get_tree().create_timer(10).timeout
+		if state == states.sleep:
+			random_Targer()
+			state = states.roam
 func chasing_player():
 	if player == null:
+		state = states.roam
 		return
 	navigation_agent_2d.target_position = player.global_position
 	var next_x = navigation_agent_2d.get_next_path_position()
 	var direction = (next_x - global_position).normalized()
 	var distance = global_position.distance_to(player.global_position)
-	print("Player:", player.global_position)
-	print("Next:", navigation_agent_2d.get_next_path_position())
-	print(direction)
 	if distance < 15:
+		state = states.attack
 		attack()
 		return
 	if abs(direction.x) > abs(direction.y):
@@ -131,14 +133,13 @@ func chasing_player():
 	velocity = velocity.move_toward(direction * speed * 1.5 ,12)
 	move_and_slide()
 func got_annoyed():
+	state = states.alert
 	animated_sprite_2d.play("alert front")
 	await animated_sprite_2d.animation_finished
-	var distance = global_position.distance_to(player.global_position)
-	if distance < 60:
-		state = states.chase
-	else:
-		random_Targer()
+	state = states.chase
 func attack():
+	print("attack start")
+	state = states.attack
 	if facing == "front":
 		animated_sprite_2d.play("attack front")
 	elif facing == "side":
@@ -146,27 +147,20 @@ func attack():
 	else:
 		animated_sprite_2d.play("attack back")
 	await get_tree().create_timer(0.45).timeout
-	give_damage()
+	if player:
+		player.decrease_health(3)
+	if player == null:
+		state = states.roam
+		return
 	await animated_sprite_2d.animation_finished
 	if global_position.distance_to(player.global_position) < 65:
 		state = states.chase
 	else:
 		state = states.roam
-func get_player():
-	get_tree().get_first_node_in_group("player")
 func _on_detectarea_body_entered(body: Node2D) -> void:
 		if body.is_in_group("player"):
 			if state == states.sleep:
-				alert()
+				got_annoyed()
 func _on_detectarea_body_exited(body: Node2D) -> void:
 		if body.is_in_group("player") and state == states.alert:
 			state = states.roam
-func alert():
-	state = states.alert
-	animated_sprite_2d.play("alert front")
-	await animated_sprite_2d.animation_finished
-	state = states.chase
-func give_damage():
-	if player == null:
-		return
-	player.decrease_health(3)

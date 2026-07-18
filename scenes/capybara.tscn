@@ -526,7 +526,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2u4pl")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack back",
 "speed": 6.0
 }, {
@@ -561,7 +561,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pcomf")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack front",
 "speed": 7.0
 }, {
@@ -608,7 +608,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xy8aj")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack side",
 "speed": 9.0
 }, {
@@ -929,7 +929,7 @@ script = ExtResource("1_8rfww")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1586736042]
 scale = Vector2(0.99999994, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_ohge4")
-animation = &"bara idel"
+animation = &"attack side"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=710299157]
 position = Vector2(1.8656716, 1.8656718)
