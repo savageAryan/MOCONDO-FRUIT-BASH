@@ -86,6 +86,8 @@ func sleep():
 	elif facing == "side":
 		animated_sprite_2d.play("sleeping front")
 func sleep_cycle():
+	if player == null:
+		return
 	while true:
 		if state == states.roam:
 			await get_tree().create_timer(20).timeout
@@ -98,6 +100,8 @@ func sleep_cycle():
 		else: await get_tree().physics_frame
 		
 func chasing_player():
+	if player == null:
+		return
 	navigation_agent_2d.target_position = player.global_position
 	var next_x = navigation_agent_2d.get_next_path_position()
 	var direction = (next_x - global_position).normalized()
@@ -141,8 +145,15 @@ func attack():
 		animated_sprite_2d.play("attack side")
 	else:
 		animated_sprite_2d.play("attack back")
+	await get_tree().create_timer(0.45).timeout
+	give_damage()
 	await animated_sprite_2d.animation_finished
-	state = states.chase
+	if global_position.distance_to(player.global_position) < 65:
+		state = states.chase
+	else:
+		state = states.roam
+func get_player():
+	get_tree().get_first_node_in_group("player")
 func _on_detectarea_body_entered(body: Node2D) -> void:
 		if body.is_in_group("player"):
 			if state == states.sleep:
@@ -155,3 +166,7 @@ func alert():
 	animated_sprite_2d.play("alert front")
 	await animated_sprite_2d.animation_finished
 	state = states.chase
+func give_damage():
+	if player == null:
+		return
+	player.decrease_health(3)
