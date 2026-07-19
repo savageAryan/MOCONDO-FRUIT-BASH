@@ -104,25 +104,7 @@ func _on_monkey_monkey() -> void:
 	dialouge.visible = true
 	invenrory.visible = false
 	ui.visible = false
-	dialouge.start_dialogue([
-		"HEYYY!!",
-		"Wassup!, You'r new here?",
-		"Don't Worry, I Will Help Yuhh",
-		"This Is MOCONDO ISLAND
-		Full of Fruits and Goodness",
-		"But Turns dangerous,rabid sometimes
-		mostly at night",
-		"Don't worry You can Sleep in My Hut
-		I Can Sleep in My WorkShop, So Its Fine",
-		"You Should Go to BOGOTA, You will Find
-		People of your kind there 'HUMANS' 
-		TheY Are Organising a Ritual There",
-		"They Call it HA.. Hackthunn",
-		"BEST OF LUCK!.... BTW You Can Find me
-		In MY Workshop,And BUY and SELL Stuff",
-		"See YUUUHHH!"
-		])
-		
+	
 
 @onready var monkey: CharacterBody2D = $monkey
 

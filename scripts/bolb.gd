@@ -254,5 +254,5 @@ func blob_dying():
 	collision_shape_2d.disabled = true
 	
 	
-	await get_tree().create_timer(10).timeout
+	await get_tree().create_timer(16).timeout
 	queue_free()
