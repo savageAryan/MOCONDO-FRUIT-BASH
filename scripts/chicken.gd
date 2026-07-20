@@ -1,10 +1,12 @@
 extends CharacterBody2D
 @onready var dialouge: Control = $"../CanvasLayer/dialouge"
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-
+var talked = false
 signal chicken_in
 signal chicken_out
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	if talked:
+		return
 	if body.is_in_group("player"):
 		dialouge.start_dialogue([
 			"WOHH! A Human!!?",
@@ -19,6 +21,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			 Just Sayinn."
 		],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk")
 		chicken_in.emit()
+		talked = true
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	chicken_out.emit()
+	if body.is_in_group("player"):
+		if talked:
+			chicken_out.emit()

@@ -35,6 +35,67 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
+[sub_resource type="Animation" id="Animation_qpcre"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialougespriteframe:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(158, 256)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dialougespriteframe:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8.3984375, 8.3984375)]
+}
+
+[sub_resource type="Animation" id="Animation_vbyai"]
+resource_name = "monkeyspeak"
+length = 0.21
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialougespriteframe:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(883.2, 390.53), Vector2(882, 369.235)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dialougespriteframe:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.10000001, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(6.6, 6.6), Vector2(6.903, 6.903)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tc1v4"]
+_data = {
+&"RESET": SubResource("Animation_qpcre"),
+&"monkeyspeak": SubResource("Animation_vbyai")
+}
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_t1b6c"]
 atlas = ExtResource("3_ebeo0")
 region = Rect2(32, 0, 32, 37)
@@ -151,67 +212,6 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="Animation" id="Animation_qpcre"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/MonkerkingMocondo:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(158, 256)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/MonkerkingMocondo:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(8.3984375, 8.3984375)]
-}
-
-[sub_resource type="Animation" id="Animation_vbyai"]
-resource_name = "monkeyspeak"
-length = 0.21
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/MonkerkingMocondo:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(158, 302.565), Vector2(158, 287.03)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/MonkerkingMocondo:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.10000001, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(6.6, 6.6), Vector2(6.903, 6.903)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_tc1v4"]
-_data = {
-&"RESET": SubResource("Animation_qpcre"),
-&"monkeyspeak": SubResource("Animation_vbyai")
-}
-
 [node name="dialouge" type="Control" unique_id=350138170]
 z_index = 4
 layout_mode = 3
@@ -250,22 +250,6 @@ offset_right = 125.04615
 offset_bottom = 29.538454
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ohge4")
-
-[node name="Control" type="Control" parent="." unique_id=158154343]
-clip_contents = true
-anchors_preset = 0
-offset_left = 726.0
-offset_top = 81.0
-offset_right = 1162.0
-offset_bottom = 597.0
-mouse_filter = 2
-
-[node name="MonkerkingMocondo" type="AnimatedSprite2D" parent="Control" unique_id=841679974]
-z_index = 8
-position = Vector2(158, 256)
-scale = Vector2(8.3984375, 8.3984375)
-sprite_frames = SubResource("SpriteFrames_2tg6s")
-animation = &"capybara talk"
 
 [node name="Label" type="Label" parent="." unique_id=1946783070]
 z_index = 2
@@ -308,6 +292,13 @@ theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("6_svgti")
 theme_override_font_sizes/font_size = 22
 text = "---THE MONKEY-KING"
+
+[node name="Dialougespriteframe" type="AnimatedSprite2D" parent="." unique_id=841679974]
+z_index = 8
+position = Vector2(158, 256)
+scale = Vector2(8.3984375, 8.3984375)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+animation = &"monkey talk"
 
 [connection signal="mouse_entered" from="Crossbutton" to="." method="_on_crossbutton_mouse_entered"]
 [connection signal="mouse_exited" from="Crossbutton" to="." method="_on_crossbutton_mouse_exited"]

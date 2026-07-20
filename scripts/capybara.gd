@@ -1,15 +1,19 @@
 class_name capybara extends CharacterBody2D
+@onready var animated_sprite_2d_2: AnimatedSprite2D = $AnimatedSprite2D2
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var player: Player = $"../player"
+@onready var dialouge: Control = $"../CanvasLayer/dialouge"
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 var ramdon_target = Vector2.ZERO
 var facing = "front"
 var speed = 20
 var stuck_pos = Vector2.ZERO
 var stuck_time = 0.0
-enum states {wait,sleep,chase,alert,attack,roam}
+enum states {wait,sleep,chase,alert,attack,roam,idel}
 var state = states.roam
-
+var talked = false
+signal capybara_in
+signal capybara_out
 func _physics_process(delta: float) -> void:
 	if global_position.distance_to(stuck_pos) < 1:
 		stuck_time += delta
@@ -169,5 +173,25 @@ func attack():
 		state = states.roam
 func _on_detectarea_body_entered(body: Node2D) -> void:
 		if body.is_in_group("player"):
+			if not talked and state != states.sleep:
+				capybara_in.emit()
+				dialouge.start_dialogue([
+					"Wth! who's This now?",
+					"Why are you standing on
+					two legs??!",
+					"Your Forelimbs are Weird",
+					"WHATEVER!!",
+					"nnn..Don't Try To Disturb When
+					When I am Sleeping"
+				],"---CAPYBARA",animated_sprite_2d_2.sprite_frames,"talk")
+				state = states.idel
+				animated_sprite_2d.play("bara idel")
+				return
 			if state == states.sleep:
 				got_annoyed()
+func _on_detectarea_body_exited(body: Node2D) -> void:
+	capybara_out.emit()
+	get_tree().physics_frame
+func _on_dialouge_talk_finished() -> void:
+	talked = true
+	state = states.roam

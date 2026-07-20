@@ -1,7 +1,8 @@
 extends Control
 @onready var label: Label = $Label
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var monkerking_mocondo: AnimatedSprite2D = $Control/MonkerkingMocondo
+@onready var dialougespriteframe: AnimatedSprite2D = $Dialougespriteframe
+
 signal talk_finished
 @onready var label_2: Label = $Label2
 var dialouge_animation:SpriteFrames 
@@ -15,8 +16,8 @@ func start_dialogue(lines:Array, character_name, frame:SpriteFrames,animation_na
 	dialogue = lines
 	current = 0
 	label_2.text = character_name
-	monkerking_mocondo.sprite_frames = frame
-	monkerking_mocondo.play(animation_name)
+	dialougespriteframe.sprite_frames = frame
+	dialougespriteframe.play(animation_name)
 	visible = true
 	show_line()
 	
@@ -32,7 +33,7 @@ func _process(delta: float) -> void:
 
 
 func _on_crossbutton_pressed() -> void:
-	monkerking_mocondo.play("talk")
+	dialougespriteframe.play("talk")
 	current += 1
 	if current >= dialogue.size():
 		animation_player.stop()

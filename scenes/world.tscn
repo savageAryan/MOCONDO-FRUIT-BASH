@@ -563,6 +563,7 @@ position = Vector2(-63, 15)
 scale = Vector2(0.58, 0.58)
 
 [connection signal="talk_finished" from="CanvasLayer/dialouge" to="." method="_on_dialouge_talk_finished"]
+[connection signal="talk_finished" from="CanvasLayer/dialouge" to="capybara" method="_on_dialouge_talk_finished"]
 [connection signal="closed" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_closed"]
 [connection signal="opened" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_opened"]
 [connection signal="player_dead" from="player" to="CanvasLayer/death scene" method="_on_player_player_dead"]
@@ -580,5 +581,7 @@ scale = Vector2(0.58, 0.58)
 [connection signal="body_exited" from="StaticBody2D3/workshop area" to="." method="_on_workshop_area_body_exited"]
 [connection signal="monkey" from="monkey" to="." method="_on_monkey_monkey"]
 [connection signal="out" from="monkey" to="." method="_on_monkey_out"]
+[connection signal="capybara_in" from="capybara" to="." method="_on_capybara_capybara_in"]
+[connection signal="capybara_out" from="capybara" to="." method="_on_capybara_capybara_out"]
 [connection signal="chicken_in" from="chicken" to="." method="_on_chicken_chicken_in"]
 [connection signal="chicken_out" from="chicken" to="." method="_on_chicken_chicken_out"]

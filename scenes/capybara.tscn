@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cjc15jwojgb3x" path="res://assets/capybara back sit idel.png" id="2_pbiwp"]
 [ext_resource type="Texture2D" uid="uid://ba8p3qor032t1" path="res://assets/capybara walking.png" id="3_pbiwp"]
 [ext_resource type="Texture2D" uid="uid://cf412bv4gyi5t" path="res://assets/capybara sleep chasing and attack.png" id="5_pbiwp"]
+[ext_resource type="Texture2D" uid="uid://cvyqfkydkat2g" path="res://assets/capybara.png" id="6_ve3r5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p4aco"]
 atlas = ExtResource("5_pbiwp")
@@ -845,6 +846,21 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_2tg6s"]
 radius = 51.971592
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qv1yb"]
+atlas = ExtResource("6_ve3r5")
+region = Rect2(0, 0, 100, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tg6s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qv1yb")
+}],
+"loop": 1,
+"name": &"talk",
+"speed": 5.0
+}]
+
 [node name="capybara" type="CharacterBody2D" unique_id=32064895]
 scale = Vector2(0.536, 0.536)
 script = ExtResource("1_8rfww")
@@ -852,9 +868,7 @@ script = ExtResource("1_8rfww")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1586736042]
 scale = Vector2(0.99999994, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_ohge4")
-animation = &"attack front"
-frame = 5
-frame_progress = 1.0
+animation = &"alert front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=710299157]
 position = Vector2(1.8656716, 1.8656718)
@@ -869,4 +883,11 @@ shape = SubResource("CircleShape2D_pbiwp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectarea" unique_id=540539557]
 shape = SubResource("CircleShape2D_2tg6s")
 
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1158318373]
+visible = false
+scale = Vector2(0.335, 0.335)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+animation = &"talk"
+
 [connection signal="body_entered" from="detectarea" to="." method="_on_detectarea_body_entered"]
+[connection signal="body_exited" from="detectarea" to="." method="_on_detectarea_body_exited"]
