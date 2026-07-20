@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://d13jxal853d8w" path="res://scenes/wheat.tscn" id="26_munwf"]
 [ext_resource type="PackedScene" uid="uid://drb2l7uw0lx5" path="res://scenes/bolb.tscn" id="26_ts3gi"]
 [ext_resource type="PackedScene" uid="uid://8pxfqru4d58" path="res://scenes/capybara.tscn" id="28_0nbtd"]
+[ext_resource type="PackedScene" uid="uid://bj16im200c46f" path="res://scenes/chicken.tscn" id="29_37qwj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4wyf3"]
 texture = ExtResource("1_rwgxs")
@@ -557,6 +558,10 @@ position = Vector2(682, 190)
 [node name="capybara" parent="." unique_id=32064895 instance=ExtResource("28_0nbtd")]
 position = Vector2(139, -73)
 
+[node name="chicken" parent="." unique_id=186606679 instance=ExtResource("29_37qwj")]
+position = Vector2(-63, 15)
+scale = Vector2(0.58, 0.58)
+
 [connection signal="talk_finished" from="CanvasLayer/dialouge" to="." method="_on_dialouge_talk_finished"]
 [connection signal="closed" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_closed"]
 [connection signal="opened" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_opened"]
@@ -575,3 +580,5 @@ position = Vector2(139, -73)
 [connection signal="body_exited" from="StaticBody2D3/workshop area" to="." method="_on_workshop_area_body_exited"]
 [connection signal="monkey" from="monkey" to="." method="_on_monkey_monkey"]
 [connection signal="out" from="monkey" to="." method="_on_monkey_out"]
+[connection signal="chicken_in" from="chicken" to="." method="_on_chicken_chicken_in"]
+[connection signal="chicken_out" from="chicken" to="." method="_on_chicken_chicken_out"]

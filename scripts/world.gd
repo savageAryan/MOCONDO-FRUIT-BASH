@@ -1,18 +1,17 @@
 extends Node2D
 @onready var timer: Timer = $Timer
 @onready var control: Control = $CanvasLayer/Control
-
-
-
-
 @onready var house: AnimatedSprite2D = $StaticBody2D/house
 @onready var button_2: Button = $Button2
-
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
+@onready var workshop: Control = $CanvasLayer/workshop
 @onready var button: Button = $Button
 @onready var canvas_modulate: CanvasModulate = $CanvasModulate
 @onready var death_scene: Control = $"CanvasLayer/death scene"
-
-
+@onready var chicken: CharacterBody2D = $chicken
+@onready var dialouge: Control = $CanvasLayer/dialouge
+@onready var monkey: CharacterBody2D = $monkey
+@onready var player: Player = $"../player"
 @onready var ui: Control = $CanvasLayer/ui
 
 func _process(delta: float) -> void:
@@ -56,15 +55,6 @@ func _on_boatrest_body_exited(body: Node2D) -> void:
 func _on_button_2_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/boat.tscn")
 
-
-
-
-
-@onready var canvas_layer: CanvasLayer = $CanvasLayer
-
-@onready var workshop: Control = $CanvasLayer/workshop
-
-
 func _on_workshop_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		
@@ -94,40 +84,6 @@ func _physics_process(delta: float) -> void:
 			ui.visible = true
 			button_3.visible = true
 			invenrory.visible = true
-
-
-@onready var dialouge: Control = $CanvasLayer/dialouge
-
-
-
-func _on_monkey_monkey() -> void:
-	dialouge.visible = true
-	invenrory.visible = false
-	ui.visible = false
-	
-
-@onready var monkey: CharacterBody2D = $monkey
-
-func _on_monkey_out() -> void:
-	dialouge.visible = false
-	invenrory.visible = true
-	ui.visible = true
-
-
-
-
-
-func _on_dialouge_talk_finished() -> void:
-	monkey.queue_free()
-	invenrory.visible = true
-	ui.visible = true
-
-func _on_damage_body_entered(body: Node2D) -> void:
-	ui.healthdown(3)
-
-@onready var player: Player = $"../player"
-
-
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Inventory"):
 		
@@ -147,3 +103,25 @@ func blob_spawn():
 	blobenemy.global_position  = point.global_position
 	add_child(blobenemy)
 @onready var points = $points.get_children()
+
+
+func _on_monkey_monkey() -> void:
+	dialouge.visible = true
+	invenrory.visible = false
+	ui.visible = false
+func _on_monkey_out() -> void:
+	dialouge.visible = false
+	invenrory.visible = true
+	ui.visible = true
+func _on_dialouge_talk_finished() -> void:
+	invenrory.visible = true
+	ui.visible = true
+	
+func _on_chicken_chicken_in() -> void:
+	dialouge.visible = true
+	invenrory.visible = false
+	ui.visible = false
+func _on_chicken_chicken_out() -> void:
+	dialouge.visible = false
+	invenrory.visible = true
+	ui.visible = true

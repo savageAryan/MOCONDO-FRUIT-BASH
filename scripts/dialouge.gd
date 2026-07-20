@@ -32,6 +32,7 @@ func _process(delta: float) -> void:
 
 
 func _on_crossbutton_pressed() -> void:
+	monkerking_mocondo.play("talk")
 	current += 1
 	if current >= dialogue.size():
 		animation_player.stop()
