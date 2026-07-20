@@ -1,7 +1,7 @@
 extends Control
 @onready var label: Label = $Label
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var dialougespriteframe: AnimatedSprite2D = $Dialougespriteframe
+@onready var dialougespriteframe: AnimatedSprite2D = $Control/Dialougespriteframe
 
 signal talk_finished
 @onready var label_2: Label = $Label2

@@ -40,7 +40,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Dialougespriteframe:position")
+tracks/0/path = NodePath("Control/Dialougespriteframe:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -52,7 +52,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Dialougespriteframe:scale")
+tracks/1/path = NodePath("Control/Dialougespriteframe:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -68,7 +68,7 @@ length = 0.21
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Dialougespriteframe:position")
+tracks/0/path = NodePath("Control/Dialougespriteframe:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -80,7 +80,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Dialougespriteframe:scale")
+tracks/1/path = NodePath("Control/Dialougespriteframe:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -293,7 +293,16 @@ theme_override_fonts/font = ExtResource("6_svgti")
 theme_override_font_sizes/font_size = 22
 text = "---THE MONKEY-KING"
 
-[node name="Dialougespriteframe" type="AnimatedSprite2D" parent="." unique_id=841679974]
+[node name="Control" type="Control" parent="." unique_id=372765461]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Dialougespriteframe" type="AnimatedSprite2D" parent="Control" unique_id=841679974]
 z_index = 8
 position = Vector2(158, 256)
 scale = Vector2(8.3984375, 8.3984375)

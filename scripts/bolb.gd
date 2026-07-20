@@ -102,10 +102,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and talked:
 		if body == player:
 			player = null
 			chasing = false
+			random_Targer()
 
 func random_Targer():
 
@@ -247,10 +248,10 @@ func blob_dying():
 	knocked = true
 	animated_sprite_2d.stop()
 	
-	if player.current_dir == "left" or "down":
+	if player.current_dir == "left" or player.current_dir == "down":
 		animated_sprite_2d.play("die")
 		animated_sprite_2d.flip_h = true
-	if player.current_dir == "right" or "up":
+	if player.current_dir == "right" or player.current_dir =="up":
 		animated_sprite_2d.play("die")
 		animated_sprite_2d.flip_h = false
 	set_physics_process(false)
@@ -264,26 +265,31 @@ func blob_dying():
 
 func _on_dialogue_dectect_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		if talked:
+			return
 		velocity = Vector2.ZERO
 		waiting = true
-		if !talked:
-			play_idel()
-			blob_in.emit()
-			dialouge.start_dialogue([
-				"HNNNNNNNN!",
-				"blu..b",
-				"blub..b",
-				"\"i am a monster\"",
-				"RRuurrrr...."
-			],"---BLOB.",animated_sprite_2d.sprite_frames,"talk")
+		chasing = false
+		play_idel()
+		blob_in.emit()
+		dialouge.start_dialogue([
+			"HNNNNNNNN!",
+			"blu..b",
+			"blub..b",
+			"\"i am a monster\"",
+			"RRuurrrr...."
+		],"---BLOB.",animated_sprite_2d.sprite_frames,"talk")
 		
 
 func _on_dialogue_dectect_body_exited(body: Node2D) -> void:
+	await get_tree().create_timer(0.5).timeout
 	if body.is_in_group("player"):
 		blob_out.emit()
-		return
+		if !talked:
+			waiting = false
+			chasing = true
 
 func _on_dialouge_talk_finished() -> void:
 	talked = true
 	waiting = false
-	
+	chasing = true
