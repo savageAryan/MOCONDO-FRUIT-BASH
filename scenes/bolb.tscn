@@ -360,43 +360,43 @@ region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ut3dq"]
 atlas = ExtResource("2_xequk")
-region = Rect2(64, 0, 32, 37)
+region = Rect2(32, 0, 32, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iarql"]
 atlas = ExtResource("2_xequk")
-region = Rect2(64, 37, 32, 37)
+region = Rect2(32, 37, 32, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_32eyx"]
 atlas = ExtResource("2_xequk")
-region = Rect2(64, 74, 32, 37)
+region = Rect2(32, 74, 32, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_er6bi"]
 atlas = ExtResource("2_xequk")
-region = Rect2(64, 111, 32, 37)
+region = Rect2(32, 111, 32, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x3wh1"]
 atlas = ExtResource("2_xequk")
-region = Rect2(64, 148, 32, 37)
+region = Rect2(32, 148, 32, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ve5os"]
 atlas = ExtResource("2_xequk")
-region = Rect2(64, 185, 32, 37)
+region = Rect2(32, 185, 32, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_del1i"]
 atlas = ExtResource("2_xequk")
-region = Rect2(64, 222, 32, 37)
+region = Rect2(32, 222, 32, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pmbol"]
 atlas = ExtResource("2_xequk")
-region = Rect2(64, 259, 32, 37)
+region = Rect2(32, 259, 32, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qkm3x"]
 atlas = ExtResource("2_xequk")
-region = Rect2(64, 296, 32, 37)
+region = Rect2(32, 296, 32, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y267f"]
 atlas = ExtResource("2_xequk")
-region = Rect2(64, 333, 32, 37)
+region = Rect2(32, 333, 32, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2jeg1"]
 atlas = ExtResource("1_igaww")
@@ -774,9 +774,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y267f")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"talk",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -901,6 +901,9 @@ _data = {
 &"new_animation": SubResource("Animation_8182q")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_n0ucl"]
+radius = 56.16171
+
 [node name="blob" type="CharacterBody2D" unique_id=752804772 groups=["enemy"]]
 scale = Vector2(0.685, 0.685)
 script = ExtResource("1_xequk")
@@ -913,8 +916,10 @@ debug_color = Color(0.8288727, 0.35348046, 0.46974277, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=319454871]
 sprite_frames = SubResource("SpriteFrames_2tg6s")
-animation = &"dead"
+animation = &"talk"
 autoplay = "walking front"
+frame = 9
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=640459991]
 position = Vector2(-5.684342e-14, 2.9197078)
@@ -938,5 +943,12 @@ libraries/ = SubResource("AnimationLibrary_8182q")
 libraries/damage = SubResource("AnimationLibrary_mmuc6")
 autoplay = &"heart/hearts animation"
 
+[node name="dialogue dectect" type="Area2D" parent="." unique_id=1917030247]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dialogue dectect" unique_id=1784340239]
+shape = SubResource("CircleShape2D_n0ucl")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="dialogue dectect" to="." method="_on_dialogue_dectect_body_entered"]
+[connection signal="body_exited" from="dialogue dectect" to="." method="_on_dialogue_dectect_body_exited"]

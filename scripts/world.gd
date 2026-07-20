@@ -126,14 +126,20 @@ func _on_chicken_chicken_out() -> void:
 	invenrory.visible = true
 	ui.visible = true
 
-
 func _on_capybara_capybara_in() -> void:
 	dialouge.visible = true
 	invenrory.visible = false
 	ui.visible = false
-
-
+	
 func _on_capybara_capybara_out() -> void:
+	dialouge.visible = false
+	invenrory.visible = true
+	ui.visible = true
+func _on_blob_blob_in() -> void:
+	dialouge.visible = true
+	invenrory.visible = false
+	ui.visible = false
+func _on_blob_blob_out() -> void:
 	dialouge.visible = false
 	invenrory.visible = true
 	ui.visible = true

@@ -173,7 +173,7 @@ func attack():
 		state = states.roam
 func _on_detectarea_body_entered(body: Node2D) -> void:
 		if body.is_in_group("player"):
-			if not talked and state != states.sleep:
+			if not talked and state == states.roam:
 				capybara_in.emit()
 				dialouge.start_dialogue([
 					"Wth! who's This now?",
@@ -190,8 +190,12 @@ func _on_detectarea_body_entered(body: Node2D) -> void:
 			if state == states.sleep:
 				got_annoyed()
 func _on_detectarea_body_exited(body: Node2D) -> void:
-	capybara_out.emit()
-	get_tree().physics_frame
+	if body.is_in_group("player"):
+		capybara_out.emit()
+		if talked == false and state == states.idel:
+			state = states.roam
+			random_Targer()
+			
 func _on_dialouge_talk_finished() -> void:
 	talked = true
 	state = states.roam

@@ -14,10 +14,14 @@ var facing = "front"
 var stuck_pos = Vector2.ZERO
 var stuck_time = 0.0
 var deaddd:bool = false
+var talked = false
+signal blob_in
+signal blob_out
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hearts: Control = $hearts
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var dialouge: Control = $"../CanvasLayer/dialouge"
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 func heart_anim():
 	var hp = blob_health
@@ -61,7 +65,6 @@ func _ready() -> void:
 	random_Targer()
 	heart_anim()
 func _physics_process(delta: float) -> void:
-	return
 	if deaddd:
 		return
 	if knocked:
@@ -155,6 +158,8 @@ func roaming():
 		
 	
 func folloe_player():
+	if waiting:
+		return
 	if player == null:
 		velocity = Vector2.ZERO
 		move_and_slide()
@@ -254,6 +259,31 @@ func blob_dying():
 	animated_sprite_2d.play("dead")
 	collision_shape_2d.disabled = true
 	
-	
 	await get_tree().create_timer(16).timeout
 	queue_free()
+
+func _on_dialogue_dectect_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		velocity = Vector2.ZERO
+		waiting = true
+		if !talked:
+			play_idel()
+			blob_in.emit()
+			dialouge.start_dialogue([
+				"HNNNNNNNN!",
+				"blu..b",
+				"blub..b",
+				"\"i am a monster\"",
+				"RRuurrrr...."
+			],"---BLOB.",animated_sprite_2d.sprite_frames,"talk")
+		
+
+func _on_dialogue_dectect_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		blob_out.emit()
+		return
+
+func _on_dialouge_talk_finished() -> void:
+	talked = true
+	waiting = false
+	
