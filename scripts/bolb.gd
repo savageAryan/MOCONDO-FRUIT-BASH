@@ -1,7 +1,6 @@
 class_name blob extends CharacterBody2D
 @onready var ui: ui = $"../CanvasLayer/ui"
 @onready var world: Node2D = $".."
-
 var speed = 40
 @export var player: CharacterBody2D
 var chasing: bool = false
@@ -14,7 +13,7 @@ var facing = "front"
 var stuck_pos = Vector2.ZERO
 var stuck_time = 0.0
 var deaddd:bool = false
-var talked = false
+
 signal blob_in
 signal blob_out
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -81,12 +80,9 @@ func _physics_process(delta: float) -> void:
 		stuck_time += delta
 	else: stuck_time = 0
 	stuck_pos = global_position
-	if stuck_time > 5.0:
+	if stuck_time > 3.0:
 		stuck_time = 0
-		if chasing:
-			navigation_agent_2d.target_position = player.global_position
-		else:
-			random_Targer()
+		random_Targer()
 	if chasing == true:
 		folloe_player()
 		
@@ -102,7 +98,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group("player") and talked:
+	if body.is_in_group("player") and GameManager.talked:
 		if body == player:
 			player = null
 			chasing = false
@@ -247,7 +243,8 @@ func blob_dying():
 	chasing = false
 	knocked = true
 	animated_sprite_2d.stop()
-	
+	if player == null:
+		return
 	if player.current_dir == "left" or player.current_dir == "down":
 		animated_sprite_2d.play("die")
 		animated_sprite_2d.flip_h = true
@@ -265,7 +262,7 @@ func blob_dying():
 
 func _on_dialogue_dectect_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		if talked:
+		if GameManager.talked:
 			return
 		velocity = Vector2.ZERO
 		waiting = true
@@ -278,18 +275,21 @@ func _on_dialogue_dectect_body_entered(body: Node2D) -> void:
 			"blub..b",
 			"\"i am a monster\"",
 			"RRuurrrr...."
-		],"---BLOB.",animated_sprite_2d.sprite_frames,"talk")
+		],"---BLOB.",animated_sprite_2d.sprite_frames,"talk",self)
 		
 
 func _on_dialogue_dectect_body_exited(body: Node2D) -> void:
 	await get_tree().create_timer(0.5).timeout
+	if player == null:
+		return
 	if body.is_in_group("player"):
 		blob_out.emit()
-		if !talked:
+		if !GameManager.talked:
 			waiting = false
 			chasing = true
 
-func _on_dialouge_talk_finished() -> void:
-	talked = true
+func dialouge_finished():
+	GameManager.talked = true
+	print("blob talk finished")
 	waiting = false
 	chasing = true

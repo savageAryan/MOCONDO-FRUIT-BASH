@@ -2,7 +2,7 @@ extends Control
 @onready var label: Label = $Label
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var dialougespriteframe: AnimatedSprite2D = $Control/Dialougespriteframe
-
+var current_npc = null
 signal talk_finished
 @onready var label_2: Label = $Label2
 var dialouge_animation:SpriteFrames 
@@ -12,7 +12,8 @@ func show_line():
 	label.text = dialogue[current]
 	animation_player.play("monkeyspeak")
 	
-func start_dialogue(lines:Array, character_name, frame:SpriteFrames,animation_name):
+func start_dialogue(lines:Array, character_name, frame:SpriteFrames,animation_name,npc):
+	current_npc = npc
 	dialogue = lines
 	current = 0
 	label_2.text = character_name
@@ -39,7 +40,10 @@ func _on_crossbutton_pressed() -> void:
 		animation_player.stop()
 		
 		visible = false
-		talk_finished.emit()
+		if current_npc:
+			current_npc.dialouge_finished()
+			
+			current_npc = null
 
 	else:
 		show_line()

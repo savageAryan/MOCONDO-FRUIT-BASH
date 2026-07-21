@@ -564,6 +564,7 @@ scale = Vector2(0.58, 0.58)
 
 [connection signal="talk_finished" from="CanvasLayer/dialouge" to="." method="_on_dialouge_talk_finished"]
 [connection signal="talk_finished" from="CanvasLayer/dialouge" to="blob" method="_on_dialouge_talk_finished"]
+[connection signal="talk_finished" from="CanvasLayer/dialouge" to="monkey" method="_on_dialouge_talk_finished"]
 [connection signal="talk_finished" from="CanvasLayer/dialouge" to="capybara" method="_on_dialouge_talk_finished"]
 [connection signal="closed" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_closed"]
 [connection signal="opened" from="CanvasLayer/invenrory" to="CanvasLayer" method="_on_invenrory_opened"]

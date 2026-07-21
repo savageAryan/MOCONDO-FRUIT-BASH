@@ -19,11 +19,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			 Farming",
 			"It Won't Be Free Though!
 			 Just Sayinn."
-		],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk")
+		],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
 		chicken_in.emit()
-		talked = true
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		if talked:
 			chicken_out.emit()
+func dialouge_finished():
+	talked = true

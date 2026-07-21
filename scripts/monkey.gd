@@ -11,7 +11,7 @@ var talked = false
 signal monkey
 signal out
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and !talked:
 		dialouge.start_dialogue([
 	"HEYYY!!",
 	"Wassup!, You'r new here?",
@@ -29,7 +29,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	"BEST OF LUCK!.... BTW You Can Find me
 	In MY Workshop,And BUY and SELL Stuff",
 	"See YUUUHHH!"
-	],"---THE MONKEY-KING",animated_sprite_2d.sprite_frames,"talk")
+	],"---THE MONKEY-KING",animated_sprite_2d.sprite_frames,"talk",self)
 		
 		monkey.emit()
 
@@ -38,3 +38,9 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 			
 			out.emit()
+
+
+func dialouge_finished():
+	print("monkey talk finished")
+	print(talked)
+	talked = true

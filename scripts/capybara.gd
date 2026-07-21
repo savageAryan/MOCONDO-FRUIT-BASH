@@ -183,7 +183,7 @@ func _on_detectarea_body_entered(body: Node2D) -> void:
 					"WHATEVER!!",
 					"nnn..Don't Try To Disturb When
 					When I am Sleeping"
-				],"---CAPYBARA",animated_sprite_2d_2.sprite_frames,"talk")
+				],"---CAPYBARA",animated_sprite_2d_2.sprite_frames,"talk",self)
 				state = states.idel
 				animated_sprite_2d.play("bara idel")
 				return
@@ -196,6 +196,6 @@ func _on_detectarea_body_exited(body: Node2D) -> void:
 			state = states.roam
 			random_Targer()
 			
-func _on_dialouge_talk_finished() -> void:
+func dialouge_finished():
 	talked = true
 	state = states.roam

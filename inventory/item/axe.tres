@@ -1,6 +1,6 @@
 [gd_resource type="Resource" format=3 uid="uid://das538p2ukvg4"]
 
-[ext_resource type="Script" uid="uid://b4xhikqemrh03" path="res://axe.gd" id="1_g8xk4"]
+[ext_resource type="Script" uid="uid://b4xhikqemrh03" path="res://scripts/axe.gd" id="1_g8xk4"]
 [ext_resource type="Texture2D" uid="uid://7gtph05akmy8" path="res://assets/axepng.png" id="2_mjuc1"]
 
 [resource]
