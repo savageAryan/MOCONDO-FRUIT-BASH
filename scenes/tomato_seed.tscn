@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://c5uc8mmiofmok"]
+
+[ext_resource type="Texture2D" uid="uid://bg5h57qrqyeg1" path="res://assets/tomato seed.png" id="1_molyf"]
+[ext_resource type="Script" uid="uid://ca6j4jx7g7mah" path="res://scripts/tomato_seed.gd" id="1_uvtqr"]
+[ext_resource type="Resource" uid="uid://dfvdb6a6fbelv" path="res://inventory/item/tomato seed.tres" id="2_8a54o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2tg6s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvtqr"]
+atlas = ExtResource("1_molyf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a54o"]
+atlas = ExtResource("1_molyf")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5m7uk"]
+atlas = ExtResource("1_molyf")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul1mr"]
+atlas = ExtResource("1_molyf")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcbo1"]
+atlas = ExtResource("1_molyf")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ohge4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvtqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8a54o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5m7uk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul1mr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcbo1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="tomato seed" type="Area2D" unique_id=414737374]
+script = ExtResource("1_uvtqr")
+itemRes = ExtResource("2_8a54o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=527015481]
+shape = SubResource("CircleShape2D_2tg6s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2055849432]
+sprite_frames = SubResource("SpriteFrames_ohge4")
+autoplay = "default"

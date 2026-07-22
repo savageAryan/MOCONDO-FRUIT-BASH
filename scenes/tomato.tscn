@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://qn824q44bcrj"]
+
+[ext_resource type="Script" uid="uid://bv0nsdat8dqpe" path="res://scripts/tomato.gd" id="1_pjj58"]
+[ext_resource type="Texture2D" uid="uid://bhdc7ioht32w2" path="res://assets/tomato.png" id="1_tsxsy"]
+[ext_resource type="Resource" uid="uid://didelhmjwrpjm" path="res://inventory/item/tomato.tres" id="2_1ldso"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ohge4"]
+radius = 11.045361
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjj58"]
+atlas = ExtResource("1_tsxsy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ldso"]
+atlas = ExtResource("1_tsxsy")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5p4s"]
+atlas = ExtResource("1_tsxsy")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_362f4"]
+atlas = ExtResource("1_tsxsy")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd1ge"]
+atlas = ExtResource("1_tsxsy")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3jb3"]
+atlas = ExtResource("1_tsxsy")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tg6s"]
+animations = [{
+"frames": [{
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_pjj58")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_1ldso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5p4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_362f4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nd1ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3jb3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="tomato" type="Area2D" unique_id=948930801]
+script = ExtResource("1_pjj58")
+itemRes = ExtResource("2_1ldso")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=303538162]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_ohge4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1613116886]
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+autoplay = "default"
+frame_progress = 0.61420804

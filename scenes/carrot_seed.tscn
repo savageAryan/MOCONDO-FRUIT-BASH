@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://xdtashpyvgtb"]
+
+[ext_resource type="Texture2D" uid="uid://b1dcbt5juqc5g" path="res://assets/carrot seed.png" id="1_mfwx1"]
+[ext_resource type="Script" uid="uid://e4dlxnk1tqrs" path="res://scripts/carrot_seed.gd" id="1_t0n7y"]
+[ext_resource type="Resource" uid="uid://0obmx08qamwd" path="res://inventory/item/carrot seed.tres" id="2_ybu3a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2tg6s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0n7y"]
+atlas = ExtResource("1_mfwx1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybu3a"]
+atlas = ExtResource("1_mfwx1")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcfaf"]
+atlas = ExtResource("1_mfwx1")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pe8we"]
+atlas = ExtResource("1_mfwx1")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6er7p"]
+atlas = ExtResource("1_mfwx1")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ohge4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0n7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybu3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcfaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pe8we")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6er7p")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="carrot seed" type="Area2D" unique_id=1811838329]
+script = ExtResource("1_t0n7y")
+itemRes = ExtResource("2_ybu3a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1812696198]
+shape = SubResource("CircleShape2D_2tg6s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=784147052]
+sprite_frames = SubResource("SpriteFrames_ohge4")
+frame_progress = 0.8047893

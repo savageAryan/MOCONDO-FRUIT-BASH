@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://didelhmjwrpjm"]
+
+[ext_resource type="Script" uid="uid://bm0nfyj7wmstx" path="res://inventory/inventory_item.gd" id="1_ewkms"]
+[ext_resource type="Texture2D" uid="uid://bhdc7ioht32w2" path="res://assets/tomato.png" id="2_84c52"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjj58"]
+atlas = ExtResource("2_84c52")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_ewkms")
+name = "tomato"
+texture = SubResource("AtlasTexture_pjj58")
+maxAmountPrStack = 25
+buy_price = 15
+sell_price = 10
+item_consumable = true
+item_type = "crop"
+metadata/_custom_type_script = "uid://bm0nfyj7wmstx"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://dfvdb6a6fbelv"]
+
+[ext_resource type="Script" uid="uid://bm0nfyj7wmstx" path="res://inventory/inventory_item.gd" id="1_xkjql"]
+[ext_resource type="Texture2D" uid="uid://bg5h57qrqyeg1" path="res://assets/tomato seed.png" id="2_5wlhd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a54o"]
+atlas = ExtResource("2_5wlhd")
+region = Rect2(0, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_xkjql")
+name = "tomato seed"
+texture = SubResource("AtlasTexture_8a54o")
+maxAmountPrStack = 40
+buy_price = 6
+sell_price = 3
+item_type = "seed"
+metadata/_custom_type_script = "uid://bm0nfyj7wmstx"

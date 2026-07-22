@@ -8,6 +8,8 @@ var log = 0
 var rootseed = 0
 var gold = 100
 var talked:bool = false
+var carrot = 0
+var tomato = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://bjwul2m8grydc"]
+
+[ext_resource type="Script" uid="uid://bm0nfyj7wmstx" path="res://inventory/inventory_item.gd" id="1_yvg8v"]
+[ext_resource type="Texture2D" uid="uid://bbxch5cbdtkws" path="res://assets/carrot.png" id="2_sh382"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0dx6"]
+atlas = ExtResource("2_sh382")
+region = Rect2(0, 64, 32, 32)
+
+[resource]
+script = ExtResource("1_yvg8v")
+name = "carrot"
+texture = SubResource("AtlasTexture_x0dx6")
+maxAmountPrStack = 25
+buy_price = 12
+sell_price = 6
+item_consumable = true
+item_type = "crop"
+metadata/_custom_type_script = "uid://bm0nfyj7wmstx"
