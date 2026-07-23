@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dyu23t1x6r1r1" path="res://scripts/chicken.gd" id="1_1yv3s"]
 [ext_resource type="Texture2D" uid="uid://brdbnj4cwmhps" path="res://assets/farmer.png" id="1_8lku0"]
 [ext_resource type="Texture2D" uid="uid://dco8cb8kgv4ty" path="res://assets/hen farmer talk.png" id="3_nutj5"]
+[ext_resource type="PackedScene" uid="uid://bgr0todnueife" path="res://scenes/interactpanel.tscn" id="4_rc7ma"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1yv3s"]
 atlas = ExtResource("1_8lku0")
@@ -128,6 +129,11 @@ shape = SubResource("CircleShape2D_ohge4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=422904577]
 shape = SubResource("CircleShape2D_1yv3s")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1774742154]
+
+[node name="Control" parent="CanvasLayer" unique_id=182896147 instance=ExtResource("4_rc7ma")]
+visible = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

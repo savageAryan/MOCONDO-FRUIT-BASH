@@ -1,11 +1,17 @@
 extends CharacterBody2D
 @onready var dialouge: Control = $"../CanvasLayer/dialouge"
+@onready var control: Control = $CanvasLayer/Control
+@onready var invenrory: Control = $"../CanvasLayer/invenrory"
+@onready var ui: ui = $"../CanvasLayer/ui"
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var talked = false
 signal chicken_in
 signal chicken_out
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if talked:
+		control.visible = true
+		ui.visible = false
+		invenrory.visible = false
 		return
 	if body.is_in_group("player"):
 		dialouge.start_dialogue([
@@ -24,7 +30,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		control.visible = false
+		ui.visible = false
+		invenrory.visible = false
 		if talked:
 			chicken_out.emit()
 func dialouge_finished():
 	talked = true
+	control.visible = true

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://62jlxti11xgp"]
+
+[ext_resource type="Script" uid="uid://bm0nfyj7wmstx" path="res://inventory/inventory_item.gd" id="1_bqb1h"]
+[ext_resource type="Texture2D" uid="uid://dqvv538g4a2t1" path="res://assets/plough.png" id="2_tcdvh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7h7h"]
+atlas = ExtResource("2_tcdvh")
+region = Rect2(0, 32, 32, 32)
+
+[resource]
+script = ExtResource("1_bqb1h")
+name = "plough"
+texture = SubResource("AtlasTexture_f7h7h")
+item_type = "tool"
+metadata/_custom_type_script = "uid://bm0nfyj7wmstx"
