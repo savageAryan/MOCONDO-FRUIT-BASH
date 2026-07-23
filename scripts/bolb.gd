@@ -293,3 +293,4 @@ func dialouge_finished():
 	print("blob talk finished")
 	waiting = false
 	chasing = true
+	blob_out.emit()

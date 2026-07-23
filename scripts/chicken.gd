@@ -33,8 +33,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		control.visible = false
 		ui.visible = false
 		invenrory.visible = false
-		if talked:
-			chicken_out.emit()
+		chicken_out.emit()
 func dialouge_finished():
 	talked = true
 	control.visible = true

@@ -44,3 +44,4 @@ func dialouge_finished():
 	print("monkey talk finished")
 	print(talked)
 	talked = true
+	out.emit()

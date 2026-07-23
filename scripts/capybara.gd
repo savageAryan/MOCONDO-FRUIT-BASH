@@ -173,7 +173,7 @@ func attack():
 		state = states.roam
 func _on_detectarea_body_entered(body: Node2D) -> void:
 		if body.is_in_group("player"):
-			if not talked and state == states.roam:
+			if not talked and (state == states.roam or state == states.wait):
 				capybara_in.emit()
 				dialouge.start_dialogue([
 					"Wth! who's This now?",
@@ -199,3 +199,4 @@ func _on_detectarea_body_exited(body: Node2D) -> void:
 func dialouge_finished():
 	talked = true
 	state = states.roam
+	capybara_out
