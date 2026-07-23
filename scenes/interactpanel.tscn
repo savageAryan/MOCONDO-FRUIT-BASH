@@ -63,6 +63,7 @@ grow_vertical = 2
 color = Color(0.2931, 0.291, 0.3, 0.22745098)
 
 [node name="Panel" type="Panel" parent="." unique_id=543544611]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -75,9 +76,10 @@ offset_right = 286.5
 offset_bottom = 94.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ohge4")
 
-[node name="Button" type="Button" parent="." unique_id=820081173]
+[node name="Button" type="Button" parent="Panel" unique_id=820081173]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -85,16 +87,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -267.0
-offset_top = -107.0
+offset_top = -88.25
 offset_right = 268.87
-offset_bottom = -22.0
+offset_bottom = -3.25
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_2tg6s")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_10jb8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4ilno")
 
-[node name="Label" type="Label" parent="Button" unique_id=2135060178]
+[node name="Label" type="Label" parent="Panel/Button" unique_id=2135060178]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -112,13 +114,14 @@ theme_override_fonts/font = ExtResource("1_tcvwl")
 theme_override_font_sizes/font_size = 59
 text = "FARMING?"
 
-[node name="PointLight2D" type="PointLight2D" parent="Button/Label" unique_id=287155227]
+[node name="PointLight2D" type="PointLight2D" parent="Panel/Button/Label" unique_id=287155227]
+z_index = 2
 position = Vector2(95.31501, 29.999998)
 scale = Vector2(2.4812498, 2.5624993)
 energy = 0.0
 texture = ExtResource("2_xo14d")
 
-[node name="Button2" type="Button" parent="." unique_id=242596604]
+[node name="Button2" type="Button" parent="Panel" unique_id=242596604]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -126,16 +129,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -267.0
-offset_top = -13.0
+offset_top = 5.75
 offset_right = 268.87
-offset_bottom = 72.0
+offset_bottom = 90.75
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_2tg6s")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_10jb8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4ilno")
 
-[node name="Label2" type="Label" parent="Button2" unique_id=1457186986]
+[node name="Label2" type="Label" parent="Panel/Button2" unique_id=1457186986]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -153,13 +156,14 @@ theme_override_fonts/font = ExtResource("1_tcvwl")
 theme_override_font_sizes/font_size = 59
 text = "FARMING?"
 
-[node name="PointLight2D_2" type="PointLight2D" parent="Button2/Label2" unique_id=447337890]
+[node name="PointLight2D_2" type="PointLight2D" parent="Panel/Button2/Label2" unique_id=447337890]
+z_index = 2
 position = Vector2(95.31501, 29.999998)
 scale = Vector2(2.4812498, 2.5624993)
 energy = 0.0
 texture = ExtResource("2_xo14d")
 
-[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
-[connection signal="mouse_entered" from="Button2" to="." method="_on_button_2_mouse_entered"]
-[connection signal="mouse_exited" from="Button2" to="." method="_on_button_2_mouse_exited"]
+[connection signal="mouse_entered" from="Panel/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/Button" to="." method="_on_button_mouse_exited"]
+[connection signal="mouse_entered" from="Panel/Button2" to="." method="_on_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/Button2" to="." method="_on_button_2_mouse_exited"]
