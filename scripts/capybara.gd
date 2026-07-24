@@ -11,7 +11,6 @@ var stuck_pos = Vector2.ZERO
 var stuck_time = 0.0
 enum states {wait,sleep,chase,alert,attack,roam,idel}
 var state = states.roam
-var talked = false
 signal capybara_in
 signal capybara_out
 func _physics_process(delta: float) -> void:
@@ -173,7 +172,7 @@ func attack():
 		state = states.roam
 func _on_detectarea_body_entered(body: Node2D) -> void:
 		if body.is_in_group("player"):
-			if not talked and (state == states.roam or state == states.wait):
+			if not GameManager.capybara_talked and (state == states.roam or state == states.wait):
 				capybara_in.emit()
 				dialouge.start_dialogue([
 					"Wth! who's This now?",
@@ -192,11 +191,11 @@ func _on_detectarea_body_entered(body: Node2D) -> void:
 func _on_detectarea_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		capybara_out.emit()
-		if talked == false and state == states.idel:
+		if GameManager.capybara_talked == false and state == states.idel:
 			state = states.roam
 			random_Targer()
 			
 func dialouge_finished():
-	talked = true
+	GameManager.capybara_talked = true
 	state = states.roam
 	capybara_out

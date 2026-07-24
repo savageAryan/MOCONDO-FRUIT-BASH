@@ -4,19 +4,18 @@ extends CharacterBody2D
 @onready var invenrory: Control = $"../CanvasLayer/invenrory"
 @onready var ui: ui = $"../CanvasLayer/ui"
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-var talked = false
 signal chicken_in
 signal chicken_out
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		chicken_in.emit()
-		if talked:
+		if GameManager.chicken_talked:
 			ui.visible = false
 			invenrory.visible = false
 			control.visible = true
 			control.pop_in()
 			return
-		if talked == false:
+		if GameManager.chicken_talked == false:
 			dialouge.start_dialogue([
 				"WOHH! A Human!!?",
 				"I Am Seeing One, After Ages",
@@ -38,6 +37,6 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		control.visible = false
 		control.pop_out()
 func dialouge_finished():
-	talked = true
+	GameManager.chicken_talked = true
 	control.pop_in()
 	control.visible = true

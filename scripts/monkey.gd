@@ -7,11 +7,11 @@ const JUMP_VELOCITY = -400.0
 @onready var dialouge: Control = $"../CanvasLayer/dialouge"
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-var talked = false
+
 signal monkey
 signal out
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player") and !talked:
+	if body.is_in_group("player") and !GameManager.monkey_talked:
 		dialouge.start_dialogue([
 	"HEYYY!!",
 	"Wassup!, You'r new here?",
@@ -41,7 +41,5 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 
 func dialouge_finished():
-	print("monkey talk finished")
-	print(talked)
-	talked = true
+	GameManager.monkey_talked = true
 	out.emit()

@@ -7,7 +7,10 @@ var mango = 0
 var log = 0
 var rootseed = 0
 var gold = 100
-var talked:bool = false
+var monkey_talked:bool = false
+var chicken_talked:bool = false
+var capybara_talked:bool = false
+var blob_talked:bool = false
 var carrot = 0
 var tomato = 0
 

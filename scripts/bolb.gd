@@ -98,15 +98,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group("player") and GameManager.talked:
+	if body.is_in_group("player") and GameManager.blob_talked:
 		if body == player:
 			player = null
 			chasing = false
 			random_Targer()
 
 func random_Targer():
-
-	
 	ramdon_target = global_position + Vector2(randf_range(-200,200), randf_range(-200,200))
 	navigation_agent_2d.target_position = ramdon_target
 func roaming():
@@ -262,7 +260,7 @@ func blob_dying():
 
 func _on_dialogue_dectect_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		if GameManager.talked:
+		if GameManager.blob_talked:
 			return
 		velocity = Vector2.ZERO
 		waiting = true
@@ -284,12 +282,12 @@ func _on_dialogue_dectect_body_exited(body: Node2D) -> void:
 		return
 	if body.is_in_group("player"):
 		blob_out.emit()
-		if !GameManager.talked:
+		if !GameManager.blob_talked:
 			waiting = false
 			chasing = true
 
 func dialouge_finished():
-	GameManager.talked = true
+	GameManager.blob_talked = true
 	print("blob talk finished")
 	waiting = false
 	chasing = true

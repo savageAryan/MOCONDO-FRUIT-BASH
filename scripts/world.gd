@@ -106,7 +106,6 @@ func blob_spawn():
 
 
 func _on_monkey_monkey() -> void:
-	dialouge.visible = true
 	invenrory.visible = false
 	ui.visible = false
 func _on_monkey_out() -> void:
@@ -116,8 +115,8 @@ func _on_monkey_out() -> void:
 func _on_dialouge_talk_finished() -> void:
 	invenrory.visible = true
 	ui.visible = true
+	dialouge.visible = false
 func _on_chicken_chicken_in() -> void:
-	dialouge.visible = true
 	invenrory.visible = false
 	ui.visible = false
 func _on_chicken_chicken_out() -> void:
@@ -125,7 +124,6 @@ func _on_chicken_chicken_out() -> void:
 	invenrory.visible = true
 	ui.visible = true
 func _on_capybara_capybara_in() -> void:
-	dialouge.visible = true
 	invenrory.visible = false
 	ui.visible = false
 func _on_capybara_capybara_out() -> void:
@@ -133,7 +131,6 @@ func _on_capybara_capybara_out() -> void:
 	invenrory.visible = true
 	ui.visible = true
 func _on_blob_blob_in() -> void:
-	dialouge.visible = true
 	invenrory.visible = false
 	ui.visible = false
 func _on_blob_blob_out() -> void:
