@@ -63,7 +63,6 @@ grow_vertical = 2
 color = Color(0.2931, 0.291, 0.3, 0.22745098)
 
 [node name="Panel" type="Panel" parent="." unique_id=543544611]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -112,12 +111,12 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0.59607846, 0.30588236, 0.20392157, 1)
 theme_override_fonts/font = ExtResource("1_tcvwl")
 theme_override_font_sizes/font_size = 59
-text = "FARMING?"
+text = "TALK"
 
 [node name="PointLight2D" type="PointLight2D" parent="Panel/Button/Label" unique_id=287155227]
 z_index = 2
-position = Vector2(95.31501, 29.999998)
-scale = Vector2(2.4812498, 2.5624993)
+position = Vector2(48.56501, 26.500002)
+scale = Vector2(1.3124998, 2.3437495)
 energy = 0.0
 texture = ExtResource("2_xo14d")
 

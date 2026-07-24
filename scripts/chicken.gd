@@ -40,3 +40,14 @@ func dialouge_finished():
 	GameManager.chicken_talked = true
 	control.pop_in()
 	control.visible = true
+
+
+func _on_button_pressed() -> void:
+	dialouge.start_dialogue(["HEY Human!",
+	"How Are YOU.",
+	"Lets Farm Soon, Yehh?.."],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
+	control.pop_out()
+
+
+func _on_button_2_pressed() -> void:
+	pass # Replace with function body.
