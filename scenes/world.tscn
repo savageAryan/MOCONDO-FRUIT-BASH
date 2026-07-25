@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://drb2l7uw0lx5" path="res://scenes/bolb.tscn" id="26_ts3gi"]
 [ext_resource type="PackedScene" uid="uid://8pxfqru4d58" path="res://scenes/capybara.tscn" id="28_0nbtd"]
 [ext_resource type="PackedScene" uid="uid://bj16im200c46f" path="res://scenes/chicken.tscn" id="29_37qwj"]
+[ext_resource type="PackedScene" uid="uid://b4cv6inl5oltf" path="res://scenes/carrot_crop.tscn" id="31_luhhm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4wyf3"]
 texture = ExtResource("1_rwgxs")
@@ -577,6 +578,9 @@ scale = Vector2(0.58, 0.58)
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1937608958]
 position = Vector2(-11.331, 134.787)
+
+[node name="carrot crop" parent="." unique_id=1809824399 instance=ExtResource("31_luhhm")]
+position = Vector2(-31, 25)
 
 [connection signal="talk_finished" from="CanvasLayer/dialouge" to="." method="_on_dialouge_talk_finished"]
 [connection signal="talk_finished" from="CanvasLayer/dialouge" to="blob" method="_on_dialouge_talk_finished"]

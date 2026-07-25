@@ -24,6 +24,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		if item and item.item_type == "weapon":
 			hit_enemy()
 			return
+	if Input.is_action_just_pressed("hit"):
+		var  item = get_selected_item()
+		if item and item.item_name == "plough":
+			pass
+	if Input.is_action_just_pressed("rightclick"):
+		var item = get_selected_item()
+		if item and item.item_type == "seed":
+			seedsow()
+func seedsow():
+	inventory.use_Item_at_Index(1)
 func _physics_process(delta: float) -> void:
 	if dying:
 		return

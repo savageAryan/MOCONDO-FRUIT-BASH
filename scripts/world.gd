@@ -69,6 +69,8 @@ func _on_workshop_area_body_exited(body: Node2D) -> void:
 
 @onready var button_3: Button = $StaticBody2D3/Button3
 var workshop_opened = false
+func seedsow():
+	pass
 
 func _on_button_3_pressed() -> void:
 	workshop_opened = true

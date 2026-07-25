@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b2omkpojgi044" path="res://assets/player sprites/walking front.png" id="8_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://ck445ex7u1p88" path="res://assets/sword slash.png" id="10_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://c1ac82ds84xsb" path="res://assets/idel side n back.png" id="11_jej6c"]
+[ext_resource type="Texture2D" uid="uid://dim78dpygr0ny" path="res://assets/ploughingside.png" id="11_oprun"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_munwf"]
 radius = 3.0
@@ -182,6 +183,18 @@ region = Rect2(64, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ujl30"]
 atlas = ExtResource("2_smehm")
 region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fuw3a"]
+atlas = ExtResource("11_oprun")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8txt3"]
+atlas = ExtResource("11_oprun")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2w11d"]
+atlas = ExtResource("11_oprun")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4gjji"]
 atlas = ExtResource("10_3v2ag")
@@ -438,6 +451,20 @@ animations = [{
 "speed": 4.0
 }, {
 "frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_fuw3a")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_8txt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2w11d")
+}],
+"loop": 1,
+"name": &"ploughing",
+"speed": 4.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4gjji")
 }, {
@@ -532,7 +559,8 @@ shape = SubResource("CapsuleShape2D_munwf")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1878090272]
 scale = Vector2(0.48828128, 0.4765625)
 sprite_frames = SubResource("SpriteFrames_4wyf3")
-animation = &"die"
+animation = &"ploughing"
+frame_progress = 0.7762074
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1893066326]
 position = Vector2(-8, 0)

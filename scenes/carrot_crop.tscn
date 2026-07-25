@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b4cv6inl5oltf"]
 
+[ext_resource type="Script" uid="uid://cvys8ah02grjj" path="res://scripts/carrot_crop.gd" id="1_2ojoe"]
 [ext_resource type="Texture2D" uid="uid://cdvrya01jtehg" path="res://assets/farm sets.png" id="1_jmflg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ojoe"]
@@ -34,6 +35,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tg6s"]
 
 [node name="carrot crop" type="Area2D" unique_id=1809824399]
+script = ExtResource("1_2ojoe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=364333955]
 sprite_frames = SubResource("SpriteFrames_2tg6s")
