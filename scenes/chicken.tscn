@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cur8ifhbt0eut" path="res://scripts/interactpanel.gd" id="4_bti8l"]
 [ext_resource type="FontFile" uid="uid://b4le348it6egb" path="res://assets/Pingwin.ttf" id="5_pep2a"]
 [ext_resource type="Texture2D" uid="uid://cv8sr3sr4owf0" path="res://assets/texturelightbutton.png" id="6_5sgx4"]
+[ext_resource type="Texture2D" uid="uid://cqh16vuuivlv3" path="res://assets/talk button.png" id="7_pep2a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1yv3s"]
 atlas = ExtResource("1_8lku0")
@@ -155,12 +156,62 @@ corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wx60v"]
+atlas = ExtResource("7_pep2a")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g67ly"]
+atlas = ExtResource("7_pep2a")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjd2c"]
+atlas = ExtResource("7_pep2a")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njpjb"]
+atlas = ExtResource("7_pep2a")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ym0r"]
+atlas = ExtResource("7_pep2a")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajem7"]
+atlas = ExtResource("7_pep2a")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ohge4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wx60v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g67ly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjd2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njpjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ym0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajem7")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 3.0
+}]
+
 [node name="chicken" type="CharacterBody2D" unique_id=186606679]
 script = ExtResource("1_1yv3s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1094031958]
 sprite_frames = SubResource("SpriteFrames_2tg6s")
-animation = &"talk"
+animation = &"front idel"
 autoplay = "side idel"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=905642048]
@@ -293,6 +344,20 @@ scale = Vector2(2.4812498, 2.5624993)
 energy = 0.0
 texture = ExtResource("6_5sgx4")
 
+[node name="talkbuttonsprite" type="AnimatedSprite2D" parent="." unique_id=2053584703]
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_ohge4")
+autoplay = "default"
+frame_progress = 0.47310832
+
+[node name="talkButton" type="Button" parent="talkbuttonsprite" unique_id=1101938972]
+z_index = 1
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 7.0
+offset_bottom = 7.0
+flat = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/Control/Panel/Button" to="CanvasLayer/Control" method="_on_button_mouse_entered"]
@@ -301,3 +366,4 @@ texture = ExtResource("6_5sgx4")
 [connection signal="mouse_entered" from="CanvasLayer/Control/Panel/Button2" to="CanvasLayer/Control" method="_on_button_2_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Control/Panel/Button2" to="CanvasLayer/Control" method="_on_button_2_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Control/Panel/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="talkbuttonsprite/talkButton" to="." method="_on_talk_button_pressed"]

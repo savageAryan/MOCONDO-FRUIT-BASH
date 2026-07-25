@@ -3,9 +3,11 @@ extends CharacterBody2D
 @onready var control: Control = $CanvasLayer/Control
 @onready var invenrory: Control = $"../CanvasLayer/invenrory"
 @onready var ui: ui = $"../CanvasLayer/ui"
+@onready var talkbuttonsprite: AnimatedSprite2D = $talkbuttonsprite
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 signal chicken_in
 signal chicken_out
+var moving:bool = false
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		chicken_in.emit()
@@ -28,6 +30,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 				"It Won't Be Free Though!
 				 Just Sayinn."
 				],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
+			talkbuttonsprite.visible = false
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		control.visible = false
@@ -36,10 +39,17 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		chicken_out.emit()
 		control.visible = false
 		control.pop_out()
+		talkbuttonsprite.visible = true
 func dialouge_finished():
 	GameManager.chicken_talked = true
 	control.pop_in()
 	control.visible = true
+	talkbuttonsprite.visible = true
+	
+func move_farm():
+	var direction = (Vector2(-11,135) - global_position).normalized()
+	velocity = velocity.move_toward(direction * 50,120)
+	move_and_slide()
 
 
 func _on_button_pressed() -> void:
@@ -47,7 +57,15 @@ func _on_button_pressed() -> void:
 	"How Are YOU.",
 	"Lets Farm Soon, Yehh?.."],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
 	control.pop_out()
+	talkbuttonsprite.visible = false
 
 
 func _on_button_2_pressed() -> void:
-	pass # Replace with function body.
+	moving = true
+func _physics_process(delta: float) -> void:
+	if moving:
+		move_farm()
+
+
+func _on_talk_button_pressed() -> void:
+	pass
