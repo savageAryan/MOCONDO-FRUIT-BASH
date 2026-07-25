@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://ruvlsj5uuq34"]
+
+[ext_resource type="Texture2D" uid="uid://cdvrya01jtehg" path="res://assets/farm sets.png" id="1_7hu4j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tg6s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lscbg"]
+atlas = ExtResource("1_7hu4j")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6rlg"]
+atlas = ExtResource("1_7hu4j")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xewww"]
+atlas = ExtResource("1_7hu4j")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tg6s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lscbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6rlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xewww")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="tomato crop" type="Area2D" unique_id=1340472173]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2113853849]
+shape = SubResource("RectangleShape2D_2tg6s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=224463275]
+sprite_frames = SubResource("SpriteFrames_2tg6s")
