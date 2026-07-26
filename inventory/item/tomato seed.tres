@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://dfvdb6a6fbelv"]
+[gd_resource type="Resource" script_class="crop_seed" format=3 uid="uid://dfvdb6a6fbelv"]
 
-[ext_resource type="Script" uid="uid://bm0nfyj7wmstx" path="res://inventory/inventory_item.gd" id="1_xkjql"]
+[ext_resource type="Script" uid="uid://bbbp0hc8jdt6p" path="res://inventory/item/crop_seed.gd" id="1_5wlhd"]
+[ext_resource type="PackedScene" uid="uid://ruvlsj5uuq34" path="res://scenes/tomato_crop.tscn" id="1_tvjls"]
 [ext_resource type="Texture2D" uid="uid://bg5h57qrqyeg1" path="res://assets/tomato seed.png" id="2_5wlhd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8a54o"]
@@ -8,7 +9,9 @@ atlas = ExtResource("2_5wlhd")
 region = Rect2(0, 16, 16, 16)
 
 [resource]
-script = ExtResource("1_xkjql")
+script = ExtResource("1_5wlhd")
+crop_item = ExtResource("1_tvjls")
+grow_time = 12.355
 name = "tomato seed"
 texture = SubResource("AtlasTexture_8a54o")
 maxAmountPrStack = 40

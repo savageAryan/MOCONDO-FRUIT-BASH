@@ -2,28 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://bg5h57qrqyeg1" path="res://assets/tomato seed.png" id="1_molyf"]
 [ext_resource type="Script" uid="uid://ca6j4jx7g7mah" path="res://scripts/tomato_seed.gd" id="1_uvtqr"]
-[ext_resource type="Script" uid="uid://bbbp0hc8jdt6p" path="res://inventory/item/crop_seed.gd" id="2_8a54o"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8a54o"]
-atlas = ExtResource("1_molyf")
-region = Rect2(0, 16, 16, 16)
-
-[sub_resource type="Resource" id="Resource_uvtqr"]
-script = ExtResource("2_8a54o")
-name = "tomato seed"
-texture = SubResource("AtlasTexture_8a54o")
-maxAmountPrStack = 44
-buy_price = 9
-sell_price = 6
-item_consumable = true
-item_type = "seed"
-metadata/_custom_type_script = "uid://bbbp0hc8jdt6p"
+[ext_resource type="Resource" uid="uid://dfvdb6a6fbelv" path="res://inventory/item/tomato seed.tres" id="2_8a54o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2tg6s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uvtqr"]
 atlas = ExtResource("1_molyf")
 region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a54o"]
+atlas = ExtResource("1_molyf")
+region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5m7uk"]
 atlas = ExtResource("1_molyf")
@@ -62,7 +51,7 @@ animations = [{
 
 [node name="tomato seed" type="Area2D" unique_id=414737374]
 script = ExtResource("1_uvtqr")
-itemRes = SubResource("Resource_uvtqr")
+itemRes = ExtResource("2_8a54o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=527015481]
 shape = SubResource("CircleShape2D_2tg6s")
