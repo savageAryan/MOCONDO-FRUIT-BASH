@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cvys8ah02grjj" path="res://scripts/carrot_crop.gd" id="1_2ojoe"]
 [ext_resource type="Texture2D" uid="uid://cdvrya01jtehg" path="res://assets/farm sets.png" id="1_jmflg"]
+[ext_resource type="PackedScene" uid="uid://dedavss7hqypi" path="res://scenes/carrot.tscn" id="2_llu3w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ojoe"]
 atlas = ExtResource("1_jmflg")
@@ -36,6 +37,7 @@ animations = [{
 
 [node name="carrot crop" type="Area2D" unique_id=1809824399]
 script = ExtResource("1_2ojoe")
+harvest_item = ExtResource("2_llu3w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=364333955]
 sprite_frames = SubResource("SpriteFrames_2tg6s")

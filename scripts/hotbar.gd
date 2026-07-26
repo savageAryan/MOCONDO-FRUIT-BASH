@@ -19,6 +19,8 @@ func move_selectorback() -> void:
 
 func _unhandled_input(event) -> void:
 	if event.is_action_pressed("use"):
+		print("Selected:", inventory.selected_index)
+		print("Current:", currently_selected)
 		inventory.use_Item_at_Index(currently_selected)
 	if event is InputEventMouseButton and scrool == true:
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:

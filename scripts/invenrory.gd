@@ -91,8 +91,6 @@ func connectSlots():
 		
 		var slot: InventorySlotButton = slots[i] as InventorySlotButton
 		slot.index = i
-		print(slot)
-		print(slot.get_script())
 		var callable = Callable(onSlotClicked)
 		callable = callable.bind(slot)
 		slot.pressed.connect(onSlotClicked.bind(slot))
