@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cpebs7yjytf8d" path="res://inventory/inventorySlot.gd" id="2_fhgtu"]
 [ext_resource type="Resource" uid="uid://cp76mlnv2big" path="res://inventory/item/sword.tres" id="3_ptr4k"]
+[ext_resource type="Resource" uid="uid://dfvdb6a6fbelv" path="res://inventory/item/tomato seed.tres" id="4_3ih0p"]
 [ext_resource type="Script" uid="uid://der0u4ayurjwc" path="res://inventory/inventory.gd" id="4_ec8hw"]
 [ext_resource type="Resource" uid="uid://biotghfn678ff" path="res://inventory/item/apple.tres" id="4_fi1x0"]
 [ext_resource type="Resource" uid="uid://0obmx08qamwd" path="res://inventory/item/carrot seed.tres" id="5_65xq6"]
@@ -18,6 +19,8 @@ metadata/_custom_type_script = "uid://cpebs7yjytf8d"
 
 [sub_resource type="Resource" id="Resource_65xq6"]
 script = ExtResource("2_fhgtu")
+item = ExtResource("4_3ih0p")
+amount = 30
 metadata/_custom_type_script = "uid://cpebs7yjytf8d"
 
 [sub_resource type="Resource" id="Resource_tyuxm"]

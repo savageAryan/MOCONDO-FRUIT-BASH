@@ -33,11 +33,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("rightclick"):
 		var item = get_selected_item()
 		if item and item.item_type == "seed":
-			print("seedsow")
 			seedsow()
 func seedsow():
+	var item = get_selected_item()
 	inventory.use_Item_at_Index(inventory.selected_index)
-	world.sow()
+	world.sow(item.crop_item)
 
 func _physics_process(delta: float) -> void:
 	if dying:

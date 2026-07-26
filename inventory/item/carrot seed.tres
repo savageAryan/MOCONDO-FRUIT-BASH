@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://0obmx08qamwd"]
+[gd_resource type="Resource" script_class="crop_seed" format=3 uid="uid://0obmx08qamwd"]
 
-[ext_resource type="Script" uid="uid://bm0nfyj7wmstx" path="res://inventory/inventory_item.gd" id="1_er1ao"]
+[ext_resource type="PackedScene" uid="uid://b4cv6inl5oltf" path="res://scenes/carrot_crop.tscn" id="1_p52s4"]
+[ext_resource type="Script" uid="uid://bbbp0hc8jdt6p" path="res://inventory/item/crop_seed.gd" id="2_6a070"]
 [ext_resource type="Texture2D" uid="uid://b1dcbt5juqc5g" path="res://assets/carrot seed.png" id="2_gqpk6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ybu3a"]
@@ -8,7 +9,9 @@ atlas = ExtResource("2_gqpk6")
 region = Rect2(0, 16, 16, 16)
 
 [resource]
-script = ExtResource("1_er1ao")
+script = ExtResource("2_6a070")
+crop_item = ExtResource("1_p52s4")
+grow_time = 15.05
 name = "carrot seed"
 texture = SubResource("AtlasTexture_ybu3a")
 maxAmountPrStack = 40
