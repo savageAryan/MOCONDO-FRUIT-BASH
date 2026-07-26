@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cdvrya01jtehg" path="res://assets/farm sets.png" id="1_7hu4j"]
 [ext_resource type="Script" uid="uid://dwayaxhjh44ts" path="res://scripts/tomato_crop.gd" id="1_lscbg"]
+[ext_resource type="PackedScene" uid="uid://qn824q44bcrj" path="res://scenes/tomato.tscn" id="2_u6rlg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tg6s"]
 
@@ -36,6 +37,7 @@ animations = [{
 
 [node name="tomato crop" type="Area2D" unique_id=1340472173]
 script = ExtResource("1_lscbg")
+harvest_item = ExtResource("2_u6rlg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2113853849]
 shape = SubResource("RectangleShape2D_2tg6s")

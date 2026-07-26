@@ -2,6 +2,8 @@ extends Area2D
 var grown:bool = false
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var harvest_item: PackedScene
+signal harvested(cell:Vector2i)
+var cell_pos = Vector2i.ZERO
 func _ready() -> void:
 	crop_grow()
 func crop_grow():

@@ -68,7 +68,7 @@ func treecut(delta):
 	if player_neartree:
 		var item = player.get_selected_item()
 		
-		if item and item.item_type == "axe" and Input.is_action_pressed("use"):
+		if item and item.item_type == "axe" and Input.is_action_pressed("hit"):
 			if not chopped:
 				break_time += delta
 				if break_time >= 3.0:

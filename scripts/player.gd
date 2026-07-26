@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 	
 	if using_tool:
 		return
-	if Input.is_action_pressed("use"):
+	if Input.is_action_pressed("hit"):
 		var item = get_selected_item()
 		if item and item.item_type == "axe":
 			chop()

@@ -13,7 +13,7 @@ func move_selector() -> void:
 	inventory.selected_index = currently_selected
 	selector.global_position = slots[currently_selected].global_position
 func move_selectorback() -> void:
-	currently_selected = (currently_selected -1)% slots.size()
+	currently_selected = (currently_selected -1 + slots.size())% slots.size()
 	inventory.selected_index = currently_selected
 	selector.global_position = slots[currently_selected].global_position
 
