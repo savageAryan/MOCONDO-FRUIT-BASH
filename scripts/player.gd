@@ -8,6 +8,8 @@ var knockback = Vector2.ZERO
 #@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var inventory: Inventory
+@onready var world: Node2D = $".."
+
 
 func _ready() -> void:
 	inventory.use_item.connect(use_item)
@@ -26,14 +28,17 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 	if Input.is_action_just_pressed("hit"):
 		var  item = get_selected_item()
-		if item and item.item_name == "plough":
+		if item and item.name == "plough":
 			pass
 	if Input.is_action_just_pressed("rightclick"):
 		var item = get_selected_item()
 		if item and item.item_type == "seed":
+			print("seedsow")
 			seedsow()
 func seedsow():
-	inventory.use_Item_at_Index(1)
+	inventory.use_Item_at_Index(inventory.selected_index)
+	world.sow()
+
 func _physics_process(delta: float) -> void:
 	if dying:
 		return

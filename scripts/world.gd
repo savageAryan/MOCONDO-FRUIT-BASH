@@ -13,10 +13,21 @@ extends Node2D
 @onready var monkey: CharacterBody2D = $monkey
 @onready var player: Player = $"../player"
 @onready var ui: Control = $CanvasLayer/ui
-
+@onready var tile_map_layer: TileMapLayer = $TileMapLayer
+const CARROT_CROP = preload("res://scenes/carrot_crop.tscn")
 func _process(delta: float) -> void:
 	pass
-
+func sow():
+	var mouse_pos = get_global_mouse_position()
+	var cell = tile_map_layer.local_to_map(mouse_pos)
+	var cell_data = tile_map_layer.get_cell_tile_data(cell)
+	
+	if cell_data == null:
+		return
+	if cell_data.get_custom_data("farmable"):
+		var carrot_crop = CARROT_CROP.instantiate()
+		add_child(carrot_crop)
+		carrot_crop.global_position = tile_map_layer.to_global(tile_map_layer.map_to_local(cell))
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	canvas_modulate.time_tick.connect(ui.set_daytime)

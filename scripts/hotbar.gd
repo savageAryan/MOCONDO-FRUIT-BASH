@@ -1,4 +1,4 @@
-extends TextureRect
+class_name  hotbar extends TextureRect
 @onready var inventory: Inventory = preload("res://inventory/player_inventory.tres")
 @onready var slots: Array = $Container.get_children()
 @onready var selector: Sprite2D = $selector

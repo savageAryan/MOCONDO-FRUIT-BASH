@@ -14,5 +14,6 @@ texture = SubResource("AtlasTexture_8a54o")
 maxAmountPrStack = 40
 buy_price = 6
 sell_price = 3
+item_consumable = true
 item_type = "seed"
 metadata/_custom_type_script = "uid://bm0nfyj7wmstx"
