@@ -32,38 +32,29 @@ func sow(CROP):
 		var crop = CROP.instantiate()
 		add_child(crop)
 		crop.cell_pos = cell
+		crop.harvested.connect(_on_crop_harvested)
 		crop.global_position = tile_map_layer.to_global(tile_map_layer.map_to_local(cell))
 		plantedlayer.set_cell(cell,0,Vector2i.ZERO)
 		return true
-func _on_tomato_crop_harvested(cell: Vector2i) -> void:
+func _on_crop_harvested(cell: Vector2i):
 	plantedlayer.erase_cell(cell)
-
-func _on_carrot_crop_harvested(cell: Vector2i) -> void:
-	plantedlayer.erase_cell(cell)
-
 func _ready() -> void:
 	canvas_modulate.time_tick.connect(ui.set_daytime)
 	blob_spawn()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		house.play("gateopen")
 		button.visible = true
-
-
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		house.play("gateclosed")
 		button.visible = false
 
-
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/home.tscn")
-
 
 func _on_boatrest_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):

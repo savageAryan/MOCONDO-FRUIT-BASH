@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://bj16im200c46f" path="res://scenes/chicken.tscn" id="29_37qwj"]
 [ext_resource type="PackedScene" uid="uid://b4cv6inl5oltf" path="res://scenes/carrot_crop.tscn" id="31_luhhm"]
 [ext_resource type="PackedScene" uid="uid://ruvlsj5uuq34" path="res://scenes/tomato_crop.tscn" id="32_fh13f"]
+[ext_resource type="Texture2D" uid="uid://bl61l3kvbc2tu" path="res://assets/farmstand.png" id="33_rup4s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4wyf3"]
 texture = ExtResource("1_rwgxs")
@@ -218,11 +219,15 @@ vertices = PackedVector2Array(1035.9531, 243.46094, 1087.5313, 478.8203, 958.882
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(9, 10, 11, 12, 8, 7, 13), PackedInt32Array(4, 3, 14, 15), PackedInt32Array(16, 17, 18, 19, 20, 21), PackedInt32Array(22, 9, 13, 23, 24, 25), PackedInt32Array(26, 22, 25, 27, 28), PackedInt32Array(29, 30, 21, 20, 31, 32, 33, 34), PackedInt32Array(35, 36, 15, 14, 37, 38), PackedInt32Array(39, 35, 38, 40, 34, 41, 42), PackedInt32Array(40, 29, 34), PackedInt32Array(39, 42, 43, 44, 45), PackedInt32Array(39, 45, 26, 28)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(9, 194, 139, 95, 257, 56, 350, -136, 682, -58, 902, 118, 1045, 238, 1100, 489, 957, 487, 817, 434, 696, 410, 560, 433, 413, 431, 281, 510, 255, 644, 309, 732, 315, 834, 451, 959, 487, 1178, 436, 1229, 266, 1257, 212, 1060, 91, 1028, 91, 1028, -50, 912, -154, 746, -160, 546, -105, 327, -6, 217), PackedVector2Array(-74, -196, 102, -210, 97, -138, 139, -149, 205, -164, 250, -145, 235, -81, 238, 15, 236, 50, 238, 70, 139, 105, 182, 39, 175, -42, 144, -41, 78, 35, -54, 46, -63, -60)])
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tg6s"]
+size = Vector2(4, 23)
+
 [node name="World" type="Node2D" unique_id=340862798]
 script = ExtResource("1_e3hyu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=93717343]
 process_mode = 3
+visible = false
 
 [node name="workshop" parent="CanvasLayer" unique_id=1920764852 instance=ExtResource("2_7t5mc")]
 visible = false
@@ -584,6 +589,21 @@ position = Vector2(-126, 141)
 [node name="tomato crop" parent="." unique_id=1340472173 instance=ExtResource("32_fh13f")]
 position = Vector2(-142, 168)
 
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1765199882]
+position = Vector2(-22, 149)
+
+[node name="Farmstand" type="Sprite2D" parent="StaticBody2D4" unique_id=1985192486]
+z_index = 3
+texture = ExtResource("33_rup4s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D4" unique_id=2072625264]
+position = Vector2(22, 12.5)
+shape = SubResource("RectangleShape2D_2tg6s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=267560085]
+position = Vector2(-7, 12.5)
+shape = SubResource("RectangleShape2D_2tg6s")
+
 [connection signal="talk_finished" from="CanvasLayer/dialouge" to="." method="_on_dialouge_talk_finished"]
 [connection signal="talk_finished" from="CanvasLayer/dialouge" to="blob" method="_on_dialouge_talk_finished"]
 [connection signal="talk_finished" from="CanvasLayer/dialouge" to="monkey" method="_on_dialouge_talk_finished"]
@@ -612,5 +632,3 @@ position = Vector2(-142, 168)
 [connection signal="capybara_out" from="capybara" to="." method="_on_capybara_capybara_out"]
 [connection signal="chicken_in" from="chicken" to="." method="_on_chicken_chicken_in"]
 [connection signal="chicken_out" from="chicken" to="." method="_on_chicken_chicken_out"]
-[connection signal="harvested" from="carrot crop" to="." method="_on_carrot_crop_harvested"]
-[connection signal="harvested" from="tomato crop" to="." method="_on_tomato_crop_harvested"]

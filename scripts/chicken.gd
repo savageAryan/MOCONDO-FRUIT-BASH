@@ -46,11 +46,19 @@ func dialouge_finished():
 	control.pop_in()
 	control.visible = true
 	talkbuttonsprite.visible = true
-	
+var farm_pos = Vector2(-11,135)
 func move_farm():
-	var direction = (Vector2(-11,135) - global_position).normalized()
+	var distance = global_position.distance_to(farm_pos)
+	if distance < 2:
+		global_position = farm_pos
+		velocity = Vector2.ZERO
+		animated_sprite_2d.play("side idel")
+		animated_sprite_2d.flip_h = true
+		moving = false
+		return
+	var direction = (farm_pos - global_position).normalized()
 	control.visible = false
-	velocity = velocity.move_toward(direction * 20,120)
+	velocity = direction * 20
 	move_and_slide()
 	
 	if abs(direction.x) > abs(direction.y) and velocity != Vector2.ZERO:
@@ -82,7 +90,6 @@ func _on_button_2_pressed() -> void:
 func _physics_process(delta: float) -> void:
 	if moving:
 		move_farm()
-
 
 func _on_talk_button_pressed() -> void:
 	pass

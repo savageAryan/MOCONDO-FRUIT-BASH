@@ -38,7 +38,6 @@ func seedsow():
 	var item = get_selected_item()
 	if world.sow(item.crop_item):
 		inventory.use_Item_at_Index(inventory.selected_index)
-		world.sow(item.crop_item)
 
 func _physics_process(delta: float) -> void:
 	if dying:
@@ -180,6 +179,8 @@ func hit_enemy():
 	await  animated_sprite_2d.animation_finished
 	using_tool = false
 func use_item(item: InventoryItem) -> void:
+	if item == null:
+		return
 	item.use(self)
 func get_selected_item() -> InventoryItem:
 	return inventory.slots[inventory.selected_index].item
