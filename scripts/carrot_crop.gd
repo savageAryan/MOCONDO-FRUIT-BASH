@@ -19,6 +19,7 @@ func _on_mouse_exited() -> void:
 	animated_sprite_2d.modulate = Color("ffffffff")
 	
 func harvest():
+	harvested.emit(cell_pos)
 	var crop = harvest_item.instantiate()
 	add_sibling(crop)
 	crop.global_position = global_position

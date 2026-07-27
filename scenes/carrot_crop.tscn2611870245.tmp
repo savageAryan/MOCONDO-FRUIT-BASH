@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b4cv6inl5oltf"]
+
+[ext_resource type="Script" uid="uid://cvys8ah02grjj" path="res://scripts/carrot_crop.gd" id="1_2ojoe"]
+[ext_resource type="Texture2D" uid="uid://cdvrya01jtehg" path="res://assets/farm sets.png" id="1_jmflg"]
+[ext_resource type="PackedScene" uid="uid://dedavss7hqypi" path="res://scenes/carrot.tscn" id="2_llu3w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ojoe"]
+atlas = ExtResource("1_jmflg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llu3w"]
+atlas = ExtResource("1_jmflg")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p63xb"]
+atlas = ExtResource("1_jmflg")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tg6s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ojoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llu3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p63xb")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tg6s"]
+
+[node name="carrot crop" type="Area2D" unique_id=1809824399]
+script = ExtResource("1_2ojoe")
+harvest_item = ExtResource("2_llu3w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=364333955]
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=324683312]
+shape = SubResource("RectangleShape2D_2tg6s")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

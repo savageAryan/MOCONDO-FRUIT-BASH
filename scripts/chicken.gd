@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var ui: ui = $"../CanvasLayer/ui"
 @onready var talkbuttonsprite: AnimatedSprite2D = $talkbuttonsprite
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+var facing = "null"
 signal chicken_in
 signal chicken_out
 var moving:bool = false
@@ -48,9 +49,25 @@ func dialouge_finished():
 	
 func move_farm():
 	var direction = (Vector2(-11,135) - global_position).normalized()
-	velocity = velocity.move_toward(direction * 50,120)
+	control.visible = false
+	velocity = velocity.move_toward(direction * 20,120)
 	move_and_slide()
-
+	
+	if abs(direction.x) > abs(direction.y) and velocity != Vector2.ZERO:
+		facing = "side"
+		if direction.x > 0:
+			animated_sprite_2d.play("side walk")
+			animated_sprite_2d.flip_h = true
+		else:
+			animated_sprite_2d.play("side walk")
+			animated_sprite_2d.flip_h = false
+	else:
+		if direction.y > 0:
+			facing = "front"
+			animated_sprite_2d.play("front walk")
+		else:
+			facing = "back"
+			animated_sprite_2d.play("side walk")
 
 func _on_button_pressed() -> void:
 	dialouge.start_dialogue(["HEY Human!",

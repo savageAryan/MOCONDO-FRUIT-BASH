@@ -36,8 +36,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			seedsow()
 func seedsow():
 	var item = get_selected_item()
-	inventory.use_Item_at_Index(inventory.selected_index)
-	world.sow(item.crop_item)
+	if world.sow(item.crop_item):
+		inventory.use_Item_at_Index(inventory.selected_index)
+		world.sow(item.crop_item)
 
 func _physics_process(delta: float) -> void:
 	if dying:

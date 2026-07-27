@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dyu23t1x6r1r1" path="res://scripts/chicken.gd" id="1_1yv3s"]
 [ext_resource type="Texture2D" uid="uid://brdbnj4cwmhps" path="res://assets/farmer.png" id="1_8lku0"]
+[ext_resource type="Texture2D" uid="uid://cnarswhuqefvt" path="res://assets/farmerwalk.png" id="3_5sgx4"]
 [ext_resource type="Texture2D" uid="uid://dco8cb8kgv4ty" path="res://assets/hen farmer talk.png" id="3_nutj5"]
 [ext_resource type="Script" uid="uid://cur8ifhbt0eut" path="res://scripts/interactpanel.gd" id="4_bti8l"]
 [ext_resource type="FontFile" uid="uid://b4le348it6egb" path="res://assets/Pingwin.ttf" id="5_pep2a"]
@@ -20,6 +21,30 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("1_8lku0")
 region = Rect2(128, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2gar"]
+atlas = ExtResource("3_5sgx4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he5ip"]
+atlas = ExtResource("3_5sgx4")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpu0x"]
+atlas = ExtResource("3_5sgx4")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5feyu"]
+atlas = ExtResource("3_5sgx4")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6ncp"]
+atlas = ExtResource("3_5sgx4")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38q2v"]
+atlas = ExtResource("3_5sgx4")
+region = Rect2(128, 32, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_0du8g"]
 atlas = ExtResource("1_8lku0")
 region = Rect2(32, 0, 32, 32)
@@ -31,6 +56,30 @@ region = Rect2(96, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_pep2a"]
 atlas = ExtResource("1_8lku0")
 region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4m6e"]
+atlas = ExtResource("3_5sgx4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dmlc"]
+atlas = ExtResource("3_5sgx4")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg824"]
+atlas = ExtResource("3_5sgx4")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3fh1"]
+atlas = ExtResource("3_5sgx4")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ux1ew"]
+atlas = ExtResource("3_5sgx4")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kon28"]
+atlas = ExtResource("3_5sgx4")
+region = Rect2(160, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5sgx4"]
 atlas = ExtResource("3_nutj5")
@@ -74,6 +123,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_b2gar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he5ip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpu0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5feyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6ncp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38q2v")
+}],
+"loop": 1,
+"name": &"front walk",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_0du8g")
 }, {
 "duration": 1.0,
@@ -85,6 +157,29 @@ animations = [{
 "loop": 1,
 "name": &"side idel",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4m6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dmlc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg824")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3fh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ux1ew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kon28")
+}],
+"loop": 1,
+"name": &"side walk",
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -211,14 +306,17 @@ script = ExtResource("1_1yv3s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1094031958]
 sprite_frames = SubResource("SpriteFrames_2tg6s")
-animation = &"front idel"
+animation = &"side walk"
 autoplay = "side idel"
+frame_progress = 0.27626276
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=905642048]
+visible = false
 position = Vector2(-1, 5)
 shape = SubResource("CircleShape2D_ohge4")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=270737452]
+visible = false
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=422904577]
 shape = SubResource("CircleShape2D_1yv3s")

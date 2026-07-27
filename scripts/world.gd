@@ -24,9 +24,9 @@ func sow(CROP):
 	var cell = tile_map_layer.local_to_map(mouse_pos)
 	var cell_data = tile_map_layer.get_cell_tile_data(cell)
 	if plantedlayer.get_cell_source_id(cell) != -1:
-		return
+		return false
 	if cell_data == null:
-		return
+		return false
 		
 	if cell_data.get_custom_data("farmable"):
 		var crop = CROP.instantiate()
@@ -34,6 +34,7 @@ func sow(CROP):
 		crop.cell_pos = cell
 		crop.global_position = tile_map_layer.to_global(tile_map_layer.map_to_local(cell))
 		plantedlayer.set_cell(cell,0,Vector2i.ZERO)
+		return true
 func _on_tomato_crop_harvested(cell: Vector2i) -> void:
 	plantedlayer.erase_cell(cell)
 
