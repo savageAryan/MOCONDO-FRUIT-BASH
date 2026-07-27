@@ -4,11 +4,13 @@ extends CharacterBody2D
 @onready var invenrory: Control = $"../CanvasLayer/invenrory"
 @onready var ui: ui = $"../CanvasLayer/ui"
 @onready var talkbuttonsprite: AnimatedSprite2D = $talkbuttonsprite
+@onready var marker_2d: Marker2D = $"../Marker2D"
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var facing = "null"
 signal chicken_in
 signal chicken_out
 var moving:bool = false
+var stage = 0
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		chicken_in.emit()
@@ -46,17 +48,19 @@ func dialouge_finished():
 	control.pop_in()
 	control.visible = true
 	talkbuttonsprite.visible = true
-var farm_pos = Vector2(-11,135)
-func move_farm():
-	var distance = global_position.distance_to(farm_pos)
+	
+func move_chicken():
+	var target_pos = marker_2d.global_position
+	var distance = global_position.distance_to(target_pos)
 	if distance < 2:
-		global_position = farm_pos
+		global_position = target_pos
 		velocity = Vector2.ZERO
 		animated_sprite_2d.play("side idel")
 		animated_sprite_2d.flip_h = true
 		moving = false
+		stage = 1
 		return
-	var direction = (farm_pos - global_position).normalized()
+	var direction = (target_pos - global_position).normalized()
 	control.visible = false
 	velocity = direction * 20
 	move_and_slide()
@@ -86,10 +90,18 @@ func _on_button_pressed() -> void:
 
 
 func _on_button_2_pressed() -> void:
-	moving = true
+	if moving:
+		return
+	match stage:
+		0:
+			moving = true
+		1:
+			dialouge.start_dialogue(["H"],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
+			control.pop_out()
+			talkbuttonsprite.visible = false
 func _physics_process(delta: float) -> void:
 	if moving:
-		move_farm()
+		move_chicken()
 
 func _on_talk_button_pressed() -> void:
 	pass
