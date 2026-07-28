@@ -598,10 +598,12 @@ texture = ExtResource("33_rup4s")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D4" unique_id=2072625264]
 position = Vector2(22, 12.5)
 shape = SubResource("RectangleShape2D_2tg6s")
+disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=267560085]
 position = Vector2(-7, 12.5)
 shape = SubResource("RectangleShape2D_2tg6s")
+disabled = true
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=2014692470]
 position = Vector2(-14, 149)
@@ -634,3 +636,5 @@ position = Vector2(-14, 149)
 [connection signal="capybara_out" from="capybara" to="." method="_on_capybara_capybara_out"]
 [connection signal="chicken_in" from="chicken" to="." method="_on_chicken_chicken_in"]
 [connection signal="chicken_out" from="chicken" to="." method="_on_chicken_chicken_out"]
+[connection signal="harvested" from="carrot crop" to="chicken" method="_on_carrot_crop_harvested"]
+[connection signal="harvested" from="tomato crop" to="chicken" method="_on_tomato_crop_harvested"]

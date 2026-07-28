@@ -138,6 +138,8 @@ func _on_chicken_chicken_in() -> void:
 func _on_chicken_chicken_out() -> void:
 	if chicken.moving:
 		return
+	if chicken.talking:
+		return
 	dialouge.visible = false
 	invenrory.visible = true
 	ui.visible = true
