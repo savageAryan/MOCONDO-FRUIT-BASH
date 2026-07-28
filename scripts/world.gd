@@ -133,6 +133,8 @@ func _on_dialouge_talk_finished() -> void:
 	ui.visible = true
 	dialouge.visible = false
 func _on_chicken_chicken_in() -> void:
+	if chicken.moving:
+		return
 	invenrory.visible = false
 	ui.visible = false
 func _on_chicken_chicken_out() -> void:

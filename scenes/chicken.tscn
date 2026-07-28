@@ -205,8 +205,8 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ohge4"]
-radius = 8.062258
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ob4k"]
+radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1yv3s"]
 radius = 39.051247
@@ -310,10 +310,9 @@ animation = &"side walk"
 autoplay = "side idel"
 frame_progress = 0.27626276
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=905642048]
-visible = false
-position = Vector2(-1, 5)
-shape = SubResource("CircleShape2D_ohge4")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=905642048]
+position = Vector2(-2, 5)
+shape = SubResource("CircleShape2D_1ob4k")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=270737452]
 visible = false

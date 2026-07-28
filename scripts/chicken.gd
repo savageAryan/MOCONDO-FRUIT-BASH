@@ -23,6 +23,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			invenrory.visible = false
 			control.visible = true
 			control.pop_in()
+			if !talking:
+				control.visible = true
+				control.pop_in()
 			return
 		if GameManager.chicken_talked == false:
 			dialouge.start_dialogue([
@@ -53,6 +56,15 @@ func dialouge_finished():
 	control.visible = true
 	talkbuttonsprite.visible = true
 	
+
+	talking = false
+	match stage:
+		0:
+			GameManager.chicken_talked = true
+			control.pop_in()
+			talkbuttonsprite.visible = true
+		1:
+			moving = true
 func move_chicken():
 	var target_pos = marker_2d.global_position
 	var distance = global_position.distance_to(target_pos)
@@ -104,6 +116,7 @@ func _on_button_2_pressed() -> void:
 			"If You Think You Have Those 
 			I Am Willing To Teach You"],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
 			stage = 1
+			
 		1:
 			talking = true
 			dialouge.start_dialogue(["Okay So,",
@@ -133,9 +146,30 @@ func _physics_process(delta: float) -> void:
 
 func _on_talk_button_pressed() -> void:
 	pass
-
-
 func _on_carrot_crop_harvested(cell: Vector2i) -> void:
 	harvested = true
+	if harvested:
+		return
+	harvested = true
+	dialouge.start_dialogue(["WELLDONE!",
+	"Now,Yoh Have Your Harvest",
+	"Sell It..,Eat It.. Your Call",
+	"But See The Ground Beneath",
+	"Back to Being Untilled",
+	"YOU Would Need A Plough!",
+	"Till The "],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
+	stage = 3
+
 func _on_tomato_crop_harvested(cell: Vector2i) -> void:
 	harvested = true
+	if harvested:
+		return
+	harvested = true
+	dialouge.start_dialogue(["WELLDONE!",
+	"Now,Yoh Have Your Harvest",
+	"Sell It..,Eat It.. Your Call",
+	"But See The Ground Beneath",
+	"Back to Being Untilled",
+	"YOU Would Need A Plough!",
+	"Till The "],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
+	stage = 3
