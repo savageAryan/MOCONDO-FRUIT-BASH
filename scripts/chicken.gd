@@ -57,12 +57,12 @@ func move_chicken():
 		velocity = Vector2.ZERO
 		animated_sprite_2d.play("side idel")
 		animated_sprite_2d.flip_h = true
-		moving = false
 		stage = 1
 		return
 	var direction = (target_pos - global_position).normalized()
 	control.visible = false
 	velocity = direction * 20
+	dialouge.visible = true
 	move_and_slide()
 	
 	if abs(direction.x) > abs(direction.y) and velocity != Vector2.ZERO:
@@ -87,21 +87,19 @@ func _on_button_pressed() -> void:
 	"Lets Farm Soon, Yehh?.."],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
 	control.pop_out()
 	talkbuttonsprite.visible = false
-
-
 func _on_button_2_pressed() -> void:
-	if moving:
-		return
-	match stage:
-		0:
-			moving = true
-		1:
-			dialouge.start_dialogue(["H"],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
-			control.pop_out()
-			talkbuttonsprite.visible = false
+	moving = true
+	dialouge.start_dialogue(["Farming Requires A Lot Of Patience And Love",
+		"If You Think You Have Those I Am Willing
+		To Teach You"],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
+	talkbuttonsprite.visible = false
+	control.visible = false
+	
 func _physics_process(delta: float) -> void:
 	if moving:
 		move_chicken()
+		await move_chicken()
+		
 
 func _on_talk_button_pressed() -> void:
 	pass
