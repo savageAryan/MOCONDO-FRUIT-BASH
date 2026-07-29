@@ -299,6 +299,46 @@ corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8aah5"]
+bg_color = Color(0.6, 0.306, 0.306, 0.5137255)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 11
+border_color = Color(0.08, 0.08, 0.08, 0.8509804)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fwex"]
+bg_color = Color(0.79, 0.54180837, 0.27650002, 0.8039216)
+border_width_left = 15
+border_width_top = 6
+border_width_right = 15
+border_width_bottom = 14
+border_color = Color(0.81, 0.5832, 0.16199999, 0.8745098)
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trwpf"]
+bg_color = Color(0.050980393, 0.03529412, 0.023529412, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r70ld"]
+bg_color = Color(0.11372549, 0.05490196, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_wx60v"]
 atlas = ExtResource("7_pep2a")
 region = Rect2(0, 0, 16, 16)
@@ -370,7 +410,7 @@ shape = SubResource("CircleShape2D_1yv3s")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1774742154]
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=182896147]
+[node name="options" type="Control" parent="CanvasLayer" unique_id=182896147]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -380,7 +420,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_bti8l")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=66859217]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/options" unique_id=66859217]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -389,7 +429,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.2931, 0.291, 0.3, 0.22745098)
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Control" unique_id=543544611]
+[node name="Panel" type="Panel" parent="CanvasLayer/options" unique_id=543544611]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -405,7 +445,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ohge4")
 
-[node name="Button" type="Button" parent="CanvasLayer/Control/Panel" unique_id=820081173]
+[node name="option 1" type="Button" parent="CanvasLayer/options/Panel" unique_id=820081173]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -422,7 +462,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_2tg6s")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_10jb8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4ilno")
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Panel/Button" unique_id=2135060178]
+[node name="Label" type="Label" parent="CanvasLayer/options/Panel/option 1" unique_id=2135060178]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -440,14 +480,14 @@ theme_override_fonts/font = ExtResource("5_pep2a")
 theme_override_font_sizes/font_size = 59
 text = "TALK"
 
-[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer/Control/Panel/Button/Label" unique_id=287155227]
+[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer/options/Panel/option 1/Label" unique_id=287155227]
 z_index = 2
 position = Vector2(48.56501, 26.500002)
 scale = Vector2(1.3124998, 2.3437495)
 energy = 0.0
 texture = ExtResource("6_5sgx4")
 
-[node name="Button2" type="Button" parent="CanvasLayer/Control/Panel" unique_id=242596604]
+[node name="option 2" type="Button" parent="CanvasLayer/options/Panel" unique_id=242596604]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -464,7 +504,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_2tg6s")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_10jb8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4ilno")
 
-[node name="Label2" type="Label" parent="CanvasLayer/Control/Panel/Button2" unique_id=1457186986]
+[node name="Label2" type="Label" parent="CanvasLayer/options/Panel/option 2" unique_id=1457186986]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -482,7 +522,126 @@ theme_override_fonts/font = ExtResource("5_pep2a")
 theme_override_font_sizes/font_size = 59
 text = "FARMING?"
 
-[node name="PointLight2D_2" type="PointLight2D" parent="CanvasLayer/Control/Panel/Button2/Label2" unique_id=447337890]
+[node name="PointLight2D_2" type="PointLight2D" parent="CanvasLayer/options/Panel/option 2/Label2" unique_id=447337890]
+z_index = 2
+position = Vector2(95.31501, 29.999998)
+scale = Vector2(2.4812498, 2.5624993)
+energy = 0.0
+texture = ExtResource("6_5sgx4")
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=277227506]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_bti8l")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=259082212]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2931, 0.291, 0.3, 0.22745098)
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control" unique_id=2010352949]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -286.5
+offset_top = -131.5
+offset_right = 286.5
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8aah5")
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/Panel" unique_id=717038839]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -267.0
+offset_top = -88.25
+offset_right = 268.87
+offset_bottom = -3.25
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_1fwex")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_trwpf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r70ld")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Panel/Button" unique_id=1644989103]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -20.5
+offset_right = 46.0
+offset_bottom = 36.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.59607846, 0.30588236, 0.20392157, 1)
+theme_override_fonts/font = ExtResource("5_pep2a")
+theme_override_font_sizes/font_size = 59
+text = "TALK"
+
+[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer/Control/Panel/Button/Label" unique_id=1441859675]
+z_index = 2
+position = Vector2(48.56501, 26.500002)
+scale = Vector2(1.3124998, 2.3437495)
+energy = 0.0
+texture = ExtResource("6_5sgx4")
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/Panel" unique_id=296410058]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -267.0
+offset_top = 5.75
+offset_right = 268.87
+offset_bottom = 90.75
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_1fwex")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_trwpf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r70ld")
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/Panel/Button2" unique_id=125097670]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -20.5
+offset_right = 46.0
+offset_bottom = 36.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.59426165, 0.30693352, 0.2040647, 1)
+theme_override_fonts/font = ExtResource("5_pep2a")
+theme_override_font_sizes/font_size = 59
+text = "FARMING?"
+
+[node name="PointLight2D_2" type="PointLight2D" parent="CanvasLayer/Control/Panel/Button2/Label2" unique_id=1587573244]
 z_index = 2
 position = Vector2(95.31501, 29.999998)
 scale = Vector2(2.4812498, 2.5624993)
@@ -505,6 +664,12 @@ flat = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/options/Panel/option 1" to="CanvasLayer/options" method="_on_option_1_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/options/Panel/option 1" to="CanvasLayer/options" method="_on_option_1_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/options/Panel/option 1" to="." method="_on_option_1_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/options/Panel/option 2" to="CanvasLayer/options" method="_on_option_2_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/options/Panel/option 2" to="CanvasLayer/options" method="_on_option_2_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/options/Panel/option 2" to="." method="_on_option_2_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/Control/Panel/Button" to="CanvasLayer/Control" method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Control/Panel/Button" to="CanvasLayer/Control" method="_on_button_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Control/Panel/Button" to="." method="_on_button_pressed"]

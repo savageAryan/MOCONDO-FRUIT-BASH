@@ -1,15 +1,21 @@
 extends Control
-@onready var label: Label = $Panel/Button/Label
-@onready var point_light_2d: PointLight2D = $Panel/Button/Label/PointLight2D
-@onready var label_2: Label = $Panel/Button2/Label2
-@onready var point_light_2d_2: PointLight2D = $Panel/Button2/Label2/PointLight2D_2
+@onready var option_1: Button = $"Panel/option 1"
+@onready var label: Label = $"Panel/option 1/Label"
+@onready var point_light_2d: PointLight2D = $"Panel/option 1/Label/PointLight2D"
+@onready var option_2: Button = $"Panel/option 2"
+@onready var label_2: Label = $"Panel/option 2/Label2"
+@onready var point_light_2d_2: PointLight2D = $"Panel/option 2/Label2/PointLight2D_2"
 @onready var panel: Panel = $Panel
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+func option_build(option_1,option_2):
+	label.text = option_1
+	label_2.text = option_2
 func pop_in():
 	var show_tween = create_tween()
 	show_tween.tween_property(panel,"modulate",Color("fff"),0.2)
@@ -19,21 +25,24 @@ func pop_out():
 	var hide_tween = create_tween()
 	hide_tween.tween_property(panel,"modulate",Color("0000"),0.2)
 	visible = false
-func _on_button_mouse_entered() -> void:
+
+func _on_option_1_mouse_entered() -> void:
 	point_light_2d.energy = 20
 	label.position.y -= 6
 	label.add_theme_color_override("font_color",Color("fff8f8ff"))
 
-func _on_button_mouse_exited() -> void:
+
+func _on_option_1_mouse_exited() -> void:
 	point_light_2d.energy = 0
 	label.position.y += 6
 	label.add_theme_color_override("font_color",Color("984e34"))
 
-func _on_button_2_mouse_entered() -> void:
+func _on_option_2_mouse_entered() -> void:
 	point_light_2d_2.energy = 20
 	label_2.position.y -= 6
 	label_2.add_theme_color_override("font_color",Color("fff8f8ff"))
-func _on_button_2_mouse_exited() -> void:
+	
+func _on_option_2_mouse_exited() -> void:
 	point_light_2d_2.energy = 0
 	label_2.position.y += 6
 	label_2.add_theme_color_override("font_color",Color("984e34"))

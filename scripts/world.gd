@@ -137,6 +137,9 @@ func _on_chicken_chicken_in() -> void:
 		return
 	invenrory.visible = false
 	ui.visible = false
+	match chicken.stage:
+		0:
+			pass
 func _on_chicken_chicken_out() -> void:
 	if chicken.moving:
 		return

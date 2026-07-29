@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var marker_2d: Marker2D = $"../Marker2D"
 @onready var tomato_crop: Area2D = $"../tomato crop"
 @onready var carrot_crop: Area2D = $"../carrot crop"
+@onready var options: Control = $CanvasLayer/options
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var facing = "null"
 signal chicken_in
@@ -18,13 +19,11 @@ var sleeping = false
 var talking:bool = false
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		if !GameManager.chicken_talked:
-			talking = true
 		chicken_in.emit()
 		if GameManager.chicken_talked:
 			ui.visible = false
 			invenrory.visible = false
-			if talking:
+			if !talking:
 				control.visible = true
 				control.pop_in()
 			return
@@ -57,11 +56,17 @@ func dialouge_finished():
 	talking = false
 	match stage:
 		0:
+			talking = false
 			GameManager.chicken_talked = true
 			control.pop_in()
 			talkbuttonsprite.visible = true
+			stage = 1
 		1:
-			moving = true
+			talking = false
+			options.pop_in()
+			options.option_build("YESS!","NAHH! MAYBE LATER")
+		2:
+			options.pop_out()
 func move_chicken():
 	var target_pos = marker_2d.global_position
 	var distance = global_position.distance_to(target_pos)
@@ -70,7 +75,7 @@ func move_chicken():
 		velocity = Vector2.ZERO
 		animated_sprite_2d.play("side idel")
 		animated_sprite_2d.flip_h = true
-		
+		moving = false
 		return
 	var direction = (target_pos - global_position).normalized()
 	control.visible = false
@@ -100,11 +105,12 @@ func _on_button_pressed() -> void:
 	"Lets Farm Soon, Yehh?.."],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
 	control.pop_out()
 	talkbuttonsprite.visible = false
+	stage = 0
 func _on_button_2_pressed() -> void:
 	talkbuttonsprite.visible = false
 	control.visible = false
 	match stage:
-		0:
+		1:
 			talking = true
 			moving = true
 			dialouge.start_dialogue(["Follow me!",
@@ -112,25 +118,6 @@ func _on_button_2_pressed() -> void:
 			And Love",
 			"If You Think You Have Those 
 			I Am Willing To Teach You"],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
-			stage = 1
-			
-		1:
-			talking = true
-			dialouge.start_dialogue(["Okay So,",
-			"You Can See Two Crops Grown
-			here",
-			"Left Click on Them TO Harvest",
-			".."],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
-			stage = 2
-			await harvested == true
-			dialouge.start_dialogue(["WELLDONE!",
-			"Now,Yoh Have Your Harvest",
-			"Sell It..,Eat It.. Your Call",
-			"But See The Ground Beneath",
-			"Back to Being Untilled",
-			"YOU Would Need A Plough!",
-			"Till The "],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
-			
 	
 	var distance = global_position.distance_to(marker_2d.global_position)
 	if distance < 2:
@@ -182,3 +169,24 @@ func sleep():
 		marker_2d.global_position = Vector2(-14,142)
 		move_chicken()
 		
+func _on_option_1_pressed() -> void:
+	stage = 2
+	talking = true
+	dialouge.start_dialogue(["Okay So,",
+		"You Can See Two Crops Grown
+		here",
+		"Left Click on Them TO Harvest",
+		".."],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
+	await harvested == true
+	dialouge.start_dialogue(["WELLDONE!",
+		"Now,Yoh Have Your Harvest",
+		"Sell It..,Eat It.. Your Call",
+		"But See The Ground Beneath",
+		"Back to Being Untilled",
+		"YOU Would Need A Plough!",
+		"Till The "],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
+
+func _on_option_2_pressed() -> void:
+	stage = 0
+	options.pop_out()
+	chicken_out.emit()
