@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://brdbnj4cwmhps" path="res://assets/farmer.png" id="1_8lku0"]
 [ext_resource type="Texture2D" uid="uid://cnarswhuqefvt" path="res://assets/farmerwalk.png" id="3_5sgx4"]
 [ext_resource type="Texture2D" uid="uid://dco8cb8kgv4ty" path="res://assets/hen farmer talk.png" id="3_nutj5"]
+[ext_resource type="Texture2D" uid="uid://bj2tgosfmowoh" path="res://assets/chicken sleeping.png" id="4_8aah5"]
 [ext_resource type="Script" uid="uid://cur8ifhbt0eut" path="res://scripts/interactpanel.gd" id="4_bti8l"]
 [ext_resource type="FontFile" uid="uid://b4le348it6egb" path="res://assets/Pingwin.ttf" id="5_pep2a"]
 [ext_resource type="Texture2D" uid="uid://cv8sr3sr4owf0" path="res://assets/texturelightbutton.png" id="6_5sgx4"]
@@ -80,6 +81,30 @@ region = Rect2(160, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_kon28"]
 atlas = ExtResource("3_5sgx4")
 region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfb3p"]
+atlas = ExtResource("4_8aah5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1y0h"]
+atlas = ExtResource("4_8aah5")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h83t8"]
+atlas = ExtResource("4_8aah5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhieq"]
+atlas = ExtResource("4_8aah5")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4csy"]
+atlas = ExtResource("4_8aah5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8msm"]
+atlas = ExtResource("4_8aah5")
+region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5sgx4"]
 atlas = ExtResource("3_nutj5")
@@ -180,6 +205,29 @@ animations = [{
 "loop": 1,
 "name": &"side walk",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfb3p")
+}, {
+"duration": 1.56,
+"texture": SubResource("AtlasTexture_e1y0h")
+}, {
+"duration": 1.6,
+"texture": SubResource("AtlasTexture_h83t8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhieq")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_m4csy")
+}, {
+"duration": 1.9,
+"texture": SubResource("AtlasTexture_u8msm")
+}],
+"loop": 1,
+"name": &"sleep",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -306,9 +354,9 @@ script = ExtResource("1_1yv3s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1094031958]
 sprite_frames = SubResource("SpriteFrames_2tg6s")
-animation = &"side walk"
+animation = &"sleep"
 autoplay = "side idel"
-frame_progress = 0.27626276
+frame_progress = 0.3015236
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=905642048]
 position = Vector2(-2, 5)

@@ -14,16 +14,17 @@ signal chicken_out
 var moving:bool = false
 var stage := 0
 var harvested:bool = false
+var sleeping = false
 var talking:bool = false
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		if !GameManager.chicken_talked:
+			talking = true
 		chicken_in.emit()
 		if GameManager.chicken_talked:
 			ui.visible = false
 			invenrory.visible = false
-			control.visible = true
-			control.pop_in()
-			if !talking:
+			if talking:
 				control.visible = true
 				control.pop_in()
 			return
@@ -52,11 +53,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		talkbuttonsprite.visible = true
 func dialouge_finished():
 	GameManager.chicken_talked = true
-	control.pop_in()
-	control.visible = true
 	talkbuttonsprite.visible = true
-	
-
 	talking = false
 	match stage:
 		0:
@@ -173,3 +170,15 @@ func _on_tomato_crop_harvested(cell: Vector2i) -> void:
 	"YOU Would Need A Plough!",
 	"Till The "],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
 	stage = 3
+func sleep():
+	await get_tree().create_timer(40).timeout
+	marker_2d.global_position = Vector2(-14,161)
+	await move_chicken()
+	if moving == false:
+		sleeping = true
+		animated_sprite_2d.play("sleep")
+		await get_tree().create_timer(10).timeout
+		sleeping = false
+		marker_2d.global_position = Vector2(-14,142)
+		move_chicken()
+		
