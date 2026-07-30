@@ -13,6 +13,8 @@ var capybara_talked:bool = false
 var blob_talked:bool = false
 var carrot = 0
 var tomato = 0
+var carrot_seed = 0
+var tomato_seed = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

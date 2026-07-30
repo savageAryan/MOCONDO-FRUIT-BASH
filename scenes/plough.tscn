@@ -55,10 +55,12 @@ script = ExtResource("1_lx1wd")
 itemRes = ExtResource("2_wbqlh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1834225984]
+position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_ohge4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=433891092]
-scale = Vector2(0.3515625, 0.3515625)
+position = Vector2(1.1874998, 1.1874998)
+scale = Vector2(0.42578125, 0.42578125)
 sprite_frames = SubResource("SpriteFrames_2tg6s")
 autoplay = "default"
 frame_progress = 0.20817971

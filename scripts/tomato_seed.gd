@@ -3,7 +3,7 @@ func _ready() -> void:
 	despawn()
 	await despawn()
 func despawn():
-	await get_tree().create_timer(13).timeout
+	await get_tree().create_timer(40).timeout
 	queue_free()
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export var itemRes: InventoryItem

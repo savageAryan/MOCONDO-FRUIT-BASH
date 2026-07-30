@@ -19,6 +19,8 @@ var harvested:bool = false
 var sleeping = false
 var talking:bool = false
 const PLOUGH = preload("res://scenes/plough.tscn")
+const TOMATO_SEED = preload("res://scenes/tomato_seed.tscn")
+const CARROT_SEED = preload("res://scenes/carrot_seed.tscn")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -26,7 +28,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		if GameManager.chicken_talked:
 			ui.visible = false
 			invenrory.visible = false
-			if !talking and stage != 3:
+			if !talking and stage == 0 or stage != 2 or dialouge.visible != true or (stage == 1 and options.visible == false):
 				control.visible = true
 				control.pop_in()
 			return
@@ -79,6 +81,12 @@ func dialouge_finished():
 			print("plough")
 			plough.global_position = global_position - Vector2(-10,0)
 			stage = 4
+		4:
+			marker_2d.global_position = Vector2(-14 ,149)
+			moving = true
+			stage = 5
+			chicken_out.emit()
+			
 func move_chicken():
 	var target_pos = marker_2d.global_position
 	var distance = global_position.distance_to(target_pos)
@@ -88,7 +96,7 @@ func move_chicken():
 		animated_sprite_2d.play("side idel")
 		animated_sprite_2d.flip_h = true
 		moving = false
-		return
+		return true
 	var direction = (target_pos - global_position).normalized()
 	control.visible = false
 	velocity = direction * 20
@@ -116,7 +124,9 @@ func _on_button_pressed() -> void:
 	"Lets Farm Soon, Yehh?.."],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
 	control.pop_out()
 	talkbuttonsprite.visible = false
-	stage = 0
+	match stage:
+		1:
+			stage = 0
 func _on_button_2_pressed() -> void:
 	talkbuttonsprite.visible = false
 	control.visible = false
@@ -209,11 +219,22 @@ func _on_option_2_pressed() -> void:
 var tilled_tut:bool = false
 
 func _on_world_tilled() -> void:
+	stage = 4
 	print("loll")
 	if tilled_tut:
 		return
 	tilled_tut = true
 	talking = true
+	chicken_in.emit()
 	dialouge.start_dialogue(["Nice!",
 	"Now Take These Seeds And Holding Them,
-	Right Click On The Farmland"],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
+	Right Click On The Farmland To Plant",
+	"Wait For Them To Mature",
+	"Then Harvest, YES!!",
+	"That's It!",
+	"I Will Be Going Now,",
+	"FARM GOOOD!! SEE YEHH!"],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
+	var seed = CARROT_SEED.instantiate()
+	add_sibling(seed)
+	seed.global_position = global_position + Vector2(10,0)
+	seed.global_position = global_position + Vector2(10,0)

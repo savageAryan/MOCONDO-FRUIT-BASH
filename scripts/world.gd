@@ -170,6 +170,11 @@ func _on_chicken_chicken_in() -> void:
 		0:
 			pass
 func _on_chicken_chicken_out() -> void:
+	match chicken.stage:
+		5:
+			dialouge.visible = false
+			invenrory.visible = true
+			ui.visible = true
 	if chicken.moving:
 		return
 	if chicken.talking:

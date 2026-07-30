@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://dfvdb6a6fbelv" path="res://inventory/item/tomato seed.tres" id="2_8a54o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2tg6s"]
+radius = 5.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uvtqr"]
 atlas = ExtResource("1_molyf")
@@ -57,5 +58,9 @@ itemRes = ExtResource("2_8a54o")
 shape = SubResource("CircleShape2D_2tg6s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2055849432]
+position = Vector2(-4.7683716e-07, 4.7683716e-07)
+scale = Vector2(0.6875, 0.6875)
 sprite_frames = SubResource("SpriteFrames_ohge4")
 autoplay = "default"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

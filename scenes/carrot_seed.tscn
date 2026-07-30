@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://0obmx08qamwd" path="res://inventory/item/carrot seed.tres" id="2_ybu3a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2tg6s"]
+radius = 6.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0n7y"]
 atlas = ExtResource("1_mfwx1")
@@ -57,5 +58,9 @@ itemRes = ExtResource("2_ybu3a")
 shape = SubResource("CircleShape2D_2tg6s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=784147052]
+scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_ohge4")
+autoplay = "default"
 frame_progress = 0.8047893
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
