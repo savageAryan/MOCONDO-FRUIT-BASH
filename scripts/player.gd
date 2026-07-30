@@ -29,11 +29,18 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("hit"):
 		var  item = get_selected_item()
 		if item and item.name == "plough":
-			pass
+			till_land()
+			return
 	if Input.is_action_just_pressed("rightclick"):
 		var item = get_selected_item()
 		if item and item.item_type == "seed":
 			seedsow()
+			
+func till_land():
+	using_tool = true
+	animated_sprite_2d.play("ploughing")
+	await  animated_sprite_2d.animation_finished
+	using_tool = false
 func seedsow():
 	var item = get_selected_item()
 	if world.sow(item.crop_item):

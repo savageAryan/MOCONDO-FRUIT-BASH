@@ -62,7 +62,8 @@ func dialouge_finished():
 			talkbuttonsprite.visible = true
 			stage = 1
 		1:
-			talking = false
+			dialouge.visible = false
+			talking = true
 			options.pop_in()
 			options.option_build("YESS!","NAHH! MAYBE LATER")
 		2:
@@ -80,7 +81,6 @@ func move_chicken():
 	var direction = (target_pos - global_position).normalized()
 	control.visible = false
 	velocity = direction * 20
-	dialouge.visible = true
 	move_and_slide()
 	
 	if abs(direction.x) > abs(direction.y) and velocity != Vector2.ZERO:
@@ -118,12 +118,6 @@ func _on_button_2_pressed() -> void:
 			And Love",
 			"If You Think You Have Those 
 			I Am Willing To Teach You"],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
-	
-	var distance = global_position.distance_to(marker_2d.global_position)
-	if distance < 2:
-		moving = true
-		marker_2d.global_position = Vector2(-109, 160)
-	
 func _physics_process(delta: float) -> void:
 	if moving:
 		move_chicken()
@@ -131,10 +125,10 @@ func _physics_process(delta: float) -> void:
 func _on_talk_button_pressed() -> void:
 	pass
 func _on_carrot_crop_harvested(cell: Vector2i) -> void:
-	harvested = true
 	if harvested:
 		return
 	harvested = true
+	talking = true
 	dialouge.start_dialogue(["WELLDONE!",
 	"Now,Yoh Have Your Harvest",
 	"Sell It..,Eat It.. Your Call",
@@ -145,10 +139,10 @@ func _on_carrot_crop_harvested(cell: Vector2i) -> void:
 	stage = 3
 
 func _on_tomato_crop_harvested(cell: Vector2i) -> void:
-	harvested = true
 	if harvested:
 		return
 	harvested = true
+	talking = true
 	dialouge.start_dialogue(["WELLDONE!",
 	"Now,Yoh Have Your Harvest",
 	"Sell It..,Eat It.. Your Call",
@@ -170,23 +164,26 @@ func sleep():
 		move_chicken()
 		
 func _on_option_1_pressed() -> void:
+	var distance = global_position.distance_to(marker_2d.global_position)
+	if distance > 2:
+		return
+	moving = true
+	marker_2d.global_position = Vector2(-109, 160)
+	options.pop_out()
 	stage = 2
 	talking = true
+	carrot_crop.visible = true
+	tomato_crop.visible = true
 	dialouge.start_dialogue(["Okay So,",
 		"You Can See Two Crops Grown
 		here",
 		"Left Click on Them TO Harvest",
 		".."],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
-	await harvested == true
-	dialouge.start_dialogue(["WELLDONE!",
-		"Now,Yoh Have Your Harvest",
-		"Sell It..,Eat It.. Your Call",
-		"But See The Ground Beneath",
-		"Back to Being Untilled",
-		"YOU Would Need A Plough!",
-		"Till The "],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
+	
 
 func _on_option_2_pressed() -> void:
-	stage = 0
+	stage = 1
+	talking = false
 	options.pop_out()
+	talking = false
 	chicken_out.emit()

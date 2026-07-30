@@ -583,9 +583,11 @@ position = Vector2(-63, 15)
 scale = Vector2(0.58, 0.58)
 
 [node name="carrot crop" parent="." unique_id=1809824399 instance=ExtResource("31_luhhm")]
+visible = false
 position = Vector2(-126, 141)
 
 [node name="tomato crop" parent="." unique_id=1340472173 instance=ExtResource("32_fh13f")]
+visible = false
 position = Vector2(-142, 168)
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1765199882]
