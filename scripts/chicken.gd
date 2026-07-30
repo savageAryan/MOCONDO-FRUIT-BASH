@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var tomato_crop: Area2D = $"../tomato crop"
 @onready var carrot_crop: Area2D = $"../carrot crop"
 @onready var options: Control = $CanvasLayer/options
+@onready var world: Node2D = $".."
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var facing = "null"
 signal chicken_in
@@ -17,13 +18,15 @@ var stage := 0
 var harvested:bool = false
 var sleeping = false
 var talking:bool = false
+const PLOUGH = preload("res://scenes/plough.tscn")
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		chicken_in.emit()
 		if GameManager.chicken_talked:
 			ui.visible = false
 			invenrory.visible = false
-			if !talking:
+			if !talking and stage != 3:
 				control.visible = true
 				control.pop_in()
 			return
@@ -67,7 +70,15 @@ func dialouge_finished():
 			options.pop_in()
 			options.option_build("YESS!","NAHH! MAYBE LATER")
 		2:
+			talking = true
 			options.pop_out()
+		3:
+			var plough = PLOUGH.instantiate()
+			talking = false
+			add_sibling(plough)
+			print("plough")
+			plough.global_position = global_position - Vector2(-10,0)
+			stage = 4
 func move_chicken():
 	var target_pos = marker_2d.global_position
 	var distance = global_position.distance_to(target_pos)
@@ -153,7 +164,11 @@ func _on_tomato_crop_harvested(cell: Vector2i) -> void:
 	"But See The Ground Beneath",
 	"Back to Being Untilled",
 	"YOU Would Need A Plough!",
-	"Till The "],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
+	"To Till The Soil Again",
+	"Here Take Mine For The Instance,
+	You Can Get Your's From Monkey.
+	He Sells All Sorts Of Stuff",
+	"Right Click On The Untilled Land!"],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
 	stage = 3
 func sleep():
 	await get_tree().create_timer(40).timeout
@@ -191,3 +206,14 @@ func _on_option_2_pressed() -> void:
 	options.pop_out()
 	talking = false
 	chicken_out.emit()
+var tilled_tut:bool = false
+
+func _on_world_tilled() -> void:
+	print("loll")
+	if tilled_tut:
+		return
+	tilled_tut = true
+	talking = true
+	dialouge.start_dialogue(["Nice!",
+	"Now Take These Seeds And Holding Them,
+	Right Click On The Farmland"],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)

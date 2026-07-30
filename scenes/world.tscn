@@ -591,11 +591,11 @@ scale = Vector2(0.58, 0.58)
 
 [node name="carrot crop" parent="." unique_id=1809824399 instance=ExtResource("31_luhhm")]
 visible = false
-position = Vector2(-126, 141)
+position = Vector2(-121, 137)
 
 [node name="tomato crop" parent="." unique_id=1340472173 instance=ExtResource("32_fh13f")]
 visible = false
-position = Vector2(-142, 168)
+position = Vector2(-135, 168)
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1765199882]
 position = Vector2(-22, 149)
@@ -617,6 +617,7 @@ disabled = true
 [node name="Marker2D" type="Marker2D" parent="." unique_id=2014692470]
 position = Vector2(-14, 149)
 
+[connection signal="tilled" from="." to="chicken" method="_on_world_tilled"]
 [connection signal="talk_finished" from="CanvasLayer/dialouge" to="." method="_on_dialouge_talk_finished"]
 [connection signal="talk_finished" from="CanvasLayer/dialouge" to="blob" method="_on_dialouge_talk_finished"]
 [connection signal="talk_finished" from="CanvasLayer/dialouge" to="monkey" method="_on_dialouge_talk_finished"]

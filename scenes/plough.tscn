@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bj42wyk8atl6q"]
+
+[ext_resource type="Script" uid="uid://sq1ae2e45lpi" path="res://scripts/plough.gd" id="1_lx1wd"]
+[ext_resource type="Texture2D" uid="uid://dqvv538g4a2t1" path="res://assets/plough.png" id="2_s2h3d"]
+[ext_resource type="Resource" uid="uid://62jlxti11xgp" path="res://inventory/item/plough.tres" id="2_wbqlh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ohge4"]
+radius = 4.472136
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbqlh"]
+atlas = ExtResource("2_s2h3d")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quxv1"]
+atlas = ExtResource("2_s2h3d")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8nea"]
+atlas = ExtResource("2_s2h3d")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h22e4"]
+atlas = ExtResource("2_s2h3d")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qceq3"]
+atlas = ExtResource("2_s2h3d")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tg6s"]
+animations = [{
+"frames": [{
+"duration": 1.6,
+"texture": SubResource("AtlasTexture_wbqlh")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_quxv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8nea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h22e4")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_qceq3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="plough" type="Area2D" unique_id=1545650752]
+script = ExtResource("1_lx1wd")
+itemRes = ExtResource("2_wbqlh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1834225984]
+shape = SubResource("CircleShape2D_ohge4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=433891092]
+scale = Vector2(0.3515625, 0.3515625)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+autoplay = "default"
+frame_progress = 0.20817971
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

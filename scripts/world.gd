@@ -18,6 +18,7 @@ extends Node2D
 @onready var tomato_crop: Area2D = $"tomato crop"
 @onready var tile_map_layer: TileMapLayer = $TileMapLayer
 var planted_cell = {}
+signal tilled
 const CARROT_CROP = preload("res://scenes/carrot_crop.tscn")
 func _process(delta: float) -> void:
 	pass
@@ -31,6 +32,7 @@ func land_tilled():
 		return false
 	if cell_data.get_custom_data("untilled"):
 		tile_map_layer.set_cell(cell,3,Vector2i(0,0),1)
+		tilled.emit()
 		return true
 func land_untilled(cell: Vector2i):
 	var cell_data = tile_map_layer.get_cell_tile_data(cell)
@@ -58,7 +60,7 @@ func sow(CROP):
 func _on_carrot_crop_harvested(cell: Vector2i) -> void:
 	print("tut")
 	var pos = tile_map_layer.local_to_map(carrot_crop.global_position)
-	land_untilled(cell)
+	land_untilled(pos)
 func _on_tomato_crop_harvested(cell: Vector2i) -> void:
 	print("tut")
 	var pos = tile_map_layer.local_to_map(tomato_crop.global_position)
