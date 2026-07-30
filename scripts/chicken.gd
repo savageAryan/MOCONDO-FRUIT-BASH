@@ -135,7 +135,11 @@ func _on_carrot_crop_harvested(cell: Vector2i) -> void:
 	"But See The Ground Beneath",
 	"Back to Being Untilled",
 	"YOU Would Need A Plough!",
-	"Till The "],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
+	"To Till The Soil Again",
+	"Here Take Mine For The Instance,
+	You Can Get Your's From Monkey.
+	He Sells All Sorts Of Stuff",
+	"Right Click On The Untilled Land!"],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
 	stage = 3
 
 func _on_tomato_crop_harvested(cell: Vector2i) -> void:

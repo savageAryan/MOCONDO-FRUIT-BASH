@@ -61,8 +61,12 @@ texture = ExtResource("3_71j4m")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7r4gi"]
 texture = ExtResource("4_4mrxx")
+0:0/next_alternative_id = 2
 0:0/0 = 0
 0:0/0/custom_data_0 = true
+0:0/1 = 1
+0:0/1/transpose = true
+0:0/1/custom_data_0 = true
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -641,5 +645,7 @@ position = Vector2(-14, 149)
 [connection signal="capybara_out" from="capybara" to="." method="_on_capybara_capybara_out"]
 [connection signal="chicken_in" from="chicken" to="." method="_on_chicken_chicken_in"]
 [connection signal="chicken_out" from="chicken" to="." method="_on_chicken_chicken_out"]
+[connection signal="harvested" from="carrot crop" to="." method="_on_carrot_crop_harvested"]
 [connection signal="harvested" from="carrot crop" to="chicken" method="_on_carrot_crop_harvested"]
+[connection signal="harvested" from="tomato crop" to="." method="_on_tomato_crop_harvested"]
 [connection signal="harvested" from="tomato crop" to="chicken" method="_on_tomato_crop_harvested"]
