@@ -26,7 +26,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if item and item.item_type == "weapon":
 			hit_enemy()
 			return
-	if Input.is_action_just_pressed("hit"):
+	if Input.is_action_just_pressed("rightclick"):
 		var  item = get_selected_item()
 		if item and item.name == "plough":
 			till_land()
@@ -37,10 +37,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			seedsow()
 			
 func till_land():
-	using_tool = true
-	animated_sprite_2d.play("ploughing")
-	await  animated_sprite_2d.animation_finished
-	using_tool = false
+	if world.land_tilled():
+		using_tool = true
+		animated_sprite_2d.play("ploughing")
+		await  animated_sprite_2d.animation_finished
+		using_tool = false
 func seedsow():
 	var item = get_selected_item()
 	if world.sow(item.crop_item):

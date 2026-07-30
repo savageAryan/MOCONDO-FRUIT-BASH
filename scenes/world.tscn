@@ -86,6 +86,7 @@ texture = ExtResource("4_7r4gi")
 12:6/0 = 0
 11:6/0 = 0
 10:6/0 = 0
+10:6/0/custom_data_1 = true
 9:6/0 = 0
 9:5/0 = 0
 10:4/0 = 0
@@ -95,6 +96,8 @@ texture = ExtResource("4_7r4gi")
 [sub_resource type="TileSet" id="TileSet_k0juu"]
 custom_data_layer_0/name = "farmable"
 custom_data_layer_0/type = 1
+custom_data_layer_1/name = "untilled"
+custom_data_layer_1/type = 1
 sources/0 = SubResource("TileSetAtlasSource_4wyf3")
 sources/2 = SubResource("TileSetAtlasSource_qfnet")
 sources/3 = SubResource("TileSetAtlasSource_7r4gi")

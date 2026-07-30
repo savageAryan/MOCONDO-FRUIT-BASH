@@ -19,6 +19,23 @@ var planted_cell = {}
 const CARROT_CROP = preload("res://scenes/carrot_crop.tscn")
 func _process(delta: float) -> void:
 	pass
+func land_tilled():
+	var mouse_pos = get_global_mouse_position()
+	var cell = tile_map_layer.local_to_map(mouse_pos)
+	var cell_data = tile_map_layer.get_cell_tile_data(cell)
+	if plantedlayer.get_cell_source_id(cell) != -1:
+		return false
+	if cell_data == null:
+		return false
+	if cell_data.get_custom_data("untilled"):
+		tile_map_layer.set_cell(cell,3,Vector2i(0,0))
+		return true
+func land_untilled(cell: Vector2i):
+	var cell_data = tile_map_layer.get_cell_tile_data(cell)
+	if cell_data == null:
+		return false
+	if cell_data.get_custom_data("farmable"):
+		tile_map_layer.set_cell(cell,4,Vector2i(10,6))
 func sow(CROP):
 	var mouse_pos = get_global_mouse_position()
 	var cell = tile_map_layer.local_to_map(mouse_pos)
@@ -38,6 +55,7 @@ func sow(CROP):
 		return true
 func _on_crop_harvested(cell: Vector2i):
 	plantedlayer.erase_cell(cell)
+	land_untilled(cell)
 func _ready() -> void:
 	canvas_modulate.time_tick.connect(ui.set_daytime)
 	blob_spawn()
