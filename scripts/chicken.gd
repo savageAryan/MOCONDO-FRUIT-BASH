@@ -9,7 +9,9 @@ extends CharacterBody2D
 @onready var carrot_crop: Area2D = $"../carrot crop"
 @onready var options: Control = $CanvasLayer/options
 @onready var world: Node2D = $".."
+@onready var player: Player = $"../player"
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+var plough_item = null
 var facing = "null"
 signal chicken_in
 signal chicken_out
@@ -63,6 +65,7 @@ func dialouge_finished():
 	talkbuttonsprite.visible = true
 	match stage:
 		0:
+			
 			talking = false
 			GameManager.chicken_talked = true
 			control.pop_in()
@@ -87,6 +90,9 @@ func dialouge_finished():
 			add_sibling(plough)
 			print("plough")
 			plough.global_position = global_position - Vector2(-10,0)
+			if plough != null:
+				plough_item = plough.itemRes
+				print("ploughingiio")
 		4:
 			talking = false
 			marker_2d.global_position = Vector2(-14 ,149)
@@ -280,3 +286,9 @@ func _on_world_tilled() -> void:
 	add_sibling(seed)
 	seed.global_position = global_position + Vector2(10,0)
 	seed.global_position = global_position + Vector2(10,0)
+	print(player.inventory)
+	print(plough_item)
+	player.inventory.remove_item(plough_item)
+	
+	
+	
