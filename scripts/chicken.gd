@@ -21,14 +21,17 @@ var talking:bool = false
 const PLOUGH = preload("res://scenes/plough.tscn")
 const TOMATO_SEED = preload("res://scenes/tomato_seed.tscn")
 const CARROT_SEED = preload("res://scenes/carrot_seed.tscn")
-
+var plough_given:bool = false
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		chicken_in.emit()
 		if GameManager.chicken_talked:
 			ui.visible = false
 			invenrory.visible = false
-			if !talking and stage == 0 or stage != 2 or dialouge.visible != true or (stage == 1 and options.visible == false):
+			if !talking \
+			and !dialouge.visible \
+			and !options.visible \
+			and !moving:
 				control.visible = true
 				control.pop_in()
 			return
@@ -58,7 +61,6 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func dialouge_finished():
 	GameManager.chicken_talked = true
 	talkbuttonsprite.visible = true
-	talking = false
 	match stage:
 		0:
 			talking = false
@@ -68,6 +70,7 @@ func dialouge_finished():
 			stage = 1
 		1:
 			dialouge.visible = false
+			control.pop_out()
 			talking = true
 			options.pop_in()
 			options.option_build("YESS!","NAHH! MAYBE LATER")
@@ -75,16 +78,23 @@ func dialouge_finished():
 			talking = true
 			options.pop_out()
 		3:
+			talking = false
+			if plough_given:
+				return
+			plough_given = true
 			var plough = PLOUGH.instantiate()
 			talking = false
 			add_sibling(plough)
 			print("plough")
 			plough.global_position = global_position - Vector2(-10,0)
-			stage = 4
 		4:
+			talking = false
 			marker_2d.global_position = Vector2(-14 ,149)
 			moving = true
 			stage = 5
+			chicken_out.emit()
+		5:
+			talking = false
 			chicken_out.emit()
 			
 func move_chicken():
@@ -127,6 +137,19 @@ func _on_button_pressed() -> void:
 	match stage:
 		1:
 			stage = 0
+		2:
+			talking = true
+			dialouge.start_dialogue(["Harvest!!",
+			"Left Click The Crop"],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
+		3:
+			talking = true
+			dialouge.start_dialogue(["Till The Land!!",
+			"Hold The Plough And Right Click
+			On The Untilled Land"],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
+		5:
+			talking = true
+			dialouge.start_dialogue(["You Can Work In My Farm!",
+			"If You Help I Will Pay You!"],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
 func _on_button_2_pressed() -> void:
 	talkbuttonsprite.visible = false
 	control.visible = false
@@ -139,6 +162,21 @@ func _on_button_2_pressed() -> void:
 			And Love",
 			"If You Think You Have Those 
 			I Am Willing To Teach You"],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
+		2:
+			talking = true
+			dialouge.start_dialogue(["Harvest!!",
+			"Left Click The Crop"],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
+		3:
+			talking = true
+			dialouge.start_dialogue(["Till The Land!!",
+			"Hold The Plough And Right Click
+			On The Untilled Land"],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
+		5:
+			talking = true
+			dialouge.start_dialogue(["I Have Tought You Enough,
+			Go Out There And Work Now,
+			Yeh BUUDY?!",
+			"Yehh.."],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
 func _physics_process(delta: float) -> void:
 	if moving:
 		move_chicken()
@@ -198,6 +236,7 @@ func _on_option_1_pressed() -> void:
 		return
 	moving = true
 	marker_2d.global_position = Vector2(-109, 160)
+	chicken_out.emit()
 	options.pop_out()
 	stage = 2
 	talking = true
@@ -233,8 +272,11 @@ func _on_world_tilled() -> void:
 	"Then Harvest, YES!!",
 	"That's It!",
 	"I Will Be Going Now,",
+	"I Am Taking My Plough",
+	"Get Yourself One From Workshop",
 	"FARM GOOOD!! SEE YEHH!"],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
 	var seed = CARROT_SEED.instantiate()
+	add_sibling(seed)
 	add_sibling(seed)
 	seed.global_position = global_position + Vector2(10,0)
 	seed.global_position = global_position + Vector2(10,0)

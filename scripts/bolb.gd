@@ -287,6 +287,7 @@ func _on_dialogue_dectect_body_exited(body: Node2D) -> void:
 			chasing = true
 
 func dialouge_finished():
+	blob_out.emit()
 	GameManager.blob_talked = true
 	print("blob talk finished")
 	waiting = false

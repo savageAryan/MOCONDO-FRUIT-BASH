@@ -198,4 +198,4 @@ func _on_detectarea_body_exited(body: Node2D) -> void:
 func dialouge_finished():
 	GameManager.capybara_talked = true
 	state = states.roam
-	capybara_out
+	capybara_out.emit()
