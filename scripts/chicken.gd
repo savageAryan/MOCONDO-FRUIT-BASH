@@ -288,6 +288,10 @@ func _on_world_tilled() -> void:
 	seed.global_position = global_position + Vector2(10,0)
 	print(player.inventory)
 	print(plough_item)
+	print("Trying to remove:", plough_item)
+	for slot in player.inventory.slots:
+		if slot.item:
+			print("Slot:", slot.item, " Name:", slot.item.name)
 	player.inventory.remove_item(plough_item)
 	
 	

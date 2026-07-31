@@ -43,8 +43,11 @@ func use_Item_at_Index(index: int) -> void:
 
 	
 func remove_item(item: InventoryItem, amount_remove: int = 1):
+	print("Removing:", item)
 	for slot in slots:
+		print("Checking:", slot.item)
 		if slot.item == item:
+			print("found")
 			if slot.amount >= amount_remove:
 				slot.amount -= amount_remove
 				if slot.amount <= 0:
