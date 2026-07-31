@@ -92,7 +92,6 @@ func dialouge_finished():
 			plough.global_position = global_position - Vector2(-10,0)
 			if plough != null:
 				plough_item = plough.itemRes
-				print("ploughingiio")
 		4:
 			talking = false
 			marker_2d.global_position = Vector2(-14 ,149)
@@ -112,6 +111,7 @@ func move_chicken():
 		animated_sprite_2d.play("side idel")
 		animated_sprite_2d.flip_h = true
 		moving = false
+		chicken_out.emit()
 		return true
 	var direction = (target_pos - global_position).normalized()
 	control.visible = false
@@ -258,6 +258,11 @@ func _on_option_1_pressed() -> void:
 func _on_option_2_pressed() -> void:
 	stage = 1
 	talking = false
+	if moving:
+		moving = false
+		chicken_out.emit()
+		await get_tree().create_timer(0.3).timeout
+		moving = true
 	options.pop_out()
 	talking = false
 	chicken_out.emit()
@@ -265,7 +270,6 @@ var tilled_tut:bool = false
 
 func _on_world_tilled() -> void:
 	stage = 4
-	print("loll")
 	if tilled_tut:
 		return
 	tilled_tut = true
@@ -286,12 +290,6 @@ func _on_world_tilled() -> void:
 	add_sibling(seed)
 	seed.global_position = global_position + Vector2(10,0)
 	seed.global_position = global_position + Vector2(10,0)
-	print(player.inventory)
-	print(plough_item)
-	print("Trying to remove:", plough_item)
-	for slot in player.inventory.slots:
-		if slot.item:
-			print("Slot:", slot.item, " Name:", slot.item.name)
 	player.inventory.remove_item(plough_item)
 	
 	

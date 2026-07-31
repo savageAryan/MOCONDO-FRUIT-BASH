@@ -15,6 +15,7 @@ var carrot = 0
 var tomato = 0
 var carrot_seed = 0
 var tomato_seed = 0
+var monkey_workshop:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

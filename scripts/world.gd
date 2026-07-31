@@ -16,6 +16,7 @@ extends Node2D
 @onready var plantedlayer: TileMapLayer = $plantedlayer
 @onready var carrot_crop: Area2D = $"carrot crop"
 @onready var tomato_crop: Area2D = $"tomato crop"
+@onready var workshopsprite: AnimatedSprite2D = $workshopbody/Workshopsprite
 @onready var tile_map_layer: TileMapLayer = $TileMapLayer
 var planted_cell = {}
 signal tilled
@@ -102,17 +103,33 @@ func _on_button_2_pressed() -> void:
 
 func _on_workshop_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		
+		if !GameManager.monkey_talked:
+			return
+		if !GameManager.monkey_workshop:
+			dialouge.start_dialogue(["Hey, Welcome,",
+		"I New Yuhh Wood Come",
+		"Yehh! This My Workshop!",
+		"Let Meh No If Yuhh Need SomeTHing",
+		"OKAYYY!?",
+		"mm"],"---THE MONKEY-KING",workshopsprite.sprite_frames,"talk",monkey)
+			ui.visible = false
+			invenrory.visible = false
+			GameManager.monkey_workshop = true
+			workshop.visible = true
+			return
 		button_3.visible = true
-	
 func _on_workshop_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		ui.visible = true
 		button_3.visible = false
 		workshop.visible = false
+		dialouge.visible = false
+		ui.visible = true
+		invenrory.visible = true
 @onready var invenrory: Control = $CanvasLayer/invenrory
+@onready var button_3: Button = $workshopbody/Button3
 
-@onready var button_3: Button = $StaticBody2D3/Button3
+
 var workshop_opened = false
 
 func _on_button_3_pressed() -> void:

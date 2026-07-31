@@ -280,6 +280,8 @@ func _on_dialogue_dectect_body_exited(body: Node2D) -> void:
 	await get_tree().create_timer(0.5).timeout
 	if player == null:
 		return
+	if !is_instance_valid(body):
+			return
 	if body.is_in_group("player"):
 		blob_out.emit()
 		if !GameManager.blob_talked:

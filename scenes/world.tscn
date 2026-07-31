@@ -25,6 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://834k53yj2kfk" path="res://assets/button.png" id="16_dss4m"]
 [ext_resource type="PackedScene" uid="uid://b7g6mhlg0bhji" path="res://scenes/apple.tscn" id="20_7iits"]
 [ext_resource type="PackedScene" uid="uid://davx2rau8b7xv" path="res://scenes/banana.tscn" id="21_oo54l"]
+[ext_resource type="Texture2D" uid="uid://cjdgdmmu08t2l" path="res://assets/workshop monkey.png" id="22_4kbfs"]
+[ext_resource type="Texture2D" uid="uid://clg8ebfyhaue7" path="res://assets/monkerking mocondo.png" id="23_f17e3"]
 [ext_resource type="PackedScene" uid="uid://cf3gqano763gj" path="res://scenes/monkey.tscn" id="25_xgqkh"]
 [ext_resource type="PackedScene" uid="uid://d13jxal853d8w" path="res://scenes/wheat.tscn" id="26_munwf"]
 [ext_resource type="PackedScene" uid="uid://drb2l7uw0lx5" path="res://scenes/bolb.tscn" id="26_ts3gi"]
@@ -217,6 +219,101 @@ gradient = SubResource("Gradient_jhx03")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7t5mc"]
 size = Vector2(74, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f17e3"]
+atlas = ExtResource("22_4kbfs")
+region = Rect2(0, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2olw"]
+atlas = ExtResource("22_4kbfs")
+region = Rect2(160, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_817gm"]
+atlas = ExtResource("22_4kbfs")
+region = Rect2(320, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggc52"]
+atlas = ExtResource("22_4kbfs")
+region = Rect2(480, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8ah6"]
+atlas = ExtResource("22_4kbfs")
+region = Rect2(640, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e75v4"]
+atlas = ExtResource("22_4kbfs")
+region = Rect2(800, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8u370"]
+atlas = ExtResource("22_4kbfs")
+region = Rect2(960, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oujy"]
+atlas = ExtResource("23_f17e3")
+region = Rect2(0, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hi6a0"]
+atlas = ExtResource("23_f17e3")
+region = Rect2(0, 64, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo1xk"]
+atlas = ExtResource("23_f17e3")
+region = Rect2(0, 128, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rga7q"]
+atlas = ExtResource("15_xo05s")
+region = Rect2(0, 0, 160, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tg6s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f17e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2olw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_817gm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggc52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8ah6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e75v4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8u370")
+}],
+"loop": 1,
+"name": &"monkey workshop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oujy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hi6a0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo1xk")
+}],
+"loop": 0,
+"name": &"talk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rga7q")
+}],
+"loop": 1,
+"name": &"workshop",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_munwf"]
 size = Vector2(117.25191, 65.46565)
@@ -478,10 +575,10 @@ color = Color(0.19103259, 0.33427146, 0.47772908, 1)
 script = ExtResource("13_jhx03")
 gradient = SubResource("GradientTexture1D_o8fc1")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1536527727]
+[node name="workshopbody" type="StaticBody2D" parent="." unique_id=1536527727]
 z_index = 2
 
-[node name="Button3" type="Button" parent="StaticBody2D3" unique_id=1310295072]
+[node name="Button3" type="Button" parent="workshopbody" unique_id=1310295072]
 visible = false
 offset_left = 183.0
 offset_top = -109.0
@@ -493,25 +590,29 @@ theme_override_font_sizes/font_size = 20
 text = "WORKSHOP"
 flat = true
 
-[node name="Button4" type="Sprite2D" parent="StaticBody2D3/Button3" unique_id=191210711]
+[node name="Button4" type="Sprite2D" parent="workshopbody/Button3" unique_id=191210711]
 z_index = -1
 position = Vector2(37.681175, 13.493631)
 scale = Vector2(1.5801352, 1.5801352)
 texture = ExtResource("16_dss4m")
 
-[node name="workshop area" type="Area2D" parent="StaticBody2D3" unique_id=1743183971]
+[node name="workshop area" type="Area2D" parent="workshopbody" unique_id=1743183971]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3/workshop area" unique_id=477964056]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="workshopbody/workshop area" unique_id=477964056]
+visible = false
 position = Vector2(197, -121)
 shape = SubResource("RectangleShape2D_7t5mc")
 
-[node name="Workshop" type="Sprite2D" parent="StaticBody2D3" unique_id=1928573389]
+[node name="Workshopsprite" type="AnimatedSprite2D" parent="workshopbody" unique_id=822330292]
 z_index = -2
 position = Vector2(198, -118)
 scale = Vector2(0.51171875, 0.5117188)
-texture = ExtResource("15_xo05s")
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+animation = &"workshop"
+autoplay = "workshop"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=88068933]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="workshopbody" unique_id=88068933]
+visible = false
 position = Vector2(198, -117.75001)
 scale = Vector2(0.51171875, 0.5117188)
 shape = SubResource("RectangleShape2D_munwf")
@@ -637,9 +738,9 @@ position = Vector2(-14, 149)
 [connection signal="body_exited" from="boatrest" to="." method="_on_boatrest_body_exited"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="StaticBody2D3/Button3" to="." method="_on_button_3_pressed"]
-[connection signal="body_entered" from="StaticBody2D3/workshop area" to="." method="_on_workshop_area_body_entered"]
-[connection signal="body_exited" from="StaticBody2D3/workshop area" to="." method="_on_workshop_area_body_exited"]
+[connection signal="pressed" from="workshopbody/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="body_entered" from="workshopbody/workshop area" to="." method="_on_workshop_area_body_entered"]
+[connection signal="body_exited" from="workshopbody/workshop area" to="." method="_on_workshop_area_body_exited"]
 [connection signal="monkey" from="monkey" to="." method="_on_monkey_monkey"]
 [connection signal="out" from="monkey" to="." method="_on_monkey_out"]
 [connection signal="capybara_in" from="capybara" to="." method="_on_capybara_capybara_in"]

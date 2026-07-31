@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var workshopsprite: AnimatedSprite2D = $"../workshopbody/Workshopsprite"
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -42,4 +43,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 func dialouge_finished():
 	GameManager.monkey_talked = true
+	workshopsprite.play("monkey workshop")
 	out.emit()
+	await get_tree().create_timer(0.5).timeout
+	queue_free()

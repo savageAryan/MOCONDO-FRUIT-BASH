@@ -35,7 +35,8 @@ func _physics_process(delta: float) -> void:
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var ui: Control = $"../ui"
-@onready var button_3: Button = $"../../StaticBody2D3/Button3"
+@onready var button_3: Button = $"../../workshopbody/Button3"
+
 @onready var invenrory: Control = $"../invenrory"
 
 @onready var optionbutton: Button = $optionbutton
