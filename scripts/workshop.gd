@@ -30,15 +30,10 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	pass
 	
-
-
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
 @onready var ui: Control = $"../ui"
 @onready var button_3: Button = $"../../workshopbody/Button3"
-
 @onready var invenrory: Control = $"../invenrory"
-
 @onready var optionbutton: Button = $optionbutton
 
 func _on_button_pressed() -> void:
@@ -48,7 +43,6 @@ func _on_button_pressed() -> void:
 	visible = false
 	button_3.visible = true
 	invenrory.visible = true
-	
 	
 @onready var texture_rect_2: TextureRect = $TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect2
 @onready var texture_rect_3: TextureRect = $TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect3
@@ -87,7 +81,7 @@ func _on_button_3_pressed() -> void:
 	texture_rect_8.visible = false
 	texture_rect_9.visible = false
 	texture_rect_10.visible = false
-	texture_rect_11.visible = true
+	#texture_rect_11.visible = true
 	
 func _on_button_4_pressed() -> void:
 	selected = $TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button4

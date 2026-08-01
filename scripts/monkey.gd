@@ -12,8 +12,15 @@ var stage = 0
 
 signal monkey
 signal out
+
+func _ready() -> void:
+	if GameManager.monkey_workshop:
+		global_position = workshopsprite.global_position
+		collision_shape_2d.scale *= 2
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		if GameManager.monkey_talked:
+			return
 		match stage:
 			0:
 				dialouge.start_dialogue([
@@ -41,7 +48,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		"Let Meh No If Yuhh Need SomeTHing",
 		"OKAYYY!?",
 		"mm"],"---THE MONKEY-KING",workshopsprite.sprite_frames,"talk",self)
-				GameManager.monkey_workshop = true
+				
 		monkey.emit()
 
 
@@ -55,12 +62,14 @@ func dialouge_finished():
 	out.emit()
 	match stage:
 		0:
-			GameManager.monkey_talked = true
 			workshopsprite.play("monkey workshop")
 			stage = 1
 			animated_sprite_2d.visible = false
 			global_position = workshopsprite.global_position
 			collision_shape_2d.scale *= 2
 		1:
+			GameManager.monkey_workshop = true
+			GameManager.monkey_talked = true
 			stage = 2
+			queue_free()
 	

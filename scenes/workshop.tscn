@@ -971,7 +971,6 @@ theme_override_font_sizes/font_size = 70
 text = "W    Pon"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TextureRect2" unique_id=1326786636]
-clip_contents = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
