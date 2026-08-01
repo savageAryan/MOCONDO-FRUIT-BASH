@@ -118,6 +118,7 @@ func _on_workshop_area_body_exited(body: Node2D) -> void:
 var workshop_opened = false
 
 func _on_button_3_pressed() -> void:
+	GameManager.using_workshop = true
 	workshop_opened = true
 	workshop.visible = true
 	ui.visible = false

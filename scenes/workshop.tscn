@@ -23,12 +23,27 @@
 [ext_resource type="Texture2D" uid="uid://cib7dxaoip1b7" path="res://assets/Apple.png" id="14_adiy1"]
 [ext_resource type="Texture2D" uid="uid://wy8wrmn5nlih" path="res://assets/gold .png" id="14_w8p1n"]
 [ext_resource type="Texture2D" uid="uid://dkwf7t50ywyo3" path="res://assets/mango.png" id="15_eq4dh"]
+[ext_resource type="Resource" uid="uid://das538p2ukvg4" path="res://inventory/item/axe.tres" id="15_febx8"]
+[ext_resource type="Resource" uid="uid://byvrcjyrtta2p" path="res://inventory/player_inventory.tres" id="16_nvrho"]
+[ext_resource type="Resource" uid="uid://biotghfn678ff" path="res://inventory/item/apple.tres" id="20_0f35e"]
 [ext_resource type="FontFile" uid="uid://cgox7ipu4flb" path="res://assets/chawp.otf" id="20_eq4dh"]
 [ext_resource type="Texture2D" uid="uid://bci1e3sl7htb4" path="res://assets/light gradient butterfly.png" id="21_u2wj3"]
+[ext_resource type="Resource" uid="uid://n31w85oglpoy" path="res://inventory/item/banana.tres" id="22_vbb1h"]
+[ext_resource type="Resource" uid="uid://camcywpjujg3s" path="res://inventory/item/strawberry.tres" id="24_gxrtr"]
 [ext_resource type="Texture2D" uid="uid://6qc0mm2o75cl" path="res://assets/mangoo.png" id="26_1pj70"]
 [ext_resource type="Texture2D" uid="uid://bttcq0d5dswsf" path="res://assets/log.png" id="26_exleu"]
+[ext_resource type="Resource" uid="uid://cfbbv28xuf3m1" path="res://inventory/item/mango.tres" id="26_yqm7t"]
 [ext_resource type="Script" uid="uid://b3vk2o3cuh3tn" path="res://scenes/boatshopoptions.gd" id="28_1pj70"]
 [ext_resource type="Texture2D" uid="uid://hxt4j4sy0jfo" path="res://assets/swordani.png" id="28_jviq3"]
+[ext_resource type="Resource" uid="uid://b3syqto1y8hsr" path="res://inventory/item/tree_log.tres" id="28_r4hwr"]
+[ext_resource type="Resource" uid="uid://2l156y0e6jlj" path="res://inventory/item/wheat.tres" id="30_kqb82"]
+[ext_resource type="Texture2D" uid="uid://dqvv538g4a2t1" path="res://assets/plough.png" id="31_5qt7b"]
+[ext_resource type="Resource" uid="uid://cp76mlnv2big" path="res://inventory/item/sword.tres" id="32_cljss"]
+[ext_resource type="Resource" uid="uid://62jlxti11xgp" path="res://inventory/item/plough.tres" id="33_yjndg"]
+[ext_resource type="Texture2D" uid="uid://bhdc7ioht32w2" path="res://assets/tomato.png" id="33_yqm7t"]
+[ext_resource type="Resource" uid="uid://didelhmjwrpjm" path="res://inventory/item/tomato.tres" id="34_r4hwr"]
+[ext_resource type="Texture2D" uid="uid://bbxch5cbdtkws" path="res://assets/carrot.png" id="35_kqb82"]
+[ext_resource type="Resource" uid="uid://bjwul2m8grydc" path="res://inventory/item/carrot.tres" id="36_5qt7b"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_adiy1"]
 color = Color(0.4255997, 0.29107243, 0.050288737, 1)
@@ -448,27 +463,156 @@ region = Rect2(0, 64, 32, 32)
 atlas = ExtResource("28_jviq3")
 region = Rect2(0, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wvgrp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjpth"]
 atlas = ExtResource("28_jviq3")
 region = Rect2(0, 128, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wvgrp"]
 animations = [{
 "frames": [{
-"duration": 1.9,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_yqm7t")
 }, {
-"duration": 1.3,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_r4hwr")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kqb82")
 }, {
-"duration": 0.8,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_5qt7b")
 }, {
-"duration": 0.9,
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjpth")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu8nu"]
+atlas = ExtResource("33_yqm7t")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wkes"]
+atlas = ExtResource("33_yqm7t")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_317hr"]
+atlas = ExtResource("33_yqm7t")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yh5y"]
+atlas = ExtResource("33_yqm7t")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lohd7"]
+atlas = ExtResource("33_yqm7t")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_861t7"]
+atlas = ExtResource("33_yqm7t")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mdswj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lu8nu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wkes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_317hr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yh5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lohd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_861t7")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he5gb"]
+atlas = ExtResource("35_kqb82")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcub3"]
+atlas = ExtResource("35_kqb82")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8b7qn"]
+atlas = ExtResource("35_kqb82")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kp8jy"]
+atlas = ExtResource("35_kqb82")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nhsyt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he5gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcub3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8b7qn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kp8jy")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvgrp"]
+atlas = ExtResource("31_5qt7b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcrgq"]
+atlas = ExtResource("31_5qt7b")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqm1x"]
+atlas = ExtResource("31_5qt7b")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0ghr"]
+atlas = ExtResource("31_5qt7b")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt0db"]
+atlas = ExtResource("31_5qt7b")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lu8nu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_wvgrp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcrgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqm1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0ghr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt0db")
 }],
 "loop": 1,
 "name": &"default",
@@ -996,6 +1140,8 @@ layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
 item = SubResource("SpriteFrames_m51qi")
+item_to_buy = ExtResource("15_febx8")
+inventory = ExtResource("16_nvrho")
 
 [node name="Label" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect2" unique_id=703571534]
 layout_mode = 1
@@ -1024,6 +1170,8 @@ expand_mode = 3
 stretch_mode = 5
 item = SubResource("SpriteFrames_178a5")
 for_sell = true
+item_to_buy = ExtResource("20_0f35e")
+inventory = ExtResource("16_nvrho")
 
 [node name="Label2" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect3" unique_id=1423475930]
 layout_mode = 1
@@ -1052,6 +1200,8 @@ expand_mode = 3
 stretch_mode = 5
 item = SubResource("SpriteFrames_57m64")
 for_sell = true
+item_to_buy = ExtResource("22_vbb1h")
+inventory = ExtResource("16_nvrho")
 
 [node name="Label3" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect4" unique_id=1203088520]
 layout_mode = 1
@@ -1080,6 +1230,8 @@ expand_mode = 3
 stretch_mode = 5
 item = SubResource("SpriteFrames_5gkad")
 for_sell = true
+item_to_buy = ExtResource("24_gxrtr")
+inventory = ExtResource("16_nvrho")
 
 [node name="Label4" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect5" unique_id=1781097050]
 layout_mode = 1
@@ -1108,6 +1260,8 @@ expand_mode = 3
 stretch_mode = 5
 item = SubResource("SpriteFrames_iifr6")
 for_sell = true
+item_to_buy = ExtResource("26_yqm7t")
+inventory = ExtResource("16_nvrho")
 
 [node name="Label5" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect6" unique_id=923422680]
 layout_mode = 1
@@ -1136,6 +1290,8 @@ expand_mode = 3
 stretch_mode = 5
 item = SubResource("SpriteFrames_qsvwc")
 for_sell = true
+item_to_buy = ExtResource("28_r4hwr")
+inventory = ExtResource("16_nvrho")
 
 [node name="Label6" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect7" unique_id=843378412]
 layout_mode = 1
@@ -1164,6 +1320,8 @@ expand_mode = 3
 stretch_mode = 5
 item = SubResource("SpriteFrames_whqwi")
 for_sell = true
+item_to_buy = ExtResource("30_kqb82")
+inventory = ExtResource("16_nvrho")
 
 [node name="Label6" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect9" unique_id=1848460305]
 layout_mode = 1
@@ -1191,6 +1349,8 @@ layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
 item = SubResource("SpriteFrames_wvgrp")
+item_to_buy = ExtResource("32_cljss")
+inventory = ExtResource("16_nvrho")
 
 [node name="Label6" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect10" unique_id=1133302499]
 layout_mode = 1
@@ -1213,11 +1373,71 @@ text = "10"
 position = Vector2(-28, 26)
 sprite_frames = SubResource("SpriteFrames_2tg6s")
 
+[node name="TextureRect12" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer" unique_id=165547239 instance=ExtResource("3_g1tdj")]
+layout_mode = 2
+expand_mode = 3
+stretch_mode = 5
+item = SubResource("SpriteFrames_mdswj")
+item_to_buy = ExtResource("34_r4hwr")
+inventory = ExtResource("16_nvrho")
+
+[node name="Label6" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect12" unique_id=436793042]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.5
+offset_top = -114.0
+offset_right = 29.5
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("13_sff0x")
+theme_override_font_sizes/font_size = 65
+text = "10"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect12/Label6" unique_id=2119749347]
+position = Vector2(-28, 26)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+
+[node name="TextureRect13" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer" unique_id=1526151828 instance=ExtResource("3_g1tdj")]
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 5
+item = SubResource("SpriteFrames_nhsyt")
+item_to_buy = ExtResource("36_5qt7b")
+inventory = ExtResource("16_nvrho")
+
+[node name="Label6" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect13" unique_id=590915239]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.5
+offset_top = -114.0
+offset_right = 29.5
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("13_sff0x")
+theme_override_font_sizes/font_size = 65
+text = "10"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect13/Label6" unique_id=1928822741]
+position = Vector2(-28, 26)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+
 [node name="TextureRect11" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer" unique_id=313823431 instance=ExtResource("3_g1tdj")]
 layout_mode = 2
 expand_mode = 2
 stretch_mode = 5
-item = SubResource("SpriteFrames_wvgrp")
+item = SubResource("SpriteFrames_lu8nu")
+item_to_buy = ExtResource("33_yjndg")
+inventory = ExtResource("16_nvrho")
 
 [node name="Label6" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect11" unique_id=1411765475]
 layout_mode = 1
@@ -1246,8 +1466,6 @@ expand_mode = 3
 stretch_mode = 5
 script = ExtResource("28_1pj70")
 item = null
-item_to_buy = null
-inventory = null
 
 [node name="Sprite2D" type="Sprite2D" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect8" unique_id=1761027564]
 position = Vector2(166.00006, 196.00002)

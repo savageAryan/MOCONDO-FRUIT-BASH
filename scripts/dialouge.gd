@@ -13,6 +13,9 @@ func show_line():
 	animation_player.play("monkeyspeak")
 	
 func start_dialogue(lines:Array, character_name, frame:SpriteFrames,animation_name,npc):
+	if GameManager.talking:
+		return
+	GameManager.talking = true
 	current_npc = npc
 	dialogue = lines
 	current = 0
@@ -40,6 +43,7 @@ func _on_crossbutton_pressed() -> void:
 		animation_player.stop()
 		
 		visible = false
+	
 		if current_npc:
 			current_npc.dialouge_finished()
 			

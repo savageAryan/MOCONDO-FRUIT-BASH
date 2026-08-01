@@ -23,6 +23,8 @@ func _ready() -> void:
 	texture_rect_9.visible = false
 	texture_rect_10.visible = false
 	texture_rect_11.visible = false
+	texture_rect_12.visible = false
+	texture_rect_13.visible = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if selected != null:
@@ -44,7 +46,7 @@ func _on_button_pressed() -> void:
 	visible = false
 	button_3.visible = true
 	invenrory.visible = true
-	
+	GameManager.using_workshop = false
 @onready var texture_rect_2: TextureRect = $TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect2
 @onready var texture_rect_3: TextureRect = $TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect3
 @onready var texture_rect_4: TextureRect = $TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect4
@@ -55,6 +57,8 @@ func _on_button_pressed() -> void:
 @onready var texture_rect_9: TextureRect = $TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect9
 @onready var texture_rect_10: TextureRect = $TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect10
 @onready var texture_rect_11: TextureRect = $TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect11
+@onready var texture_rect_12: TextureRect = $TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect12
+@onready var texture_rect_13: TextureRect = $TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect13
 
 
 func _on_button_2_pressed() -> void:
@@ -70,6 +74,8 @@ func _on_button_2_pressed() -> void:
 	texture_rect_9.visible = true
 	texture_rect_10.visible = false
 	texture_rect_11.visible = false
+	texture_rect_12.visible = true
+	texture_rect_13.visible = true
 @onready var workshopselectedui_2: Sprite2D = $Workshopselectedui2
 
 func _on_button_3_pressed() -> void:
@@ -84,11 +90,8 @@ func _on_button_3_pressed() -> void:
 	texture_rect_9.visible = false
 	texture_rect_10.visible = false
 	texture_rect_11.visible = true
-	print(texture_rect_11.global_position)
-	print(texture_rect_11)
-	texture_rect_11.global_position.y += 10
-	print(texture_rect_11.global_position)
-	
+	texture_rect_12.visible = false
+	texture_rect_13.visible = false
 func _on_button_4_pressed() -> void:
 	selected = $TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button4
 	texture_rect_2.visible = false
@@ -100,7 +103,9 @@ func _on_button_4_pressed() -> void:
 	texture_rect_8.visible = true
 	texture_rect_9.visible = false
 	texture_rect_10.visible = false
-
+	texture_rect_11.visible = false
+	texture_rect_12.visible = false
+	texture_rect_13.visible = false
 func _on_button_5_pressed() -> void:
 	selected = $TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button5
 	texture_rect_2.visible = false
@@ -112,7 +117,9 @@ func _on_button_5_pressed() -> void:
 	texture_rect_8.visible = false
 	texture_rect_9.visible = false
 	texture_rect_10.visible = false
-
+	texture_rect_11.visible = false
+	texture_rect_12.visible = false
+	texture_rect_13.visible = false
 
 func _on_button_6_pressed() -> void:
 	selected = $TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button6
@@ -125,3 +132,6 @@ func _on_button_6_pressed() -> void:
 	texture_rect_8.visible = false
 	texture_rect_9.visible = false
 	texture_rect_10.visible = true
+	texture_rect_11.visible = false
+	texture_rect_12.visible = false
+	texture_rect_13.visible = false

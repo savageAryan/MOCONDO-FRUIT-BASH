@@ -7,8 +7,8 @@ extends TextureRect
 @export var for_sell: bool = false
 var selected = false
 signal optionbutton
-#@export var item_to_buy: InventoryItem
-#@export var inventory: Inventory
+@export var item_to_buy: InventoryItem
+@export var inventory: Inventory
 
 
 
@@ -46,14 +46,14 @@ func _on_button_mouse_exited() -> void:
 	selected = false
 
 
-#func _on_button_pressed() -> void:
-	#if for_sell == true:
-		#if inventory.remove_item(item_to_buy, 1):
-			#GameManager.gold += item_to_buy.sell_price
-	#else:
-		#if GameManager.gold >= item_to_buy.buy_price:
-		#	GameManager.gold -= item_to_buy.buy_price
-		#	inventory.insert(item_to_buy)
+func _on_button_pressed() -> void:
+	if for_sell == true:
+		if inventory.remove_item(item_to_buy, 1):
+			GameManager.gold += item_to_buy.sell_price
+	else:
+		if GameManager.gold >= item_to_buy.buy_price:
+			GameManager.gold -= item_to_buy.buy_price
+			inventory.insert(item_to_buy)
 	
 
 func _on_button_button_down() -> void:
