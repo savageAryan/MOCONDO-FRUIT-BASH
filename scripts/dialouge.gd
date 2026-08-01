@@ -40,9 +40,7 @@ func _on_crossbutton_pressed() -> void:
 		animation_player.stop()
 		
 		visible = false
-		print("Dialogue visible after close:", visible)
 		if current_npc:
-			print("Finishing dialogue for:", current_npc.name)
 			current_npc.dialouge_finished()
 			
 			current_npc = null

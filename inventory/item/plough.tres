@@ -12,5 +12,7 @@ script = ExtResource("1_bqb1h")
 name = "plough"
 texture = SubResource("AtlasTexture_f7h7h")
 maxAmountPrStack = 1
+buy_price = 31
+sell_price = 14
 item_type = "tool"
 metadata/_custom_type_script = "uid://bm0nfyj7wmstx"

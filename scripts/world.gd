@@ -103,27 +103,12 @@ func _on_button_2_pressed() -> void:
 
 func _on_workshop_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		if !GameManager.monkey_talked:
-			return
-		if !GameManager.monkey_workshop:
-			dialouge.start_dialogue(["Hey, Welcome,",
-		"I New Yuhh Wood Come",
-		"Yehh! This My Workshop!",
-		"Let Meh No If Yuhh Need SomeTHing",
-		"OKAYYY!?",
-		"mm"],"---THE MONKEY-KING",workshopsprite.sprite_frames,"talk",monkey)
-			ui.visible = false
-			invenrory.visible = false
-			GameManager.monkey_workshop = true
-			workshop.visible = true
-			return
 		button_3.visible = true
 func _on_workshop_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		ui.visible = true
 		button_3.visible = false
 		workshop.visible = false
-		dialouge.visible = false
 		ui.visible = true
 		invenrory.visible = true
 @onready var invenrory: Control = $CanvasLayer/invenrory
@@ -168,8 +153,15 @@ func blob_spawn():
 
 
 func _on_monkey_monkey() -> void:
-	invenrory.visible = false
-	ui.visible = false
+	match monkey.stage:
+		0:
+			invenrory.visible = false
+			ui.visible = false
+		1:
+			invenrory.visible = false
+			ui.visible = false
+		2:
+			pass
 func _on_monkey_out() -> void:
 	dialouge.visible = false
 	invenrory.visible = true
