@@ -10,6 +10,7 @@ var selected = null
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print(name)
 	visible = false
 	selected = $TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button2
 	texture_rect_2.visible = false
@@ -55,6 +56,7 @@ func _on_button_pressed() -> void:
 @onready var texture_rect_10: TextureRect = $TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect10
 @onready var texture_rect_11: TextureRect = $TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect11
 
+
 func _on_button_2_pressed() -> void:
 	selected = $TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button2
 	
@@ -81,7 +83,11 @@ func _on_button_3_pressed() -> void:
 	texture_rect_8.visible = false
 	texture_rect_9.visible = false
 	texture_rect_10.visible = false
-	#texture_rect_11.visible = true
+	texture_rect_11.visible = true
+	print(texture_rect_11.global_position)
+	print(texture_rect_11)
+	texture_rect_11.global_position.y += 10
+	print(texture_rect_11.global_position)
 	
 func _on_button_4_pressed() -> void:
 	selected = $TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button4
@@ -94,7 +100,7 @@ func _on_button_4_pressed() -> void:
 	texture_rect_8.visible = true
 	texture_rect_9.visible = false
 	texture_rect_10.visible = false
-	texture_rect_11.visible = false
+
 func _on_button_5_pressed() -> void:
 	selected = $TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button5
 	texture_rect_2.visible = false
@@ -106,7 +112,7 @@ func _on_button_5_pressed() -> void:
 	texture_rect_8.visible = false
 	texture_rect_9.visible = false
 	texture_rect_10.visible = false
-	texture_rect_11.visible = false
+
 
 func _on_button_6_pressed() -> void:
 	selected = $TextureRect2/ScrollContainer2/MarginContainer/VBoxContainer/Button6
@@ -119,4 +125,3 @@ func _on_button_6_pressed() -> void:
 	texture_rect_8.visible = false
 	texture_rect_9.visible = false
 	texture_rect_10.visible = true
-	texture_rect_11.visible = false
