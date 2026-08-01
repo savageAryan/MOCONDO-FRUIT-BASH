@@ -1213,9 +1213,32 @@ text = "10"
 position = Vector2(-28, 26)
 sprite_frames = SubResource("SpriteFrames_2tg6s")
 
-[node name="TextureRect11" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer" unique_id=1439429074 instance=ExtResource("3_g1tdj")]
+[node name="TextureRect11" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer" unique_id=313823431 instance=ExtResource("3_g1tdj")]
 layout_mode = 2
-expand_mode = 3
+expand_mode = 2
+stretch_mode = 5
+item = SubResource("SpriteFrames_wvgrp")
+
+[node name="Label6" type="Label" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect11" unique_id=1411765475]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.5
+offset_top = -114.0
+offset_right = 29.5
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("13_sff0x")
+theme_override_font_sizes/font_size = 65
+text = "10"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer/TextureRect11/Label6" unique_id=1083506720]
+position = Vector2(-28, 26)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
 
 [node name="TextureRect8" parent="TextureRect2/ScrollContainer/MarginContainer/HBoxContainer" unique_id=546873937 instance=ExtResource("3_g1tdj")]
 layout_mode = 2
