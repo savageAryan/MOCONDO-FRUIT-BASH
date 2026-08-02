@@ -1,6 +1,7 @@
 extends Control
 @onready var label: Label = $Label
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var world: Node2D = $"../.."
 @onready var dialougespriteframe: AnimatedSprite2D = $Control/Dialougespriteframe
 var current_npc = null
 signal talk_finished
@@ -13,9 +14,8 @@ func show_line():
 	animation_player.play("monkeyspeak")
 	
 func start_dialogue(lines:Array, character_name, frame:SpriteFrames,animation_name,npc):
-	if GameManager.talking:
+	if world.ui_busy():
 		return
-	GameManager.talking = true
 	current_npc = npc
 	dialogue = lines
 	current = 0

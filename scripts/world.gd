@@ -23,6 +23,10 @@ signal tilled
 const CARROT_CROP = preload("res://scenes/carrot_crop.tscn")
 func _process(delta: float) -> void:
 	pass
+func ui_busy() -> bool:
+	return(workshop.visible
+	or death_scene.visible
+	or dialouge.visible)
 func land_tilled():
 	var mouse_pos = get_global_mouse_position()
 	var cell = tile_map_layer.local_to_map(mouse_pos)
@@ -59,11 +63,9 @@ func sow(CROP):
 		plantedlayer.set_cell(cell,0,Vector2i.ZERO)
 		return true
 func _on_carrot_crop_harvested(cell: Vector2i) -> void:
-	print("tut")
 	var pos = tile_map_layer.local_to_map(carrot_crop.global_position)
 	land_untilled(pos)
 func _on_tomato_crop_harvested(cell: Vector2i) -> void:
-	print("tut")
 	var pos = tile_map_layer.local_to_map(tomato_crop.global_position)
 	land_untilled(pos)
 
