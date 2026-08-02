@@ -14,6 +14,7 @@
 [ext_resource type="FontFile" uid="uid://bbbwahii6uqin" path="res://assets/vladimir.ttf" id="6_i7141"]
 [ext_resource type="PackedScene" uid="uid://3kloel62mqh5" path="res://scenes/death_scene.tscn" id="6_ts3gi"]
 [ext_resource type="PackedScene" uid="uid://by3gybddd6b25" path="res://scenes/ui.tscn" id="7_o8fc1"]
+[ext_resource type="PackedScene" uid="uid://l7uye8h5uxxe" path="res://scenes/butterfly.tscn" id="7_x2olw"]
 [ext_resource type="Texture2D" uid="uid://cdvrya01jtehg" path="res://assets/farm sets.png" id="8_navra"]
 [ext_resource type="PackedScene" uid="uid://bl1kx3v3hndae" path="res://scenes/tree.tscn" id="9_7r4gi"]
 [ext_resource type="Texture2D" uid="uid://cglyx62jrtui8" path="res://assets/househome.png" id="10_w7kh3"]
@@ -717,6 +718,9 @@ disabled = true
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=2014692470]
 position = Vector2(-14, 149)
+
+[node name="butterfly" parent="." unique_id=1629226949 instance=ExtResource("7_x2olw")]
+position = Vector2(13, 15)
 
 [connection signal="tilled" from="." to="chicken" method="_on_world_tilled"]
 [connection signal="talk_finished" from="CanvasLayer/dialouge" to="." method="_on_dialouge_talk_finished"]

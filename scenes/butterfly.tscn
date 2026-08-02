@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://l7uye8h5uxxe"]
+
+[ext_resource type="Texture2D" uid="uid://di1qd1h8mybjx" path="res://assets/mocondo butterfly.png" id="1_4ki4n"]
+[ext_resource type="Script" uid="uid://enpg2q542sqd" path="res://scripts/butterfly.gd" id="1_tq3rt"]
+[ext_resource type="Texture2D" uid="uid://bci1e3sl7htb4" path="res://assets/light gradient butterfly.png" id="3_o654m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tq3rt"]
+atlas = ExtResource("1_4ki4n")
+region = Rect2(0, 0, 64, 71)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tg6s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tq3rt")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ohge4"]
+radius = 24.04163
+
+[node name="butterfly" type="Area2D" unique_id=1629226949]
+script = ExtResource("1_tq3rt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1898715254]
+position = Vector2(0, 1)
+scale = Vector2(0.082006805, 0.082006805)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D" unique_id=1479861310]
+texture = ExtResource("3_o654m")
+texture_scale = 1.6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1544801403]
+scale = Vector2(0.19763434, 0.19763434)
+shape = SubResource("CircleShape2D_ohge4")
