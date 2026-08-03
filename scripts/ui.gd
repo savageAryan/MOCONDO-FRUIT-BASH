@@ -2,10 +2,6 @@ class_name ui extends Control
 @onready var ampmlabel: Label = $TimeUiDisplay/ampmlabel
 @onready var hotbar: Sprite2D = $hotbar
 
-@onready var mangolabel: Label = $hotbar/AnimatedSprite2D/mangolabel
-@onready var applelabel: Label = $hotbar/AnimatedSprite2D2/applelabel
-@onready var strawberrylabel: Label = $hotbar/AnimatedSprite2D3/strawberrylabel
-@onready var bananalabel: Label = $hotbar/AnimatedSprite2D4/bananalabel
 
 var health = 8
 var max_health = 10

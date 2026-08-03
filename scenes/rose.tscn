@@ -3,18 +3,54 @@
 [ext_resource type="Texture2D" uid="uid://b3vrlx3lf71o8" path="res://assets/rose.png" id="1_2iw54"]
 [ext_resource type="Script" uid="uid://bgfkufkdmgvx0" path="res://scripts/rose.gd" id="1_xlvsn"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s7h4"]
+atlas = ExtResource("1_2iw54")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3jgc"]
+atlas = ExtResource("1_2iw54")
+region = Rect2(16, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_xlvsn"]
 atlas = ExtResource("1_2iw54")
 region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abck2"]
+atlas = ExtResource("1_2iw54")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2tg6s"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_1s7h4")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3jgc")
+}],
+"loop": 1,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_xlvsn")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abck2")
+}],
+"loop": 1,
+"name": &"4",
 "speed": 5.0
 }]
 
@@ -26,6 +62,7 @@ script = ExtResource("1_xlvsn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=87112190]
 sprite_frames = SubResource("SpriteFrames_2tg6s")
+animation = &"4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1140247711]
 position = Vector2(0, -0.5)

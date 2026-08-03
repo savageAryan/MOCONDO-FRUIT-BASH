@@ -733,6 +733,48 @@ position = Vector2(13, 15)
 [node name="butterfly2" parent="butterflys" unique_id=1227674639 instance=ExtResource("7_x2olw")]
 position = Vector2(13, 15)
 
+[node name="butterfly3" parent="butterflys" unique_id=612815366 instance=ExtResource("7_x2olw")]
+position = Vector2(344, 32)
+
+[node name="butterfly4" parent="butterflys" unique_id=1836448855 instance=ExtResource("7_x2olw")]
+position = Vector2(185, 282)
+
+[node name="butterfly5" parent="butterflys" unique_id=999237248 instance=ExtResource("7_x2olw")]
+position = Vector2(798, 207)
+
+[node name="butterfly6" parent="butterflys" unique_id=2128628635 instance=ExtResource("7_x2olw")]
+position = Vector2(436, 325)
+
+[node name="butterfly7" parent="butterflys" unique_id=1611982938 instance=ExtResource("7_x2olw")]
+position = Vector2(-10, 470)
+
+[node name="butterfly8" parent="butterflys" unique_id=861693140 instance=ExtResource("7_x2olw")]
+position = Vector2(113, 682)
+
+[node name="butterfly9" parent="butterflys" unique_id=2429237 instance=ExtResource("7_x2olw")]
+position = Vector2(-52, 805)
+
+[node name="butterfly10" parent="butterflys" unique_id=1378854040 instance=ExtResource("7_x2olw")]
+position = Vector2(255, 863)
+
+[node name="butterfly11" parent="butterflys" unique_id=1637706694 instance=ExtResource("7_x2olw")]
+position = Vector2(787, 336)
+
+[node name="butterfly12" parent="butterflys" unique_id=602416186 instance=ExtResource("7_x2olw")]
+position = Vector2(407, 238)
+
+[node name="butterfly13" parent="butterflys" unique_id=1688638001 instance=ExtResource("7_x2olw")]
+position = Vector2(373, 377)
+
+[node name="butterfly14" parent="butterflys" unique_id=341322523 instance=ExtResource("7_x2olw")]
+position = Vector2(200, 435)
+
+[node name="butterfly15" parent="butterflys" unique_id=1158104848 instance=ExtResource("7_x2olw")]
+position = Vector2(-163, 117)
+
+[node name="butterfly16" parent="butterflys" unique_id=684208923 instance=ExtResource("7_x2olw")]
+position = Vector2(35, 214)
+
 [connection signal="tilled" from="." to="chicken" method="_on_world_tilled"]
 [connection signal="talk_finished" from="CanvasLayer/dialouge" to="." method="_on_dialouge_talk_finished"]
 [connection signal="talk_finished" from="CanvasLayer/dialouge" to="blob" method="_on_dialouge_talk_finished"]

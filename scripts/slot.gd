@@ -14,7 +14,7 @@ signal unhovered()
 @onready var labelnode: Control = $"../../labelnode"
 var label_tween: Tween
 var hovering:bool = false
-@onready var panel: Panel = $"../../Panel"
+
 var itemStackGui: ItemStackGui
 var index: int
 

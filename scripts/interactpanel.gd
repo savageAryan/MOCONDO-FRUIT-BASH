@@ -1,7 +1,7 @@
 extends Control
 @onready var option_1: Button = $"Panel/option 1"
 @onready var label: Label = $"Panel/option 1/Label"
-@onready var point_light_2d: PointLight2D = $"Panel/option 1/Label/PointLight2D"
+
 @onready var option_2: Button = $"Panel/option 2"
 @onready var label_2: Label = $"Panel/option 2/Label2"
 @onready var point_light_2d_2: PointLight2D = $"Panel/option 2/Label2/PointLight2D_2"
@@ -27,13 +27,11 @@ func pop_out():
 	visible = false
 
 func _on_option_1_mouse_entered() -> void:
-	point_light_2d.energy = 20
 	label.position.y -= 6
 	label.add_theme_color_override("font_color",Color("fff8f8ff"))
 
 
 func _on_option_1_mouse_exited() -> void:
-	point_light_2d.energy = 0
 	label.position.y += 6
 	label.add_theme_color_override("font_color",Color("984e34"))
 
