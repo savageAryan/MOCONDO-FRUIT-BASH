@@ -36,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://b4cv6inl5oltf" path="res://scenes/carrot_crop.tscn" id="31_luhhm"]
 [ext_resource type="PackedScene" uid="uid://ruvlsj5uuq34" path="res://scenes/tomato_crop.tscn" id="32_fh13f"]
 [ext_resource type="Texture2D" uid="uid://bl61l3kvbc2tu" path="res://assets/farmstand.png" id="33_rup4s"]
+[ext_resource type="PackedScene" uid="uid://cityp3idryepb" path="res://scenes/rose.tscn" id="37_817gm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4wyf3"]
 texture = ExtResource("1_rwgxs")
@@ -719,7 +720,17 @@ disabled = true
 [node name="Marker2D" type="Marker2D" parent="." unique_id=2014692470]
 position = Vector2(-14, 149)
 
-[node name="butterfly" parent="." unique_id=1629226949 instance=ExtResource("7_x2olw")]
+[node name="flowers" type="Node2D" parent="." unique_id=1304799247]
+
+[node name="rose" parent="flowers" unique_id=1597186282 instance=ExtResource("37_817gm")]
+position = Vector2(139, -7)
+
+[node name="butterflys" type="Node2D" parent="." unique_id=174480068]
+
+[node name="butterfly" parent="butterflys" unique_id=1629226949 instance=ExtResource("7_x2olw")]
+position = Vector2(13, 15)
+
+[node name="butterfly2" parent="butterflys" unique_id=1227674639 instance=ExtResource("7_x2olw")]
 position = Vector2(13, 15)
 
 [connection signal="tilled" from="." to="chicken" method="_on_world_tilled"]

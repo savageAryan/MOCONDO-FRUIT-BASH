@@ -3,6 +3,8 @@ var speed = randf_range(40,70)
 enum states{fly,rest}
 var state = states.fly
 var facing = null
+@onready var flowers: Node2D = $"../../flowers"
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var target: Vector2
 var fixed_pos = null
@@ -23,21 +25,24 @@ func _physics_process(delta: float) -> void:
 			pass
 func new_target():
 	fixed_pos = global_position
-	var radius = randf_range(50,70)
+	var radius = randf_range(80,150)
 	target = fixed_pos + Vector2(randf_range(-radius,radius),randf_range(-radius,radius))
 	
 func fly(delta):
+	wobble_timer -= delta
 	if randf() < 0.003:
 		target += Vector2(
 		randf_range(-50,50),randf_range(-50,50))
 	if wobble_timer < 0:
-		wobble_timer = randf_range(0.4,1.3)
+		wobble_timer = randf_range(0.4,0.6)
 		wobble_amount = randf_range(3,7)
-		wobble_time = randf_range(20,50)
-		wobble_strength = randf_range(0.1, 0.6)
-		wobble_speed = randf_range(4.0, 12.0)
+		wobble_time = randf_range(10,30)
+		wobble_strength = randf_range(2, 4)
+		wobble_speed = randf_range(1.0, 2.0)
 	var direction = (target - global_position).normalized()
 	var distance = global_position.distance_to(target)
+	if direction.length() > 0:
+		rotation = direction.angle() + deg_to_rad(90)
 	if abs(direction.x) > abs(direction.y):
 		if direction.x > 0:
 			facing = "side"
@@ -47,13 +52,13 @@ func fly(delta):
 			facing = "side"
 			animated_sprite_2d.play("default")
 			animated_sprite_2d.flip_h = true
-	else:
+	if abs(direction.y) > abs(direction.x):
 		if direction.y > 0:
 			facing = "back"
-			animated_sprite_2d.play("default")
+			animated_sprite_2d.play("fly front")
 		else:
 			facing = "front"
-			animated_sprite_2d.play("default")
+			animated_sprite_2d.play("fly front")
 	t += delta
 	var dir = (target - global_position).normalized()
 	var perp = Vector2(-dir.y,dir.x)
@@ -67,6 +72,7 @@ func fly(delta):
 func rest():
 	animated_sprite_2d.play("rest")
 	await get_tree().create_timer(5).timeout
+	var flower = flowers.get_children().pick_random()
 	new_target()
 	state = states.fly
 	
