@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://l7uye8h5uxxe"]
 
-[ext_resource type="Texture2D" uid="uid://di1qd1h8mybjx" path="res://assets/mocondo butterfly.png" id="1_4ki4n"]
 [ext_resource type="Script" uid="uid://enpg2q542sqd" path="res://scripts/butterfly.gd" id="1_tq3rt"]
 [ext_resource type="Texture2D" uid="uid://ct0quot6u073r" path="res://assets/butterfly.png" id="2_o654m"]
 [ext_resource type="Texture2D" uid="uid://bci1e3sl7htb4" path="res://assets/light gradient butterfly.png" id="3_o654m"]
@@ -33,9 +32,9 @@ region = Rect2(32, 32, 32, 32)
 atlas = ExtResource("2_o654m")
 region = Rect2(32, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4hasf"]
-atlas = ExtResource("1_4ki4n")
-region = Rect2(0, 0, 64, 71)
+[sub_resource type="AtlasTexture" id="AtlasTexture_o654m"]
+atlas = ExtResource("2_o654m")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2tg6s"]
 animations = [{
@@ -67,7 +66,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4hasf")
+"texture": SubResource("AtlasTexture_o654m")
 }],
 "loop": 1,
 "name": &"rest",
