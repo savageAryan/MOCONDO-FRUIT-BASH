@@ -18,6 +18,7 @@ var wobble_timer = 0.0
 var flower_target = null
 var rest_time := 0.0
 var wobble_flower := 0.0
+var y_axis_wobble := 0.0
 func _ready() -> void:
 	new_target()
 func _physics_process(delta: float) -> void:
@@ -33,7 +34,10 @@ func new_target():
 	target = fixed_pos + Vector2(randf_range(-radius,radius),randf_range(-radius,radius))
 	
 func fly(delta):
-	
+	y_axis_wobble += delta
+	if y_axis_wobble > 1:
+		global_position += Vector2(0,randf_range(-5,5))
+		y_axis_wobble = 0
 	rest_time += delta
 	var dir = (target - global_position).normalized()
 	var perp = Vector2(-dir.y,dir.x)

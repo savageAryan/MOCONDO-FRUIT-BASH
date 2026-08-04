@@ -688,6 +688,27 @@ position = Vector2(682, 190)
 [node name="capybara" parent="." unique_id=32064895 instance=ExtResource("28_0nbtd")]
 position = Vector2(139, -73)
 
+[node name="capybara2" parent="." unique_id=1148353551 instance=ExtResource("28_0nbtd")]
+position = Vector2(907.99994, 331.99997)
+
+[node name="capybara3" parent="." unique_id=1902174049 instance=ExtResource("28_0nbtd")]
+position = Vector2(-58.99997, 599.99994)
+
+[node name="capybara4" parent="." unique_id=277721187 instance=ExtResource("28_0nbtd")]
+position = Vector2(165.00002, 431.99997)
+
+[node name="capybara5" parent="." unique_id=318027096 instance=ExtResource("28_0nbtd")]
+position = Vector2(598, 11.999992)
+
+[node name="capybara6" parent="." unique_id=1415258699 instance=ExtResource("28_0nbtd")]
+position = Vector2(306.00003, 1089.9999)
+
+[node name="capybara7" parent="." unique_id=1917109479 instance=ExtResource("28_0nbtd")]
+position = Vector2(90.000046, 821)
+
+[node name="capybara8" parent="." unique_id=176463219 instance=ExtResource("28_0nbtd")]
+position = Vector2(673.99994, 295.00006)
+
 [node name="chicken" parent="." unique_id=186606679 instance=ExtResource("29_37qwj")]
 position = Vector2(-63, 15)
 scale = Vector2(0.58, 0.58)
@@ -853,6 +874,20 @@ position = Vector2(35, 214)
 [connection signal="out" from="monkey" to="." method="_on_monkey_out"]
 [connection signal="capybara_in" from="capybara" to="." method="_on_capybara_capybara_in"]
 [connection signal="capybara_out" from="capybara" to="." method="_on_capybara_capybara_out"]
+[connection signal="capybara_in" from="capybara2" to="." method="_on_capybara_capybara_in"]
+[connection signal="capybara_out" from="capybara2" to="." method="_on_capybara_capybara_out"]
+[connection signal="capybara_in" from="capybara3" to="." method="_on_capybara_capybara_in"]
+[connection signal="capybara_out" from="capybara3" to="." method="_on_capybara_capybara_out"]
+[connection signal="capybara_in" from="capybara4" to="." method="_on_capybara_capybara_in"]
+[connection signal="capybara_out" from="capybara4" to="." method="_on_capybara_capybara_out"]
+[connection signal="capybara_in" from="capybara5" to="." method="_on_capybara_capybara_in"]
+[connection signal="capybara_out" from="capybara5" to="." method="_on_capybara_capybara_out"]
+[connection signal="capybara_in" from="capybara6" to="." method="_on_capybara_capybara_in"]
+[connection signal="capybara_out" from="capybara6" to="." method="_on_capybara_capybara_out"]
+[connection signal="capybara_in" from="capybara7" to="." method="_on_capybara_capybara_in"]
+[connection signal="capybara_out" from="capybara7" to="." method="_on_capybara_capybara_out"]
+[connection signal="capybara_in" from="capybara8" to="." method="_on_capybara_capybara_in"]
+[connection signal="capybara_out" from="capybara8" to="." method="_on_capybara_capybara_out"]
 [connection signal="chicken_in" from="chicken" to="." method="_on_chicken_chicken_in"]
 [connection signal="chicken_out" from="chicken" to="." method="_on_chicken_chicken_out"]
 [connection signal="harvested" from="carrot crop" to="." method="_on_carrot_crop_harvested"]

@@ -201,6 +201,7 @@ radius = 24.04163
 
 [node name="butterfly" type="Area2D" unique_id=1629226949]
 modulate = Color(0.8653361, 0.8484779, 0.58581555, 1)
+z_index = 7
 script = ExtResource("1_tq3rt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1898715254]
