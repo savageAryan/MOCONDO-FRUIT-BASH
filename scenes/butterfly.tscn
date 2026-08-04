@@ -5,6 +5,18 @@
 [ext_resource type="Texture2D" uid="uid://blr1spk3gqyev" path="res://assets/butterflyfront.png" id="2_yym88"]
 [ext_resource type="Texture2D" uid="uid://bci1e3sl7htb4" path="res://assets/light gradient butterfly.png" id="3_o654m"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rprb"]
+atlas = ExtResource("2_o654m")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvgif"]
+atlas = ExtResource("2_yym88")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hilpe"]
+atlas = ExtResource("2_yym88")
+region = Rect2(0, 96, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_42pi4"]
 atlas = ExtResource("2_yym88")
 region = Rect2(0, 0, 32, 32)
@@ -103,6 +115,20 @@ region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2tg6s"]
 animations = [{
+"frames": [{
+"duration": 11.6,
+"texture": SubResource("AtlasTexture_4rprb")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_vvgif")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_hilpe")
+}],
+"loop": 1,
+"name": &"bara rest",
+"speed": 3.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_42pi4")
@@ -208,9 +234,9 @@ script = ExtResource("1_tq3rt")
 position = Vector2(1.1920929e-07, 2.9802322e-08)
 scale = Vector2(0.41475403, 0.41475403)
 sprite_frames = SubResource("SpriteFrames_2tg6s")
-animation = &"fly front"
+animation = &"bara rest"
 autoplay = "fly side"
-frame_progress = 0.8664121
+frame_progress = 0.2904741
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D" unique_id=1479861310]
 energy = 0.0

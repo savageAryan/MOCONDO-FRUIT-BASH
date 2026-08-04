@@ -103,7 +103,7 @@ func sleep_cycle():
 			continue
 		state = states.sleep
 		sleeping = true
-		await get_tree().create_timer(10).timeout
+		await get_tree().create_timer(30).timeout
 		if state == states.sleep:
 			random_Targer()
 			sleeping = false

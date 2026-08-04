@@ -19,8 +19,8 @@ var flower_target = null
 var rest_time := 0.0
 var wobble_flower := 0.0
 var y_axis_wobble := 0.0
-var closest: capybara = null
-var closest_distance = 0
+
+var bara_rest:bool = false
 func _ready() -> void:
 	new_target()
 func _physics_process(delta: float) -> void:
@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 		states.fly:
 			fly(delta)
 		states.rest:
-			pass
+			rest(delta)
 func new_target():
 	fixed_pos = global_position
 	var radius = randf_range(80,150)
@@ -100,20 +100,45 @@ func fly(delta):
 		if wobble_flower > 1.1:
 			state = states.rest
 			wobble_flower = 0
-			rest()
+			rest(delta)
+			return
+	var closest: capybara = null
+	var closest_distance = INF
 	for capy: capybara in get_tree().get_nodes_in_group("capybara"):
 		var capy_distance = global_position.distance_to(capy.global_position)
 		if capy.sleeping and capy_distance < closest_distance:
 			closest = capy
 			closest_distance = capy_distance
-func rest():
+	if closest and closest_distance < 80:
+		target = closest.global_position
+	if closest and closest.sleeping and global_position.distance_to(closest.global_position) < 4:
+		bara_rest = true
+		global_position = closest.global_position - Vector2(0,randf_range(-3,3))
+		closest_sleep = closest
+		rest(delta)
+var closest_sleep = null
+func rest(delta):
+	rest_time += delta
 	flower_target = null
 	velocity = Vector2.ZERO
-	rest_time = 0
+	
 	state = states.rest
-	animated_sprite_2d.play("rest")
-	await get_tree().create_timer(7).timeout
-	new_target()
-	state = states.fly
+	if bara_rest:
+		animated_sprite_2d.play("bara rest")
+		print(animated_sprite_2d.animation)
+	else:
+		animated_sprite_2d.play("rest")
+	if rest_time > 7:
+		rest_time = 0
+		new_target()
+		state = states.fly
+		print (global_position)
+	if closest_sleep != null:
+		if rest_time > 7 or !closest_sleep.sleeping:
+			rest_time = 0
+			new_target()
+			bara_rest = false
+			state = states.fly
+	
 	
 	
