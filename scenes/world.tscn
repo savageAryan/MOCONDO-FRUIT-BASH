@@ -725,6 +725,57 @@ position = Vector2(-14, 149)
 [node name="rose" parent="flowers" unique_id=1597186282 instance=ExtResource("37_817gm")]
 position = Vector2(139, -7)
 
+[node name="rose2" parent="flowers" unique_id=961051384 instance=ExtResource("37_817gm")]
+position = Vector2(483, 33)
+
+[node name="rose3" parent="flowers" unique_id=1033535956 instance=ExtResource("37_817gm")]
+position = Vector2(61, 472)
+
+[node name="rose4" parent="flowers" unique_id=129201505 instance=ExtResource("37_817gm")]
+position = Vector2(415, 241)
+
+[node name="rose5" parent="flowers" unique_id=61911620 instance=ExtResource("37_817gm")]
+position = Vector2(772, 191)
+
+[node name="rose6" parent="flowers" unique_id=247845574 instance=ExtResource("37_817gm")]
+position = Vector2(599, 128)
+
+[node name="rose7" parent="flowers" unique_id=1538595279 instance=ExtResource("37_817gm")]
+position = Vector2(935, 424)
+
+[node name="rose8" parent="flowers" unique_id=184345208 instance=ExtResource("37_817gm")]
+position = Vector2(222, 812)
+
+[node name="rose9" parent="flowers" unique_id=571825422 instance=ExtResource("37_817gm")]
+position = Vector2(360, 1028)
+
+[node name="rose10" parent="flowers" unique_id=1795806154 instance=ExtResource("37_817gm")]
+position = Vector2(-12, 837)
+
+[node name="rose11" parent="flowers" unique_id=2086344784 instance=ExtResource("37_817gm")]
+position = Vector2(-40, 478)
+
+[node name="rose12" parent="flowers" unique_id=790791233 instance=ExtResource("37_817gm")]
+position = Vector2(-10, 337)
+
+[node name="rose13" parent="flowers" unique_id=1376669515 instance=ExtResource("37_817gm")]
+position = Vector2(18, -155)
+
+[node name="rose14" parent="flowers" unique_id=464268360 instance=ExtResource("37_817gm")]
+position = Vector2(-77, 104)
+
+[node name="rose15" parent="flowers" unique_id=208390124 instance=ExtResource("37_817gm")]
+position = Vector2(-54, 169)
+
+[node name="rose16" parent="flowers" unique_id=1208003604 instance=ExtResource("37_817gm")]
+position = Vector2(378, 61)
+
+[node name="rose17" parent="flowers" unique_id=1692970639 instance=ExtResource("37_817gm")]
+position = Vector2(765, 116)
+
+[node name="rose18" parent="flowers" unique_id=963596171 instance=ExtResource("37_817gm")]
+position = Vector2(188, 641)
+
 [node name="butterflys" type="Node2D" parent="." unique_id=174480068]
 
 [node name="butterfly" parent="butterflys" unique_id=1629226949 instance=ExtResource("7_x2olw")]

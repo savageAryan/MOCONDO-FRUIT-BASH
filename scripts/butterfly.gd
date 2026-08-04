@@ -1,6 +1,6 @@
 extends Area2D
 var speed = randf_range(40,70)
-enum states{fly,rest}
+enum states{fly,rest,}
 var state = states.fly
 var facing = null
 @onready var flowers: Node2D = $"../../flowers"
@@ -15,6 +15,8 @@ var wobble_time := 0
 var wobble_strength = 0.3
 var wobble_speed = 8.0
 var wobble_timer = 0.0
+var flower_target = null
+var rest_time := 0.0
 func _ready() -> void:
 	new_target()
 func _physics_process(delta: float) -> void:
@@ -30,13 +32,15 @@ func new_target():
 	target = fixed_pos + Vector2(randf_range(-radius,radius),randf_range(-radius,radius))
 	
 func fly(delta):
+	
+	rest_time += delta
 	var dir = (target - global_position).normalized()
 	var perp = Vector2(-dir.y,dir.x)
 	t += delta
 	var wobble = sin(t * wobble_time)* wobble_strength + sin(t + 2.3)* 0.15
-	var move_dir = (dir + perp * wobble).normalized()
 	var desired = (target - global_position).normalized()
-	desired = desired.rotated(randf_range(-0.25,0.25))
+	if randf() < 0.03:
+		desired = desired.rotated(randf_range(-0.25,0.25))
 	desired += perp * wobble
 	desired = desired.normalized()
 	velocity = velocity.lerp(desired,0.12)
@@ -45,6 +49,7 @@ func fly(delta):
 	global_position += velocity * speed * delta
 	wobble_timer -= delta
 	if wobble_timer < 0:
+		speed = randf_range(40,70)
 		wobble_timer = randf_range(0.4,0.6)
 		wobble_amount = randf_range(3,7)
 		wobble_time = randf_range(10,30)
@@ -70,12 +75,23 @@ func fly(delta):
 		else:
 			facing = "front"
 			animated_sprite_2d.play("fly front")
-	if distance < 2:
+	
+	if distance < 2 and flower_target == null:
 		new_target()
+	if rest_time > 3 and flower_target == null:
+		var flower = flowers.get_children().pick_random()
+		flower_target = flower.global_position
+		target = flower_target
+		if flower_target != null and global_position.distance_to(target) < 5:
+			rest()
 func rest():
+	flower_target = null
+	velocity = Vector2.ZERO
+	rest_time = 0
+	state = states.rest
 	animated_sprite_2d.play("rest")
-	await get_tree().create_timer(5).timeout
-	var flower = flowers.get_children().pick_random()
-	target = flower.global_position
+	await get_tree().create_timer(7).timeout
+	new_target()
 	state = states.fly
+	
 	
