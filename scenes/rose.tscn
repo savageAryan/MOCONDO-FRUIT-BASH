@@ -61,6 +61,7 @@ size = Vector2(10, 19)
 script = ExtResource("1_xlvsn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=87112190]
+position = Vector2(0, 4)
 sprite_frames = SubResource("SpriteFrames_2tg6s")
 animation = &"4"
 

@@ -4,7 +4,7 @@ enum states{fly,rest,}
 var state = states.fly
 var facing = null
 @onready var flowers: Node2D = $"../../flowers"
-
+var next_rest_time = randf_range(5.0,12.0)
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var target: Vector2
 var velocity: Vector2
@@ -17,6 +17,7 @@ var wobble_speed = 8.0
 var wobble_timer = 0.0
 var flower_target = null
 var rest_time := 0.0
+var wobble_flower := 0.0
 func _ready() -> void:
 	new_target()
 func _physics_process(delta: float) -> void:
@@ -44,7 +45,10 @@ func fly(delta):
 	desired += perp * wobble
 	desired = desired.normalized()
 	velocity = velocity.lerp(desired,0.12)
-	velocity += Vector2(randf_range(-0.08,0.08),randf_range(-0.08,0.08))
+	if flower_target == null:
+		velocity += Vector2(randf_range(-0.08,0.08),randf_range(-0.08,0.08))
+	if flower_target != null:
+		velocity += Vector2(randf_range(-0.02,0.02),randf_range(-0.02,0.02))
 	velocity = velocity.normalized()
 	global_position += velocity * speed * delta
 	wobble_timer -= delta
@@ -78,12 +82,19 @@ func fly(delta):
 	
 	if distance < 2 and flower_target == null:
 		new_target()
-	if rest_time > 3 and flower_target == null:
+	if rest_time > next_rest_time and flower_target == null:
 		var flower = flowers.get_children().pick_random()
 		flower_target = flower.global_position
 		target = flower_target
-		if flower_target != null and global_position.distance_to(target) < 5:
+		
+	if flower_target != null and global_position.distance_to(target) < 5:
+		
+		wobble_flower += delta
+		if wobble_flower > 1.1:
+			state = states.rest
+			wobble_flower = 0
 			rest()
+	
 func rest():
 	flower_target = null
 	velocity = Vector2.ZERO
