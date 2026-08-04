@@ -8,6 +8,7 @@ var ramdon_target = Vector2.ZERO
 var facing = "front"
 var speed = 20
 var stuck_pos = Vector2.ZERO
+var sleeping = false
 var stuck_time = 0.0
 enum states {wait,sleep,chase,alert,attack,roam,idel}
 var state = states.roam
@@ -101,14 +102,18 @@ func sleep_cycle():
 		if state != states.roam:
 			continue
 		state = states.sleep
+		sleeping = true
 		await get_tree().create_timer(10).timeout
 		if state == states.sleep:
 			random_Targer()
+			sleeping = false
 			state = states.roam
 func chasing_player():
 	if player == null:
 		state = states.roam
+		sleeping = false
 		return
+	sleeping = false
 	navigation_agent_2d.target_position = player.global_position
 	var next_x = navigation_agent_2d.get_next_path_position()
 	var direction = (next_x - global_position).normalized()

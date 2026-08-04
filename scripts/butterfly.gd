@@ -19,6 +19,8 @@ var flower_target = null
 var rest_time := 0.0
 var wobble_flower := 0.0
 var y_axis_wobble := 0.0
+var closest: capybara = null
+var closest_distance = 0
 func _ready() -> void:
 	new_target()
 func _physics_process(delta: float) -> void:
@@ -34,6 +36,7 @@ func new_target():
 	target = fixed_pos + Vector2(randf_range(-radius,radius),randf_range(-radius,radius))
 	
 func fly(delta):
+	
 	y_axis_wobble += delta
 	if y_axis_wobble > 1:
 		global_position += Vector2(0,randf_range(-5,5))
@@ -98,7 +101,11 @@ func fly(delta):
 			state = states.rest
 			wobble_flower = 0
 			rest()
-	
+	for capy: capybara in get_tree().get_nodes_in_group("capybara"):
+		var capy_distance = global_position.distance_to(capy.global_position)
+		if capy.sleeping and capy_distance < closest_distance:
+			closest = capy
+			closest_distance = capy_distance
 func rest():
 	flower_target = null
 	velocity = Vector2.ZERO
