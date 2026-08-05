@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://ruvlsj5uuq34" path="res://scenes/tomato_crop.tscn" id="32_fh13f"]
 [ext_resource type="Texture2D" uid="uid://bl61l3kvbc2tu" path="res://assets/farmstand.png" id="33_rup4s"]
 [ext_resource type="PackedScene" uid="uid://cityp3idryepb" path="res://scenes/rose.tscn" id="37_817gm"]
+[ext_resource type="PackedScene" uid="uid://clorb785eketr" path="res://scenes/butterflyswarm.tscn" id="38_ggc52"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4wyf3"]
 texture = ExtResource("1_rwgxs")
@@ -797,6 +798,7 @@ position = Vector2(765, 116)
 position = Vector2(188, 641)
 
 [node name="butterflys" type="Node2D" parent="." unique_id=174480068]
+visible = false
 
 [node name="butterfly" parent="butterflys" unique_id=1629226949 instance=ExtResource("7_x2olw")]
 position = Vector2(13, 15)
@@ -845,6 +847,8 @@ position = Vector2(-163, 117)
 
 [node name="butterfly16" parent="butterflys" unique_id=684208923 instance=ExtResource("7_x2olw")]
 position = Vector2(35, 214)
+
+[node name="butterflyswarm" parent="." unique_id=1066567139 instance=ExtResource("38_ggc52")]
 
 [connection signal="tilled" from="." to="chicken" method="_on_world_tilled"]
 [connection signal="talk_finished" from="CanvasLayer/dialouge" to="." method="_on_dialouge_talk_finished"]
