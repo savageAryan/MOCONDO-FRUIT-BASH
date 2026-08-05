@@ -17,6 +17,7 @@ var wobble_speed = 8.0
 var wobble_timer = 0.0
 var flower_target = null
 var rest_time := 0.0
+var sit_time:= 0.0
 var wobble_flower := 0.0
 var y_axis_wobble := 0.0
 
@@ -100,7 +101,6 @@ func fly(delta):
 		if wobble_flower > 1.1:
 			state = states.rest
 			wobble_flower = 0
-			rest(delta)
 			return
 	var closest: capybara = null
 	var closest_distance = INF
@@ -115,27 +115,25 @@ func fly(delta):
 		bara_rest = true
 		global_position = closest.global_position - Vector2(0,randf_range(-3,3))
 		closest_sleep = closest
-		rest(delta)
+		state = states.rest
+		return
 var closest_sleep = null
 func rest(delta):
-	rest_time += delta
-	flower_target = null
+	sit_time += delta
 	velocity = Vector2.ZERO
-	
 	state = states.rest
 	if bara_rest:
 		animated_sprite_2d.play("bara rest")
-		print(animated_sprite_2d.animation)
 	else:
 		animated_sprite_2d.play("rest")
-	if rest_time > 7:
-		rest_time = 0
+	if sit_time > 7:
+		sit_time = 0
+		flower_target = null
 		new_target()
 		state = states.fly
-		print (global_position)
 	if closest_sleep != null:
-		if rest_time > 7 or !closest_sleep.sleeping:
-			rest_time = 0
+		if sit_time > 7 or !closest_sleep.sleeping:
+			sit_time = 0
 			new_target()
 			bara_rest = false
 			state = states.fly
