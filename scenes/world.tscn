@@ -572,7 +572,6 @@ wait_time = 600.0
 autostart = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1743471746]
-visible = false
 color = Color(0.19103259, 0.33427146, 0.47772908, 1)
 script = ExtResource("13_jhx03")
 gradient = SubResource("GradientTexture1D_o8fc1")
@@ -867,6 +866,7 @@ position = Vector2(35, 214)
 [connection signal="body_exited" from="boatrest" to="." method="_on_boatrest_body_exited"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="time_tick" from="CanvasModulate" to="." method="_on_canvas_modulate_time_tick"]
 [connection signal="pressed" from="workshopbody/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="body_entered" from="workshopbody/workshop area" to="." method="_on_workshop_area_body_entered"]
 [connection signal="body_exited" from="workshopbody/workshop area" to="." method="_on_workshop_area_body_exited"]

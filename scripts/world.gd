@@ -18,6 +18,7 @@ extends Node2D
 @onready var tomato_crop: Area2D = $"tomato crop"
 @onready var workshopsprite: AnimatedSprite2D = $workshopbody/Workshopsprite
 @onready var tile_map_layer: TileMapLayer = $TileMapLayer
+var routine = null
 var planted_cell = {}
 signal tilled
 const CARROT_CROP = preload("res://scenes/carrot_crop.tscn")
@@ -208,3 +209,21 @@ func _on_blob_blob_out() -> void:
 	dialouge.visible = false
 	invenrory.visible = true
 	ui.visible = true
+
+
+func _on_canvas_modulate_time_tick(day: int, hour: int, minutes: int) -> void:
+	if hour <= 5:
+		routine = "morning"
+		print(routine)
+	elif hour <= 12:
+		routine = "afternoon"
+		print(routine)
+	elif hour <= 17:
+		routine = "evening"
+		print(routine)
+	elif hour <= 18:
+		routine = "night"
+		print(routine)
+	elif hour <= 24:
+		routine = "mid-night"
+		print(routine)

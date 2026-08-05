@@ -20,10 +20,11 @@ var rest_time := 0.0
 var sit_time:= 0.0
 var wobble_flower := 0.0
 var y_axis_wobble := 0.0
-
+var perch_offset:= Vector2.ZERO
 var bara_rest:bool = false
 func _ready() -> void:
 	new_target()
+	velocity = (target - global_position).normalized()
 func _physics_process(delta: float) -> void:
 	
 	match state:
@@ -50,6 +51,7 @@ func fly(delta):
 	var desired = (target - global_position).normalized()
 	if randf() < 0.03:
 		desired = desired.rotated(randf_range(-0.25,0.25))
+	
 	desired += perp * wobble
 	desired = desired.normalized()
 	velocity = velocity.lerp(desired,0.12)
@@ -94,7 +96,6 @@ func fly(delta):
 		var flower = flowers.get_children().pick_random()
 		flower_target = flower.global_position
 		target = flower_target
-		
 	if flower_target != null and global_position.distance_to(target) < 5:
 		
 		wobble_flower += delta
@@ -104,6 +105,7 @@ func fly(delta):
 			return
 	var closest: capybara = null
 	var closest_distance = INF
+	
 	for capy: capybara in get_tree().get_nodes_in_group("capybara"):
 		var capy_distance = global_position.distance_to(capy.global_position)
 		if capy.sleeping and capy_distance < closest_distance:
@@ -111,11 +113,16 @@ func fly(delta):
 			closest_distance = capy_distance
 	if closest and closest_distance < 80:
 		target = closest.global_position
+		perch_offset = Vector2(0,randf_range(-3,3))
 	if closest and closest.sleeping and global_position.distance_to(closest.global_position) < 4:
 		bara_rest = true
-		global_position = closest.global_position - Vector2(0,randf_range(-3,3))
+		global_position = closest.global_position - perch_offset
 		closest_sleep = closest
 		state = states.rest
+		var butter_tween = create_tween()
+		butter_tween.set_parallel()
+		butter_tween.tween_property(animated_sprite_2d,"position",Vector2(0,randf_range(8,5)),0.3)
+		butter_tween.tween_property(animated_sprite_2d,"position",Vector2(0,randf_range(-8,-5)),0.3)
 		return
 var closest_sleep = null
 func rest(delta):
@@ -129,13 +136,16 @@ func rest(delta):
 	if sit_time > 7:
 		sit_time = 0
 		flower_target = null
+		velocity = Vector2.ZERO
 		new_target()
 		state = states.fly
 	if closest_sleep != null:
 		if sit_time > 7 or !closest_sleep.sleeping:
 			sit_time = 0
+			velocity = Vector2.ZERO
 			new_target()
 			bara_rest = false
+			closest_sleep = null
 			state = states.fly
 	
 	
