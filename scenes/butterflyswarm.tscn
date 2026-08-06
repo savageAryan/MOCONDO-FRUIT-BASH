@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://clorb785eketr"]
 
-[ext_resource type="Script" uid="uid://dj661r8v67xx7" path="res://scripts/butterflies_in_swarm.gd" id="2_bppxd"]
 [ext_resource type="Texture2D" uid="uid://ct0quot6u073r" path="res://assets/butterfly.png" id="2_sv504"]
 [ext_resource type="Script" uid="uid://lohn0t4epoxg" path="res://scripts/butterflyswarm.gd" id="2_v3f01"]
 [ext_resource type="Texture2D" uid="uid://blr1spk3gqyev" path="res://assets/butterflyfront.png" id="3_bppxd"]
@@ -230,19 +229,18 @@ radius = 24.04163
 script = ExtResource("2_v3f01")
 
 [node name="butterflies" type="Node2D" parent="." unique_id=227031193]
-script = ExtResource("2_bppxd")
 
 [node name="butterfly" type="Area2D" parent="butterflies" unique_id=1629226949]
 modulate = Color(0.8653361, 0.8484779, 0.58581555, 1)
 z_index = 7
+position = Vector2(-9, -5)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="butterflies/butterfly" unique_id=1898715254]
 position = Vector2(1.1920929e-07, 2.9802322e-08)
 scale = Vector2(0.41475403, 0.41475403)
 sprite_frames = SubResource("SpriteFrames_2tg6s")
-animation = &"bara rest"
-autoplay = "fly side"
-frame_progress = 0.2904741
+animation = &"fly front"
+autoplay = "fly front"
 
 [node name="PointLight2D" type="PointLight2D" parent="butterflies/butterfly/AnimatedSprite2D" unique_id=1479861310]
 energy = 0.0
@@ -250,5 +248,25 @@ texture = ExtResource("4_dcxdt")
 texture_scale = 1.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="butterflies/butterfly" unique_id=1544801403]
+scale = Vector2(0.19763434, 0.19763434)
+shape = SubResource("CircleShape2D_ohge4")
+
+[node name="butterfly2" type="Area2D" parent="butterflies" unique_id=1361058027]
+modulate = Color(0.8653361, 0.8484779, 0.58581555, 1)
+z_index = 7
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="butterflies/butterfly2" unique_id=1971498067]
+position = Vector2(1.1920929e-07, 2.9802322e-08)
+scale = Vector2(0.41475403, 0.41475403)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+animation = &"fly front"
+autoplay = "fly front"
+
+[node name="PointLight2D" type="PointLight2D" parent="butterflies/butterfly2/AnimatedSprite2D" unique_id=1393487702]
+energy = 0.0
+texture = ExtResource("4_dcxdt")
+texture_scale = 1.6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="butterflies/butterfly2" unique_id=1549757876]
 scale = Vector2(0.19763434, 0.19763434)
 shape = SubResource("CircleShape2D_ohge4")
