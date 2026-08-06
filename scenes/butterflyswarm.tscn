@@ -270,3 +270,66 @@ texture_scale = 1.6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="butterflies/butterfly2" unique_id=1549757876]
 scale = Vector2(0.19763434, 0.19763434)
 shape = SubResource("CircleShape2D_ohge4")
+
+[node name="butterfly3" type="Area2D" parent="butterflies" unique_id=229797324]
+modulate = Color(0.8653361, 0.8484779, 0.58581555, 1)
+z_index = 7
+position = Vector2(8, 8)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="butterflies/butterfly3" unique_id=248709772]
+position = Vector2(1.1920929e-07, 2.9802322e-08)
+scale = Vector2(0.41475403, 0.41475403)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+animation = &"fly front"
+autoplay = "fly front"
+
+[node name="PointLight2D" type="PointLight2D" parent="butterflies/butterfly3/AnimatedSprite2D" unique_id=1879415783]
+energy = 0.0
+texture = ExtResource("4_dcxdt")
+texture_scale = 1.6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="butterflies/butterfly3" unique_id=1756229367]
+scale = Vector2(0.19763434, 0.19763434)
+shape = SubResource("CircleShape2D_ohge4")
+
+[node name="butterfly4" type="Area2D" parent="butterflies" unique_id=615428196]
+modulate = Color(0.8653361, 0.8484779, 0.58581555, 1)
+z_index = 7
+position = Vector2(-5, 12)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="butterflies/butterfly4" unique_id=66967634]
+position = Vector2(1.1920929e-07, 2.9802322e-08)
+scale = Vector2(0.41475403, 0.41475403)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+animation = &"fly front"
+autoplay = "fly front"
+
+[node name="PointLight2D" type="PointLight2D" parent="butterflies/butterfly4/AnimatedSprite2D" unique_id=1923682790]
+energy = 0.0
+texture = ExtResource("4_dcxdt")
+texture_scale = 1.6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="butterflies/butterfly4" unique_id=823051865]
+scale = Vector2(0.19763434, 0.19763434)
+shape = SubResource("CircleShape2D_ohge4")
+
+[node name="butterfly5" type="Area2D" parent="butterflies" unique_id=1350471026]
+modulate = Color(0.8653361, 0.8484779, 0.58581555, 1)
+z_index = 7
+position = Vector2(12, -6)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="butterflies/butterfly5" unique_id=1336336967]
+position = Vector2(1.1920929e-07, 2.9802322e-08)
+scale = Vector2(0.41475403, 0.41475403)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+animation = &"fly front"
+autoplay = "fly front"
+
+[node name="PointLight2D" type="PointLight2D" parent="butterflies/butterfly5/AnimatedSprite2D" unique_id=1724222883]
+energy = 0.0
+texture = ExtResource("4_dcxdt")
+texture_scale = 1.6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="butterflies/butterfly5" unique_id=1632936325]
+scale = Vector2(0.19763434, 0.19763434)
+shape = SubResource("CircleShape2D_ohge4")
