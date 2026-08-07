@@ -798,7 +798,6 @@ position = Vector2(765, 116)
 position = Vector2(188, 641)
 
 [node name="butterflys" type="Node2D" parent="." unique_id=174480068]
-visible = false
 
 [node name="butterfly" parent="butterflys" unique_id=1629226949 instance=ExtResource("7_x2olw")]
 position = Vector2(13, 15)

@@ -233,7 +233,7 @@ script = ExtResource("2_v3f01")
 [node name="butterfly" type="Area2D" parent="butterflies" unique_id=1629226949]
 modulate = Color(0.8653361, 0.8484779, 0.58581555, 1)
 z_index = 7
-position = Vector2(-9, -5)
+position = Vector2(-9, -10)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="butterflies/butterfly" unique_id=1898715254]
 position = Vector2(1.1920929e-07, 2.9802322e-08)
@@ -254,6 +254,7 @@ shape = SubResource("CircleShape2D_ohge4")
 [node name="butterfly2" type="Area2D" parent="butterflies" unique_id=1361058027]
 modulate = Color(0.8653361, 0.8484779, 0.58581555, 1)
 z_index = 7
+position = Vector2(1, 3)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="butterflies/butterfly2" unique_id=1971498067]
 position = Vector2(1.1920929e-07, 2.9802322e-08)
@@ -274,7 +275,7 @@ shape = SubResource("CircleShape2D_ohge4")
 [node name="butterfly3" type="Area2D" parent="butterflies" unique_id=229797324]
 modulate = Color(0.8653361, 0.8484779, 0.58581555, 1)
 z_index = 7
-position = Vector2(8, 8)
+position = Vector2(16, 3)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="butterflies/butterfly3" unique_id=248709772]
 position = Vector2(1.1920929e-07, 2.9802322e-08)
@@ -295,7 +296,7 @@ shape = SubResource("CircleShape2D_ohge4")
 [node name="butterfly4" type="Area2D" parent="butterflies" unique_id=615428196]
 modulate = Color(0.8653361, 0.8484779, 0.58581555, 1)
 z_index = 7
-position = Vector2(-5, 12)
+position = Vector2(-14, 12)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="butterflies/butterfly4" unique_id=66967634]
 position = Vector2(1.1920929e-07, 2.9802322e-08)
@@ -316,7 +317,7 @@ shape = SubResource("CircleShape2D_ohge4")
 [node name="butterfly5" type="Area2D" parent="butterflies" unique_id=1350471026]
 modulate = Color(0.8653361, 0.8484779, 0.58581555, 1)
 z_index = 7
-position = Vector2(12, -6)
+position = Vector2(6, -12)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="butterflies/butterfly5" unique_id=1336336967]
 position = Vector2(1.1920929e-07, 2.9802322e-08)
@@ -331,5 +332,89 @@ texture = ExtResource("4_dcxdt")
 texture_scale = 1.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="butterflies/butterfly5" unique_id=1632936325]
+scale = Vector2(0.19763434, 0.19763434)
+shape = SubResource("CircleShape2D_ohge4")
+
+[node name="butterfly6" type="Area2D" parent="butterflies" unique_id=960701278]
+modulate = Color(0.8653361, 0.8484779, 0.58581555, 1)
+z_index = 7
+position = Vector2(14, -30)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="butterflies/butterfly6" unique_id=1768017341]
+position = Vector2(1.1920929e-07, 2.9802322e-08)
+scale = Vector2(0.41475403, 0.41475403)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+animation = &"fly front"
+autoplay = "fly front"
+
+[node name="PointLight2D" type="PointLight2D" parent="butterflies/butterfly6/AnimatedSprite2D" unique_id=669517812]
+energy = 0.0
+texture = ExtResource("4_dcxdt")
+texture_scale = 1.6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="butterflies/butterfly6" unique_id=58308586]
+scale = Vector2(0.19763434, 0.19763434)
+shape = SubResource("CircleShape2D_ohge4")
+
+[node name="butterfly7" type="Area2D" parent="butterflies" unique_id=1803547725]
+modulate = Color(0.8653361, 0.8484779, 0.58581555, 1)
+z_index = 7
+position = Vector2(2, -26)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="butterflies/butterfly7" unique_id=1438301536]
+position = Vector2(1.1920929e-07, 2.9802322e-08)
+scale = Vector2(0.41475403, 0.41475403)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+animation = &"fly front"
+autoplay = "fly front"
+
+[node name="PointLight2D" type="PointLight2D" parent="butterflies/butterfly7/AnimatedSprite2D" unique_id=831155046]
+energy = 0.0
+texture = ExtResource("4_dcxdt")
+texture_scale = 1.6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="butterflies/butterfly7" unique_id=78133425]
+scale = Vector2(0.19763434, 0.19763434)
+shape = SubResource("CircleShape2D_ohge4")
+
+[node name="butterfly8" type="Area2D" parent="butterflies" unique_id=414196377]
+modulate = Color(0.8653361, 0.8484779, 0.58581555, 1)
+z_index = 7
+position = Vector2(-21, -20)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="butterflies/butterfly8" unique_id=1100898028]
+position = Vector2(1.1920929e-07, 2.9802322e-08)
+scale = Vector2(0.41475403, 0.41475403)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+animation = &"fly front"
+autoplay = "fly front"
+
+[node name="PointLight2D" type="PointLight2D" parent="butterflies/butterfly8/AnimatedSprite2D" unique_id=2138101008]
+energy = 0.0
+texture = ExtResource("4_dcxdt")
+texture_scale = 1.6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="butterflies/butterfly8" unique_id=967072709]
+scale = Vector2(0.19763434, 0.19763434)
+shape = SubResource("CircleShape2D_ohge4")
+
+[node name="butterfly9" type="Area2D" parent="butterflies" unique_id=1399686638]
+modulate = Color(0.8653361, 0.8484779, 0.58581555, 1)
+z_index = 7
+position = Vector2(-5, -41)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="butterflies/butterfly9" unique_id=1038532458]
+position = Vector2(1.1920929e-07, 2.9802322e-08)
+scale = Vector2(0.41475403, 0.41475403)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+animation = &"fly front"
+autoplay = "fly front"
+
+[node name="PointLight2D" type="PointLight2D" parent="butterflies/butterfly9/AnimatedSprite2D" unique_id=210067272]
+energy = 0.0
+texture = ExtResource("4_dcxdt")
+texture_scale = 1.6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="butterflies/butterfly9" unique_id=1286493634]
 scale = Vector2(0.19763434, 0.19763434)
 shape = SubResource("CircleShape2D_ohge4")
