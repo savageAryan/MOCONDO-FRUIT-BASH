@@ -15,6 +15,7 @@ extends Node2D
 @onready var ui: Control = $CanvasLayer/ui
 @onready var plantedlayer: TileMapLayer = $plantedlayer
 @onready var carrot_crop: Area2D = $"carrot crop"
+@onready var directional_light_2d: DirectionalLight2D = $DirectionalLight2D
 @onready var tomato_crop: Area2D = $"tomato crop"
 @onready var workshopsprite: AnimatedSprite2D = $workshopbody/Workshopsprite
 @onready var tile_map_layer: TileMapLayer = $TileMapLayer
@@ -117,6 +118,7 @@ func _on_workshop_area_body_exited(body: Node2D) -> void:
 		invenrory.visible = true
 @onready var invenrory: Control = $CanvasLayer/invenrory
 @onready var button_3: Button = $workshopbody/Button3
+@onready var butterflys: Node2D = $butterflys
 
 
 var workshop_opened = false
@@ -211,9 +213,25 @@ func _on_blob_blob_out() -> void:
 	invenrory.visible = true
 	ui.visible = true
 
-
-
-
+func world_lightupdate():
+	var lo9se_butterfly = butterflys.get_children()
+	var butterfly_light = lo9se_butterfly.get_node("PointLight2D")
+	var light_tween = create_tween()
+	if routine == "morning":
+		butterfly_light == 0.2
+		light_tween.tween_property(directional_light_2d,"color",Color("008cabff"),4)
+	if routine == "afternoon":
+		butterfly_light == 0.07
+		light_tween.tween_property(directional_light_2d,"color",Color("ecf774ff"),4)
+	if routine == "evening":
+		butterfly_light == 0.8
+		light_tween.tween_property(directional_light_2d,"color",Color("ffab7aff"),4)
+	if routine == "night":
+		butterfly_light == 1.2
+		light_tween.tween_property(directional_light_2d,"color",Color("3e00bcff"),4)
+	if routine == "midnight":
+		butterfly_light == 1.4
+		light_tween.tween_property(directional_light_2d,"color",Color(0.331, 0.0, 0.51, 1.0),4)
 func _on_canvas_modulate_time_tick(day: int, hour: int, minutes: int) -> void:
 	if hour <= 5:
 		routine = "morning"

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MocondoFruitBash"
-run/main_scene="uid://b6oib7u6kipxw"
+run/main_scene="uid://dps1wlx6e4gv"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

@@ -129,7 +129,7 @@ func light_update():
 		if world.routine == "morning":
 			light_energy = randf_range(0.09,0.3)
 			light_tween.tween_property(light,"energy",light_energy,1.3)
-		elif world.routine == "evening" or world.routine == "midnight" or world.routine == "night":
+		if world.routine == "evening" or world.routine == "midnight" or world.routine == "night":
 			light_energy == randf_range(1.1,1.6)
 			light_tween.tween_property(light,"energy",light_energy,1.3)
 		else:
