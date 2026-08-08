@@ -239,9 +239,10 @@ autoplay = "fly side"
 frame_progress = 0.2904741
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D" unique_id=1479861310]
+color = Color(1, 0.9667073, 0.37548316, 1)
 energy = 0.42
 texture = ExtResource("4_yym88")
-texture_scale = 1.6
+texture_scale = 4.4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1544801403]
 scale = Vector2(0.19763434, 0.19763434)

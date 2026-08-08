@@ -18,6 +18,7 @@ extends Node2D
 @onready var tomato_crop: Area2D = $"tomato crop"
 @onready var workshopsprite: AnimatedSprite2D = $workshopbody/Workshopsprite
 @onready var tile_map_layer: TileMapLayer = $TileMapLayer
+@onready var butterflyswarm: Node2D = $butterflyswarm
 var routine = null
 var planted_cell = {}
 signal tilled
@@ -212,6 +213,7 @@ func _on_blob_blob_out() -> void:
 
 
 
+
 func _on_canvas_modulate_time_tick(day: int, hour: int, minutes: int) -> void:
 	if hour <= 5:
 		routine = "morning"
@@ -225,6 +227,7 @@ func _on_canvas_modulate_time_tick(day: int, hour: int, minutes: int) -> void:
 	elif hour <= 18:
 		routine = "night"
 		print(routine)
-	elif hour <= 24:
+	else:
 		routine = "mid-night"
 		print(routine)
+	butterflyswarm.light_update()
