@@ -211,6 +211,7 @@ func _on_blob_blob_out() -> void:
 	ui.visible = true
 
 
+
 func _on_canvas_modulate_time_tick(day: int, hour: int, minutes: int) -> void:
 	if hour <= 5:
 		routine = "morning"

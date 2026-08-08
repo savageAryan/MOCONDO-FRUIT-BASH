@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ct0quot6u073r" path="res://assets/butterfly.png" id="2_sv504"]
 [ext_resource type="Script" uid="uid://lohn0t4epoxg" path="res://scripts/butterflyswarm.gd" id="2_v3f01"]
 [ext_resource type="Texture2D" uid="uid://blr1spk3gqyev" path="res://assets/butterflyfront.png" id="3_bppxd"]
-[ext_resource type="Texture2D" uid="uid://bci1e3sl7htb4" path="res://assets/light gradient butterfly.png" id="4_dcxdt"]
+[ext_resource type="Texture2D" uid="uid://dipiq4jge3wcj" path="res://raidalpoint light texture.tres" id="4_bppxd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4rprb"]
 atlas = ExtResource("2_sv504")
@@ -243,8 +243,9 @@ animation = &"fly front"
 autoplay = "fly front"
 
 [node name="PointLight2D" type="PointLight2D" parent="butterflies/butterfly/AnimatedSprite2D" unique_id=1479861310]
-energy = 0.0
-texture = ExtResource("4_dcxdt")
+color = Color(0.99199027, 0.99395233, 0, 1)
+energy = 1.35
+texture = ExtResource("4_bppxd")
 texture_scale = 1.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="butterflies/butterfly" unique_id=1544801403]
@@ -264,8 +265,9 @@ animation = &"fly front"
 autoplay = "fly front"
 
 [node name="PointLight2D" type="PointLight2D" parent="butterflies/butterfly2/AnimatedSprite2D" unique_id=1393487702]
-energy = 0.0
-texture = ExtResource("4_dcxdt")
+color = Color(1, 0.868, 0.27999997, 1)
+energy = 1.59
+texture = ExtResource("4_bppxd")
 texture_scale = 1.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="butterflies/butterfly2" unique_id=1549757876]
@@ -285,8 +287,9 @@ animation = &"fly front"
 autoplay = "fly front"
 
 [node name="PointLight2D" type="PointLight2D" parent="butterflies/butterfly3/AnimatedSprite2D" unique_id=1879415783]
-energy = 0.0
-texture = ExtResource("4_dcxdt")
+color = Color(0.9241215, 0.9926743, 7.70092e-07, 1)
+energy = 1.47
+texture = ExtResource("4_bppxd")
 texture_scale = 1.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="butterflies/butterfly3" unique_id=1756229367]
@@ -306,8 +309,9 @@ animation = &"fly front"
 autoplay = "fly front"
 
 [node name="PointLight2D" type="PointLight2D" parent="butterflies/butterfly4/AnimatedSprite2D" unique_id=1923682790]
-energy = 0.0
-texture = ExtResource("4_dcxdt")
+color = Color(0.91041714, 0.9335265, 0, 1)
+energy = 1.47
+texture = ExtResource("4_bppxd")
 texture_scale = 1.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="butterflies/butterfly4" unique_id=823051865]
@@ -327,8 +331,9 @@ animation = &"fly front"
 autoplay = "fly front"
 
 [node name="PointLight2D" type="PointLight2D" parent="butterflies/butterfly5/AnimatedSprite2D" unique_id=1724222883]
-energy = 0.0
-texture = ExtResource("4_dcxdt")
+color = Color(1, 0.926, 0.26, 1)
+energy = 1.35
+texture = ExtResource("4_bppxd")
 texture_scale = 1.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="butterflies/butterfly5" unique_id=1632936325]
@@ -348,8 +353,9 @@ animation = &"fly front"
 autoplay = "fly front"
 
 [node name="PointLight2D" type="PointLight2D" parent="butterflies/butterfly6/AnimatedSprite2D" unique_id=669517812]
-energy = 0.0
-texture = ExtResource("4_dcxdt")
+color = Color(1, 0.935, 0.35000002, 1)
+energy = 1.47
+texture = ExtResource("4_bppxd")
 texture_scale = 1.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="butterflies/butterfly6" unique_id=58308586]
@@ -369,8 +375,9 @@ animation = &"fly front"
 autoplay = "fly front"
 
 [node name="PointLight2D" type="PointLight2D" parent="butterflies/butterfly7/AnimatedSprite2D" unique_id=831155046]
-energy = 0.0
-texture = ExtResource("4_dcxdt")
+color = Color(0.9618196, 0.9655697, 0.19564593, 1)
+energy = 1.27
+texture = ExtResource("4_bppxd")
 texture_scale = 1.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="butterflies/butterfly7" unique_id=78133425]
@@ -390,8 +397,9 @@ animation = &"fly front"
 autoplay = "fly front"
 
 [node name="PointLight2D" type="PointLight2D" parent="butterflies/butterfly8/AnimatedSprite2D" unique_id=2138101008]
-energy = 0.0
-texture = ExtResource("4_dcxdt")
+color = Color(0.9986978, 0.9696383, 0, 1)
+energy = 1.36
+texture = ExtResource("4_bppxd")
 texture_scale = 1.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="butterflies/butterfly8" unique_id=967072709]
@@ -411,8 +419,9 @@ animation = &"fly front"
 autoplay = "fly front"
 
 [node name="PointLight2D" type="PointLight2D" parent="butterflies/butterfly9/AnimatedSprite2D" unique_id=210067272]
-energy = 0.0
-texture = ExtResource("4_dcxdt")
+color = Color(0.96881443, 0.9813574, 0, 1)
+energy = 1.18
+texture = ExtResource("4_bppxd")
 texture_scale = 1.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="butterflies/butterfly9" unique_id=1286493634]

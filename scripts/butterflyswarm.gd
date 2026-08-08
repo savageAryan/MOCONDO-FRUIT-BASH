@@ -18,15 +18,31 @@ var formation_time = randf_range(5,8)
 var pass_player = 0.0
 var time_pass = 0.0
 var player_pass:bool = false
+@onready var world: Node2D = $".."
 @onready var flowers: Node2D = $"../flowers"
 var next_player_pass = randf_range(8.8,15.0)
 func _ready() -> void:
 	randomize()
 	for butterfly in butterflies.get_children():
 		var sprite = butterfly.get_node("AnimatedSprite2D")
+		var light = butterfly.get_node("PointLight2D")
 		sprite.play("fly front")
+		print(world.routine)
 		sprite.speed_scale = randf_range(0.7,1.3)
 		sprite.scale *= randf_range(0.8,1.6)
+		var light_tween = create_tween()
+		var light_energy = 0
+		if world.routine == "morning":
+			light_energy = randf_range(0.09,0.3)
+			light_tween.tween_property(light,"energy",light_energy,1.3)
+		if world.routine == "evening" or "midnight":
+			light_energy == randf_range(1.1,1.6)
+			light_tween.tween_property(light,"energy",light_energy,1.3)
+		else:
+			light_energy = randf_range(0.05,0.2)
+			light_tween.tween_property(light,"energy",light_energy,1.3)
+			print(light_energy)
+		
 		offsets[butterfly] = Vector2(randf_range(-65,65),randf_range(-60,60))
 		target_offsets[butterfly] = offsets[butterfly]
 		wobble_time[butterfly] = randf() * TAU

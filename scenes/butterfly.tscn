@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://enpg2q542sqd" path="res://scripts/butterfly.gd" id="1_tq3rt"]
 [ext_resource type="Texture2D" uid="uid://ct0quot6u073r" path="res://assets/butterfly.png" id="2_o654m"]
 [ext_resource type="Texture2D" uid="uid://blr1spk3gqyev" path="res://assets/butterflyfront.png" id="2_yym88"]
-[ext_resource type="Texture2D" uid="uid://bci1e3sl7htb4" path="res://assets/light gradient butterfly.png" id="3_o654m"]
+[ext_resource type="Texture2D" uid="uid://dipiq4jge3wcj" path="res://raidalpoint light texture.tres" id="4_yym88"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4rprb"]
 atlas = ExtResource("2_o654m")
@@ -239,8 +239,8 @@ autoplay = "fly side"
 frame_progress = 0.2904741
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D" unique_id=1479861310]
-energy = 0.0
-texture = ExtResource("3_o654m")
+energy = 0.42
+texture = ExtResource("4_yym88")
 texture_scale = 1.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1544801403]
