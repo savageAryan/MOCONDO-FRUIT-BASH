@@ -70,7 +70,7 @@ func swift_fly(delta):
 	var turn_strngth = lerp(1.0,3.5,speed / 40.0)
 	velocity = velocity.slerp(desired,turn_strngth * delta)
 	velocity = velocity.normalized()
-	var turn_amount = abs(velocity.cross(desired))
+	var turn_amount = (1.0 - velocity.dot(desired)) * 0.5
 	if player_pass:
 		target_speed = 95.0
 	else:
@@ -120,8 +120,9 @@ func butterfly_fly(delta):
 				target_speed = lerp(target_speed,40.0,0.4*delta)
 func across_player(delta):
 	var desired: Vector2
+	
 	if player_pass_stage == 0:
-		desired = (target - global_position.normalized())
+		desired = (target - global_position).normalized()
 		if global_position.distance_to(target) < 30:
 			player_pass_stage = 1
 	elif player_pass_stage == 1:
@@ -142,6 +143,7 @@ func across_player(delta):
 	global_position += velocity * speed * delta
 	
 func fly_loop(delta):
+	
 	loop_time += delta
 	var progress = loop_time / loop_duration
 	var angular_speed = TAU / loop_duration
