@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://cymp4k25ftc3d"]
+
+[ext_resource type="Texture2D" uid="uid://cf412bv4gyi5t" path="res://assets/capybara sleep chasing and attack.png" id="1_jy0q2"]
+[ext_resource type="Texture2D" uid="uid://di1qd1h8mybjx" path="res://assets/mocondo butterfly.png" id="2_kodxk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kodxk"]
+atlas = ExtResource("1_jy0q2")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lol54"]
+atlas = ExtResource("1_jy0q2")
+region = Rect2(144, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pexxm"]
+atlas = ExtResource("1_jy0q2")
+region = Rect2(144, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7bor"]
+atlas = ExtResource("1_jy0q2")
+region = Rect2(144, 96, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akyrb"]
+atlas = ExtResource("1_jy0q2")
+region = Rect2(144, 128, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8dbf"]
+atlas = ExtResource("1_jy0q2")
+region = Rect2(144, 160, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tg6s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kodxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lol54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pexxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7bor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akyrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8dbf")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3mlf"]
+atlas = ExtResource("2_kodxk")
+region = Rect2(0, 0, 64, 71)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ohge4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3mlf")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Control" type="Control" unique_id=537243502]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1931838479]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.052348524, 0.06246282, 0.075741835, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1662138093]
+position = Vector2(587.00006, 343.00003)
+scale = Vector2(3.867189, 3.867189)
+sprite_frames = SubResource("SpriteFrames_2tg6s")
+autoplay = "default"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=934680284]
+texture_filter = 2
+position = Vector2(590.00006, 247.00005)
+rotation = 1.5707964
+scale = Vector2(0.37592793, 0.37592793)
+sprite_frames = SubResource("SpriteFrames_ohge4")
+frame_progress = 0.9774702
+
+[node name="Node2D" type="Node2D" parent="AnimatedSprite2D2" unique_id=119357642]
+position = Vector2(199.84259, 3.3363037)
