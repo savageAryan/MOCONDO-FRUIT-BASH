@@ -7,7 +7,8 @@ var velocity = Vector2.RIGHT
 var speed = 35.0
 var target_speed = 35.0
 
-
+var butterfly_velocity = {}
+var butterfly_rotation_speed = {}
 var formation_timer = 0.0
 var direction_timer = 0.0
 var offsets = {}
@@ -34,7 +35,8 @@ func _ready() -> void:
 	randomize()
 	for butterfly in butterflies.get_children():
 		var sprite = butterfly.get_node("AnimatedSprite2D")
-		
+		butterfly_velocity[butterfly] = velocity.rotated(randf_range(-0.3, 0.3))
+		butterfly_rotation_speed[butterfly] = randf_range(3.0, 6.0)
 		sprite.play("fly front")
 		print(world.routine)
 		sprite.speed_scale = randf_range(0.7,1.3)
@@ -70,12 +72,13 @@ func swift_fly(delta):
 	var turn_strngth = lerp(1.0,3.5,speed / 40.0)
 	velocity = velocity.slerp(desired,turn_strngth * delta)
 	velocity = velocity.normalized()
-	var turn_amount = (1.0 - velocity.dot(desired)) * 0.5
+	var turn_amount = 1.0 - velocity.dot(desired)
 	if player_pass:
 		target_speed = 95.0
 	else:
 		target_speed = lerp(90,40,turn_amount)
-	speed = lerp(speed,target_speed,delta * 0.8)
+	var desired_speed = lerp(90.0,40.0,clamp(turn_amount *  2.0,0.0,1.0))
+	speed = lerp(speed,desired_speed,delta * 0.8)
 	global_position += velocity * speed * delta
 	
 	if global_position.distance_to(target) < 12:
@@ -89,35 +92,22 @@ func butterfly_fly(delta):
 	formation_timer += delta
 	for butterfly in butterflies.get_children():
 		wobble_time[butterfly]+=delta
-		var forward = velocity
+		var forward = velocity.normalized()
 		var player = get_tree().get_first_node_in_group("player")
 		var right = Vector2(-forward.y,forward.x)
-		var wobble = right * sin(wobble_time[butterfly] * 8)*4 + forward * sin(wobble_time[butterfly] * 4) *2
-		offsets[butterfly] = offsets[butterfly].lerp(target_offsets[butterfly],delta)
-		var desired = global_position + right*offsets[butterfly].x + forward*offsets[butterfly].y + wobble
+		var individual_velocity = butterfly_velocity[butterfly]
+		var wobble_strength = 0.12
+		var individual_wobble = Vector2(sin(wobble_time[butterfly]* 2.3),cos(wobble_time[butterfly] * 1.7)) * wobble_strength
+		var desired_direction = (forward + individual_wobble).normalized()
+		individual_velocity = individual_velocity.slerp(desired_direction, 2.7 * delta).normalized()
+		butterfly_velocity[butterfly] = individual_velocity
+		var wobble = (right * sin(wobble_time[butterfly] * 8.0) * 4.0 + forward *cos(wobble_time[butterfly] * 4.0) * 2.0)
+		offsets[butterfly] = offsets[butterfly].lerp(target_offsets[butterfly],2.0 * delta)
+		var desired_position = (global_position + right* offsets[butterfly].x + forward * offsets[butterfly].y + wobble)
+		butterfly.global_position = butterfly.global_position.lerp(desired_position,follow_speed[butterfly] * delta)
+		var desired_angle = individual_velocity.angle() + PI/2.0
+		butterfly.rotation = lerp_angle(butterfly.rotation,desired_angle,butterfly_rotation_speed[butterfly] * delta)
 		
-		butterfly.global_position = butterfly.global_position.lerp(desired,follow_speed[butterfly] * delta)
-		var angle = velocity.angle() + PI/2
-		butterfly.rotation = lerp_angle(butterfly.rotation,angle,8.0 * delta)
-		#target = player.global_position /+ Vector2(randf_range(-450,450),randf_range(-300,300))
-		if formation_timer > formation_time:
-			formation_timer = 0
-			var streach = randf_range(0.6,1.7)
-			var formation_angle = randf() * TAU
-			var radius = randf_range(10,50)
-			var base = Vector2(cos(formation_angle),sin(formation_angle)) * radius
-			base.x *= streach
-			base.y /= streach
-			target_offsets[butterfly] = base
-			var fly_1 = butterflies.get_children().pick_random()
-			var fly_2 = butterflies.get_children().pick_random()
-			var change_pos = target_offsets[fly_1]
-			target_offsets[fly_1] = target_offsets[fly_2]
-			target_offsets[fly_2] = change_pos
-		if time_pass > randf_range(4,8):
-			if randf() < 0.02:
-				target_speed = randf_range(70,95)
-				target_speed = lerp(target_speed,40.0,0.4*delta)
 func across_player(delta):
 	var desired: Vector2
 	
