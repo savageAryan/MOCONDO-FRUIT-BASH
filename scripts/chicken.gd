@@ -11,6 +11,8 @@ extends CharacterBody2D
 @onready var world: Node2D = $".."
 @onready var player: Player = $"../player"
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+var sleep_timer := 0.0
+var sleeping:bool = false
 var plough_item = null
 var facing = "null"
 signal chicken_in
@@ -18,12 +20,12 @@ signal chicken_out
 var moving:bool = false
 var stage := 0
 var harvested:bool = false
-var sleeping = false
 var talking:bool = false
 const PLOUGH = preload("res://scenes/plough.tscn")
 const TOMATO_SEED = preload("res://scenes/tomato_seed.tscn")
 const CARROT_SEED = preload("res://scenes/carrot_seed.tscn")
 var plough_given:bool = false
+var going_to_sleep = false
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		chicken_in.emit()
@@ -106,6 +108,10 @@ func move_chicken():
 	var target_pos = marker_2d.global_position
 	var distance = global_position.distance_to(target_pos)
 	if distance < 2:
+		if going_to_sleep:
+			going_to_sleep = false
+			sleep()
+			return true
 		global_position = target_pos
 		velocity = Vector2.ZERO
 		animated_sprite_2d.play("side idel")
@@ -184,9 +190,14 @@ func _on_button_2_pressed() -> void:
 			Yeh BUUDY?!",
 			"Yehh.."],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
 func _physics_process(delta: float) -> void:
-	if moving:
-		move_chicken()
-
+	if moving or talking or sleeping or going_to_sleep:
+		if moving:
+			move_chicken()
+			return
+	sleep_timer += delta
+	if sleep_timer >= 3.0:
+		sleep_timer = 0.0
+		sleep_position()
 func _on_talk_button_pressed() -> void:
 	pass
 func _on_carrot_crop_harvested(cell: Vector2i) -> void:
@@ -224,17 +235,21 @@ func _on_tomato_crop_harvested(cell: Vector2i) -> void:
 	He Sells All Sorts Of Stuff",
 	"Right Click On The Untilled Land!"],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
 	stage = 3
+func sleep_position():
+	if going_to_sleep or sleeping:
+		return
+	going_to_sleep = true
+	marker_2d.global_position = Vector2(-14,164)
+	moving = true
 func sleep():
-	await get_tree().create_timer(40).timeout
-	marker_2d.global_position = Vector2(-14,161)
-	await move_chicken()
-	if moving == false:
-		sleeping = true
-		animated_sprite_2d.play("sleep")
-		await get_tree().create_timer(10).timeout
-		sleeping = false
-		marker_2d.global_position = Vector2(-14,142)
-		move_chicken()
+	sleeping = true
+	velocity = Vector2.ZERO
+	animated_sprite_2d.play("sleep")
+	await get_tree().create_timer(10).timeout
+	sleeping = false
+	marker_2d.global_position = Vector2(-13,162)
+	sleeping = false
+	move_chicken()
 		
 func _on_option_1_pressed() -> void:
 	var distance = global_position.distance_to(marker_2d.global_position)
