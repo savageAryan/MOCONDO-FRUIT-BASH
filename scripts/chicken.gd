@@ -21,6 +21,7 @@ var moving:bool = false
 var stage := 0
 var harvested:bool = false
 var talking:bool = false
+var pos_before_sleep: Vector2
 const PLOUGH = preload("res://scenes/plough.tscn")
 const TOMATO_SEED = preload("res://scenes/tomato_seed.tscn")
 const CARROT_SEED = preload("res://scenes/carrot_seed.tscn")
@@ -190,12 +191,13 @@ func _on_button_2_pressed() -> void:
 			Yeh BUUDY?!",
 			"Yehh.."],"---FARMING CHICKEN",animated_sprite_2d.sprite_frames,"talk",self)
 func _physics_process(delta: float) -> void:
-	if moving or talking or sleeping or going_to_sleep:
-		if moving:
-			move_chicken()
-			return
+	if sleeping:
+		return
+	if moving:
+		move_chicken()
+		return
 	sleep_timer += delta
-	if sleep_timer >= 3.0:
+	if sleep_timer >= 40.0 and !talking and stage == 5:
 		sleep_timer = 0.0
 		sleep_position()
 func _on_talk_button_pressed() -> void:
@@ -238,6 +240,7 @@ func _on_tomato_crop_harvested(cell: Vector2i) -> void:
 func sleep_position():
 	if going_to_sleep or sleeping:
 		return
+	pos_before_sleep = global_position
 	going_to_sleep = true
 	marker_2d.global_position = Vector2(-14,164)
 	moving = true
@@ -247,7 +250,7 @@ func sleep():
 	animated_sprite_2d.play("sleep")
 	await get_tree().create_timer(10).timeout
 	sleeping = false
-	marker_2d.global_position = Vector2(-13,162)
+	marker_2d.global_position = Vector2(pos_before_sleep)
 	sleeping = false
 	move_chicken()
 		
