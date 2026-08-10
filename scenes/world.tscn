@@ -848,11 +848,19 @@ position = Vector2(-163, 117)
 position = Vector2(35, 214)
 
 [node name="butterflyswarm" parent="." unique_id=1066567139 instance=ExtResource("38_ggc52")]
+position = Vector2(451, 81)
+
+[node name="butterflyswarm2" parent="." unique_id=1920879079 instance=ExtResource("38_ggc52")]
+position = Vector2(-21, 636)
+
+[node name="butterflyswarm3" parent="." unique_id=1815397646 instance=ExtResource("38_ggc52")]
+position = Vector2(921, 329)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=501607020]
+visible = false
 position = Vector2(-164, -187)
 color = Color(0.99, 0.92466, 0.6336, 1)
-energy = 0.28
+energy = 0.27
 
 [connection signal="tilled" from="." to="chicken" method="_on_world_tilled"]
 [connection signal="talk_finished" from="CanvasLayer/dialouge" to="." method="_on_dialouge_talk_finished"]

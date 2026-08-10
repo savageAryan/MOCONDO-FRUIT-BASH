@@ -19,6 +19,7 @@ extends Node2D
 @onready var tomato_crop: Area2D = $"tomato crop"
 @onready var workshopsprite: AnimatedSprite2D = $workshopbody/Workshopsprite
 @onready var tile_map_layer: TileMapLayer = $TileMapLayer
+@onready var butterflys: Node2D = $butterflys
 @onready var butterflyswarm: Node2D = $butterflyswarm
 var routine = null
 var planted_cell = {}
@@ -76,7 +77,9 @@ func _on_crop_harvested(cell: Vector2i):
 	plantedlayer.erase_cell(cell)
 	land_untilled(cell)
 func _ready() -> void:
+	world_lightupdate()
 	canvas_modulate.time_tick.connect(ui.set_daytime)
+	
 	blob_spawn()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -118,7 +121,6 @@ func _on_workshop_area_body_exited(body: Node2D) -> void:
 		invenrory.visible = true
 @onready var invenrory: Control = $CanvasLayer/invenrory
 @onready var button_3: Button = $workshopbody/Button3
-@onready var butterflys: Node2D = $butterflys
 
 
 var workshop_opened = false
@@ -215,37 +217,44 @@ func _on_blob_blob_out() -> void:
 
 func world_lightupdate():
 	var lo9se_butterfly = butterflys.get_children()
-	var butterfly_light = lo9se_butterfly.get_node("PointLight2D")
 	var light_tween = create_tween()
-	if routine == "morning":
-		butterfly_light == 0.2
-		light_tween.tween_property(directional_light_2d,"color",Color("008cabff"),4)
-	if routine == "afternoon":
-		butterfly_light == 0.07
-		light_tween.tween_property(directional_light_2d,"color",Color("ecf774ff"),4)
-	if routine == "evening":
-		butterfly_light == 0.8
-		light_tween.tween_property(directional_light_2d,"color",Color("ffab7aff"),4)
-	if routine == "night":
-		butterfly_light == 1.2
-		light_tween.tween_property(directional_light_2d,"color",Color("3e00bcff"),4)
-	if routine == "midnight":
-		butterfly_light == 1.4
-		light_tween.tween_property(directional_light_2d,"color",Color(0.331, 0.0, 0.51, 1.0),4)
+	match routine:
+		"morning":
+			light_tween.tween_property(directional_light_2d,"color",Color("008cabff"),4)
+		"afternoon":
+			light_tween.tween_property(directional_light_2d,"color",Color("ecf774ff"),4)
+		"evening":
+			light_tween.tween_property(directional_light_2d,"color",Color("ffab7aff"),4)
+		"night":
+			light_tween.tween_property(directional_light_2d,"color",Color("3e00bcff"),4)
+		"midnight":
+			light_tween.tween_property(directional_light_2d,"color",Color(0.331, 0.0, 0.51, 1.0),4)
+	for butterfly in lo9se_butterfly:
+		var butterfly_light = butterfly.get_node("PointLight2D")
+		match routine:
+			"morning":
+				butterfly_light.energy = 0.2
+			"afternoon":
+				butterfly_light.energy = 0.07
+				
+			"evening":
+				butterfly_light.energy = 0.8
+				
+			"night":
+				butterfly_light.energy = 1.2
+				
+			"midnight":
+				butterfly_light.energy = 1.4
 func _on_canvas_modulate_time_tick(day: int, hour: int, minutes: int) -> void:
+	world_lightupdate()
 	if hour <= 5:
 		routine = "morning"
-		print(routine)
 	elif hour <= 12:
 		routine = "afternoon"
-		print(routine)
 	elif hour <= 17:
 		routine = "evening"
-		print(routine)
 	elif hour <= 18:
 		routine = "night"
-		print(routine)
 	else:
-		routine = "mid-night"
-		print(routine)
+		routine = "midnight"
 	butterflyswarm.light_update()
