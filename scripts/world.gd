@@ -40,7 +40,7 @@ func land_tilled():
 	if cell_data == null:
 		return false
 	if cell_data.get_custom_data("untilled"):
-		tile_map_layer.set_cell(cell,3,Vector2i(0,0),1)
+		tile_map_layer.set_cell(cell,3,Vector2i(0,1),1)
 		tilled.emit()
 		return true
 func land_untilled(cell: Vector2i):
