@@ -1,7 +1,17 @@
 [gd_scene format=3 uid="uid://cymp4k25ftc3d"]
 
 [ext_resource type="Texture2D" uid="uid://cf412bv4gyi5t" path="res://assets/capybara sleep chasing and attack.png" id="1_jy0q2"]
-[ext_resource type="Texture2D" uid="uid://di1qd1h8mybjx" path="res://assets/mocondo butterfly.png" id="2_kodxk"]
+[ext_resource type="FontFile" uid="uid://bbbwahii6uqin" path="res://assets/vladimir.ttf" id="2_kodxk"]
+[ext_resource type="Texture2D" uid="uid://dipiq4jge3wcj" path="res://raidalpoint light texture.tres" id="3_lol54"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kodxk"]
+bg_color = Color(0.0476, 0.058800004, 0.07, 0)
+border_width_left = 62
+border_width_top = 80
+border_width_right = 62
+border_width_bottom = 80
+border_color = Color(0.09371554, 0.070146345, 0.21917126, 1)
+border_blend = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kodxk"]
 atlas = ExtResource("1_jy0q2")
@@ -50,23 +60,46 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
-"speed": 5.0
+"speed": 3.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q3mlf"]
-atlas = ExtResource("2_kodxk")
-region = Rect2(0, 0, 64, 71)
+[sub_resource type="Animation" id="Animation_kodxk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["LOADING."]
+}
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ohge4"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q3mlf")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="Animation" id="Animation_lol54"]
+resource_name = "new_animation"
+length = 3.0300000000000002
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": ["LOADING.", "LOADING..", "LOADING...", "LOADING....", "LOADING....."]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pexxm"]
+_data = {
+&"RESET": SubResource("Animation_kodxk"),
+&"new_animation": SubResource("Animation_lol54")
+}
 
 [node name="Control" type="Control" unique_id=537243502]
 layout_mode = 3
@@ -85,19 +118,46 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.052348524, 0.06246282, 0.075741835, 1)
 
+[node name="ColorRect2" type="Panel" parent="." unique_id=1807140000]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = 1.0
+offset_right = 2.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kodxk")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1662138093]
-position = Vector2(587.00006, 343.00003)
-scale = Vector2(3.867189, 3.867189)
+light_mask = 2
+position = Vector2(1001.65625, 492.43753)
+scale = Vector2(3.027345, 3.027345)
 sprite_frames = SubResource("SpriteFrames_2tg6s")
 autoplay = "default"
+frame_progress = 0.092263654
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=934680284]
-texture_filter = 2
-position = Vector2(590.00006, 247.00005)
-rotation = 1.5707964
-scale = Vector2(0.37592793, 0.37592793)
-sprite_frames = SubResource("SpriteFrames_ohge4")
-frame_progress = 0.9774702
+[node name="Label" type="Label" parent="." unique_id=651029306]
+layout_mode = 0
+offset_left = 953.65625
+offset_top = 547.4375
+offset_right = 1056.6563
+offset_bottom = 581.4375
+theme_override_fonts/font = ExtResource("2_kodxk")
+theme_override_font_sizes/font_size = 30
+text = "LOADING."
 
-[node name="Node2D" type="Node2D" parent="AnimatedSprite2D2" unique_id=119357642]
-position = Vector2(199.84259, 3.3363037)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label" unique_id=775337541]
+libraries/ = SubResource("AnimationLibrary_pexxm")
+autoplay = &"new_animation"
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=770335401]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(998, 503)
+scale = Vector2(6.046875, 5.546875)
+energy = 0.62
+texture = ExtResource("3_lol54")
+texture_scale = 6.85
