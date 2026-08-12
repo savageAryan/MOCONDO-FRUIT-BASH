@@ -246,7 +246,6 @@ func world_lightupdate():
 			"midnight":
 				butterfly_light.energy = 1.4
 func _on_canvas_modulate_time_tick(day: int, hour: int, minutes: int) -> void:
-	
 	if hour >= 5 and hour < 12:
 		routine = "morning"
 		print(routine)
