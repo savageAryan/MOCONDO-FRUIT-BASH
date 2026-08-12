@@ -378,7 +378,6 @@ tile_set = SubResource("TileSet_k0juu")
 [node name="plantedlayer" type="TileMapLayer" parent="." unique_id=594288183]
 
 [node name="blob" parent="." unique_id=752804772 instance=ExtResource("26_ts3gi")]
-visible = false
 position = Vector2(77, -20)
 
 [node name="blob2" parent="." unique_id=900089173 instance=ExtResource("26_ts3gi")]

@@ -58,6 +58,7 @@ animations = [{
 size = Vector2(10, 19)
 
 [node name="rose" type="Area2D" unique_id=1597186282]
+z_index = -2
 script = ExtResource("1_xlvsn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=87112190]
