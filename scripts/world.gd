@@ -20,6 +20,7 @@ extends Node2D
 @onready var workshopsprite: AnimatedSprite2D = $workshopbody/Workshopsprite
 @onready var tile_map_layer: TileMapLayer = $TileMapLayer
 @onready var butterflys: Node2D = $butterflys
+@onready var firelight: PointLight2D = $AnimatedSprite2D/firelight
 @onready var butterflyswarm: Node2D = $butterflyswarm
 var routine = null
 var planted_cell = {}
@@ -220,11 +221,16 @@ func world_lightupdate():
 	var light_tween = create_tween()
 	match routine:
 		"morning":
+			light_tween.tween_property(directional_light_2d,"energy",0.23,4)
 			light_tween.tween_property(directional_light_2d,"color",Color("008cabff"),4)
+			light_tween.tween_property(firelight,"energy",0.23,4)
 		"afternoon":
 			light_tween.tween_property(directional_light_2d,"color",Color("ecf774ff"),4)
+			light_tween.tween_property(directional_light_2d,"energy",0.19,4)
 		"evening":
 			light_tween.tween_property(directional_light_2d,"color",Color("ffab7aff"),4)
+			light_tween.tween_property(firelight,"energy",0.7,4)
+			light_tween.tween_property(directional_light_2d,"energy",0.27,4)
 		"night":
 			light_tween.tween_property(directional_light_2d,"color",Color("3e00bcff"),4)
 		"midnight":
