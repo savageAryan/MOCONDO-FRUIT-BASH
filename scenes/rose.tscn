@@ -9,7 +9,7 @@ region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o3jgc"]
 atlas = ExtResource("1_2iw54")
-region = Rect2(16, 0, 16, 16)
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xlvsn"]
 atlas = ExtResource("1_2iw54")
@@ -65,7 +65,7 @@ script = ExtResource("1_xlvsn")
 z_index = 6
 position = Vector2(0, 4)
 sprite_frames = SubResource("SpriteFrames_2tg6s")
-animation = &"4"
+animation = &"1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1140247711]
 position = Vector2(0, -0.5)

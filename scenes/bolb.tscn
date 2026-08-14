@@ -905,6 +905,7 @@ _data = {
 radius = 56.16171
 
 [node name="blob" type="CharacterBody2D" unique_id=752804772 groups=["enemy"]]
+z_index = 3
 scale = Vector2(0.685, 0.685)
 script = ExtResource("1_xequk")
 

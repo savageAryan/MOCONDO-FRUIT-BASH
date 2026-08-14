@@ -280,6 +280,16 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="Gradient" id="Gradient_sv504"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.30228138, 0.6825095, 1)
+colors = PackedColorArray(0.9455217, 0.9455217, 0.9455217, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nkpmc"]
+gradient = SubResource("Gradient_sv504")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kait0"]
 bg_color = Color(0.12185105, 0.16110913, 0.29009965, 0.7372549)
 border_width_left = 1
@@ -324,6 +334,7 @@ texture = ExtResource("3_h73c4")
 
 [node name="mangorect" type="TextureRect" parent="." unique_id=113927643]
 modulate = Color(0.7863779, 0.711623, 0.6706437, 1)
+z_index = 2
 layout_mode = 0
 offset_left = 166.0
 offset_top = 371.0
@@ -335,6 +346,7 @@ script = ExtResource("2_dfy5j")
 
 [node name="applerect" type="TextureRect" parent="." unique_id=72805687]
 modulate = Color(0.7863779, 0.711623, 0.6706437, 1)
+z_index = 2
 layout_mode = 0
 offset_left = 965.4638
 offset_top = 416.0586
@@ -346,6 +358,7 @@ flip_v = true
 
 [node name="bananarect" type="TextureRect" parent="." unique_id=1255383823]
 modulate = Color(0.7863779, 0.711623, 0.6706437, 1)
+z_index = 2
 layout_mode = 0
 offset_left = 436.99997
 offset_top = 87.99997
@@ -357,6 +370,7 @@ flip_v = true
 
 [node name="bananarect2" type="TextureRect" parent="." unique_id=2105825092]
 modulate = Color(0.7863779, 0.711623, 0.6706437, 1)
+z_index = 2
 layout_mode = 0
 offset_left = -37.000004
 offset_top = 36.0
@@ -368,6 +382,7 @@ flip_v = true
 
 [node name="mangorect2" type="TextureRect" parent="." unique_id=1278167851]
 modulate = Color(0.7863779, 0.711623, 0.6706437, 1)
+z_index = 2
 layout_mode = 0
 offset_left = 790.0
 offset_top = 416.00003
@@ -379,6 +394,7 @@ flip_h = true
 
 [node name="mocondorect" type="Button" parent="." unique_id=1582998865]
 modulate = Color(0.792, 0.83746666, 0.88, 0.81960785)
+z_index = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -494,10 +510,20 @@ script = ExtResource("13_gjjcl")
 position = Vector2(1.1444092e-05, 1.9104302)
 scale = Vector2(1.0000002, 1.0189053)
 color = Color(0.9404537, 0.995747, 0, 1)
-energy = 8.44
+energy = 4.71
 texture = ExtResource("10_kait0")
 offset = Vector2(2.43, 3.54)
 texture_scale = 1.12
+
+[node name="PointLight2D2" type="PointLight2D" parent="MocondoButterfly" unique_id=2005134929]
+position = Vector2(1.1444092e-05, 1.9104302)
+scale = Vector2(1.0000002, 1.0189053)
+color = Color(0.9404537, 0.995747, 0, 1)
+energy = 1.86
+range_z_min = 2
+texture = SubResource("GradientTexture2D_nkpmc")
+offset = Vector2(2.43, 3.54)
+texture_scale = 8.17
 
 [node name="Panel" type="Panel" parent="." unique_id=1872482893]
 visible = false
