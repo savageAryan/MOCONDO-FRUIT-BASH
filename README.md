@@ -15,7 +15,7 @@ If Windows Defender displays a security warning, you may need to select **More i
 * Inventory(Open/Close) - E
 * Hit/attack - LMB
 * Plough use - RMB
-* Eat/Heal - R
+* Eat/Heal - R (Only fruits heal)
 * Pause - ESCAPE
 ### You can do these in any order!
 * Talk to chicken
@@ -23,7 +23,8 @@ If Windows Defender displays a security warning, you may need to select **More i
 * learn to farm from chicken
 * use axe on trees
 * Talk to blob
-* Fight Blob
+* Fight Blob with sword
+* Heal by eating fruits
 * Talk to Capybra
 * watch Capybara sleep and butterfly rest on it
 * watch Capybare gets angry and moves butterfly fly away
@@ -47,14 +48,15 @@ If Windows Defender displays a security warning, you may need to select **More i
 ## TUTORIALS THAT HELPED:
 * [TUTORIAL]( https://youtu.be/qLrj_HWA9CI?si=bd84yfG-y_Twlehi ) By MakerTech on Youtube Helped a lot while setting up the Inventory sysetem
 * [TUTORIAL](https://youtu.be/HjwWe-V3nHs?si=5Hlok_u3vWoKAOuD) By  bitbrain on Youtube Helped in making the time,clock,day-night cycle
+* [TUTORIAL](https://youtu.be/pBoXqW4RykE?si=P0Y86cbn5xTTAJJM) By DevWorm on Youtube helped in rpg character movement
 ## KNOWN ISSUES
 This is a pre-release, so you may encounter bugs
 - The boat ending is not implemented yet
 - The economy is incomplete
 - Some mechanics still need polishing
-- Pausemenu currently hols not settings option
+- Pausemenu currently holds no settings option
 - Sound effects/music are not implemented yet
-- Water visuals are still being worked on
+- Water Shader will be worked on next ship
 - Some NPC behaviors may occasionally behave strangely
 # DEVELOPER NOTES:-
 Mocondo Fruit Bash is currently in active development
