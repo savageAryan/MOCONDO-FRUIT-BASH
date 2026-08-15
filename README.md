@@ -1,10 +1,10 @@
-# MOCONDO FRUIT BASH! (pre-release 0.1)
-Mocondo fruit bash is a Hackclub Mocondo Event Themed game,You are Trapped on an island called "MOCONDO" it's a magical island,with different talking animals some are friendly some not so much,You have to survive and escape to Human world
+# MOCONDO ISLAND BASH! (pre-release 0.1)
+Mocondo ISLAND bash is a Hackclub Mocondo Event Themed game,You are Trapped on an island called "MOCONDO" it's a magical island,with different talking animals some are friendly some not so much,You have to survive and escape to Human world
 <img width="844" height="406" alt="ff76e7ec-e1c8-47ad-8a8c-93b0e3027fe3" src="https://github.com/user-attachments/assets/3c51994a-a5af-4948-bb41-9b0666b94ba2" />
 
 ## ISTRUCTIONS TO PLAY:
 ## -HOW TO PLAY?
-# [ Download <-----click here](https://savagearyan.itch.io/mocondofruitbash)
+# [ Download <-----click here](https://savagearyan.itch.io/mocondoislandbash)
 It will take you to itch.io page,once there click download to download .exe and run,
 If Windows Defender displays a security warning, you may need to select **More info → Run anyway** 
 ### -CONTROLS:
