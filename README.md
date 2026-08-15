@@ -4,11 +4,9 @@ Mocondo fruit bash is a Hackclub Mocondo Event Themed game,You are Trapped on an
 
 ## ISTRUCTIONS TO PLAY:
 ## -HOW TO PLAY?
-* PLAY THE GAME
-[ Download Mocondo Fruit Bash on itch.io](https://savagearyan.itch.io/mocondofruitbash)
-
+# [ Download <-----click here](https://savagearyan.itch.io/mocondofruitbash)
+It will take you to itch.io page,once there click download to download .exe and run
 Currently available for **Windows only**.
-
 If Windows Defender displays a security warning, you may need to select **More info → Run anyway** if you trust the build.
 ### -CONTROLS:
 * Movement - WSAD
