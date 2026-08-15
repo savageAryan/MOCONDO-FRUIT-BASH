@@ -21,21 +21,30 @@ Mocondo fruit bash is a Hackclub Mocondo Event Themed game,You are Trapped on an
 * Talk to blob
 * Fight Blob
 * Talk to Capybra
+* watch Capybara sleep and butterfly rest on it
+* watch Capybare gets angry and moves butterfly fly away
 * Go to capybara when it's sleeping
+* You can go to the boat on the sand beach and use it but you will have to reopen the gam as it's supposed to be the ending but its incomplete and under development currently
 * Collect fruits
 * Use Tractor
 * Sell/Buy at Workshop
 * Watch Butterflies and Butterfly swarm
+* Watch the dynamic lighting
+* Watch the Day-night cycle
+* Catch Chicken sleeping
+* Let Blob kill you so you can see death screen
 # ACKNOWLEDGEMENTS:
 - Godot Engine(Free Opensource Software For game Development)
   https://godotengine.org/
-- LibreSprite(Free Openaource Software For game Development)
+- LibreSprite(Free Opensource Software For game Development)
   https://libresprite.github.io/#!/
   all the art for project was made in LibreSprite
 - https://itch.io/ A Platform to Share Your Games and assets free of cost, and explore games from thousands of developers,this release is also Shared Through Itch
 ## TUTORIALS THAT HELPED:
 * https://youtu.be/qLrj_HWA9CI?si=bd84yfG-y_Twlehi  By MakerTech on Youtube Helped a lot while setting up the Inventory sysetem
 * https://youtu.be/HjwWe-V3nHs?si=5Hlok_u3vWoKAOuD By  bitbrain on Youtube Helped in making the time,clock,day-night cycle
+# DEVELOPER NOTES:-
+The Project is underdevelopment and the Mechanisms require a lot of polishing as well as the art that's done by me only,also requires a lot of polishing, There is no ending defined currently, The project will keep getting updates in different ships and become more and more polished, Hope you like the Art and Ideas used in the game, Please Enjoy!
 
 
 
