@@ -7,6 +7,10 @@
 [ext_resource type="Script" uid="uid://der0u4ayurjwc" path="res://inventory/inventory.gd" id="4_ec8hw"]
 [ext_resource type="Resource" uid="uid://biotghfn678ff" path="res://inventory/item/apple.tres" id="4_fi1x0"]
 [ext_resource type="Resource" uid="uid://0obmx08qamwd" path="res://inventory/item/carrot seed.tres" id="5_65xq6"]
+[ext_resource type="Resource" uid="uid://bjwul2m8grydc" path="res://inventory/item/carrot.tres" id="8_rdqbr"]
+[ext_resource type="Resource" uid="uid://cfbbv28xuf3m1" path="res://inventory/item/mango.tres" id="9_7fytk"]
+[ext_resource type="Resource" uid="uid://das538p2ukvg4" path="res://inventory/item/axe.tres" id="10_1vmji"]
+[ext_resource type="Resource" uid="uid://didelhmjwrpjm" path="res://inventory/item/tomato.tres" id="11_3luym"]
 
 [sub_resource type="Resource" id="Resource_3ggh0"]
 script = ExtResource("2_fhgtu")
@@ -38,10 +42,14 @@ metadata/_custom_type_script = "uid://cpebs7yjytf8d"
 
 [sub_resource type="Resource" id="Resource_cwv8g"]
 script = ExtResource("2_fhgtu")
+item = ExtResource("8_rdqbr")
+amount = 33
 metadata/_custom_type_script = "uid://cpebs7yjytf8d"
 
 [sub_resource type="Resource" id="Resource_pu72b"]
 script = ExtResource("2_fhgtu")
+item = ExtResource("9_7fytk")
+amount = 45
 metadata/_custom_type_script = "uid://cpebs7yjytf8d"
 
 [sub_resource type="Resource" id="Resource_cajua"]
@@ -51,14 +59,20 @@ metadata/_custom_type_script = "uid://cpebs7yjytf8d"
 
 [sub_resource type="Resource" id="Resource_rfny4"]
 script = ExtResource("2_fhgtu")
+item = ExtResource("4_fi1x0")
+amount = 22
 metadata/_custom_type_script = "uid://cpebs7yjytf8d"
 
 [sub_resource type="Resource" id="Resource_rdqbr"]
 script = ExtResource("2_fhgtu")
+item = ExtResource("10_1vmji")
+amount = 1
 metadata/_custom_type_script = "uid://cpebs7yjytf8d"
 
 [sub_resource type="Resource" id="Resource_7fytk"]
 script = ExtResource("2_fhgtu")
+item = ExtResource("11_3luym")
+amount = 16
 metadata/_custom_type_script = "uid://cpebs7yjytf8d"
 
 [sub_resource type="Resource" id="Resource_1vmji"]

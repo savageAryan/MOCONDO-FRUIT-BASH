@@ -56,15 +56,7 @@ func _physics_process(delta: float) -> void:
 	goldcount()
 	ampmlabel.text = suffix
 	if Input.is_action_just_pressed("pause") :
-		paused = not paused
-		
-		pausemenu.pausemenu_show()
-		pausebutton.button_pressed = paused
-		pausemenu.visible = paused
-		time_ui_display.visible = not paused
-		invenrory.visible = not paused
-		heart.visible = !paused
-		get_tree().paused = paused
+		pause()
 	
 	
 		
@@ -111,6 +103,8 @@ var paused = false
 
 
 func _on_pausebutton_pressed() -> void:
+	pause()
+func pause():
 	paused = not paused
 	pausemenu.visible = paused
 	pausemenu.pausemenu_show()
