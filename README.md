@@ -4,8 +4,12 @@ Mocondo fruit bash is a Hackclub Mocondo Event Themed game,You are Trapped on an
 
 ## ISTRUCTIONS TO PLAY:
 ## -HOW TO PLAY?
-* Visit https://savagearyan.itch.io/mocondofruitbash ,click on Download to download the executable and run it (currently only for WINDOWS)
-* If you Get windows security error Click run anyways
+* PLAY THE GAME
+[ Download Mocondo Fruit Bash on itch.io](https://savagearyan.itch.io/mocondofruitbash)
+
+Currently available for **Windows only**.
+
+If Windows Defender displays a security warning, you may need to select **More info → Run anyway** if you trust the build.
 ### -CONTROLS:
 * Movement - WSAD
 * Inventory(Open/Close) - E
@@ -27,7 +31,8 @@ Mocondo fruit bash is a Hackclub Mocondo Event Themed game,You are Trapped on an
 * You can go to the boat on the sand beach and use it but you will have to reopen the gam as it's supposed to be the ending but its incomplete and under development currently
 * Collect fruits
 * Use Tractor
-* Sell/Buy at Workshop
+* Sell/Buy at Workshop (currently you can only buy some items and sell some items, eg: you can sell fruit but can't buy them or you can buy tools can't sell them)
+* Explore idea of gold econmoy(Incomplete)
 * Watch Butterflies and Butterfly swarm
 * Watch the dynamic lighting
 * Watch the Day-night cycle
@@ -41,10 +46,24 @@ Mocondo fruit bash is a Hackclub Mocondo Event Themed game,You are Trapped on an
   all the art for project was made in LibreSprite
 - https://itch.io/ A Platform to Share Your Games and assets free of cost, and explore games from thousands of developers,this release is also Shared Through Itch
 ## TUTORIALS THAT HELPED:
-* https://youtu.be/qLrj_HWA9CI?si=bd84yfG-y_Twlehi  By MakerTech on Youtube Helped a lot while setting up the Inventory sysetem
-* https://youtu.be/HjwWe-V3nHs?si=5Hlok_u3vWoKAOuD By  bitbrain on Youtube Helped in making the time,clock,day-night cycle
+* [TUTORIAL]( https://youtu.be/qLrj_HWA9CI?si=bd84yfG-y_Twlehi ) By MakerTech on Youtube Helped a lot while setting up the Inventory sysetem
+* [TUTORIAL](https://youtu.be/HjwWe-V3nHs?si=5Hlok_u3vWoKAOuD) By  bitbrain on Youtube Helped in making the time,clock,day-night cycle
+## KNOWN ISSUES
+This is a pre-release, so you may encounter bugs
+- The boat ending is not implemented yet
+- The economy is incomplete
+- Some mechanics still need polishing
+- Sound effects/music are not implemented yet
+- Water visuals are still being worked on
+- Some NPC behaviors may occasionally behave strangely
 # DEVELOPER NOTES:-
-The Project is underdevelopment and the Mechanisms require a lot of polishing as well as the art that's done by me only,also requires a lot of polishing, There is no ending defined currently, The project will keep getting updates in different ships and become more and more polished, Hope you like the Art and Ideas used in the game, Please Enjoy!
+Mocondo Fruit Bash is currently in active development
+
+This release is **pre-release 0.1**, so many systems are still being expanded and polished. The game currently does not have its final ending, and several planned mechanics are still being developed
+
+The project will continue receiving updates through future releases
+All artwork for the game was created by me using LibreSprite, and the game was developed in Godot
+This release focuses on getting the core world, characters, farming, exploration, NPC behaviors, and gameplay systems into a playable state
 
 
 
