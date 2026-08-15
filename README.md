@@ -52,6 +52,7 @@ This is a pre-release, so you may encounter bugs
 - The boat ending is not implemented yet
 - The economy is incomplete
 - Some mechanics still need polishing
+- Pausemenu currently hols not settings option
 - Sound effects/music are not implemented yet
 - Water visuals are still being worked on
 - Some NPC behaviors may occasionally behave strangely
