@@ -54,6 +54,7 @@ This is a pre-release, so you may encounter bugs
 - The boat ending is not implemented yet
 - The economy is incomplete
 - Some mechanics still need polishing
+- ordering and levels of some assets might be wrong
 - weird movement of butterfly swarm ocassionally
 - Pausemenu currently holds no settings option
 - Sound effects/music are not implemented yet
