@@ -39,12 +39,11 @@ If Windows Defender displays a security warning, you may need to select **More i
 * Catch Chicken sleeping
 * Let Blob kill you so you can see death screen
 # ACKNOWLEDGEMENTS:
-- Godot Engine(Free Opensource Software For game Development)
-  https://godotengine.org/
-- LibreSprite(Free Opensource Software For game Development)
-  https://libresprite.github.io/#!/
+- [Godot Engine](https://godotengine.org/)(Free Opensource Software For game Development)
+  
+- [LibreSprite](https://libresprite.github.io/#!/) (Free Opensource Software For game Development)
   all the art for project was made in LibreSprite
-- https://itch.io/ A Platform to Share Your Games and assets free of cost, and explore games from thousands of developers,this release is also Shared Through Itch
+- [ITCH](https://itch.io/) A Platform to Share Your Games and assets free of cost, and explore games from thousands of developers,this release is also Shared Through Itch
 ## TUTORIALS THAT HELPED:
 * [TUTORIAL]( https://youtu.be/qLrj_HWA9CI?si=bd84yfG-y_Twlehi ) By MakerTech on Youtube Helped a lot while setting up the Inventory sysetem
 * [TUTORIAL](https://youtu.be/HjwWe-V3nHs?si=5Hlok_u3vWoKAOuD) By  bitbrain on Youtube Helped in making the time,clock,day-night cycle
