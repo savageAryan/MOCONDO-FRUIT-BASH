@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cymp4k25ftc3d"]
 
 [ext_resource type="Texture2D" uid="uid://cf412bv4gyi5t" path="res://assets/capybara sleep chasing and attack.png" id="1_jy0q2"]
+[ext_resource type="Script" uid="uid://6ew1jiswuiww" path="res://scripts/loadingscreen.gd" id="1_pexxm"]
 [ext_resource type="FontFile" uid="uid://bbbwahii6uqin" path="res://assets/vladimir.ttf" id="2_kodxk"]
 [ext_resource type="Texture2D" uid="uid://dipiq4jge3wcj" path="res://raidalpoint light texture.tres" id="3_lol54"]
 
@@ -80,7 +81,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_lol54"]
 resource_name = "new_animation"
-length = 3.0300000000000002
+length = 3.03
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -108,6 +109,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_pexxm")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1931838479]
 layout_mode = 1

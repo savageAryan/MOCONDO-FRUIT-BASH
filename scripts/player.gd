@@ -210,7 +210,8 @@ func decrease_health(amount: int):
 signal player_dead
 @onready var dialouge: Control = $"../CanvasLayer/dialouge"
 @onready var workshop: Control = $"../CanvasLayer/workshop"
-
+func swiming():
+	animated_sprite_2d.play("swiming front")
 func player_dying():
 	var tween = create_tween()
 	tween.set_parallel()

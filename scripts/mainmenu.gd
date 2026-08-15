@@ -33,8 +33,7 @@ func _on_button_mouse_entered() -> void:
 	button.position.x -= 5
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/world.tscn")
-	
+	GameManager.load_scene("res://scenes/world.tscn")
 	
 
 

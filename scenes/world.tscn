@@ -81,6 +81,7 @@ texture = ExtResource("4_4mrxx")
 6:0/0 = 0
 7:0/0 = 0
 8:0/0 = 0
+8:0/0/custom_data_2 = true
 9:0/0 = 0
 0:1/next_alternative_id = 2
 0:1/0 = 0
@@ -146,6 +147,8 @@ custom_data_layer_0/name = "farmable"
 custom_data_layer_0/type = 1
 custom_data_layer_1/name = "untilled"
 custom_data_layer_1/type = 1
+custom_data_layer_2/name = "swim"
+custom_data_layer_2/type = 1
 sources/0 = SubResource("TileSetAtlasSource_4wyf3")
 sources/2 = SubResource("TileSetAtlasSource_qfnet")
 sources/3 = SubResource("TileSetAtlasSource_7r4gi")
@@ -637,7 +640,6 @@ script = ExtResource("1_e3hyu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=93717343]
 process_mode = 3
-visible = false
 
 [node name="workshop" parent="CanvasLayer" unique_id=1920764852 instance=ExtResource("2_7t5mc")]
 visible = false
